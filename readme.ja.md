@@ -1,378 +1,379 @@
-# DeviceConnect WebAPI ‚É‚Â‚¢‚Ä
+# DeviceConnect WebAPI ã«ã¤ã„ã¦
 
-Device Connect WebAPI‚ÍƒXƒ}[ƒgƒtƒHƒ“ã‚Å‰¼‘zƒT[ƒo‚Æ‚µ‚Ä“®ì‚·‚éWebAPI‚ÅA—lX‚ÈƒEƒFƒAƒ‰ƒuƒ‹ƒfƒoƒCƒX‚âIoTƒfƒoƒCƒX‚ðWebƒuƒ‰ƒEƒU‚âƒAƒvƒŠ‚©‚ç“ˆê“I‚È‹Lq‚ÅŠÈ’P‚É—˜—p‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+Device Connect WebAPIã¯ã‚¹ãƒžãƒ¼ãƒˆãƒ•ã‚©ãƒ³ä¸Šã§ä»®æƒ³ã‚µãƒ¼ãƒã¨ã—ã¦å‹•ä½œã™ã‚‹WebAPIã§ã€æ§˜ã€…ãªã‚¦ã‚§ã‚¢ãƒ©ãƒ–ãƒ«ãƒ‡ãƒã‚¤ã‚¹ã‚„IoTãƒ‡ãƒã‚¤ã‚¹ã‚’Webãƒ–ãƒ©ã‚¦ã‚¶ã‚„ã‚¢ãƒ—ãƒªã‹ã‚‰çµ±ä¸€çš„ãªè¨˜è¿°ã§ç°¡å˜ã«åˆ©ç”¨ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 
-* “®ìŠÂ‹«‚Æ‚µ‚ÄAAndroidAiOS‚É‘Î‰ž‚µ‚Ä‚¢‚Ü‚·BWebƒuƒ‰ƒEƒU‚Æ‚µ‚Ä‚ÍChromeASafariAFirefox‚Å“®ì‚ðŠm”F‚µ‚Ä‚¢‚Ü‚·B
-  _¦‚»‚ê‚¼‚ê‚Ì“®ìŠÂ‹«‚Å—˜—p‚Å‚«‚é‘Î‰žƒfƒoƒCƒX‚ÍˆÙ‚È‚è‚Ü‚·B_
-* ‰¼‘zƒT[ƒo‚É‚æ‚éREST/WebSocket‚ÌWebAPI‚É‚æ‚èA”CˆÓ‚ÌŠJ”­ŠÂ‹«‚ª‚²—˜—p‚¢‚½‚¾‚¯‚Ü‚·B
-* ƒRƒ“ƒeƒ“ƒcŠJ”­‚ð—eˆÕ‚É‚·‚é‚½‚ß‚ÉAJavascript—pSDKAAndroid—pSDKAiOS—pSDK‚ð—pˆÓ‚µ‚Ä‚¢‚Ü‚·B
-* ‹@”\Šg’£‚Ì‚½‚ß‚Ìƒvƒ‰ƒOƒCƒ“ŠJ”­—pSDK‚ð—pˆÓ‚µ‚Ä‚¨‚è‚Ü‚·B”CˆÓ‚ÌWebAPI‹@”\‚Ì’Ç‰Á‚ª‰Â”\‚Å‚·B
-* “¯‚¶ƒ[ƒJƒ‹ƒlƒbƒgƒ[ƒNã‚É‚ ‚éDeviceConnect WebAPI‚ªƒZƒbƒgƒAƒbƒv‚³‚ê‚½Android’[––‚àÝ’è•ÏX‚Å—˜—p‚Å‚«‚Ü‚·iƒZƒLƒ…ƒŠƒeƒBã‚ÌƒŠƒXƒN‚É‚Â‚¢‚Ä‚²—¯ˆÓ‚¢‚½‚¾‚­•K—v‚ª‚ ‚è‚Ü‚·jB
+* å‹•ä½œç’°å¢ƒã¨ã—ã¦ã€Androidã€iOSã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚Webãƒ–ãƒ©ã‚¦ã‚¶ã¨ã—ã¦ã¯Chromeã€Safariã€Firefoxã§å‹•ä½œã‚’ç¢ºèªã—ã¦ã„ã¾ã™ã€‚
+  _â€»ãã‚Œãžã‚Œã®å‹•ä½œç’°å¢ƒã§åˆ©ç”¨ã§ãã‚‹å¯¾å¿œãƒ‡ãƒã‚¤ã‚¹ã¯ç•°ãªã‚Šã¾ã™ã€‚_
+* ä»®æƒ³ã‚µãƒ¼ãƒã«ã‚ˆã‚‹REST/WebSocketã®WebAPIã«ã‚ˆã‚Šã€ä»»æ„ã®é–‹ç™ºç’°å¢ƒãŒã”åˆ©ç”¨ã„ãŸã ã‘ã¾ã™ã€‚
+* ã‚³ãƒ³ãƒ†ãƒ³ãƒ„é–‹ç™ºã‚’å®¹æ˜“ã«ã™ã‚‹ãŸã‚ã«ã€Javascriptç”¨SDKã€Androidç”¨SDKã€iOSç”¨SDKã‚’ç”¨æ„ã—ã¦ã„ã¾ã™ã€‚
+* æ©Ÿèƒ½æ‹¡å¼µã®ãŸã‚ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³é–‹ç™ºç”¨SDKã‚’ç”¨æ„ã—ã¦ãŠã‚Šã¾ã™ã€‚ä»»æ„ã®WebAPIæ©Ÿèƒ½ã®è¿½åŠ ãŒå¯èƒ½ã§ã™ã€‚
+* åŒã˜ãƒ­ãƒ¼ã‚«ãƒ«ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ä¸Šã«ã‚ã‚‹DeviceConnect WebAPIãŒã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã•ã‚ŒãŸAndroidç«¯æœ«ã‚‚è¨­å®šå¤‰æ›´ã§åˆ©ç”¨ã§ãã¾ã™ï¼ˆã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ä¸Šã®ãƒªã‚¹ã‚¯ã«ã¤ã„ã¦ã”ç•™æ„ã„ãŸã ãå¿…è¦ãŒã‚ã‚Šã¾ã™ï¼‰ã€‚
 
 
 
-# ƒTƒ“ƒvƒ‹‚Å‚Ì“®ìŠm”FiAndroid—pj
+# ã‚µãƒ³ãƒ—ãƒ«ã§ã®å‹•ä½œç¢ºèªï¼ˆAndroidç”¨ï¼‰
 * /DeviceConnect/Bin/demoWebSite.zip
-## Android’[––‚Å‚ÌChromeƒuƒ‰ƒEƒU‚©‚ç‚Ì“®ìŠm”F
 
-‚PDAndroid‚Ì“à•”ƒXƒgƒŒ[ƒW‚Éƒfƒ‚ƒRƒ“ƒeƒ“ƒc‚ðƒtƒHƒ‹ƒ_‚ðì¬‚µi[—á]"dConnect"jA
-@@‚»‚±‚ÉƒTƒ“ƒvƒ‹‚ÌdemoWebSiteƒtƒHƒ‹ƒ_ˆÈ‰º‚Ì‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹‚ðƒRƒs[‚µ‚Ä‚­‚¾‚³‚¢B
+## Androidç«¯æœ«ã§ã®Chromeãƒ–ãƒ©ã‚¦ã‚¶ã‹ã‚‰ã®å‹•ä½œç¢ºèª
+
+ï¼‘ï¼ŽAndroidã®å†…éƒ¨ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ãƒ‡ãƒ¢ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‚’ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆã—ï¼ˆ[ä¾‹]"dConnect"ï¼‰ã€
+ã€€ã€€ãã“ã«ã‚µãƒ³ãƒ—ãƒ«ã®demoWebSiteãƒ•ã‚©ãƒ«ãƒ€ä»¥ä¸‹ã®ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦ãã ã•ã„ã€‚
 ```
 Android root
-   „¤„Ÿ„Ÿ mnt
-       „¤„Ÿ„Ÿ sdcard
-           „¤„Ÿ„Ÿ dConnect #‚±‚±‚ÉƒtƒHƒ‹ƒ_‚ðì¬
-                „¤„Ÿ„Ÿ demoWebSite #‚±‚±‚ÉjavaScript‚ÌƒTƒ“ƒvƒ‹‚ðƒRƒs[
+   â””â”€â”€ mnt
+       â””â”€â”€ sdcard
+           â””â”€â”€ dConnect #ã“ã“ã«ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆ
+                â””â”€â”€ demoWebSite #ã“ã“ã«javaScriptã®ã‚µãƒ³ãƒ—ãƒ«ã‚’ã‚³ãƒ”ãƒ¼
 ```
 
-‚QDChromeƒuƒ‰ƒEƒU‚ÌƒAƒhƒŒƒX—“‚É“à•”ƒXƒgƒŒ[ƒW‚ÌURI‚ð‹L“ü‚µA
-@@“à•”ƒXƒgƒŒ[ƒW‚É‚ ‚éWebƒRƒ“ƒeƒ“ƒc‚ÉƒAƒNƒZƒX‚µ‚Ä‚­‚¾‚³‚¢B
+ï¼’ï¼ŽChromeãƒ–ãƒ©ã‚¦ã‚¶ã®ã‚¢ãƒ‰ãƒ¬ã‚¹æ¬„ã«å†…éƒ¨ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã®URIã‚’è¨˜å…¥ã—ã€
+ã€€ã€€å†…éƒ¨ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ã‚ã‚‹Webã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚
 ```
-@@@[—á]@file:///storage/emulated/0/dConnect/demoWebSite/index.html
+ã€€ã€€ã€€[ä¾‹]ã€€file:///storage/emulated/0/dConnect/demoWebSite/index.html
 ```
 
-‚RD"Download APK"‚ÌƒŠƒ“ƒN‚©‚çADevice Connect–{‘Ì‚Ì"DeviceConnectManager"A
-@@ƒfƒoƒCƒXƒvƒ‰ƒOƒCƒ“‚Ì"Android Host"‚ðƒ_ƒEƒ“ƒ[ƒh‚µAƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢B
-@@_¦Ý’è‚ÌƒZƒLƒ…ƒŠƒeƒB‚©‚çA’ñ‹ŸŒ³•s–¾‚ÌƒAƒvƒŠ‚ÌƒCƒ“ƒXƒg[ƒ‹‚Ì‹–‰Â‚ª•K—v‚Å‚·B_
+ï¼“ï¼Ž"Download APK"ã®ãƒªãƒ³ã‚¯ã‹ã‚‰ã€Device Connectæœ¬ä½“ã®"DeviceConnectManager"ã€
+ã€€ã€€ãƒ‡ãƒã‚¤ã‚¹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®"Android Host"ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ãã ã•ã„ã€‚
+ã€€ã€€_â€»è¨­å®šã®ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ã‹ã‚‰ã€æä¾›å…ƒä¸æ˜Žã®ã‚¢ãƒ—ãƒªã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã®è¨±å¯ãŒå¿…è¦ã§ã™ã€‚_
 
-‚SDƒgƒbƒvƒy[ƒW‚É–ß‚Á‚Ä‚­‚¾‚³‚¢B
+ï¼”ï¼Žãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸ã«æˆ»ã£ã¦ãã ã•ã„ã€‚
 
-‚TD"Launch UI-App"‚ÌƒŠƒ“ƒN‚©‚çDeviceConnectWebAPI‚Ì“®ì‚ð‚²Šm”F‚­‚¾‚³‚¢B
-  ECheckƒ{ƒ^ƒ“‚ÅDeviceConnectWebAPI‚Ì“®ìó‹µ‚ÌŠm”F‚ªs‚¦‚Ü‚·B
-  E–¢‹N“®‚Ìê‡A"Device Connect was not foud."‚Æ•\Ž¦‚³‚ê‚Ü‚·B
-  EDeviceConnectManager‚ªƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚ê‚ÎAÝ’è‰æ–Ê‚ª•\Ž¦‚³‚ê‚Ü‚·B
-  EDeviceConnectManager‚ðON‚É‚µ‚ÄWeb‰æ–Ê‚É–ß‚èA‚à‚¤ˆê“xCheckƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚Æ
-  EDevice Connect API version:1.0‚Æ•\Ž¦‚³‚ê‚Ü‚·B
-  EaccessTokenƒ{ƒ^ƒ“‚ÅƒRƒ“ƒeƒ“ƒc‚©‚ç‚ÌƒfƒoƒCƒX‹@”\ƒAƒNƒZƒX‚ð‹–‰Â‚µ‚Ü‚·B
-  ESearch Deviceƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚ÆƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚éƒvƒ‰ƒOƒCƒ“‚ÌƒŠƒXƒg‚ª•\Ž¦‚³‚ê‚Ü‚·B
-  EHOST‚ð‘I‚Ô‚Æ—˜—p‚Å‚«‚é‹@”\‚Ìˆê——iProfile Listj‚ª•\Ž¦‚³‚ê‚Ü‚·B
-  E‚»‚±‚©‚çAvibration‚ð‘I‚ÑAVibrate‚ð‘I‚Ô‚Æ’[––‚ªU“®‚µ‚Ü‚·iÅ‰‚Ì—˜—pŽž‚Éƒvƒ‰ƒOƒCƒ“—˜—p‚Ì‹–‰Â‚ª•K—v‚Å‚·jB
+ï¼•ï¼Ž"Launch UI-App"ã®ãƒªãƒ³ã‚¯ã‹ã‚‰DeviceConnectWebAPIã®å‹•ä½œã‚’ã”ç¢ºèªãã ã•ã„ã€‚
+  ãƒ»Checkãƒœã‚¿ãƒ³ã§DeviceConnectWebAPIã®å‹•ä½œçŠ¶æ³ã®ç¢ºèªãŒè¡Œãˆã¾ã™ã€‚
+  ãƒ»æœªèµ·å‹•ã®å ´åˆã€"Device Connect was not foud."ã¨è¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
+  ãƒ»DeviceConnectManagerãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚Œã°ã€è¨­å®šç”»é¢ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
+  ãƒ»DeviceConnectManagerã‚’ONã«ã—ã¦Webç”»é¢ã«æˆ»ã‚Šã€ã‚‚ã†ä¸€åº¦Checkãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨
+  ãƒ»Device Connect API version:1.0ã¨è¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
+  ãƒ»accessTokenãƒœã‚¿ãƒ³ã§ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‹ã‚‰ã®ãƒ‡ãƒã‚¤ã‚¹æ©Ÿèƒ½ã‚¢ã‚¯ã‚»ã‚¹ã‚’è¨±å¯ã—ã¾ã™ã€‚
+  ãƒ»Search Deviceãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒªã‚¹ãƒˆãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
+  ãƒ»HOSTã‚’é¸ã¶ã¨åˆ©ç”¨ã§ãã‚‹æ©Ÿèƒ½ã®ä¸€è¦§ï¼ˆProfile Listï¼‰ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
+  ãƒ»ãã“ã‹ã‚‰ã€vibrationã‚’é¸ã³ã€Vibrateã‚’é¸ã¶ã¨ç«¯æœ«ãŒæŒ¯å‹•ã—ã¾ã™ï¼ˆæœ€åˆã®åˆ©ç”¨æ™‚ã«ãƒ—ãƒ©ã‚°ã‚¤ãƒ³åˆ©ç”¨ã®è¨±å¯ãŒå¿…è¦ã§ã™ï¼‰ã€‚
 
 
 
-##ŠO•”‚©‚ç‚ÌƒAƒNƒZƒX‚É‚Â‚¢‚Ä
+##å¤–éƒ¨ã‹ã‚‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã«ã¤ã„ã¦
 
-* demoWebSite‚ÌHTML‚ÉIPƒAƒhƒŒƒX‚Ìƒpƒ‰ƒ[ƒ^‚ð•t‰Á‚·‚é‚±‚Æ‚ÅAƒ[ƒJƒ‹ƒlƒbƒgƒ[ƒNã‚Ì‘¼‚Ì’[––‚Å“®ì‚·‚éDeviceConnect WebAPI‚Ì‘€ì‚à‰Â”\‚É‚È‚è‚Ü‚·B‚½‚¾‚µA‘€ì‚³‚ê‚é‘¤‚Ì’[––‚ÉˆÈ‰º‚ÌÝ’è‚ª•K—v‚Å‚·B
- _¦‰“Šu‚ÅˆÓ}‚µ‚È‚¢’[––‚Ì‘€ì‚¨‚æ‚Ñƒf[ƒ^ŽQÆ‚ð‚³‚ê‚éƒŠƒXƒN‚ª”º‚¢‚Ü‚·BM—Š‚ªo—ˆ‚È‚¢ƒ[ƒJƒ‹ƒlƒbƒgƒ[ƒNŠÂ‹«‚Å‚Í—˜—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B_
+* demoWebSiteã®HTMLã«IPã‚¢ãƒ‰ãƒ¬ã‚¹ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä»˜åŠ ã™ã‚‹ã“ã¨ã§ã€ãƒ­ãƒ¼ã‚«ãƒ«ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ä¸Šã®ä»–ã®ç«¯æœ«ã§å‹•ä½œã™ã‚‹DeviceConnect WebAPIã®æ“ä½œã‚‚å¯èƒ½ã«ãªã‚Šã¾ã™ã€‚ãŸã ã—ã€æ“ä½œã•ã‚Œã‚‹å´ã®ç«¯æœ«ã«ä»¥ä¸‹ã®è¨­å®šãŒå¿…è¦ã§ã™ã€‚
+ _â€»é éš”ã§æ„å›³ã—ãªã„ç«¯æœ«ã®æ“ä½œãŠã‚ˆã³ãƒ‡ãƒ¼ã‚¿å‚ç…§ã‚’ã•ã‚Œã‚‹ãƒªã‚¹ã‚¯ãŒä¼´ã„ã¾ã™ã€‚ä¿¡é ¼ãŒå‡ºæ¥ãªã„ãƒ­ãƒ¼ã‚«ãƒ«ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ç’°å¢ƒã§ã¯åˆ©ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚_
 
-‚PDã‹L‚Ì“®ìŠm”F‚Æ“¯—l‚ÌŽè‡‚ÅA‘€ì‘ÎÛ‚Ì’[––‚ÉDeviceConnect WebAPI‚ðƒZƒbƒgƒAƒbƒv‚µ‚Ä‚­‚¾‚³‚¢B
+ï¼‘ï¼Žä¸Šè¨˜ã®å‹•ä½œç¢ºèªã¨åŒæ§˜ã®æ‰‹é †ã§ã€æ“ä½œå¯¾è±¡ã®ç«¯æœ«ã«DeviceConnect WebAPIã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã—ã¦ãã ã•ã„ã€‚
 
-‚QDDeviceConnectManager‚ðAndroid‚Ìƒ‰ƒ“ƒ`ƒƒ[‚©‚ç‹N“®‚µADeviceConnectManager‚ðˆê’UOFF‚É‚µ‚Ä‚­‚¾‚³‚¢B
+ï¼’ï¼ŽDeviceConnectManagerã‚’Androidã®ãƒ©ãƒ³ãƒãƒ£ãƒ¼ã‹ã‚‰èµ·å‹•ã—ã€DeviceConnectManagerã‚’ä¸€æ—¦OFFã«ã—ã¦ãã ã•ã„ã€‚
 
-‚RDAllow External IP‚Ìƒ`ƒFƒbƒN‚ð—LŒø‰»‚µADeviceConnectManager‚ðON‚É‚µ‚Ä‚­‚¾‚³‚¢B
+ï¼“ï¼ŽAllow External IPã®ãƒã‚§ãƒƒã‚¯ã‚’æœ‰åŠ¹åŒ–ã—ã€DeviceConnectManagerã‚’ONã«ã—ã¦ãã ã•ã„ã€‚
 
-‚SD‘€ì‚·‚é‘¤iPC“™j‚ÌdemoWebSite‚©‚çHTML‚ðŠJ‚«A‘€ì‘ÎÛ‚ÌIPƒAƒhƒŒƒX‚Ìƒpƒ‰ƒ[ƒ^‚ð•t‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+ï¼”ï¼Žæ“ä½œã™ã‚‹å´ï¼ˆPCç­‰ï¼‰ã®demoWebSiteã‹ã‚‰HTMLã‚’é–‹ãã€æ“ä½œå¯¾è±¡ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä»˜åŠ ã—ã¦ãã ã•ã„ã€‚
 ```
-@@@[—á]@file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3
+ã€€ã€€ã€€[ä¾‹]ã€€file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3
 ```
-   _¦‰“Šu‚ÅˆÓ}‚µ‚È‚¢’[––‚Ì‘€ì‚¨‚æ‚Ñƒf[ƒ^ŽQÆ‚ð‚³‚ê‚éƒŠƒXƒN‚ª”º‚¢‚Ü‚·BM—Š‚ªo—ˆ‚È‚¢ƒ[ƒJƒ‹ƒlƒbƒgƒ[ƒNŠÂ‹«‚ÉÚ‘±‚³‚ê‚é‰Â”\«‚ª‚ ‚éê‡‚ÍDeviceConnectManager‚ÌAllow External IP‚Ìƒ`ƒFƒbƒN‚ð–³Œø‰»‚µ‚Ä‚­‚¾‚³‚¢_
+   _â€»é éš”ã§æ„å›³ã—ãªã„ç«¯æœ«ã®æ“ä½œãŠã‚ˆã³ãƒ‡ãƒ¼ã‚¿å‚ç…§ã‚’ã•ã‚Œã‚‹ãƒªã‚¹ã‚¯ãŒä¼´ã„ã¾ã™ã€‚ä¿¡é ¼ãŒå‡ºæ¥ãªã„ãƒ­ãƒ¼ã‚«ãƒ«ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ç’°å¢ƒã«æŽ¥ç¶šã•ã‚Œã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹å ´åˆã¯DeviceConnectManagerã®Allow External IPã®ãƒã‚§ãƒƒã‚¯ã‚’ç„¡åŠ¹åŒ–ã—ã¦ãã ã•ã„_
 
 
 
-# ‘Î‰žƒfƒoƒCƒX
+# å¯¾å¿œãƒ‡ãƒã‚¤ã‚¹
 <table>
   <tr>
-    <td>ƒ[ƒJ[</td>
-    <td>»•i–¼</td>
-    <td>‹@ŠíŽí•Ê</td>
-    <td>‘Î‰žƒvƒ‰ƒOƒCƒ“</td>
-    <td>”õl</td>
+    <td>ãƒ¡ãƒ¼ã‚«ãƒ¼</td>
+    <td>è£½å“å</td>
+    <td>æ©Ÿå™¨ç¨®åˆ¥</td>
+    <td>å¯¾å¿œãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
+    <td>å‚™è€ƒ</td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>SmartWatchMN2</td>
-    <td>˜rŽžŒvŒ^ƒfƒoƒCƒX</td>
-    <td>‚l‚m‚Q^‚r‚v‚Q ƒvƒ‰ƒOƒCƒ“</td>
+    <td>è…•æ™‚è¨ˆåž‹ãƒ‡ãƒã‚¤ã‚¹</td>
+    <td>ï¼­ï¼®ï¼’ï¼ï¼³ï¼·ï¼’ ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>SmartWatchSW2</td>
-    <td>˜rŽžŒvŒ^ƒfƒoƒCƒX</td>
-    <td>‚l‚m‚Q^‚r‚v‚Q ƒvƒ‰ƒOƒCƒ“</td>
+    <td>è…•æ™‚è¨ˆåž‹ãƒ‡ãƒã‚¤ã‚¹</td>
+    <td>ï¼­ï¼®ï¼’ï¼ï¼³ï¼·ï¼’ ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Orbotix</td>
     <td>Sphero 2.0</td>
-    <td>ƒ{[ƒ‹Œ^ƒXƒ}[ƒgƒgƒC</td>
-    <td>‚r‚‚ˆ‚…‚’‚ ƒvƒ‰ƒOƒCƒ“</td>
+    <td>ãƒœãƒ¼ãƒ«åž‹ã‚¹ãƒžãƒ¼ãƒˆãƒˆã‚¤</td>
+    <td>ï¼³ï½ï½ˆï½…ï½’ï½ ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Game Technologies</td>
     <td>DICE+</td>
-    <td>ƒTƒCƒRƒŒ^ƒXƒ}[ƒgƒgƒC</td>
-    <td>‚c‚h‚b‚d{ ƒvƒ‰ƒOƒCƒ“</td>
-    <td>ŠJ”­ŽÒŒü‚¯ƒtƒ@[ƒ€ƒEƒFƒA‚Ö‚ÌƒAƒbƒvƒf[ƒg‚ª•K—v‚Å‚·B</td>
+    <td>ã‚µã‚¤ã‚³ãƒ­åž‹ã‚¹ãƒžãƒ¼ãƒˆãƒˆã‚¤</td>
+    <td>ï¼¤ï¼©ï¼£ï¼¥ï¼‹ ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
+    <td>é–‹ç™ºè€…å‘ã‘ãƒ•ã‚¡ãƒ¼ãƒ ã‚¦ã‚§ã‚¢ã¸ã®ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆãŒå¿…è¦ã§ã™ã€‚</td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>hue</td>
-    <td>ƒXƒ}[ƒgƒ‰ƒCƒg</td>
-    <td>‚ˆ‚•‚… ƒvƒ‰ƒOƒCƒ“</td>
+    <td>ã‚¹ãƒžãƒ¼ãƒˆãƒ©ã‚¤ãƒˆ</td>
+    <td>ï½ˆï½•ï½… ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>Bloom Lamp</td>
-    <td>ƒXƒ}[ƒgƒ‰ƒCƒg</td>
-    <td>‚ˆ‚•‚… ƒvƒ‰ƒOƒCƒ“</td>
+    <td>ã‚¹ãƒžãƒ¼ãƒˆãƒ©ã‚¤ãƒˆ</td>
+    <td>ï½ˆï½•ï½… ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>LightStrips</td>
-    <td>ƒXƒ}[ƒgƒ‰ƒCƒg</td>
-    <td>‚ˆ‚•‚… ƒvƒ‰ƒOƒCƒ“</td>
+    <td>ã‚¹ãƒžãƒ¼ãƒˆãƒ©ã‚¤ãƒˆ</td>
+    <td>ï½ˆï½•ï½… ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>IRKit</td>
     <td>IRKit</td>
-    <td>ÔŠOüƒŠƒ‚ƒRƒ“</td>
-    <td>‚h‚’‚‹‚‰‚” ƒvƒ‰ƒOƒCƒ“</td>
+    <td>èµ¤å¤–ç·šãƒªãƒ¢ã‚³ãƒ³</td>
+    <td>ï¼©ï½’ï½‹ï½‰ï½” ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Epson</td>
     <td>Moverio BT-200</td>
-    <td>ƒƒKƒlŒ^ƒfƒoƒCƒX</td>
-    <td>‚`‚Ž‚„‚’‚‚‰‚„‚g‚‚“‚” ƒvƒ‰ƒOƒCƒ“</td>
-    <td>ŒÂ•Ê‚ÌŠg’£‹@”\‚É‚à‘Î‰ž—\’è</td>
+    <td>ãƒ¡ã‚¬ãƒåž‹ãƒ‡ãƒã‚¤ã‚¹</td>
+    <td>ï¼¡ï½Žï½„ï½’ï½ï½‰ï½„ï¼¨ï½ï½“ï½” ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
+    <td>å€‹åˆ¥ã®æ‹¡å¼µæ©Ÿèƒ½ã«ã‚‚å¯¾å¿œäºˆå®š</td>
   </tr>
   <tr>
     <td>Vuzix</td>
     <td>M100 Smart Glass</td>
-    <td>ƒƒKƒlŒ^ƒfƒoƒCƒX</td>
-    <td>‚`‚Ž‚„‚’‚‚‰‚„‚g‚‚“‚” ƒvƒ‰ƒOƒCƒ“</td>
-    <td>ŒÂ•Ê‚ÌŠg’£‹@”\‚É‚à‘Î‰ž—\’è</td>
+    <td>ãƒ¡ã‚¬ãƒåž‹ãƒ‡ãƒã‚¤ã‚¹</td>
+    <td>ï¼¡ï½Žï½„ï½’ï½ï½‰ï½„ï¼¨ï½ï½“ï½” ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
+    <td>å€‹åˆ¥ã®æ‹¡å¼µæ©Ÿèƒ½ã«ã‚‚å¯¾å¿œäºˆå®š</td>
   </tr>
   <tr>
-    <td>ƒEƒGƒXƒgƒ†ƒjƒeƒBƒX</td>
+    <td>ã‚¦ã‚¨ã‚¹ãƒˆãƒ¦ãƒ‹ãƒ†ã‚£ã‚¹</td>
     <td>Inforod</td>
-    <td>ƒƒKƒlŒ^ƒfƒoƒCƒX</td>
-    <td>‚`‚Ž‚„‚’‚‚‰‚„‚g‚‚“‚” ƒvƒ‰ƒOƒCƒ“</td>
-    <td>ŒÂ•Ê‚ÌŠg’£‹@”\‚É‚à‘Î‰ž—\’è</td>
+    <td>ãƒ¡ã‚¬ãƒåž‹ãƒ‡ãƒã‚¤ã‚¹</td>
+    <td>ï¼¡ï½Žï½„ï½’ï½ï½‰ï½„ï¼¨ï½ï½“ï½” ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
+    <td>å€‹åˆ¥ã®æ‹¡å¼µæ©Ÿèƒ½ã«ã‚‚å¯¾å¿œäºˆå®š</td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>DSC-QX100</td>
-    <td>ƒŒƒ“ƒYƒXƒ^ƒCƒ‹ƒJƒƒ‰</td>
-    <td>‚r‚‚Ž‚™‚b‚‚‚…‚’‚ ƒvƒ‰ƒOƒCƒ“</td>
+    <td>ãƒ¬ãƒ³ã‚ºã‚¹ã‚¿ã‚¤ãƒ«ã‚«ãƒ¡ãƒ©</td>
+    <td>ï¼³ï½ï½Žï½™ï¼£ï½ï½ï½…ï½’ï½ ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>DSC-QX10</td>
-    <td>ƒŒƒ“ƒYƒXƒ^ƒCƒ‹ƒJƒƒ‰</td>
-    <td>‚r‚‚Ž‚™‚b‚‚‚…‚’‚ ƒvƒ‰ƒOƒCƒ“</td>
+    <td>ãƒ¬ãƒ³ã‚ºã‚¹ã‚¿ã‚¤ãƒ«ã‚«ãƒ¡ãƒ©</td>
+    <td>ï¼³ï½ï½Žï½™ï¼£ï½ï½ï½…ï½’ï½ ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Pebble</td>
     <td>Pebble</td>
-    <td>˜rŽžŒvŒ^ƒfƒoƒCƒX</td>
-    <td>‚o‚…‚‚‚‚‚Œ‚…ƒvƒ‰ƒOƒCƒ“</td>
+    <td>è…•æ™‚è¨ˆåž‹ãƒ‡ãƒã‚¤ã‚¹</td>
+    <td>ï¼°ï½…ï½‚ï½‚ï½Œï½…ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>-</td>
-    <td>Android’[–– Ver4.0ˆÈ~</td>
-    <td>Android’[––</td>
-    <td>‚`‚Ž‚„‚’‚‚‰‚„‚g‚‚“‚” ƒvƒ‰ƒOƒCƒ“</td>
+    <td>Androidç«¯æœ« Ver4.0ä»¥é™</td>
+    <td>Androidç«¯æœ«</td>
+    <td>ï¼¡ï½Žï½„ï½’ï½ï½‰ï½„ï¼¨ï½ï½“ï½” ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>LG</td>
     <td>G Watch</td>
-    <td>Android  Wear’[––</td>
-    <td>‚v‚…‚‚’ƒvƒ‰ƒOƒCƒ“</td>
+    <td>Android  Wearç«¯æœ«</td>
+    <td>ï¼·ï½…ï½ï½’ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Samsung</td>
     <td>Gear Live</td>
-    <td>Android  Wear’[––</td>
-    <td>‚v‚…‚‚’ƒvƒ‰ƒOƒCƒ“</td>
+    <td>Android  Wearç«¯æœ«</td>
+    <td>ï¼·ï½…ï½ï½’ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Google</td>
     <td>ChromeCast</td>
-    <td>HDMIƒhƒ“ƒOƒ‹</td>
-    <td>‚b‚ˆ‚’‚‚‚…‚b‚‚“‚” ƒvƒ‰ƒOƒCƒ“</td>
-    <td>Google Cast SDK Developer Console‚Ìƒy[ƒW‚ÅAƒfƒoƒCƒX‚ÆReceiverƒAƒvƒŠ‚Ì“o˜^‚ª•K—v‚É‚È‚è‚Ü‚·B</td>
+    <td>HDMIãƒ‰ãƒ³ã‚°ãƒ«</td>
+    <td>ï¼£ï½ˆï½’ï½ï½ï½…ï¼£ï½ï½“ï½” ãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
+    <td>Google Cast SDK Developer Consoleã®ãƒšãƒ¼ã‚¸ã§ã€ãƒ‡ãƒã‚¤ã‚¹ã¨Receiverã‚¢ãƒ—ãƒªã®ç™»éŒ²ãŒå¿…è¦ã«ãªã‚Šã¾ã™ã€‚</td>
   </tr>
   <tr>
-    <td>ƒG[EƒAƒ“ƒhEƒfƒB[</td>
+    <td>ã‚¨ãƒ¼ãƒ»ã‚¢ãƒ³ãƒ‰ãƒ»ãƒ‡ã‚£ãƒ¼</td>
     <td>UA-767PBT-C</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒG[EƒAƒ“ƒhEƒfƒB[</td>
+    <td>ã‚¨ãƒ¼ãƒ»ã‚¢ãƒ³ãƒ‰ãƒ»ãƒ‡ã‚£ãƒ¼</td>
     <td>UA-851PBT-C</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒG[EƒAƒ“ƒhEƒfƒB[</td>
+    <td>ã‚¨ãƒ¼ãƒ»ã‚¢ãƒ³ãƒ‰ãƒ»ãƒ‡ã‚£ãƒ¼</td>
     <td>TM-2656VPM</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒG[EƒAƒ“ƒhEƒfƒB[</td>
+    <td>ã‚¨ãƒ¼ãƒ»ã‚¢ãƒ³ãƒ‰ãƒ»ãƒ‡ã‚£ãƒ¼</td>
     <td>UC-321PBT-C</td>
-    <td>‘ÌdŒv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ä½“é‡è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒIƒ€ƒƒ“ƒwƒ‹ƒXƒPƒA</td>
+    <td>ã‚ªãƒ ãƒ­ãƒ³ãƒ˜ãƒ«ã‚¹ã‚±ã‚¢</td>
     <td>HEM-708-IT</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒIƒ€ƒƒ“ƒwƒ‹ƒXƒPƒA</td>
+    <td>ã‚ªãƒ ãƒ­ãƒ³ãƒ˜ãƒ«ã‚¹ã‚±ã‚¢</td>
     <td>HBF-206IT</td>
-    <td>‘Ìd‘Ì‘g¬Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ä½“é‡ä½“çµ„æˆè¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒIƒ€ƒƒ“ƒwƒ‹ƒXƒPƒA</td>
+    <td>ã‚ªãƒ ãƒ­ãƒ³ãƒ˜ãƒ«ã‚¹ã‚±ã‚¢</td>
     <td>HHX-IT1</td>
-    <td>Šˆ“®—ÊŒv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>æ´»å‹•é‡è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒG[EƒAƒ“ƒhEƒfƒB[</td>
+    <td>ã‚¨ãƒ¼ãƒ»ã‚¢ãƒ³ãƒ‰ãƒ»ãƒ‡ã‚£ãƒ¼</td>
     <td>UA-772</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒG[EƒAƒ“ƒhEƒfƒB[</td>
+    <td>ã‚¨ãƒ¼ãƒ»ã‚¢ãƒ³ãƒ‰ãƒ»ãƒ‡ã‚£ãƒ¼</td>
     <td>UW201</td>
-    <td>Šˆ“®—ÊŒv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>æ´»å‹•é‡è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒIƒ€ƒƒ“ƒwƒ‹ƒXƒPƒA</td>
+    <td>ã‚ªãƒ ãƒ­ãƒ³ãƒ˜ãƒ«ã‚¹ã‚±ã‚¢</td>
     <td>HEM-7250IT</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒIƒ€ƒƒ“ƒwƒ‹ƒXƒPƒA</td>
+    <td>ã‚ªãƒ ãƒ­ãƒ³ãƒ˜ãƒ«ã‚¹ã‚±ã‚¢</td>
     <td>HBF-208IT</td>
-    <td>‘Ìd‘Ì‘g¬Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ä½“é‡ä½“çµ„æˆè¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
-    <td>ƒIƒ€ƒƒ“ƒwƒ‹ƒXƒPƒA</td>
+    <td>ã‚ªãƒ ãƒ­ãƒ³ãƒ˜ãƒ«ã‚¹ã‚±ã‚¢</td>
     <td>HBF-215IT</td>
-    <td>‘Ìd‘Ì‘g¬Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ä½“é‡ä½“çµ„æˆè¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>ESTERA</td>
     <td>FS-500</td>
-    <td>•à”Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>æ­©æ•°è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>ESTERA</td>
     <td>FS-700</td>
-    <td>Šˆ“®—ÊŒv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>æ´»å‹•é‡è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>YAMASA</td>
     <td>EX-950</td>
-    <td>•à”Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>æ­©æ•°è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MSFV01</td>
-    <td>ŒŒ“œŒv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€ç³–è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MT-KT02DZ</td>
-    <td>•às‹­“xŒv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>æ­©è¡Œå¼·åº¦è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>C215</td>
-    <td>‘Ì‰·Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ä½“æ¸©è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ES-H700D</td>
-    <td>ŒŒˆ³Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>è¡€åœ§è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ZS-NS05</td>
-    <td>ƒpƒ‹ƒXƒIƒLƒVƒ[ƒ^</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ãƒ‘ãƒ«ã‚¹ã‚ªã‚­ã‚·ãƒ¡ãƒ¼ã‚¿</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>WT-B100DZ</td>
-    <td>‘Ì‘g¬Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>ä½“çµ„æˆè¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Polar</td>
     <td>H7</td>
-    <td>S”Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>å¿ƒæ‹è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
   <tr>
     <td>Mio Global</td>
     <td>Mio Alpha</td>
-    <td>S”Œv</td>
-    <td>‚‚g‚…‚‚Œ‚”‚ˆƒvƒ‰ƒOƒCƒ“</td>
+    <td>å¿ƒæ‹è¨ˆ</td>
+    <td>ï½ï¼¨ï½…ï½ï½Œï½”ï½ˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³</td>
     <td></td>
   </tr>
 
 </table>
 
-* Šeƒ[ƒJ[‚ª“®ì‚ð•Ûá‚·‚é‚à‚Ì‚Å‚Í‚ ‚è‚Ü‚¹‚ñ
-* —˜—p‚Å‚«‚é‹@”\‚ÍŠe‹@Ší‚ÅˆÙ‚È‚è‚Ü‚·
-* —˜—p‚·‚éŠJ”­—pƒ‰ƒCƒuƒ‰ƒŠ‚Ì“s‡‚É‚æ‚èAƒvƒ‰ƒOƒCƒ“‚Ìƒ\[ƒXƒR[ƒh‚Íˆê•”‹@Ší‚É‚Â‚¢‚Ä‚ÌŠJŽ¦‚Æ‚È‚è‚Ü‚·
-* ŠeŽíƒhƒLƒ…ƒƒ“ƒg‚Ì®”õA‘Î‰žƒfƒoƒCƒX‚ÌŠg‘å‚É‚Â‚¢‚Ä‚à‡ŽŸi‚ß‚Ä‚¢‚­—\’è‚Å‚·B
-* —˜•Ö«‚Ì‰ü‘P‚âƒZƒLƒ…ƒŠƒeƒBŒüã‚Ì‚½‚ßAŽd—l‚ª•ÏX‚Æ‚È‚éê‡‚ª‚ ‚è‚Ü‚·B—\‚ß‚²—¹³‚­‚¾‚³‚¢B
+* å„ãƒ¡ãƒ¼ã‚«ãƒ¼ãŒå‹•ä½œã‚’ä¿éšœã™ã‚‹ã‚‚ã®ã§ã¯ã‚ã‚Šã¾ã›ã‚“
+* åˆ©ç”¨ã§ãã‚‹æ©Ÿèƒ½ã¯å„æ©Ÿå™¨ã§ç•°ãªã‚Šã¾ã™
+* åˆ©ç”¨ã™ã‚‹é–‹ç™ºç”¨ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®éƒ½åˆã«ã‚ˆã‚Šã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¯ä¸€éƒ¨æ©Ÿå™¨ã«ã¤ã„ã¦ã®é–‹ç¤ºã¨ãªã‚Šã¾ã™
+* å„ç¨®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®æ•´å‚™ã€å¯¾å¿œãƒ‡ãƒã‚¤ã‚¹ã®æ‹¡å¤§ã«ã¤ã„ã¦ã‚‚é †æ¬¡é€²ã‚ã¦ã„ãäºˆå®šã§ã™ã€‚
+* åˆ©ä¾¿æ€§ã®æ”¹å–„ã‚„ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£å‘ä¸Šã®ãŸã‚ã€ä»•æ§˜ãŒå¤‰æ›´ã¨ãªã‚‹å ´åˆãŒã‚ã‚Šã¾ã™ã€‚äºˆã‚ã”äº†æ‰¿ãã ã•ã„ã€‚
 
 
 
