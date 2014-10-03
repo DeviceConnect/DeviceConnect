@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectUtil.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectUtil.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d39/_d_connect_util_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectUtil.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DConnectSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectMessage.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d6/d39/_d_connect_util_8h.html#a5d7708174f138a913c82d8eda0f347a4">   24</a></span>&#160;<span class="keyword">typedef</span> void (^<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a5d7708174f138a913c82d8eda0f347a4">DConnectAuthorizationSuccessBlock</a>)(NSString *clientId, NSString *clientSecret, NSString *accessToken);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d39/_d_connect_util_8h.html#a8f3408750c01d93669d4f643a30c1df4">   31</a></span>&#160;<span class="keyword">typedef</span> void (^<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a8f3408750c01d93669d4f643a30c1df4">DConnectAuthorizationFailBlock</a>)(<a class="code" href="../../db/d77/_d_connect_message_8h.html#af687c53520d693ec632a93e8353dbc87">DConnectMessageErrorCodeType</a> errorCode);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../df/d9b/interface_d_connect_util.html">   37</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../df/d9b/interface_d_connect_util.html">DConnectUtil</a> : NSObject</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;+ (void) asyncAuthorizeWithPackageName:(NSString *)packageName</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                               appName:(NSString *)appName</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                scopes:(NSArray *)scopes</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                               success:(<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a5d7708174f138a913c82d8eda0f347a4">DConnectAuthorizationSuccessBlock</a>)success</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                 error:(<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a8f3408750c01d93669d4f643a30c1df4">DConnectAuthorizationFailBlock</a>)error;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;+ (void) authorizeWithPackageName:(NSString *)packageName</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                          appName:(NSString *)appName</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                           scopes:(NSArray *)scopes</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                          success:(<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a5d7708174f138a913c82d8eda0f347a4">DConnectAuthorizationSuccessBlock</a>)success</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                            error:(<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a8f3408750c01d93669d4f643a30c1df4">DConnectAuthorizationFailBlock</a>)error;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;+ (void) refreshAccessTokenWithClientId:(NSString *)clientId</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                           clientSecret:(NSString *)clientSecret</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                appName:(NSString *)appName</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                 scopes:(NSArray *)scopes</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                success:(<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a5d7708174f138a913c82d8eda0f347a4">DConnectAuthorizationSuccessBlock</a>)success</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                  error:(<a class="code" href="../../d6/d39/_d_connect_util_8h.html#a8f3408750c01d93669d4f643a30c1df4">DConnectAuthorizationFailBlock</a>)error;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;+ (NSString *)generateSignatureWithClientId:(NSString *)clientId</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                  grantType:(NSString *)grantType</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                   deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                                     scopes:(NSArray *)scopes</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                               clientSecret:(NSString *)clientSecret;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;+ (NSString *)generateSignatureWithAccessToken: (NSString *)accessToken</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                  clientSecret: (NSString *)clientSecret;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;+ (NSString *) combineScopes:(NSArray *)scopes;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;+ (void) <a class="code" href="../../df/d9b/interface_d_connect_util.html#a5a1818fa86277ab60b2e8a2d3d48e4ca">showAccessTokenList</a>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="_d_connect_util_8h_html_a8f3408750c01d93669d4f643a30c1df4"><div class="ttname"><a href="../../d6/d39/_d_connect_util_8h.html#a8f3408750c01d93669d4f643a30c1df4">DConnectAuthorizationFailBlock</a></div><div class="ttdeci">void(^ DConnectAuthorizationFailBlock)(DConnectMessageErrorCodeType errorCode)</div><div class="ttdoc">認証失敗通知コールバック。 </div><div class="ttdef"><b>Definition:</b> DConnectUtil.h:31</div></div>
+<div class="ttc" id="_d_connect_message_8h_html_af687c53520d693ec632a93e8353dbc87"><div class="ttname"><a href="../../db/d77/_d_connect_message_8h.html#af687c53520d693ec632a93e8353dbc87">DConnectMessageErrorCodeType</a></div><div class="ttdeci">DConnectMessageErrorCodeType</div><div class="ttdoc">エラーコードの定義。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:105</div></div>
+<div class="ttc" id="_d_connect_util_8h_html_a5d7708174f138a913c82d8eda0f347a4"><div class="ttname"><a href="../../d6/d39/_d_connect_util_8h.html#a5d7708174f138a913c82d8eda0f347a4">DConnectAuthorizationSuccessBlock</a></div><div class="ttdeci">void(^ DConnectAuthorizationSuccessBlock)(NSString *clientId, NSString *clientSecret, NSString *accessToken)</div><div class="ttdoc">認証成功通知コールバック。 </div><div class="ttdef"><b>Definition:</b> DConnectUtil.h:24</div></div>
+<div class="ttc" id="interface_d_connect_util_html_a5a1818fa86277ab60b2e8a2d3d48e4ca"><div class="ttname"><a href="../../df/d9b/interface_d_connect_util.html#a5a1818fa86277ab60b2e8a2d3d48e4ca">+[DConnectUtil showAccessTokenList]</a></div><div class="ttdeci">void showAccessTokenList()</div><div class="ttdoc">DConnectManagerが管理するアクセストークンの一覧を表示する。 </div></div>
+<div class="ttc" id="interface_d_connect_util_html"><div class="ttname"><a href="../../df/d9b/interface_d_connect_util.html">DConnectUtil</a></div><div class="ttdoc">Device Connect のAPIを利用するためのユーティリティ機能を提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectUtil.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

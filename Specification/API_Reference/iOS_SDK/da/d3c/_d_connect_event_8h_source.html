@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectEvent.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectEvent.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d3c/_d_connect_event_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectEvent.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DConnectSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma mark - Constants</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14d">   22</a></span>&#160;<span class="keyword">typedef</span> NS_ENUM(NSUInteger, <a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14d">DConnectEventError</a>) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14dac56da50ffbff8f6c60fb58c21e4e670a">   23</a></span>&#160;    <a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14dac56da50ffbff8f6c60fb58c21e4e670a">DConnectEventErrorNone</a>,                 </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14daf2aefeaf03ea43ef4454e12fc40e64cd">   24</a></span>&#160;    <a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14daf2aefeaf03ea43ef4454e12fc40e64cd">DConnectEventErrorInvalidParameter</a>,     </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14da4e7e563b9d3b5caa3ccce12607a3cb6b">   25</a></span>&#160;    <a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14da4e7e563b9d3b5caa3ccce12607a3cb6b">DConnectEventErrorNotFound</a>,             </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14dac5890def3acd8fc230b10cac4d7b3441">   26</a></span>&#160;    <a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14dac5890def3acd8fc230b10cac4d7b3441">DConnectEventErrorFailed</a>,               </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#pragma mark - DConnectEvent</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html">   35</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../da/d0a/interface_d_connect_event.html">DConnectEvent</a> : NSObject&lt;NSCoding, NSSecureCoding&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#a30116f2c77fc902c2512b22bc233614e">   40</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSString *<a class="code" href="../../da/d0a/interface_d_connect_event.html#a30116f2c77fc902c2512b22bc233614e">profile</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#a8f96184edc3fbde5662fb265e8395ace">   45</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSString *<a class="code" href="../../da/d0a/interface_d_connect_event.html#a8f96184edc3fbde5662fb265e8395ace">interface</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#a026277952d47cadb11254390da9192cb">   50</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSString *<a class="code" href="../../da/d0a/interface_d_connect_event.html#a026277952d47cadb11254390da9192cb">attribute</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#a4d9b88c4f98e1ace643ad0017712e522">   55</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSString *<a class="code" href="../../da/d0a/interface_d_connect_event.html#a4d9b88c4f98e1ace643ad0017712e522">deviceId</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#ad0ad50b5785a6e1193f31a63494978cb">   60</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSString *<a class="code" href="../../da/d0a/interface_d_connect_event.html#ad0ad50b5785a6e1193f31a63494978cb">accessToken</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#a52c375fd7469fafebaa519bba9ba0136">   65</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSString *<a class="code" href="../../da/d0a/interface_d_connect_event.html#a52c375fd7469fafebaa519bba9ba0136">sessionKey</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#a43dba586e141194ef3c228515eb91c3b">   70</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSDate *<a class="code" href="../../da/d0a/interface_d_connect_event.html#a43dba586e141194ef3c228515eb91c3b">createDate</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../da/d0a/interface_d_connect_event.html#aa254a3fcc227b0bbcd6e18deb1639eb4">   75</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong) NSDate *<a class="code" href="../../da/d0a/interface_d_connect_event.html#aa254a3fcc227b0bbcd6e18deb1639eb4">updateDate</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_d_connect_event_html_a43dba586e141194ef3c228515eb91c3b"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#a43dba586e141194ef3c228515eb91c3b">DConnectEvent::createDate</a></div><div class="ttdeci">NSDate * createDate</div><div class="ttdoc">イベント登録日。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:70</div></div>
+<div class="ttc" id="_d_connect_event_8h_html_afad3e5cec632720da8f0b03a7684c14daf2aefeaf03ea43ef4454e12fc40e64cd"><div class="ttname"><a href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14daf2aefeaf03ea43ef4454e12fc40e64cd">DConnectEventErrorInvalidParameter</a></div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:24</div></div>
+<div class="ttc" id="_d_connect_event_8h_html_afad3e5cec632720da8f0b03a7684c14dac5890def3acd8fc230b10cac4d7b3441"><div class="ttname"><a href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14dac5890def3acd8fc230b10cac4d7b3441">DConnectEventErrorFailed</a></div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:26</div></div>
+<div class="ttc" id="interface_d_connect_event_html"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html">DConnectEvent</a></div><div class="ttdoc">イベントの情報を保持するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:35</div></div>
+<div class="ttc" id="_d_connect_event_8h_html_afad3e5cec632720da8f0b03a7684c14d"><div class="ttname"><a href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14d">DConnectEventError</a></div><div class="ttdeci">DConnectEventError</div><div class="ttdoc">Eventのエラー定義。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:22</div></div>
+<div class="ttc" id="interface_d_connect_event_html_aa254a3fcc227b0bbcd6e18deb1639eb4"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#aa254a3fcc227b0bbcd6e18deb1639eb4">DConnectEvent::updateDate</a></div><div class="ttdeci">NSDate * updateDate</div><div class="ttdoc">イベント更新日。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:75</div></div>
+<div class="ttc" id="interface_d_connect_event_html_a8f96184edc3fbde5662fb265e8395ace"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#a8f96184edc3fbde5662fb265e8395ace">DConnectEvent::interface</a></div><div class="ttdeci">NSString * interface</div><div class="ttdoc">登録されたイベントのインターフェース名。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:45</div></div>
+<div class="ttc" id="_d_connect_event_8h_html_afad3e5cec632720da8f0b03a7684c14dac56da50ffbff8f6c60fb58c21e4e670a"><div class="ttname"><a href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14dac56da50ffbff8f6c60fb58c21e4e670a">DConnectEventErrorNone</a></div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:23</div></div>
+<div class="ttc" id="interface_d_connect_event_html_ad0ad50b5785a6e1193f31a63494978cb"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#ad0ad50b5785a6e1193f31a63494978cb">DConnectEvent::accessToken</a></div><div class="ttdeci">NSString * accessToken</div><div class="ttdoc">イベント登録時に指定されたアクセストークン。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:60</div></div>
+<div class="ttc" id="interface_d_connect_event_html_a4d9b88c4f98e1ace643ad0017712e522"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#a4d9b88c4f98e1ace643ad0017712e522">DConnectEvent::deviceId</a></div><div class="ttdeci">NSString * deviceId</div><div class="ttdoc">イベント登録時に指定されたデバイスのID。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:55</div></div>
+<div class="ttc" id="interface_d_connect_event_html_a026277952d47cadb11254390da9192cb"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#a026277952d47cadb11254390da9192cb">DConnectEvent::attribute</a></div><div class="ttdeci">NSString * attribute</div><div class="ttdoc">登録されたイベントのアトリビュート名。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:50</div></div>
+<div class="ttc" id="_d_connect_event_8h_html_afad3e5cec632720da8f0b03a7684c14da4e7e563b9d3b5caa3ccce12607a3cb6b"><div class="ttname"><a href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14da4e7e563b9d3b5caa3ccce12607a3cb6b">DConnectEventErrorNotFound</a></div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:25</div></div>
+<div class="ttc" id="interface_d_connect_event_html_a52c375fd7469fafebaa519bba9ba0136"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#a52c375fd7469fafebaa519bba9ba0136">DConnectEvent::sessionKey</a></div><div class="ttdeci">NSString * sessionKey</div><div class="ttdoc">イベント登録時に指定されたセッションキー。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:65</div></div>
+<div class="ttc" id="interface_d_connect_event_html_a30116f2c77fc902c2512b22bc233614e"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html#a30116f2c77fc902c2512b22bc233614e">DConnectEvent::profile</a></div><div class="ttdeci">NSString * profile</div><div class="ttdoc">登録されたイベントのプロファイル名。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:40</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectBatteryProfile.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectBatteryProfile.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d82/_d_connect_battery_profile_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectBatteryProfile.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DConnectSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectProfile.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#ab3d5e134a905dce2aeceb616bca6a027">DConnectBatteryProfileName</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a540bf6ea742d6f82b4f9af52895dd27d">DConnectBatteryProfileAttrCharging</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a6641e90db197d19ba34f59d3068299cd">DConnectBatteryProfileAttrChargingTime</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a4bee7af14f6f539f956adfffc9acfe0e">DConnectBatteryProfileAttrDischargingTime</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a20a8ab2800b101b3f8caca4ba53f37ee">DConnectBatteryProfileAttrLevel</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#aced69cb5d039229eb4062b5109a3a10a">DConnectBatteryProfileAttrOnChargingChange</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a75a170878cf78e2982e47d8f42fc926a">DConnectBatteryProfileAttrOnBatteryChange</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a2acd1c5f96f8a1c46c1a2c0634048c40">DConnectBatteryProfileParamCharging</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#accbf9f2db49a25b4d6f23bd00a1cdec4">DConnectBatteryProfileParamChargingTime</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a8fa148d98b0505d48b7e099e366bded4">DConnectBatteryProfileParamDischargingTime</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#a33d078fe22068a7e0fff0e278dfc7386">DConnectBatteryProfileParamLevel</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d2/d82/_d_connect_battery_profile_8h.html#af25c3c293077e50c40e8d8eb9bc43d29">DConnectBatteryProfileParamBattery</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">@class</span> <a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../da/da3/protocol_d_connect_battery_profile_delegate-p.html">   85</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="../../da/da3/protocol_d_connect_battery_profile_delegate-p.html">DConnectBatteryProfileDelegate</a>&lt;NSObject&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">@optional</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#pragma mark - Get Methods</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveGetAllRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        deviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveGetLevelRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        deviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveGetChargingRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        deviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveGetChargingTimeRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        deviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveGetDischargingTimeRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        deviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#pragma mark - Put Methods</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#pragma mark Event Registration</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceivePutOnChargingChangeRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceivePutOnBatteryChangeRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor">#pragma mark - Delete Methods</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveDeleteOnChargingChangeRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;- (BOOL) profile:(<a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> *)profile didReceiveDeleteOnBatteryChangeRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="../../d0/dc4/interface_d_connect_battery_profile.html">  301</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a> : <a class="code" href="../../d6/d26/interface_d_connect_profile.html">DConnectProfile</a></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="../../d0/dc4/interface_d_connect_battery_profile.html#a45e8cbe962071d8dec8b326e00184fe0">  309</a></span>&#160;<span class="keyword">@property</span> (nonatomic, weak) id&lt;DConnectBatteryProfileDelegate&gt; <a class="code" href="../../d0/dc4/interface_d_connect_battery_profile.html#a45e8cbe962071d8dec8b326e00184fe0">delegate</a>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor">#pragma mark - Setters</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;+ (void) setLevel:(<span class="keywordtype">double</span>)level target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;+ (void) setCharging:(BOOL)charging target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;+ (void) setChargingTime:(<span class="keywordtype">double</span>)chargingTime target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;+ (void) setDischargingTime:(<span class="keywordtype">double</span>)dischargingTime target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;+ (void) setBattery:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)battery target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_d_connect_message_html"><div class="ttname"><a href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a></div><div class="ttdoc">Device Connect上でやり取りされるメッセージ。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:328</div></div>
+<div class="ttc" id="interface_d_connect_profile_html"><div class="ttname"><a href="../../d6/d26/interface_d_connect_profile.html">DConnectProfile</a></div><div class="ttdoc">プロファイルのベースクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectProfile.h:28</div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a20a8ab2800b101b3f8caca4ba53f37ee"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a20a8ab2800b101b3f8caca4ba53f37ee">DConnectBatteryProfileAttrLevel</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileAttrLevel</div><div class="ttdoc">アトリビュート: level。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a75a170878cf78e2982e47d8f42fc926a"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a75a170878cf78e2982e47d8f42fc926a">DConnectBatteryProfileAttrOnBatteryChange</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileAttrOnBatteryChange</div><div class="ttdoc">アトリビュート: onbatterychange。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a4bee7af14f6f539f956adfffc9acfe0e"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a4bee7af14f6f539f956adfffc9acfe0e">DConnectBatteryProfileAttrDischargingTime</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileAttrDischargingTime</div><div class="ttdoc">アトリビュート: dischargingTime。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a2acd1c5f96f8a1c46c1a2c0634048c40"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a2acd1c5f96f8a1c46c1a2c0634048c40">DConnectBatteryProfileParamCharging</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileParamCharging</div><div class="ttdoc">パラメータ: charing。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_accbf9f2db49a25b4d6f23bd00a1cdec4"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#accbf9f2db49a25b4d6f23bd00a1cdec4">DConnectBatteryProfileParamChargingTime</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileParamChargingTime</div><div class="ttdoc">パラメータ: chargingTime。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_ab3d5e134a905dce2aeceb616bca6a027"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#ab3d5e134a905dce2aeceb616bca6a027">DConnectBatteryProfileName</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileName</div><div class="ttdoc">プロファイル名。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a8fa148d98b0505d48b7e099e366bded4"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a8fa148d98b0505d48b7e099e366bded4">DConnectBatteryProfileParamDischargingTime</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileParamDischargingTime</div><div class="ttdoc">パラメータ: dischargingTime。 </div></div>
+<div class="ttc" id="interface_d_connect_request_message_html"><div class="ttname"><a href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a></div><div class="ttdoc">リクエストデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectRequestMessage.h:21</div></div>
+<div class="ttc" id="interface_d_connect_battery_profile_html"><div class="ttname"><a href="../../d0/dc4/interface_d_connect_battery_profile.html">DConnectBatteryProfile</a></div><div class="ttdoc">Batteryプロファイル。 </div><div class="ttdef"><b>Definition:</b> DConnectBatteryProfile.h:301</div></div>
+<div class="ttc" id="interface_d_connect_response_message_html"><div class="ttname"><a href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a></div><div class="ttdoc">レスポンスデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectResponseMessage.h:21</div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a540bf6ea742d6f82b4f9af52895dd27d"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a540bf6ea742d6f82b4f9af52895dd27d">DConnectBatteryProfileAttrCharging</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileAttrCharging</div><div class="ttdoc">アトリビュート: charging。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a33d078fe22068a7e0fff0e278dfc7386"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a33d078fe22068a7e0fff0e278dfc7386">DConnectBatteryProfileParamLevel</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileParamLevel</div><div class="ttdoc">パラメータ: level。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_a6641e90db197d19ba34f59d3068299cd"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#a6641e90db197d19ba34f59d3068299cd">DConnectBatteryProfileAttrChargingTime</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileAttrChargingTime</div><div class="ttdoc">アトリビュート: chargingTime。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_af25c3c293077e50c40e8d8eb9bc43d29"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#af25c3c293077e50c40e8d8eb9bc43d29">DConnectBatteryProfileParamBattery</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileParamBattery</div><div class="ttdoc">パラメータ: battery。 </div></div>
+<div class="ttc" id="_d_connect_battery_profile_8h_html_aced69cb5d039229eb4062b5109a3a10a"><div class="ttname"><a href="../../d2/d82/_d_connect_battery_profile_8h.html#aced69cb5d039229eb4062b5109a3a10a">DConnectBatteryProfileAttrOnChargingChange</a></div><div class="ttdeci">NSString *const DConnectBatteryProfileAttrOnChargingChange</div><div class="ttdoc">アトリビュート: onchargingchange。 </div></div>
+<div class="ttc" id="interface_d_connect_battery_profile_html_a45e8cbe962071d8dec8b326e00184fe0"><div class="ttname"><a href="../../d0/dc4/interface_d_connect_battery_profile.html#a45e8cbe962071d8dec8b326e00184fe0">DConnectBatteryProfile::delegate</a></div><div class="ttdeci">id&lt; DConnectBatteryProfileDelegate &gt; delegate</div><div class="ttdoc">BatteryProfileのデリゲートオブジェクト。 </div><div class="ttdef"><b>Definition:</b> DConnectBatteryProfile.h:309</div></div>
+<div class="ttc" id="protocol_d_connect_battery_profile_delegate-p_html"><div class="ttname"><a href="../../da/da3/protocol_d_connect_battery_profile_delegate-p.html">DConnectBatteryProfileDelegate-p</a></div><div class="ttdoc">Battery Profile各のAPIリクエスト通知用デリゲート。 </div><div class="ttdef"><b>Definition:</b> DConnectBatteryProfile.h:85</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

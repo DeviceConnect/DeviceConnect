@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectSystemProfile.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectSystemProfile.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/d48/_d_connect_system_profile_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectSystemProfile.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  dConnectManager</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectProfile.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#af0a387a7075d310a679c2887b745d123">DConnectSystemProfileName</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a836067f4471d674e9abe63bb5e4a58e6">DConnectSystemProfileInterfaceDevice</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#aa7adcfd9be78c921e2f99be120db7375">DConnectSystemProfileAttrDevice</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#ac95798f87c341f34bf0b1b64e4f05185">DConnectSystemProfileAttrWakeUp</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a9c1a81ae293b12c18d35977e61085242">DConnectSystemProfileAttrKeyword</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a351e0ac794e02981ae51fc692d2fd6d8">DConnectSystemProfileAttrEvents</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a426337bd6f5292d99688632a375a2592">DConnectSystemProfileParamSupports</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a1355104ffc15d06895605732ee0fb8f5">DConnectSystemProfileParamPlugins</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a09310de799cc5066efa185b02667226e">DConnectSystemProfileParamPluginId</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a13ff3a722dabdf3f8a0336db580b41a9">DConnectSystemProfileParamId</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a8559a7e7c31e10b00cdbcc766b31d75a">DConnectSystemProfileParamName</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a5adfdeb5fcc9ec9dcdc83602598ad8b8">DConnectSystemProfileParamVersion</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#af76cb707056682709c336edc71edcd0f">DConnectSystemProfileParamConnect</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a530d8e843ba99d1ec2771d0818a6f136">DConnectSystemProfileParamWiFi</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a3a5a7db4063b754176027543bda15a02">DConnectSystemProfileParamBluetooth</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a0e87112de91711cfacfbaff4037c7a46">DConnectSystemProfileParamNFC</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#ab5e4356e4f008c354aa4ebb3842b3303">DConnectSystemProfileParamBLE</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">  109</a></span>&#160;<span class="keyword">typedef</span> NS_ENUM(NSInteger, <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a8e9b253f011faff23a6126de30df7e06">  110</a></span>&#160;    <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a8e9b253f011faff23a6126de30df7e06">DConnectSystemProfileConnectStateNone</a> = 0,  </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a62773a3b72e21e5e1ecb2f919120c13b">  111</a></span>&#160;    <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a62773a3b72e21e5e1ecb2f919120c13b">DConnectSystemProfileConnectStateOn</a>,        </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a00229d6143786320e34454f79a76f07d">  112</a></span>&#160;    <a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a00229d6143786320e34454f79a76f07d">DConnectSystemProfileConnectStateOff</a>        </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">@class</span> <a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../da/d5f/protocol_d_connect_system_profile_delegate-p.html">  123</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="../../da/d5f/protocol_d_connect_system_profile_delegate-p.html">DConnectSystemProfileDelegate</a> &lt;NSObject&gt;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">@optional</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#pragma mark - Get Methods</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;- (BOOL) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile didReceiveGetDeviceRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        deviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#pragma mark - Put Methods</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;- (BOOL) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile didReceivePutKeywordRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#pragma mark - Delete Methods</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;- (BOOL) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile didReceiveDeleteEventsRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="../../d4/dc5/protocol_d_connect_system_profile_data_source-p.html">  210</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="../../d4/dc5/protocol_d_connect_system_profile_data_source-p.html">DConnectSystemProfileDataSource</a> &lt;NSObject&gt;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">@optional</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;- (<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                         wifiStateForDeviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;- (<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                    bluetoothStateForDeviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;- (<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                          nfcStateForDeviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;- (<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                          bleStateForDeviceId:(NSString *)deviceId;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">@required</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;- (NSString *) versionOfSystemProfile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)profile;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;- (UIViewController *) profile:(<a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> *)sender</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;         settingPageForRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="../../d3/db5/interface_d_connect_system_profile.html">  306</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a> : <a class="code" href="../../d6/d26/interface_d_connect_profile.html">DConnectProfile</a></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="../../d3/db5/interface_d_connect_system_profile.html#a76a66640f63ffe5726e58abb942c7e6a">  314</a></span>&#160;<span class="keyword">@property</span> (nonatomic, weak) id&lt;DConnectSystemProfileDelegate&gt; <a class="code" href="../../d3/db5/interface_d_connect_system_profile.html#a76a66640f63ffe5726e58abb942c7e6a">delegate</a>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="../../d3/db5/interface_d_connect_system_profile.html#abd520416f39ce1b06f852d4dc7ab121a">  322</a></span>&#160;<span class="keyword">@property</span> (nonatomic, weak) id&lt;DConnectSystemProfileDataSource&gt; <a class="code" href="../../d3/db5/interface_d_connect_system_profile.html#abd520416f39ce1b06f852d4dc7ab121a">dataSource</a>;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="preprocessor">#pragma mark - Setter</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;+ (void) setVersion:(NSString *)version target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;+ (void) setSupports:(<a class="code" href="../../d2/df4/interface_d_connect_array.html">DConnectArray</a> *)supports target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;+ (void) setPlugins:(<a class="code" href="../../d2/df4/interface_d_connect_array.html">DConnectArray</a> *)plugins target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;+ (void) setId:(NSString *)pluginId target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;+ (void) setName:(NSString *)name target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;+ (void) setConnect:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)connect target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;+ (void) setWiFiState:(<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>)state target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;+ (void) setBluetoothState:(<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>)state target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;+ (void) setNFCState:(<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>)state target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;+ (void) setBLEState:(<a class="code" href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a>)state target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="preprocessor">#pragma mark - Getter</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;+ (NSString *) pluginIdFromRequest:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)request;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_d_connect_message_html"><div class="ttname"><a href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a></div><div class="ttdoc">Device Connect上でやり取りされるメッセージ。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:328</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a23ca7e0d0da1fb24686be30a7c1d45f0a8e9b253f011faff23a6126de30df7e06"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a8e9b253f011faff23a6126de30df7e06">DConnectSystemProfileConnectStateNone</a></div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:110</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a09310de799cc5066efa185b02667226e"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a09310de799cc5066efa185b02667226e">DConnectSystemProfileParamPluginId</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamPluginId</div><div class="ttdoc">パラメータ: pluginId。 </div></div>
+<div class="ttc" id="interface_d_connect_profile_html"><div class="ttname"><a href="../../d6/d26/interface_d_connect_profile.html">DConnectProfile</a></div><div class="ttdoc">プロファイルのベースクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectProfile.h:28</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a23ca7e0d0da1fb24686be30a7c1d45f0a00229d6143786320e34454f79a76f07d"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a00229d6143786320e34454f79a76f07d">DConnectSystemProfileConnectStateOff</a></div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:112</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a9c1a81ae293b12c18d35977e61085242"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a9c1a81ae293b12c18d35977e61085242">DConnectSystemProfileAttrKeyword</a></div><div class="ttdeci">NSString *const DConnectSystemProfileAttrKeyword</div><div class="ttdoc">アトリビュート: keyword。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_af0a387a7075d310a679c2887b745d123"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#af0a387a7075d310a679c2887b745d123">DConnectSystemProfileName</a></div><div class="ttdeci">NSString *const DConnectSystemProfileName</div><div class="ttdoc">プロファイル名: system。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a530d8e843ba99d1ec2771d0818a6f136"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a530d8e843ba99d1ec2771d0818a6f136">DConnectSystemProfileParamWiFi</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamWiFi</div><div class="ttdoc">パラメータ: wifi。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a426337bd6f5292d99688632a375a2592"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a426337bd6f5292d99688632a375a2592">DConnectSystemProfileParamSupports</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamSupports</div><div class="ttdoc">パラメータ: supports。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_aa7adcfd9be78c921e2f99be120db7375"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#aa7adcfd9be78c921e2f99be120db7375">DConnectSystemProfileAttrDevice</a></div><div class="ttdeci">NSString *const DConnectSystemProfileAttrDevice</div><div class="ttdoc">アトリビュート: device。 </div></div>
+<div class="ttc" id="interface_d_connect_system_profile_html_abd520416f39ce1b06f852d4dc7ab121a"><div class="ttname"><a href="../../d3/db5/interface_d_connect_system_profile.html#abd520416f39ce1b06f852d4dc7ab121a">DConnectSystemProfile::dataSource</a></div><div class="ttdeci">id&lt; DConnectSystemProfileDataSource &gt; dataSource</div><div class="ttdoc">DConnectSystemProfileのデータソースオブジェクト。 </div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:322</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a0e87112de91711cfacfbaff4037c7a46"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a0e87112de91711cfacfbaff4037c7a46">DConnectSystemProfileParamNFC</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamNFC</div><div class="ttdoc">パラメータ: nfc。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_ac95798f87c341f34bf0b1b64e4f05185"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#ac95798f87c341f34bf0b1b64e4f05185">DConnectSystemProfileAttrWakeUp</a></div><div class="ttdeci">NSString *const DConnectSystemProfileAttrWakeUp</div><div class="ttdoc">アトリビュート: wakeup。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a8559a7e7c31e10b00cdbcc766b31d75a"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a8559a7e7c31e10b00cdbcc766b31d75a">DConnectSystemProfileParamName</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamName</div><div class="ttdoc">パラメータ: name。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a5adfdeb5fcc9ec9dcdc83602598ad8b8"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a5adfdeb5fcc9ec9dcdc83602598ad8b8">DConnectSystemProfileParamVersion</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamVersion</div><div class="ttdoc">パラメータ: version。 </div></div>
+<div class="ttc" id="interface_d_connect_system_profile_html_a76a66640f63ffe5726e58abb942c7e6a"><div class="ttname"><a href="../../d3/db5/interface_d_connect_system_profile.html#a76a66640f63ffe5726e58abb942c7e6a">DConnectSystemProfile::delegate</a></div><div class="ttdeci">id&lt; DConnectSystemProfileDelegate &gt; delegate</div><div class="ttdoc">DConnectSystemProfileのデリゲートオブジェクト。 </div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:314</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_af76cb707056682709c336edc71edcd0f"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#af76cb707056682709c336edc71edcd0f">DConnectSystemProfileParamConnect</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamConnect</div><div class="ttdoc">パラメータ: connect。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a13ff3a722dabdf3f8a0336db580b41a9"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a13ff3a722dabdf3f8a0336db580b41a9">DConnectSystemProfileParamId</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamId</div><div class="ttdoc">パラメータ: id。 </div></div>
+<div class="ttc" id="interface_d_connect_system_profile_html"><div class="ttname"><a href="../../d3/db5/interface_d_connect_system_profile.html">DConnectSystemProfile</a></div><div class="ttdoc">Systemプロファイル。 </div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:306</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a1355104ffc15d06895605732ee0fb8f5"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a1355104ffc15d06895605732ee0fb8f5">DConnectSystemProfileParamPlugins</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamPlugins</div><div class="ttdoc">パラメータ: plugins。 </div></div>
+<div class="ttc" id="interface_d_connect_request_message_html"><div class="ttname"><a href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a></div><div class="ttdoc">リクエストデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectRequestMessage.h:21</div></div>
+<div class="ttc" id="interface_d_connect_response_message_html"><div class="ttname"><a href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a></div><div class="ttdoc">レスポンスデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectResponseMessage.h:21</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_ab5e4356e4f008c354aa4ebb3842b3303"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#ab5e4356e4f008c354aa4ebb3842b3303">DConnectSystemProfileParamBLE</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamBLE</div><div class="ttdoc">パラメータ: ble。 </div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a836067f4471d674e9abe63bb5e4a58e6"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a836067f4471d674e9abe63bb5e4a58e6">DConnectSystemProfileInterfaceDevice</a></div><div class="ttdeci">NSString *const DConnectSystemProfileInterfaceDevice</div><div class="ttdoc">インターフェース: device。 </div></div>
+<div class="ttc" id="interface_d_connect_array_html"><div class="ttname"><a href="../../d2/df4/interface_d_connect_array.html">DConnectArray</a></div><div class="ttdoc">DConnectMessageに格納するための配列。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:146</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a3a5a7db4063b754176027543bda15a02"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a3a5a7db4063b754176027543bda15a02">DConnectSystemProfileParamBluetooth</a></div><div class="ttdeci">NSString *const DConnectSystemProfileParamBluetooth</div><div class="ttdoc">パラメータ: bluetooth。 </div></div>
+<div class="ttc" id="protocol_d_connect_system_profile_delegate-p_html"><div class="ttname"><a href="../../da/d5f/protocol_d_connect_system_profile_delegate-p.html">DConnectSystemProfileDelegate-p</a></div><div class="ttdoc">System Profileの各APIリクエスト通知用デリゲート。 </div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:123</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a23ca7e0d0da1fb24686be30a7c1d45f0"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0">DConnectSystemProfileConnectState</a></div><div class="ttdeci">DConnectSystemProfileConnectState</div><div class="ttdoc">デバイスの接続状態定数。 </div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:109</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a23ca7e0d0da1fb24686be30a7c1d45f0a62773a3b72e21e5e1ecb2f919120c13b"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a23ca7e0d0da1fb24686be30a7c1d45f0a62773a3b72e21e5e1ecb2f919120c13b">DConnectSystemProfileConnectStateOn</a></div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:111</div></div>
+<div class="ttc" id="protocol_d_connect_system_profile_data_source-p_html"><div class="ttname"><a href="../../d4/dc5/protocol_d_connect_system_profile_data_source-p.html">DConnectSystemProfileDataSource-p</a></div><div class="ttdoc">Systemプロファイルのデータソース。 </div><div class="ttdef"><b>Definition:</b> DConnectSystemProfile.h:210</div></div>
+<div class="ttc" id="_d_connect_system_profile_8h_html_a351e0ac794e02981ae51fc692d2fd6d8"><div class="ttname"><a href="../../dc/d48/_d_connect_system_profile_8h.html#a351e0ac794e02981ae51fc692d2fd6d8">DConnectSystemProfileAttrEvents</a></div><div class="ttdeci">NSString *const DConnectSystemProfileAttrEvents</div><div class="ttdoc">アトリビュート: events。 </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

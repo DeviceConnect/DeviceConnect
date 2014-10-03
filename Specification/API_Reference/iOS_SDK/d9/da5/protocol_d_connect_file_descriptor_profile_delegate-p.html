@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: &lt;DConnectFileDescriptorProfileDelegate&gt; プロトコル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>クラス一覧</span></a></li>
+      <li><a href="../../classes.html"><span>クラス索引</span></a></li>
+      <li><a href="../../hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="../../functions.html"><span>クラスメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">実体メソッド</a> &#124;
+<a href="../../d1/d61/protocol_d_connect_file_descriptor_profile_delegate-p-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">&lt;DConnectFileDescriptorProfileDelegate&gt; プロトコル</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>File Descriptor Profileの各APIリクエスト通知用デリゲート。  
+ <a href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#details">[詳解]</a></p>
+
+<p><code>#import &lt;<a class="el" href="../../d4/d0b/_d_connect_file_descriptor_profile_8h_source.html">DConnectFileDescriptorProfile.h</a>&gt;</code></p>
+<div class="dynheader">
+&lt;DConnectFileDescriptorProfileDelegate&gt; の継承関係図</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.png" usemap="#&lt;DConnectFileDescriptorProfileDelegate&gt;_map" alt=""/>
+  <map id="&lt;DConnectFileDescriptorProfileDelegate&gt;_map" name="&lt;DConnectFileDescriptorProfileDelegate&gt;_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+実体メソッド</h2></td></tr>
+<tr class="memitem:a2d69a699bdd13389894cf78f6bd68d52"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#a2d69a699bdd13389894cf78f6bd68d52">profile:didReceiveGetOpenRequest:response:deviceId:path:flag:</a></td></tr>
+<tr class="memdesc:a2d69a699bdd13389894cf78f6bd68d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルオープンリクエストを受け取ったことをデリゲートに通知する。  <a href="#a2d69a699bdd13389894cf78f6bd68d52">[詳解]</a><br /></td></tr>
+<tr class="separator:a2d69a699bdd13389894cf78f6bd68d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca5bde7794988b3a5057b7c11f9b38d"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#a4ca5bde7794988b3a5057b7c11f9b38d">profile:didReceiveGetReadRequest:response:deviceId:path:length:position:</a></td></tr>
+<tr class="memdesc:a4ca5bde7794988b3a5057b7c11f9b38d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイル読み込みリクエストを受け取ったことをデリゲートに通知する。  <a href="#a4ca5bde7794988b3a5057b7c11f9b38d">[詳解]</a><br /></td></tr>
+<tr class="separator:a4ca5bde7794988b3a5057b7c11f9b38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99da481ae4607c66fd35849d32c3bced"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#a99da481ae4607c66fd35849d32c3bced">profile:didReceivePutCloseRequest:response:deviceId:path:</a></td></tr>
+<tr class="memdesc:a99da481ae4607c66fd35849d32c3bced"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルクローズリクエストを受け取ったことをデリゲートに通知する。  <a href="#a99da481ae4607c66fd35849d32c3bced">[詳解]</a><br /></td></tr>
+<tr class="separator:a99da481ae4607c66fd35849d32c3bced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bea5b7a78e1b35d355829389cc95cc2"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#a3bea5b7a78e1b35d355829389cc95cc2">profile:didReceivePutWriteRequest:response:deviceId:path:media:position:</a></td></tr>
+<tr class="memdesc:a3bea5b7a78e1b35d355829389cc95cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイル書き込みリクエストを受け取ったことをデリゲートに通知する。  <a href="#a3bea5b7a78e1b35d355829389cc95cc2">[詳解]</a><br /></td></tr>
+<tr class="separator:a3bea5b7a78e1b35d355829389cc95cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee030ae3142eb4b5d498ddb4325e314"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#aaee030ae3142eb4b5d498ddb4325e314">profile:didReceivePutOnWatchFileRequest:response:deviceId:sessionKey:</a></td></tr>
+<tr class="memdesc:aaee030ae3142eb4b5d498ddb4325e314"><td class="mdescLeft">&#160;</td><td class="mdescRight">onwatchfileイベント登録リクエストを受け取ったことをデリゲートに通知する。  <a href="#aaee030ae3142eb4b5d498ddb4325e314">[詳解]</a><br /></td></tr>
+<tr class="separator:aaee030ae3142eb4b5d498ddb4325e314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1a1d3a62a2d1b9fd9f9ac7a091bc58"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="../../d9/da5/protocol_d_connect_file_descriptor_profile_delegate-p.html#a5f1a1d3a62a2d1b9fd9f9ac7a091bc58">profile:didReceiveDeleteOnWatchFileRequest:response:deviceId:sessionKey:</a></td></tr>
+<tr class="memdesc:a5f1a1d3a62a2d1b9fd9f9ac7a091bc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">onwatchfileイベント解除リクエストを受け取ったことをデリゲートに通知する。  <a href="#a5f1a1d3a62a2d1b9fd9f9ac7a091bc58">[詳解]</a><br /></td></tr>
+<tr class="separator:a5f1a1d3a62a2d1b9fd9f9ac7a091bc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>File Descriptor Profileの各APIリクエスト通知用デリゲート。 </p>
+<p>File Descriptor Profileの各APIへのリクエスト受信通知を受け取るデリゲート。 </p>
+</div><h2 class="groupheader">メソッド詳解</h2>
+<a class="anchor" id="a5f1a1d3a62a2d1b9fd9f9ac7a091bc58"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) profile: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../d8/d3d/interface_d_connect_file_descriptor_profile.html">DConnectFileDescriptorProfile</a> *)&#160;</td>
+          <td class="paramname"><em>profile</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didReceiveDeleteOnWatchFileRequest:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)&#160;</td>
+          <td class="paramname"><em>request</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">response:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)&#160;</td>
+          <td class="paramname"><em>response</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">deviceId:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>deviceId</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">sessionKey:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>sessionKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">optional</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>onwatchfileイベント解除リクエストを受け取ったことをデリゲートに通知する。 </p>
+<p>profileがonwatchfileイベント解除リクエストを受け取ったことをデリゲートに通知する。<br />
+ 実装されない場合には、Not supportのエラーが返却される。</p>
+<p>[対応するAPI] File Descriptor WatchFile Event API [Unregister] </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>このイベントを通知するDConnectFileDescriptorProfileのオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>リクエスト </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>レスポンス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deviceId</td><td>デバイスID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sessionKey</td><td>セッションキー </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">YES</td><td>レスポンスパラメータを返却する </td></tr>
+    <tr><td class="paramname">NO</td><td>レスポンスパラメータを返却しないので、<a class="el" href="../../d0/d4e/interface_d_connect_manager.html#ac6b04ed4ea456843724367282d5bbf10">DConnectManager::sendResponse:</a>で返却すること。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2d69a699bdd13389894cf78f6bd68d52"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) profile: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../d8/d3d/interface_d_connect_file_descriptor_profile.html">DConnectFileDescriptorProfile</a> *)&#160;</td>
+          <td class="paramname"><em>profile</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didReceiveGetOpenRequest:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)&#160;</td>
+          <td class="paramname"><em>request</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">response:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)&#160;</td>
+          <td class="paramname"><em>response</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">deviceId:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>deviceId</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">path:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>path</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">flag:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">optional</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ファイルオープンリクエストを受け取ったことをデリゲートに通知する。 </p>
+<p>profileがファイルオープンリクエストを受け取ったことをデリゲートに通知する。<br />
+ 実装されない場合には、Not supportのエラーが返却される。</p>
+<p>[対応するAPI] File Descriptor Open API [GET] </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>このイベントを通知するDConnectFileDescriptorProfileのオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>リクエスト </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>レスポンス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deviceId</td><td>デバイスID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>ファイルパス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flag</td><td>フラグ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">YES</td><td>レスポンスパラメータを返却する </td></tr>
+    <tr><td class="paramname">NO</td><td>レスポンスパラメータを返却しないので、<a class="el" href="../../d0/d4e/interface_d_connect_manager.html#ac6b04ed4ea456843724367282d5bbf10">DConnectManager::sendResponse:</a> で返却すること。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4ca5bde7794988b3a5057b7c11f9b38d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) profile: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../d8/d3d/interface_d_connect_file_descriptor_profile.html">DConnectFileDescriptorProfile</a> *)&#160;</td>
+          <td class="paramname"><em>profile</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didReceiveGetReadRequest:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)&#160;</td>
+          <td class="paramname"><em>request</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">response:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)&#160;</td>
+          <td class="paramname"><em>response</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">deviceId:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>deviceId</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">path:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>path</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">length:</td>
+          <td></td>
+          <td class="paramtype">(NSNumber *)&#160;</td>
+          <td class="paramname"><em>length</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">position:</td>
+          <td></td>
+          <td class="paramtype">(NSNumber *)&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">optional</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ファイル読み込みリクエストを受け取ったことをデリゲートに通知する。 </p>
+<p>profileがファイル読み込みリクエストを受け取ったことをデリゲートに通知する。<br />
+ 実装されない場合には、Not supportのエラーが返却される。</p>
+<p>[対応するAPI] File Descriptor Read API [GET] </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>このイベントを通知するDConnectFileDescriptorProfileのオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>リクエスト </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>レスポンス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deviceId</td><td>デバイスID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>ファイルパス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>ファイル読み込みサイズ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>読み込み開始位置。省略された場合はnilが入る。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">YES</td><td>レスポンスパラメータを返却する </td></tr>
+    <tr><td class="paramname">NO</td><td>レスポンスパラメータを返却しないので、<a class="el" href="../../d0/d4e/interface_d_connect_manager.html#ac6b04ed4ea456843724367282d5bbf10">DConnectManager::sendResponse:</a> で返却すること。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a99da481ae4607c66fd35849d32c3bced"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) profile: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../d8/d3d/interface_d_connect_file_descriptor_profile.html">DConnectFileDescriptorProfile</a> *)&#160;</td>
+          <td class="paramname"><em>profile</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didReceivePutCloseRequest:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)&#160;</td>
+          <td class="paramname"><em>request</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">response:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)&#160;</td>
+          <td class="paramname"><em>response</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">deviceId:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>deviceId</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">path:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">optional</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ファイルクローズリクエストを受け取ったことをデリゲートに通知する。 </p>
+<p>profileがファイルクローズリクエストを受け取ったことをデリゲートに通知する。<br />
+ 実装されない場合には、Not supportのエラーが返却される。</p>
+<p>[対応するAPI] File Descriptor Close API [GET] </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>このイベントを通知するDConnectFileDescriptorProfileのオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>リクエスト </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>レスポンス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deviceId</td><td>デバイスID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>ファイルパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">YES</td><td>レスポンスパラメータを返却する </td></tr>
+    <tr><td class="paramname">NO</td><td>レスポンスパラメータを返却しないので、<a class="el" href="../../d0/d4e/interface_d_connect_manager.html#ac6b04ed4ea456843724367282d5bbf10">DConnectManager::sendResponse:</a> で返却すること。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aaee030ae3142eb4b5d498ddb4325e314"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) profile: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../d8/d3d/interface_d_connect_file_descriptor_profile.html">DConnectFileDescriptorProfile</a> *)&#160;</td>
+          <td class="paramname"><em>profile</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didReceivePutOnWatchFileRequest:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)&#160;</td>
+          <td class="paramname"><em>request</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">response:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)&#160;</td>
+          <td class="paramname"><em>response</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">deviceId:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>deviceId</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">sessionKey:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>sessionKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">optional</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>onwatchfileイベント登録リクエストを受け取ったことをデリゲートに通知する。 </p>
+<p>profileがonwatchfileイベント登録リクエストを受け取ったことをデリゲートに通知する。<br />
+ 実装されない場合には、Not supportのエラーが返却される。</p>
+<p>[対応するAPI] File Descriptor WatchFile Event API [Register] </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>このイベントを通知するDConnectFileDescriptorProfileのオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>リクエスト </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>レスポンス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deviceId</td><td>デバイスID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sessionKey</td><td>セッションキー </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">YES</td><td>レスポンスパラメータを返却する </td></tr>
+    <tr><td class="paramname">NO</td><td>レスポンスパラメータを返却しないので、<a class="el" href="../../d0/d4e/interface_d_connect_manager.html#ac6b04ed4ea456843724367282d5bbf10">DConnectManager::sendResponse:</a>で返却すること。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3bea5b7a78e1b35d355829389cc95cc2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) profile: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../d8/d3d/interface_d_connect_file_descriptor_profile.html">DConnectFileDescriptorProfile</a> *)&#160;</td>
+          <td class="paramname"><em>profile</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didReceivePutWriteRequest:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)&#160;</td>
+          <td class="paramname"><em>request</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">response:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)&#160;</td>
+          <td class="paramname"><em>response</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">deviceId:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>deviceId</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">path:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>path</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">media:</td>
+          <td></td>
+          <td class="paramtype">(NSData *)&#160;</td>
+          <td class="paramname"><em>media</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">position:</td>
+          <td></td>
+          <td class="paramtype">(NSNumber *)&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">optional</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ファイル書き込みリクエストを受け取ったことをデリゲートに通知する。 </p>
+<p>profileがファイル書き込みリクエストを受け取ったことをデリゲートに通知する。<br />
+ 実装されない場合には、Not supportのエラーが返却される。</p>
+<p>[対応するAPI] File Descriptor Write API [GET] </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>このイベントを通知するDConnectFileDescriptorProfileのオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>リクエスト </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>レスポンス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deviceId</td><td>デバイスID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>ファイルパス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">media</td><td>ファイルに書き込むデータのバイナリ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>ファイルの書き込み開始位置。省略された場合nilが入る。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">YES</td><td>レスポンスパラメータを返却する </td></tr>
+    <tr><td class="paramname">NO</td><td>レスポンスパラメータを返却しないので、<a class="el" href="../../d0/d4e/interface_d_connect_manager.html#ac6b04ed4ea456843724367282d5bbf10">DConnectManager::sendResponse:</a> で返却すること。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>このプロトコル詳解は次のファイルから抽出されました:<ul>
+<li>DConnectSDK/Headers/<a class="el" href="../../d4/d0b/_d_connect_file_descriptor_profile_8h_source.html">DConnectFileDescriptorProfile.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分46秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

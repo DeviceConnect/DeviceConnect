@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectProximityProfile.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectProximityProfile.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/dec/_d_connect_proximity_profile_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectProximityProfile.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DConnectSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectProfile.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#a247b7d38b6b0a636bb46ae6764dc53a8">DConnectProximityProfileName</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#af6d122f74605d790609cbd2321ee7391">DConnectProximityProfileAttrOnDeviceProximity</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#ab4f6edd74e725cf3d8aea64745031908">DConnectProximityProfileAttrOnUserProximity</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#ad4b7626fd0cbb09cd16764770b0e723f">DConnectProximityProfileParamValue</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#ad05efdc64b991dde4db1a2d96e87f7f9">DConnectProximityProfileParamMin</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#a644772ebf82128571750b4ce5c04e1eb">DConnectProximityProfileParamMax</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#ae670a759029bc8d32ab047376fe9e994">DConnectProximityProfileParamThreshold</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#a8f153e2e776a5aece1148a0ae91b51f4">DConnectProximityProfileParamProximity</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../d3/dec/_d_connect_proximity_profile_8h.html#a35a684ca0e6ffd2e4e4993f5fc7af0eb">DConnectProximityProfileParamNear</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">@class</span> <a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../df/d5d/protocol_d_connect_proximity_profile_delegate-p.html">   71</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="../../df/d5d/protocol_d_connect_proximity_profile_delegate-p.html">DConnectProximityProfileDelegate</a> &lt;NSObject&gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">@optional</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#pragma mark - Put Methods</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#pragma mark Event Registration</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;- (BOOL) profile:(<a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a> *)profile didReceivePutOnDeviceProximityRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;- (BOOL) profile:(<a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a> *)profile didReceivePutOnUserProximityRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#pragma mark - Delete Methods</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#pragma mark Event Unregistration</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;- (BOOL) profile:(<a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a> *)profile didReceiveDeleteOnDeviceProximityRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;- (BOOL) profile:(<a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a> *)profile didReceiveDeleteOnUserProximityRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        response:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        deviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      sessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="../../de/d03/interface_d_connect_proximity_profile.html">  189</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a> : <a class="code" href="../../d6/d26/interface_d_connect_profile.html">DConnectProfile</a></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="../../de/d03/interface_d_connect_proximity_profile.html#a605cfb46bcb9ea85b5f330fe76e53480">  198</a></span>&#160;<span class="keyword">@property</span> (nonatomic, weak) id&lt;DConnectProximityProfileDelegate&gt; <a class="code" href="../../de/d03/interface_d_connect_proximity_profile.html#a605cfb46bcb9ea85b5f330fe76e53480">delegate</a>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#pragma mark - Setter</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;+ (void) setValue:(<span class="keywordtype">double</span>)value target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;+ (void) setMin:(<span class="keywordtype">double</span>)min target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;+ (void) setMax:(<span class="keywordtype">double</span>)max target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;+ (void) setThreshold:(<span class="keywordtype">double</span>)threshold target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;+ (void) setProximity:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)proximity target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;+ (void) setNear:(BOOL)near target:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)message;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_d_connect_message_html"><div class="ttname"><a href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a></div><div class="ttdoc">Device Connect上でやり取りされるメッセージ。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:328</div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_af6d122f74605d790609cbd2321ee7391"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#af6d122f74605d790609cbd2321ee7391">DConnectProximityProfileAttrOnDeviceProximity</a></div><div class="ttdeci">NSString *const DConnectProximityProfileAttrOnDeviceProximity</div><div class="ttdoc">アトリビュート: ondeviceproximity。 </div></div>
+<div class="ttc" id="interface_d_connect_profile_html"><div class="ttname"><a href="../../d6/d26/interface_d_connect_profile.html">DConnectProfile</a></div><div class="ttdoc">プロファイルのベースクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectProfile.h:28</div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_ad05efdc64b991dde4db1a2d96e87f7f9"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#ad05efdc64b991dde4db1a2d96e87f7f9">DConnectProximityProfileParamMin</a></div><div class="ttdeci">NSString *const DConnectProximityProfileParamMin</div><div class="ttdoc">パラメータ: min。 </div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_ab4f6edd74e725cf3d8aea64745031908"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#ab4f6edd74e725cf3d8aea64745031908">DConnectProximityProfileAttrOnUserProximity</a></div><div class="ttdeci">NSString *const DConnectProximityProfileAttrOnUserProximity</div><div class="ttdoc">アトリビュート: onuserproximity。 </div></div>
+<div class="ttc" id="protocol_d_connect_proximity_profile_delegate-p_html"><div class="ttname"><a href="../../df/d5d/protocol_d_connect_proximity_profile_delegate-p.html">DConnectProximityProfileDelegate-p</a></div><div class="ttdoc">Proximity Profileの各APIリクエスト通知用デリゲート。 </div><div class="ttdef"><b>Definition:</b> DConnectProximityProfile.h:71</div></div>
+<div class="ttc" id="interface_d_connect_proximity_profile_html"><div class="ttname"><a href="../../de/d03/interface_d_connect_proximity_profile.html">DConnectProximityProfile</a></div><div class="ttdoc">Proximityプロファイル。 </div><div class="ttdef"><b>Definition:</b> DConnectProximityProfile.h:189</div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_ad4b7626fd0cbb09cd16764770b0e723f"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#ad4b7626fd0cbb09cd16764770b0e723f">DConnectProximityProfileParamValue</a></div><div class="ttdeci">NSString *const DConnectProximityProfileParamValue</div><div class="ttdoc">パラメータ: value。 </div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_a247b7d38b6b0a636bb46ae6764dc53a8"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#a247b7d38b6b0a636bb46ae6764dc53a8">DConnectProximityProfileName</a></div><div class="ttdeci">NSString *const DConnectProximityProfileName</div><div class="ttdoc">プロファイル名: proximity。 </div></div>
+<div class="ttc" id="interface_d_connect_proximity_profile_html_a605cfb46bcb9ea85b5f330fe76e53480"><div class="ttname"><a href="../../de/d03/interface_d_connect_proximity_profile.html#a605cfb46bcb9ea85b5f330fe76e53480">DConnectProximityProfile::delegate</a></div><div class="ttdeci">id&lt; DConnectProximityProfileDelegate &gt; delegate</div><div class="ttdoc">DConnectProximityProfileのデリゲートオブジェクト。 </div><div class="ttdef"><b>Definition:</b> DConnectProximityProfile.h:198</div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_a644772ebf82128571750b4ce5c04e1eb"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#a644772ebf82128571750b4ce5c04e1eb">DConnectProximityProfileParamMax</a></div><div class="ttdeci">NSString *const DConnectProximityProfileParamMax</div><div class="ttdoc">パラメータ: max。 </div></div>
+<div class="ttc" id="interface_d_connect_request_message_html"><div class="ttname"><a href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a></div><div class="ttdoc">リクエストデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectRequestMessage.h:21</div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_ae670a759029bc8d32ab047376fe9e994"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#ae670a759029bc8d32ab047376fe9e994">DConnectProximityProfileParamThreshold</a></div><div class="ttdeci">NSString *const DConnectProximityProfileParamThreshold</div><div class="ttdoc">パラメータ: threshold。 </div></div>
+<div class="ttc" id="interface_d_connect_response_message_html"><div class="ttname"><a href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a></div><div class="ttdoc">レスポンスデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectResponseMessage.h:21</div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_a35a684ca0e6ffd2e4e4993f5fc7af0eb"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#a35a684ca0e6ffd2e4e4993f5fc7af0eb">DConnectProximityProfileParamNear</a></div><div class="ttdeci">NSString *const DConnectProximityProfileParamNear</div><div class="ttdoc">パラメータ: near。 </div></div>
+<div class="ttc" id="_d_connect_proximity_profile_8h_html_a8f153e2e776a5aece1148a0ae91b51f4"><div class="ttname"><a href="../../d3/dec/_d_connect_proximity_profile_8h.html#a8f153e2e776a5aece1148a0ae91b51f4">DConnectProximityProfileParamProximity</a></div><div class="ttdeci">NSString *const DConnectProximityProfileParamProximity</div><div class="ttdoc">パラメータ: proximity。 </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectEventManager.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectEventManager.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d8f/_d_connect_event_manager_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectEventManager.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DConnectSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectRequestMessage.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectEventCacheController.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#pragma mark - DConnectEventManager</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../de/dcb/interface_d_connect_event_manager.html">   30</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../de/dcb/interface_d_connect_event_manager.html">DConnectEventManager</a> : NSObject</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#pragma mark Static Methods</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;+ (<a class="code" href="../../de/dcb/interface_d_connect_event_manager.html">DConnectEventManager</a> *) sharedManagerForClass:(Class)clazz;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;+ (<a class="code" href="../../de/dcb/interface_d_connect_event_manager.html">DConnectEventManager</a> *) sharedManagerForKey:(NSString *)key;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#pragma mark Instance Methods</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;- (void) setController:(<span class="keywordtype">id</span>&lt;<a class="code" href="../../de/d43/protocol_d_connect_event_cache_controller-p.html">DConnectEventCacheController</a>&gt;)controller;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;- (<a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14d">DConnectEventError</a>) addEventForRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;- (<a class="code" href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14d">DConnectEventError</a>) removeEventForRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *)request;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;- (BOOL) removeEventsForSessionKey:(NSString *)sessionKey;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;- (BOOL) <a class="code" href="../../de/dcb/interface_d_connect_event_manager.html#a5f122d2d0381720dd82c7bbd4ab0a47a">removeAll</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;- (NSArray *) eventListForProfile:(NSString *)profile</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        interface:(NSString *)interface</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        attribute:(NSString *)attribute;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;- (NSArray *) eventListForProfile:(NSString *)profile</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        attribute:(NSString *)attribute;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;- (NSArray *) eventListForDeviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                           profile:(NSString *)profile</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                         attribute:(NSString *)attribute;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;- (NSArray *) eventListForDeviceId:(NSString *)deviceId</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                           profile:(NSString *)profile</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                         interface:(NSString *)interface</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                         attribute:(NSString *)attribute;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;- (void) <a class="code" href="../../de/dcb/interface_d_connect_event_manager.html#ac1f19c7d842e5d21771bb8bcbb806f6e">flush</a>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;+ (<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *) createEventMessageWithEvent:(<a class="code" href="../../da/d0a/interface_d_connect_event.html">DConnectEvent</a> *)event;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_d_connect_message_html"><div class="ttname"><a href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a></div><div class="ttdoc">Device Connect上でやり取りされるメッセージ。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:328</div></div>
+<div class="ttc" id="interface_d_connect_event_html"><div class="ttname"><a href="../../da/d0a/interface_d_connect_event.html">DConnectEvent</a></div><div class="ttdoc">イベントの情報を保持するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:35</div></div>
+<div class="ttc" id="_d_connect_event_8h_html_afad3e5cec632720da8f0b03a7684c14d"><div class="ttname"><a href="../../da/d3c/_d_connect_event_8h.html#afad3e5cec632720da8f0b03a7684c14d">DConnectEventError</a></div><div class="ttdeci">DConnectEventError</div><div class="ttdoc">Eventのエラー定義。 </div><div class="ttdef"><b>Definition:</b> DConnectEvent.h:22</div></div>
+<div class="ttc" id="interface_d_connect_event_manager_html"><div class="ttname"><a href="../../de/dcb/interface_d_connect_event_manager.html">DConnectEventManager</a></div><div class="ttdoc">イベント管理機能を提供する。 </div><div class="ttdef"><b>Definition:</b> DConnectEventManager.h:30</div></div>
+<div class="ttc" id="interface_d_connect_request_message_html"><div class="ttname"><a href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a></div><div class="ttdoc">リクエストデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectRequestMessage.h:21</div></div>
+<div class="ttc" id="interface_d_connect_event_manager_html_a5f122d2d0381720dd82c7bbd4ab0a47a"><div class="ttname"><a href="../../de/dcb/interface_d_connect_event_manager.html#a5f122d2d0381720dd82c7bbd4ab0a47a">-[DConnectEventManager removeAll]</a></div><div class="ttdeci">BOOL removeAll()</div><div class="ttdoc">イベントを全て削除する。 </div></div>
+<div class="ttc" id="protocol_d_connect_event_cache_controller-p_html"><div class="ttname"><a href="../../de/d43/protocol_d_connect_event_cache_controller-p.html">DConnectEventCacheController-p</a></div><div class="ttdoc">イベントデータのキャッシュ操作機能を定義するプロトコル。 </div><div class="ttdef"><b>Definition:</b> DConnectEventCacheController.h:27</div></div>
+<div class="ttc" id="interface_d_connect_event_manager_html_ac1f19c7d842e5d21771bb8bcbb806f6e"><div class="ttname"><a href="../../de/dcb/interface_d_connect_event_manager.html#ac1f19c7d842e5d21771bb8bcbb806f6e">-[DConnectEventManager flush]</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">キャッシュデータを書き込む。 </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

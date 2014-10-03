@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Device Connect SDK for iOS: DConnectSDK/Headers/DConnectManager.h ソースファイル</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Device Connect SDK for iOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>総合概要</span></a></li>
+      <li><a href="../../annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="../../files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="../../globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>プロパティ</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3a716b816bb65351320f7ae51d116280.html">DConnectSDK</a></li><li class="navelem"><a class="el" href="../../dir_4647fc15214c15b62bda874302636e77.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DConnectManager.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/d2a/_d_connect_manager_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  DConnectManager.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  dConnectManager</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Copyright (c) 2014 NTT DOCOMO,INC.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Released under the MIT license</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  http://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectRequestMessage.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectResponseMessage.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#import &lt;DConnectSDK/DConnectProfileProvider.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#import &lt;DConnectSDk/DConnectSettings.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../df/d2a/_d_connect_manager_8h.html#a9f567920181028cddff3d43c7cd69173">DConnectApplicationDidEnterBackground</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> NSString *<span class="keyword">const</span> <a class="code" href="../../df/d2a/_d_connect_manager_8h.html#a526b0d0f678f9daf631cddc6a0d18bda">DConnectApplicationWillEnterForeground</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">@class</span> <a class="code" href="../../d0/d4e/interface_d_connect_manager.html">DConnectManager</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../df/d8c/protocol_d_connect_manager_delegate-p.html">   38</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="../../df/d8c/protocol_d_connect_manager_delegate-p.html">DConnectManagerDelegate</a> &lt;NSObject&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;- (void) manager:(<a class="code" href="../../d0/d4e/interface_d_connect_manager.html">DConnectManager</a> *)manager didReceiveDConnectMessage:(<a class="code" href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a> *)event;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d0/d4e/interface_d_connect_manager.html">   68</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d0/d4e/interface_d_connect_manager.html">DConnectManager</a> : NSObject &lt;<a class="code" href="../../db/dfb/protocol_d_connect_profile_provider-p.html">DConnectProfileProvider</a>&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d0/d4e/interface_d_connect_manager.html#a4cd90659ed43fbe47260f1221ea7c9d6">   73</a></span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) <a class="code" href="../../d3/d6e/interface_d_connect_settings.html">DConnectSettings</a> *<a class="code" href="../../d0/d4e/interface_d_connect_manager.html#a4cd90659ed43fbe47260f1221ea7c9d6">settings</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d0/d4e/interface_d_connect_manager.html#a59f01554d8b345f97fceb72bfbe7e59b">   79</a></span>&#160;<span class="keyword">@property</span> (nonatomic, weak) id&lt;DConnectManagerDelegate&gt; <a class="code" href="../../d0/d4e/interface_d_connect_manager.html#a59f01554d8b345f97fceb72bfbe7e59b">delegate</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;+ (<a class="code" href="../../d0/d4e/interface_d_connect_manager.html">DConnectManager</a> *) <a class="code" href="../../d0/d4e/interface_d_connect_manager.html#a17d73481c5e65d289e65879c28bd1ebc">sharedManager</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;- (void) <a class="code" href="../../d0/d4e/interface_d_connect_manager.html#a436a99ceb9038ea855ae3c4479ae44e6">start</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;- (void) <a class="code" href="../../d0/d4e/interface_d_connect_manager.html#a3e41e77557b5a932345036998214d449">startWebsocket</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;- (BOOL) <a class="code" href="../../d0/d4e/interface_d_connect_manager.html#ac6b950365a4ae8befb076ce3f8571cdc">isStarted</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;- (void) sendRequest:(<a class="code" href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a> *) request callback:(<a class="code" href="../../db/d77/_d_connect_message_8h.html#aa47e7cf9287ae51c64ca0f3f3b604d76">DConnectResponseBlocks</a>)callback;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;- (void) sendResponse:(<a class="code" href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a> *)response;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_d_connect_message_html"><div class="ttname"><a href="../../d1/d81/interface_d_connect_message.html">DConnectMessage</a></div><div class="ttdoc">Device Connect上でやり取りされるメッセージ。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:328</div></div>
+<div class="ttc" id="interface_d_connect_manager_html_a3e41e77557b5a932345036998214d449"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html#a3e41e77557b5a932345036998214d449">-[DConnectManager startWebsocket]</a></div><div class="ttdeci">void startWebsocket()</div><div class="ttdoc">Websocketサーバを起動する。 </div></div>
+<div class="ttc" id="_d_connect_message_8h_html_aa47e7cf9287ae51c64ca0f3f3b604d76"><div class="ttname"><a href="../../db/d77/_d_connect_message_8h.html#aa47e7cf9287ae51c64ca0f3f3b604d76">DConnectResponseBlocks</a></div><div class="ttdeci">void(^ DConnectResponseBlocks)(DConnectResponseMessage *response)</div><div class="ttdoc">リクエストメッセージに対するレスポンスメッセージを受け取るblocks。 </div><div class="ttdef"><b>Definition:</b> DConnectMessage.h:132</div></div>
+<div class="ttc" id="interface_d_connect_manager_html_a436a99ceb9038ea855ae3c4479ae44e6"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html#a436a99ceb9038ea855ae3c4479ae44e6">-[DConnectManager start]</a></div><div class="ttdeci">void start()</div><div class="ttdoc">DConnectManagerを開始する。 </div></div>
+<div class="ttc" id="interface_d_connect_manager_html_a4cd90659ed43fbe47260f1221ea7c9d6"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html#a4cd90659ed43fbe47260f1221ea7c9d6">DConnectManager::settings</a></div><div class="ttdeci">DConnectSettings * settings</div><div class="ttdoc">DConnectManagerの設定。 </div><div class="ttdef"><b>Definition:</b> DConnectManager.h:73</div></div>
+<div class="ttc" id="_d_connect_manager_8h_html_a9f567920181028cddff3d43c7cd69173"><div class="ttname"><a href="../../df/d2a/_d_connect_manager_8h.html#a9f567920181028cddff3d43c7cd69173">DConnectApplicationDidEnterBackground</a></div><div class="ttdeci">NSString *const DConnectApplicationDidEnterBackground</div><div class="ttdoc">アプリケーションがホームボタン押下で一時停止されたことを通知するイベント名。 </div></div>
+<div class="ttc" id="_d_connect_manager_8h_html_a526b0d0f678f9daf631cddc6a0d18bda"><div class="ttname"><a href="../../df/d2a/_d_connect_manager_8h.html#a526b0d0f678f9daf631cddc6a0d18bda">DConnectApplicationWillEnterForeground</a></div><div class="ttdeci">NSString *const DConnectApplicationWillEnterForeground</div><div class="ttdoc">アプリケーションが再開されたことを通知するイベント名。 </div></div>
+<div class="ttc" id="interface_d_connect_request_message_html"><div class="ttname"><a href="../../dd/d1c/interface_d_connect_request_message.html">DConnectRequestMessage</a></div><div class="ttdoc">リクエストデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectRequestMessage.h:21</div></div>
+<div class="ttc" id="interface_d_connect_response_message_html"><div class="ttname"><a href="../../df/d9a/interface_d_connect_response_message.html">DConnectResponseMessage</a></div><div class="ttdoc">レスポンスデータを提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectResponseMessage.h:21</div></div>
+<div class="ttc" id="interface_d_connect_manager_html_a17d73481c5e65d289e65879c28bd1ebc"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html#a17d73481c5e65d289e65879c28bd1ebc">+[DConnectManager sharedManager]</a></div><div class="ttdeci">DConnectManager * sharedManager()</div><div class="ttdoc">DConnectManagerのインスタンスを取得する。 </div></div>
+<div class="ttc" id="interface_d_connect_manager_html_ac6b950365a4ae8befb076ce3f8571cdc"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html#ac6b950365a4ae8befb076ce3f8571cdc">-[DConnectManager isStarted]</a></div><div class="ttdeci">BOOL isStarted()</div><div class="ttdoc">DConnectManagerが動作しているかをチェックする。 </div></div>
+<div class="ttc" id="interface_d_connect_manager_html"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html">DConnectManager</a></div><div class="ttdoc">DConnectを管理するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectManager.h:68</div></div>
+<div class="ttc" id="interface_d_connect_manager_html_a59f01554d8b345f97fceb72bfbe7e59b"><div class="ttname"><a href="../../d0/d4e/interface_d_connect_manager.html#a59f01554d8b345f97fceb72bfbe7e59b">DConnectManager::delegate</a></div><div class="ttdeci">id&lt; DConnectManagerDelegate &gt; delegate</div><div class="ttdoc">各デバイスからのイベントを受領するデリゲート。 </div><div class="ttdef"><b>Definition:</b> DConnectManager.h:79</div></div>
+<div class="ttc" id="interface_d_connect_settings_html"><div class="ttname"><a href="../../d3/d6e/interface_d_connect_settings.html">DConnectSettings</a></div><div class="ttdoc">DConnectManagerの設定を保持するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectSettings.h:40</div></div>
+<div class="ttc" id="protocol_d_connect_manager_delegate-p_html"><div class="ttname"><a href="../../df/d8c/protocol_d_connect_manager_delegate-p.html">DConnectManagerDelegate-p</a></div><div class="ttdoc">DConnectManagerからのイベント通知を受け取るデリゲート。 </div><div class="ttdef"><b>Definition:</b> DConnectManager.h:38</div></div>
+<div class="ttc" id="protocol_d_connect_profile_provider-p_html"><div class="ttname"><a href="../../db/dfb/protocol_d_connect_profile_provider-p.html">DConnectProfileProvider-p</a></div><div class="ttdoc">プロファイル管理機能を提供するクラス。 </div><div class="ttdef"><b>Definition:</b> DConnectProfileProvider.h:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2014年09月23日(火) 18時58分45秒作成 - Device Connect SDK for iOS / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
