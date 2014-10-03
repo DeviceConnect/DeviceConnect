@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- アクセストークン発行承認確認が面 -->
+    <dimen name="confirm_auth_outline_margin_lr">10dp</dimen>
+    <dimen name="confirm_auth_outline_margin_tb">50dp</dimen>
+    
+    <dimen name="confirm_auth_application_marksize">48dp</dimen>
+    <dimen name="confirm_auth_application_item_margin">10dp</dimen>
+    
+    <dimen name="confirm_auth_inner_margin">10dp</dimen>
+    <dimen name="confirm_auth_linespace1_margin">20dp</dimen>
+    <dimen name="confirm_auth_linespace2_margin">5dp</dimen>
+    <dimen name="confirm_auth_listitem_margin">10dp</dimen>
+    <dimen name="confirm_auth_listitem_itemmargin">10dp</dimen>
+    <dimen name="confirm_auth_listitem_marksize">36dp</dimen>
+    <dimen name="confirm_auth_expireperiod_margin">10dp</dimen>
+    
+    <dimen name="confirm_auth_approval_button_width">150dp</dimen>
+    <dimen name="confirm_auth_approval_button_height">40dp</dimen>
+    
+    
+</resources>

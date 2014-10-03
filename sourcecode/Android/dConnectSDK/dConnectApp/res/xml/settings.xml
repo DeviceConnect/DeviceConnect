@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/dconnect_authorization" >
+        <EditTextPreference
+            android:enabled="false"
+            android:key="@string/key_settings_dconn_client_id"
+            android:summary="@string/authorization_no_client_id"
+            android:title="@string/authorization_client_id" />
+        <EditTextPreference
+            android:enabled="false"
+            android:key="@string/key_settings_dconn_client_secret"
+            android:summary="@string/authorization_no_client_secret"
+            android:title="@string/authorization_client_secret" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:enabled="false"
+            android:key="@string/key_settings_dconn_access_token"
+            android:summary="@string/authorization_no_access_token"
+            android:title="@string/authorization_access_token" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/dconnect_manager" >
+        <CheckBoxPreference
+            android:key="@string/key_settings_dconn_ssl"
+            android:summaryOff="@string/ssl_disabled"
+            android:summaryOn="@string/ssl_enabled"
+            android:title="@string/ssl" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_host"
+            android:key="@string/key_settings_dconn_host"
+            android:summary="@string/default_host"
+            android:title="@string/host" />
+        <EditTextPreference
+            android:defaultValue="@string/default_port"
+            android:inputType="number"
+            android:key="@string/key_settings_dconn_port"
+            android:summary="@string/default_port"
+            android:title="@string/port" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/about" >
+        <PreferenceScreen
+            android:key="@string/key_settings_about_oss"
+            android:summary="@string/open_source_licenses_summary"
+            android:title="@string/open_source_licenses" />
+        <PreferenceScreen
+            android:key="@string/key_settings_about_tos"
+            android:title="@string/terms_of_service" />
+        <PreferenceScreen
+            android:key="@string/key_settings_about_privacypolicy"
+            android:title="@string/privacy_policy" />
+        <PreferenceScreen
+            android:key="@string/key_settings_about_appinfo"
+            android:summary="@string/app_infomation_summary"
+            android:title="@string/app_name" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

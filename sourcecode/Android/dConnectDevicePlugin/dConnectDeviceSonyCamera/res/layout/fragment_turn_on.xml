@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+	
+    
+    
+     
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0sp" >
+		
+        
+     <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a0e9"
+        	android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="@string/index2"
+            android:textSize="20dip" />
+         
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15sp" >
+		
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img02" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="20sp"
+            android:text="@string/sonycamera_setting_message_QX_2_1"
+            android:textSize="16sp" 
+            android:textColor="#777777"
+            />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="16sp"
+            android:text="@string/sonycamera_setting_message_QX_2_2"
+            android:textSize="16sp" 
+            android:textColor="#777777"
+            />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="16sp"
+            android:text="@string/sonycamera_setting_message_QX_2_3"
+            android:textSize="16sp" 
+            android:textColor="#777777"
+            />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

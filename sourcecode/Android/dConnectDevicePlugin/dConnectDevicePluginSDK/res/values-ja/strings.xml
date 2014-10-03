@@ -1,0 +1,51 @@
+<resources>
+
+    <string name="userid">ユーザーID</string>
+
+    <string name="password">パスワード</string>
+
+    <string name="ok">OK</string>
+
+    <string name="cancel">Cancel</string>
+
+    <string name="approval">同意する</string>
+
+    <string name="notapproval">拒否する</string>
+
+    <string name="expire_period_format">承認後プロファイルにアクセスできる期間は %1$s です。</string>
+    
+    <!-- スコープ表示名("display_scope_"+[プロファイル名] を設定しておくと、プロファイル名をここの文字列に置き換えて表示する)  -->
+    <string name="display_scope_authorization">認証</string>
+    <string name="display_scope_battery">バッテリー</string>
+    <string name="display_scope_connect">接続</string>
+    <string name="display_scope_deviceorientation">加速度</string>
+    <string name="display_scope_file_descriptor">ファイルディスクリプタ</string>
+    <string name="display_scope_file">ファイル</string>
+    <string name="display_scope_vcr">操作イベント受信</string>
+    <string name="display_scope_mediastreams_play">メディア再生</string>
+    <string name="display_scope_mediastream_recording">写真動画撮影／音声録音</string>
+    <string name="display_scope_network_service_discovery">デバイス検索</string>
+    <string name="display_scope_notification">通知</string>
+    <string name="display_scope_phone">電話</string>
+    <string name="display_scope_proximity">近接</string>
+    <string name="display_scope_rssi">電界強度</string>
+    <string name="display_scope_settings">設定</string>
+    <string name="display_scope_system">システム</string>
+    <string name="display_scope_vibration">バイブレーション</string>
+
+    <string name="guidance_comfirm">このアプリは、次へのアクセスが必要</string>
+    <string name="access_authority">アクセス権限</string>
+    <string name="delete">削除</string>
+    <string name="delete_all">全削除</string>
+    <string name="no_token">トークンはありません。</string>
+    <string name="access_token">アクセストークン</string>
+    <string name="access_token_list_item_format">%1$s 他%2$d件</string>
+    <string name="access_token_delete_title">%1$s</string>
+    <string name="access_token_delete_all_title">全削除</string>
+    <string name="access_token_delete_guidance">削除してよろしいですか？</string>
+    <string name="access_token_delete_positive">削除する</string>
+    <string name="access_token_delete_negative">キャンセル</string>
+    <string name="no_application_name">(アプリ名無し)</string>
+    <string name="expire_period_date_format">有効期限 %1$s</string>
+
+</resources>

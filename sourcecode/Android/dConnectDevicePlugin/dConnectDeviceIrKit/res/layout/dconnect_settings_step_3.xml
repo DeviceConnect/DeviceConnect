@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00a0e9"
+        android:gravity="center"
+        android:text="@string/page03"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24sp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16sp"
+                android:text="@string/index3"
+                android:textColor="#666666"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/app_name"
+                android:cropToPadding="true"
+                android:src="@drawable/select_irkit" />
+
+            <Button
+                android:id="@+id/buttonWiFiOpen"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue"
+                android:textColor="#ffffff"
+                android:text="@string/wifi_setting_page_button" />
+
+            </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

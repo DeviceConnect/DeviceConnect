@@ -1,0 +1,10 @@
+/*
+ com.nttdocomo.dconnect.message.intent.impl.io
+ Copyright (c) 2014 NTT DOCOMO,INC.
+ Released under the MIT license
+ http://opensource.org/licenses/mit-license.php
+ */
+/**
+ * Intent I/Oパッケージ.
+ */
+package com.nttdocomo.dconnect.message.intent.impl.io;

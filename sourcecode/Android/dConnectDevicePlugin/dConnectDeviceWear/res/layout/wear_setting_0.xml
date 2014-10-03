@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0sp" >
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a0e9"
+        	android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="Android Wearの設定"
+            android:textSize="20dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="24dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:text="AndroidWearアプリをGoogle Playからダウンロードきて、AndroidWearの設定をします。"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/dconnect_settings_googleplay"
+                android:layout_width="wrap_content"
+                android:layout_height="152dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:src="@drawable/g_play_img" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

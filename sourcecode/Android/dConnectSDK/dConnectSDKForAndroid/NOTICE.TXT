@@ -1,0 +1,8 @@
+This project includes the following libraries under Apache License, Version 2.0:
+ - android-support-v4
+ - httpmime
+ - httpcore
+ - httpcore-nio
+ - httpclient
+ - commons-logging
+ - apache-mime4j

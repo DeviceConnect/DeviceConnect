@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">d-Connectサンプル</string>
+    <string name="action_settings">設定</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="plugins_title">デバイスプラグイン一覧</string>
+    <string name="plugins_error">送信失敗</string>
+
+    <string name="fragment_extra_request">リクエスト</string>
+    <string name="fragment_extra_response">レスポンス</string>
+    <string name="fragment_extra_send">送信</string>
+    
+    <string name="fragment_phone_result">レスポンス</string>
+    
+    <string name="fragment_vibration_pattern">パターン</string>
+    <string name="fragment_vibration_result">レスポンス</string>
+    
+    <string name="fragment_orientation_result">レスポンス</string>
+    <string name="fragment_orientation_event">イベント</string>
+   
+    <string name="register_event">イベント登録</string>
+    <string name="unregister_event">イベント解除</string>
+    
+    <string-array name="notification_type_list">
+        <item>0: 音声通話着信</item>
+        <item>1: メール着信</item>
+        <item>2: SMS着信</item>
+        <item>3: イベント</item>
+    </string-array>
+    <string-array name="service_names">
+        <item>リモートカメラ</item>
+        <item>クラウド連携</item>
+        <item>通知</item>
+        <item>チャイルドウォッチャー</item>
+        <item>ゲームコントローラー</item>
+    </string-array>
+
+</resources>

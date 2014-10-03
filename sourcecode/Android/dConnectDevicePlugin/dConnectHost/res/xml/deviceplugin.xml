@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deviceplugin-provider xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- dConnect Standard Profiles -->
+    <profile name="network_service_discovery" expireperiod="86400000">
+        <name lang="ja">デバイス検索 </name>
+        <description lang="ja">周辺のデバイスを検索する </description>
+        <name lang="en">Network Service Discovery </name>
+        <description lang="en">Searches near devices. </description>
+    </profile>
+    <profile name="system" expireperiod="86400000">
+        <name lang="ja">システム </name>
+        <description lang="ja">システム情報を取得する　</description>
+        <name lang="en">System </name>
+        <description lang="en">Obtains system information. </description>
+    </profile>
+    <profile name="battery" expireperiod="86400000">
+        <name lang="ja">バッテリー情報 </name>
+        <description lang="ja">デバイスのバッテリー情報を取得する </description>
+        <name lang="en">Battery </name>
+        <description lang="en">Obtains battery information. </description>
+    </profile>
+    <profile name="notification" expireperiod="86400000">
+        <name lang="ja">通知 </name>
+        <description lang="ja">通知管理機能にアクセスする </description>
+        <name lang="en">Notification </name>
+        <description lang="en">Accesses notification feature. </description>
+    </profile>
+    <profile name="vibration" expireperiod="86400000">
+        <name lang="ja">バイブレーション </name>
+        <description lang="ja">バイブレーション機能にアクセスする </description>
+        <name lang="en">Vibration </name>
+        <description lang="en">Accesses vibration feature </description>
+    </profile>
+    <profile name="settings" expireperiod="86400000">
+        <name lang="ja">設定 </name>
+        <description lang="ja">デバイスの設定を行う </description>
+        <name lang="en">Settings </name>
+        <description lang="en">Settings of devices </description>
+    </profile>
+    <profile name="deviceorientation" expireperiod="86400000">
+        <name lang="ja">デバイスの向き </name>
+        <description lang="ja">デバイスの向きを取得する </description>
+        <name lang="en">Device Orientation </name>
+        <description lang="en">Obtains device orientation. </description>
+    </profile>
+    <profile name="file" expireperiod="86400000">
+        <name lang="ja">ファイル </name>
+        <description lang="ja">デバイス上のファイルにアクセスする </description>
+        <name lang="en">File </name>
+        <description lang="en">Accesses files in devices. </description>
+    </profile>
+    <profile name="file_descriptor" expireperiod="86400000">
+        <name lang="ja">ファイルディスクリプタ </name>
+        <description lang="ja">ファイルディスクリプタ機能にアクセスする </description>
+        <name lang="en">File Descriptor </name>
+        <description lang="en">Accesses file descriptor feature. </description>
+    </profile>
+    <profile name="proximity" expireperiod="86400000">
+        <name lang="ja">近接 </name>
+        <description lang="ja">デバイスへの近接イベントを取得する </description>
+        <name lang="en">Proximity </name>
+        <description lang="en">Receives proximity events. </description>
+    </profile>
+    <profile name="connect" expireperiod="86400000">
+        <name lang="ja">接続 </name>
+        <description lang="ja">デバイスとの接続機能にアクセスする </description>
+        <name lang="en">Connect </name>
+        <description lang="en">Connects smart phone to devices. </description>
+    </profile>
+    <profile name="mediastream_recording" expireperiod="86400000">
+        <name lang="ja">メディアレコーディング </name>
+        <description lang="ja">メディアレコーディング機能にアクセスする </description>
+        <name lang="en">MediaStream Recording</name>
+        <description lang="en">Accesses mediastream recording feature. </description>
+    </profile>
+    <profile name="phone" expireperiod="86400000">
+        <name lang="ja">電話 </name>
+        <description lang="ja">電話機能にアクセスする </description>
+        <name lang="en">Phone </name>
+        <description lang="en">Accesses phone feature. </description>
+    </profile>
+    <profile name="media_player" expireperiod="86400000">
+        <name lang="ja">メディアプレイヤー </name>
+        <description lang="ja">メディアプレイヤー機能にアクセスする </description>
+        <name lang="en">Media Player </name>
+        <description lang="en">Accesses media player feature. </description>
+    </profile>
+    
+     <profile name="proximity" expireperiod="86400000">
+        <name lang="ja">近接</name>
+        <description lang="ja">近接状態にアクセスする。</description>
+        <name lang="en">Proximity</name>
+        <description lang="en">Accesses media player feature. </description>
+    </profile>
+
+</deviceplugin-provider>

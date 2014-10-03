@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0sp" >
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a0e9"
+        	android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="@string/index2"
+            android:textSize="20dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="24dp" >
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. SmartWatch2の接続準備をする"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/dconnect_settings_step_2_sw1_image_pairing"
+                android:layout_width="wrap_content"
+                android:layout_height="152dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:src="@drawable/bt_img02" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw2_description_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="1) SmartWatch2のホーム画面にある設定アイコンをタップし、設定画面を開きます。"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw2_description_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="2) [Bluetooth]がONであるか確認します。"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw2_description_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="3) [Bluetooth]をタップします。"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw2_description_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="4) [検出可能にする]をタップします。"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw2_description_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.20"
+                android:text="5) 確認ダイアログ出現後、許可ボタンをタップします。端末が再起動するので完了するまで待機します。"
+                android:textColor="#666666" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

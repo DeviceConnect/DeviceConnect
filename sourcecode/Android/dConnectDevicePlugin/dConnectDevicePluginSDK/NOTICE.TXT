@@ -1,0 +1,2 @@
+This project includes the following *modified* libraries under Apache License, Version 2.0:
+ - Restlet Framework

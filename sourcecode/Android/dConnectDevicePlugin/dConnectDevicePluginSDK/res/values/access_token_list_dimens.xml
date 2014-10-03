@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="access_token_list_item_space">20dp</dimen>
+    
+</resources>

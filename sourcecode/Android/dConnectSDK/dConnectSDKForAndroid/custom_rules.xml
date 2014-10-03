@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <target name="javadoc">
+        <path id="javadoc.sourcepath">
+                <pathelement path="src"/>
+        </path>                
+
+        <javadoc 
+                sourcepathref="javadoc.sourcepath"
+                destdir="docs" 
+                encoding="UTF-8" charset="UTF-8"
+                doctitle="Device Connect SDK for Android Documentation" >
+        </javadoc>
+    </target>
+</project>

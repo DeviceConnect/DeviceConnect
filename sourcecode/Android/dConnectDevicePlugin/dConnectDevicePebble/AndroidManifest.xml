@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nttdocomo.android.dconnect.deviceplugin.pebble"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.nttdocomo.android.dconnect.deviceplugin.pebble.setting.PebbleSettingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="setting"
+                    android:path="/diceplus"
+                    android:scheme="dconnect" />
+            </intent-filter>
+        </activity>
+
+        <!-- Contents Provider -->
+        <provider
+            android:name="com.nttdocomo.android.dconnect.provider.FileProvider"
+            android:authorities="com.nttdocomo.android.dconnect.deviceplugin.pebble.PebbleDeviceProvider"
+            android:exported="true" />
+
+        <receiver
+            android:name=".PebbleDeviceProvider"
+            android:enabled="true"
+            android:exported="true" >
+            <meta-data
+                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:resource="@xml/deviceplugin" />
+
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.GET" />
+                <action android:name="org.deviceconnect.action.PUT" />
+                <action android:name="org.deviceconnect.action.POST" />
+                <action android:name="org.deviceconnect.action.DELETE" />
+                <action android:name="org.deviceconnect.action.RESPONSE" />
+                <action android:name="org.deviceconnect.action.EVENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".PebbleDeviceService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.GET" />
+                <action android:name="org.deviceconnect.action.PUT" />
+                <action android:name="org.deviceconnect.action.POST" />
+                <action android:name="org.deviceconnect.action.DELETE" />
+                <action android:name="org.deviceconnect.action.RESPONSE" />
+                <action android:name="org.deviceconnect.action.EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- LocalOAuth -->
+        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity"
+            android:theme="@style/AppTheme.Translucent">
+        </activity>
+
+        <service
+            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

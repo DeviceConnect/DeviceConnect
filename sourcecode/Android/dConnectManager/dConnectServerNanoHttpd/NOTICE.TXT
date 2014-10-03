@@ -1,0 +1,5 @@
+This project includes the following libraries under Apache License, Version 2.0:
+ - Google TV Pairing Protocol
+
+This project includes the following libraries under Apache License, Version 1.1:
+ - OpenPGP

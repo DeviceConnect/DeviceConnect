@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <target name="javadoc">
+        <path id="javadoc.sourcepath">
+                <pathelement path="src"/>
+        </path>
+        <javadoc 
+                destdir="docs"
+                verbose="${verbose}"
+                bootclasspath="${sdk.dir}/platforms/${target}/android.jar"
+                encoding="UTF-8" charset="UTF-8"
+                doctitle="Device Connect Device Plugin SDK API Library Documentation" >
+            <sourcepath path="${source.absolute.dir}" />
+        </javadoc>
+    </target>
+</project>

@@ -1,0 +1,81 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nttdocomo.android.dconnect.deviceplugin.wear"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+	
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    
+    <uses-feature
+        android:name="android.hardware.type.watch"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+    	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/dconnect_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+		
+		<meta-data
+            android:name="com.google.android.wearable.beta.app"
+            android:resource="@xml/wearable_app_desc" />
+    	
+    	<meta-data android:name="com.google.android.gms.version"
+    	    android:value="@integer/google_play_services_version" />
+		
+    	<!--  Setting -->
+    	<activity android:name=".setting.WearSettingActivity">
+    	     <intent-filter>
+                
+            </intent-filter>
+    	</activity>
+            
+        <!-- d-Connect Test Device Plugin Provider. -->
+        <receiver
+            android:name=".WearDeviceProvider"
+            android:enabled="true"
+            android:exported="true" >
+            <meta-data
+                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:resource="@xml/deviceplugin" />
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.GET" />
+                <action android:name="org.deviceconnect.action.PUT" />
+                <action android:name="org.deviceconnect.action.POST" />
+                <action android:name="org.deviceconnect.action.DELETE" />
+            </intent-filter>
+        </receiver>
+        
+        <service
+            android:name=".WearDeviceService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.GET" />
+                <action android:name="org.deviceconnect.action.PUT" />
+                <action android:name="org.deviceconnect.action.POST" />
+                <action android:name="org.deviceconnect.action.DELETE" />
+                <action android:name="org.deviceconnect.wear.notification.open" />
+            </intent-filter>
+        </service>
+
+        <!-- LocalOAuth -->
+        <activity
+            android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity">
+        </activity>
+        <service
+            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

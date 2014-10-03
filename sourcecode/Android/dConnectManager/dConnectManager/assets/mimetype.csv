@@ -1,0 +1,11 @@
+txt, text/plain
+htm, text/html
+html, text/html
+xhtml, application/xhtml+xml
+png, image/png
+jpg, image/jpeg
+jpeg, image/jpeg
+gif, image/gif
+mpg, video/mpeg
+mp3, audio/mp3
+mp4, video/mp4

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#fff0f0f0</color>
+    <color name="half_transparent">#c0000000</color>
+    <color name="text_color">#ff434343</color>
+    <color name="guidance_background">#ffaccb39</color>
+    
+</resources>

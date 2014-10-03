@@ -1,0 +1,4 @@
+com.nttdocomo.dconnect.server
+com.nttdocomo.dconnect.server.http
+com.nttdocomo.dconnect.server.logger
+com.nttdocomo.dconnect.server.websocket

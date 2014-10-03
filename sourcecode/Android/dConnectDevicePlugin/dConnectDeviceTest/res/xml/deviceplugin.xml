@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deviceplugin-provider xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- dConnect Standard Profiles -->
+    <profile name="network_service_discovery" expireperiod="86400000">
+        <name lang="ja">デバイス検索 (テスト用)</name>
+        <description lang="ja">周辺のデバイスを検索する (テスト用)</description>
+        <name lang="en">Network Service Discovery (for test)</name>
+        <description lang="en">Searches near devices. (for test)</description>
+    </profile>
+    <profile name="system" expireperiod="86400000">
+        <name lang="ja">システム (テスト用)</name>
+        <description lang="ja">システム情報を取得する　(テスト用)</description>
+        <name lang="en">System (for test)</name>
+        <description lang="en">Obtains system information. (for test)</description>
+    </profile>
+    <profile name="battery" expireperiod="86400000">
+        <name lang="ja">バッテリー情報 (テスト用)</name>
+        <description lang="ja">デバイスのバッテリー情報を取得する (テスト用)</description>
+        <name lang="en">Battery (for test)</name>
+        <description lang="en">Obtains battery information. (for test)</description>
+    </profile>
+    <profile name="notification" expireperiod="86400000">
+        <name lang="ja">通知 (テスト用)</name>
+        <description lang="ja">通知管理機能にアクセスする (テスト用)</description>
+        <name lang="en">Notification (for test)</name>
+        <description lang="en">Accesses notification feature. (for test)</description>
+    </profile>
+    <profile name="vibration" expireperiod="86400000">
+        <name lang="ja">バイブレーション (テスト用)</name>
+        <description lang="ja">バイブレーション機能にアクセスする (テスト用)</description>
+        <name lang="en">Vibration (for test)</name>
+        <description lang="en">Accesses vibration feature (for test)</description>
+    </profile>
+    <profile name="settings" expireperiod="86400000">
+        <name lang="ja">設定 (テスト用)</name>
+        <description lang="ja">デバイスの設定を行う (テスト用)</description>
+        <name lang="en">Settings (for test)</name>
+        <description lang="en">Settings of devices (for test)</description>
+    </profile>
+    <profile name="deviceorientation" expireperiod="86400000">
+        <name lang="ja">デバイスの向き (テスト用)</name>
+        <description lang="ja">デバイスの向きを取得する (テスト用)</description>
+        <name lang="en">Device Orientation (for test)</name>
+        <description lang="en">Obtains device orientation. (for test)</description>
+    </profile>
+    <profile name="file" expireperiod="86400000">
+        <name lang="ja">ファイル (テスト用)</name>
+        <description lang="ja">デバイス上のファイルにアクセスする (テスト用)</description>
+        <name lang="en">File (for test)</name>
+        <description lang="en">Accesses files in devices. (for test)</description>
+    </profile>
+    <profile name="file_descriptor" expireperiod="86400000">
+        <name lang="ja">ファイルディスクリプタ (テスト用)</name>
+        <description lang="ja">ファイルディスクリプタ機能にアクセスする (テスト用)</description>
+        <name lang="en">File Descriptor (for test)</name>
+        <description lang="en">Accesses file descriptor feature. (for test)</description>
+    </profile>
+    <profile name="proximity" expireperiod="86400000">
+        <name lang="ja">近接 (テスト用)</name>
+        <description lang="ja">デバイスへの近接イベントを取得する (テスト用)</description>
+        <name lang="en">Proximity (for test)</name>
+        <description lang="en">Receives proximity events. (for test)</description>
+    </profile>
+    <profile name="connect" expireperiod="86400000">
+        <name lang="ja">接続 (テスト用)</name>
+        <description lang="ja">デバイスとの接続機能にアクセスする (テスト用)</description>
+        <name lang="en">Connect (for test)</name>
+        <description lang="en">Connects smart phone to devices. (for test)</description>
+    </profile>
+    <profile name="mediastream_recording" expireperiod="86400000">
+        <name lang="ja">メディアレコーディング (テスト用)</name>
+        <description lang="ja">メディアレコーディング機能にアクセスする (テスト用)</description>
+        <name lang="en">MediaStream Recording(for test)</name>
+        <description lang="en">Accesses mediastream recording feature. (for test)</description>
+    </profile>
+    <profile name="phone" expireperiod="86400000">
+        <name lang="ja">電話 (テスト用)</name>
+        <description lang="ja">電話機能にアクセスする (テスト用)</description>
+        <name lang="en">Phone (for test)</name>
+        <description lang="en">Accesses phone feature. (for test)</description>
+    </profile>
+    <profile name="media_player" expireperiod="86400000">
+        <name lang="ja">メディアプレイヤー (テスト用)</name>
+        <description lang="ja">メディアプレイヤー機能にアクセスする (テスト用)</description>
+        <name lang="en">Media Player (for test)</name>
+        <description lang="en">Accesses media player feature. (for test)</description>
+    </profile>
+
+    <!-- Unique Profile -->
+    <profile name="unique" expireperiod="86400000">
+        <name lang="ja">独自プロファイル</name>
+        <description lang="ja">独自プロファイルにアクセスする (テスト用)</description>
+        <name lang="en">Unique Profile (for test)</name>
+        <description lang="en">Accesses to uniqure profile. (for test)</description>
+    </profile>
+    <profile name="json_test" expireperiod="86400000">
+        <name lang="ja">JSON (テスト用)</name>
+        <description lang="ja">テスト用JSONを提供する (テスト用)</description>
+        <name lang="en">JSON Test (for test)</name>
+        <description lang="en">Provides JSON. (for test)</description>
+    </profile>
+    <profile name="abc" expireperiod="86400000">
+        <name lang="ja">ダミープロファイル (テスト用)</name>
+        <description lang="ja">実装されないダミープロファイル(テスト用)</description>
+        <name lang="en">Dummy Profile(for test)</name>
+        <description lang="en">Dummy profile which is not implemented. (for test)</description>
+    </profile>
+    <profile name="not_localized_profile" expireperiod="86400000"></profile>
+
+</deviceplugin-provider>

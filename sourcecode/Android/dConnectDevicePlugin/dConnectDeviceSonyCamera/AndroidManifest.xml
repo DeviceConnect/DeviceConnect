@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nttdocomo.android.dconnect.deviceplugin.sonycamera"
+    android:versionCode="1"
+    android:versionName="1.0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".SonyCameraDeviceApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/dconnect_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activity.SonyCameraSettingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <provider
+            android:name="com.nttdocomo.android.dconnect.provider.FileProvider"
+            android:authorities="com.nttdocomo.android.dconnect.deviceplugin.sonycamera.provider"
+            android:exported="true" />
+
+        <receiver android:name=".receiver.WiFiStateReceiver" >
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nttdocomo.dconnect.message.intent.DConnectAndroidResponseReceiver" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.RESPONSE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- d-Connect SonyCamera Device Plugin Provider. -->
+        <receiver android:name=".SonyCameraDeviceProvider" >
+            <meta-data
+                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:resource="@xml/deviceplugin" />
+
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.GET" />
+                <action android:name="org.deviceconnect.action.PUT" />
+                <action android:name="org.deviceconnect.action.POST" />
+                <action android:name="org.deviceconnect.action.DELETE" />
+                <action android:name="org.deviceconnect.action.RESPONSE" />
+                <action android:name="org.deviceconnect.action.EVENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".SonyCameraDeviceService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.GET" />
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.PUT" />
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.POST" />
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.DELETE" />
+            </intent-filter>
+        </service>
+        
+        <activity 
+            android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity"
+            android:theme="@style/AppTheme.Translucent">
+        </activity>
+
+        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.AccessTokenListActivity" >
+        </activity>
+
+        <service
+            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+            </intent-filter>
+        </service>
+        
+    </application>
+
+</manifest>

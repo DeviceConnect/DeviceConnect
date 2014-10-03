@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nttdocomo.android.dconnect"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <application>
+
+        <!--
+        Device Connect Message Task Receiver.
+
+        DConnectAndroidResponseReceiver is a Device Connect response message receiver.
+        It receives the message and through the message to DConnectMessageTask.
+        If your application receives the response message,
+        you should include the following receiver definition.
+        -->
+        <receiver android:name="com.nttdocomo.dconnect.message.intent.DConnectAndroidResponseReceiver">
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.RESPONSE" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

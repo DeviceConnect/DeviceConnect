@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deviceplugin-provider xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- dConnect Standard Profiles -->
+    <profile name="network_service_discovery" expireperiod="86400000">
+        <name lang="ja">デバイス検索</name>
+        <description lang="ja">周辺のデバイスを検索する</description>
+        <name lang="en">Network Service Discovery </name>
+        <description lang="en">Searches near devices.</description>
+    </profile>
+    <profile name="system" expireperiod="86400000">
+        <name lang="ja">システム</name>
+        <description lang="ja">システム情報を取得する</description>
+        <name lang="en">System</name>
+        <description lang="en">Obtains system information. </description>
+    </profile>
+    <profile name="notification" expireperiod="86400000">
+        <name lang="ja">通知</name>
+        <description lang="ja">通知管理機能にアクセスする</description>
+        <name lang="en">Notification </name>
+        <description lang="en">Accesses notification feature. </description>
+    </profile>
+    
+     <profile name="vibration" expireperiod="86400000">
+        <name lang="ja">バイブレーション</name>
+        <description lang="ja">バイブレーション機能にアクセスする </description>
+        <name lang="en">Vibrarion </name>
+        <description lang="en">Accesses vibrarion feature. </description>
+    </profile>
+    
+     <profile name="deviceorientation" expireperiod="86400000">
+        <name lang="ja">加速度</name>
+        <description lang="ja">加速度機能にアクセスする </description>
+        <name lang="en">Device Orientation </name>
+        <description lang="en">Accesses device orientation. </description>
+    </profile>
+
+</deviceplugin-provider>

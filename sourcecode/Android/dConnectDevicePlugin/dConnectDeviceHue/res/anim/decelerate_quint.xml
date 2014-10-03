@@ -1,0 +1,3 @@
+<!-- アニメーション減速設定 -->
+<decelerateInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+        android:factor="2.5" />

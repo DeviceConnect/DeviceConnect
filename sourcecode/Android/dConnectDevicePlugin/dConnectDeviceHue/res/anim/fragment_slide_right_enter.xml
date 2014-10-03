@@ -1,0 +1,14 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+        android:interpolator="@anim/decelerate_quint">
+
+    <!-- 右から入ってくるアニメーション -->
+        <translate xmlns:android="http://schemas.android.com/apk/res/android"
+                android:fromXDelta="100%p" android:toXDelta="0%p"
+                android:duration="500"/>
+
+        <!-- 次第に現れてくるアニメーション -->
+        <alpha
+                android:fromAlpha="0.0" android:toAlpha="1.0"
+                android:duration="500" />
+        
+</set>

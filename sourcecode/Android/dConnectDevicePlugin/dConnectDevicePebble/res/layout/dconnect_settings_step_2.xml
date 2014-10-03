@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0sp" >
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a0e9"
+        	android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="@string/page02"
+            android:textSize="20dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="24dp" >
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/index2"
+                android:textColor="#666666"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="180sp"
+                android:layout_gravity="center"
+                android:src="@drawable/img02" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_description_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/page02_explain01"
+                android:textColor="#666666" />
+
+            <Button
+                android:id="@+id/dconnect_settings_step_2_button_launch_bluetooth_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/step2_button_text"
+                android:textAlignment="center" 
+                android:background="@drawable/button_blue"
+                android:textColor="#FFFFFF"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

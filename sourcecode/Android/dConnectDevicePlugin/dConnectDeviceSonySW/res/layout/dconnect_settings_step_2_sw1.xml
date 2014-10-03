@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0sp" >
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e4007f"
+        	android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="@string/index2"
+            android:textSize="20dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="24dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:text="2. SmartWatchの接続準備をする"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/dconnect_settings_step_2_sw1_image_pairing"
+                android:layout_width="wrap_content"
+                android:layout_height="152dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:src="@drawable/img02" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw1_description_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="1) SmartWatchの電源をOFFにします。"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw1_description_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="2) 電源ボタンを7秒間押し続けます。"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_step_2_sw1_description_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="3) 以下のような画面が表示されると端末から SmartWatchを検出可能となります。"
+                android:textColor="#666666" />
+
+            <ImageView
+                android:layout_width="276dp"
+                android:layout_height="136dp"
+                android:layout_gravity="center"
+                android:src="@drawable/img03" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

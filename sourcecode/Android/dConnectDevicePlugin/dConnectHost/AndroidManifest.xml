@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nttdocomo.android.dconnect.deviceplugin.host"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+　	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".HostDeviceApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/dconnect_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".setting.HostSettingActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+        </activity>
+
+        <!-- d-Connect Host Device Plugin Provider. -->
+        <receiver android:name=".HostDeviceProvider" >
+            <meta-data
+                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:resource="@xml/deviceplugin" />
+
+            <intent-filter>
+                <action android:name="org.deviceconnect.action.GET" />
+                <action android:name="org.deviceconnect.action.PUT" />
+                <action android:name="org.deviceconnect.action.POST" />
+                <action android:name="org.deviceconnect.action.DELETE" />
+                <action android:name="org.deviceconnect.action.RESPONSE" />
+                <action android:name="org.deviceconnect.action.EVENT" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- BroadcastReceiver for Host -->
+        <receiver android:name=".HostDeviceReceiver" >
+            <intent-filter>
+                <!-- Battry Profile -->
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+    			<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+    			
+    			<!-- Connection Profile -->
+ 				<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                
+                <!-- Phone Profile -->
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".HostDeviceService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.GET" />
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.PUT" />
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.POST" />
+                <action android:name="com.nttdocomo.android.dconnect.intent.action.DELETE" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".activity.BluetoothManageActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <receiver android:name="com.nttdocomo.android.dconnect.deviceplugin.host.camera.CameraReceiver" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.SEND_CAMERA_TO_HOSTDP" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".HostDeviceNotificationService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+        
+		<activity android:name=".video.VideoRecorder" android:screenOrientation="landscape">    
+        </activity>
+        
+		<activity android:name=".video.VideoPlayer" android:screenOrientation="landscape" android:launchMode="singleInstance">    
+        </activity>
+        
+		<activity android:name=".camera.CameraActivity" android:screenOrientation="landscape">
+        </activity>
+        
+		<activity android:name=".video.PhotoActivity" android:screenOrientation="landscape" android:launchMode="singleInstance" android:finishOnCloseSystemDialogs="true">
+        </activity>
+        
+		<activity android:name=".audio.AudioRecorder" android:screenOrientation="portrait"> 
+		</activity>
+        
+        <receiver android:name="com.nttdocomo.android.dconnect.deviceplugin.host.video.VideoRecorder" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.SEND_VIDEO_TO_HOSTDP" />
+            </intent-filter>
+        </receiver>
+        
+        <provider
+            android:name="com.nttdocomo.android.dconnect.provider.FileProvider"
+            android:authorities="com.nttdocomo.android.dconnect.deviceplugin.host.provider"
+            android:exported="true">
+              <meta-data
+              android:name="filelocation"
+              android:resource="@xml/filelocation" />
+       </provider>
+	
+        <!-- LocalOAuth -->
+        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity"
+            android:theme="@style/AppTheme.Translucent">
+        </activity>
+
+        <service
+            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

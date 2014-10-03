@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Host 1.0.9</string>
+    <string name="camera_name">d-Connect Camera</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="about">About</string>
+
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    
+    <string name="open_source_licenses">Open Source Licenses</string>
+    <string name="open_source_licenses_summary">Legal information about licenses</string>
+    
+    <string name="application_version">Application version</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    
+    <string name="running">running</string>
+    <string name="stopped">stopped</string>
+    
+    <string name="switch_cam">Switch Camera</string>
+    <string name="camera_alert">Device has only one camera!</string>
+    <string name="shutter">Shutter</string>
+    <string name="zoomin">Zoomin</string>
+    <string name="zoomout">Zoomout</string>
+    
+</resources>

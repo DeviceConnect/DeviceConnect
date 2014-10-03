@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0sp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15sp" >
+
+           
+
+            <TextView
+                android:id="@+id/dconnect_settings_main_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:text="SmartWatchの設定を行います。"
+                android:textColor="#777777"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/dconnect_settings_text_select_sw_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="接続するSmartWatchのモデルを選択してください。"
+                android:textColor="#777777"
+                android:textSize="18sp" />
+            </LinearLayout> 
+       
+             
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="15sp" >
+             <ImageView  
+				  android:id="@+id/dconnect_settings_omage_sw1"  
+				  android:layout_width="wrap_content"   
+				  android:layout_height="wrap_content"  
+				  android:src="@drawable/mn2">  
+				</ImageView> 
+
+             <ImageView  
+				  android:id="@+id/dconnect_settings_omage_sw2"   
+				  android:layout_width="wrap_content"   
+				  android:layout_height="wrap_content"  
+				  android:src="@drawable/sw2">  
+			</ImageView> 
+             
+        </LinearLayout>
+        
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="15sp" >
+
+           
+
+            <Button
+                android:id="@+id/dconnect_settings_button_sw1"
+                android:text="選択\n (旧型)" 
+                android:layout_width="140dp"
+        		android:layout_height="70dp"
+        		android:textColor="#FFFFFF"
+                android:background="@drawable/button_red"
+                />
+            
+             <Button
+                android:id="@+id/dconnect_settings_button_sw2"
+                android:text="選択\n (新型)" 
+                android:layout_width="140dp"
+        		android:layout_height="70dp"
+        		android:textColor="#FFFFFF"
+                android:background="@drawable/button_blue"
+                />
+             </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
