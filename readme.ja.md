@@ -41,14 +41,21 @@ Android root
 ４．トップページに戻ってください。
 
 ５．"Launch UI-App"のリンクからDeviceConnectWebAPIの動作をご確認ください。
+
   ・CheckボタンでDeviceConnectWebAPIの動作状況の確認が行えます。
+
   ・未起動の場合、"Device Connect was not foud."と表示されます。
+
   ・DeviceConnectManagerがインストールされていれば、設定画面が表示されます。
-  ・DeviceConnectManagerをONにしてWeb画面に戻り、もう一度Checkボタンを押すと
-  ・Device Connect API version:1.0と表示されます。
+
+  ・DeviceConnectManagerをONにしてWeb画面に戻り、もう一度Checkボタンを押すとDevice Connect API version:1.0と表示されます。
+
   ・accessTokenボタンでコンテンツからのデバイス機能アクセスを許可します。
+
   ・Search Deviceボタンを押すとインストールされているプラグインのリストが表示されます。
+
   ・HOSTを選ぶと利用できる機能の一覧（Profile List）が表示されます。
+
   ・そこから、vibrationを選び、Vibrateを選ぶと端末が振動します（最初の利用時にプラグイン利用の許可が必要です）。
 
 
