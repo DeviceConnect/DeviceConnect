@@ -12,7 +12,7 @@ Device Connect WebAPIはスマートフォン上で仮想サーバとして動�
 
 
 # サンプルでの動作確認（Android用）
-* /DeviceConnect/Bin/demoWebSite.zip
+* https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
 
 ## Android端末でのChromeブラウザからの動作確認
 
