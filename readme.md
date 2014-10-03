@@ -2,14 +2,15 @@
 "DeviceConnect WebAPI" is WebAPI which operates as a virtual server on a smart phone. It can use easily various wearable devices and an IoT device by unific description from a web browser or an application. 
 
 # Example for Android
-* /DeviceConnect/Bin/demoWebSite.zip
+* https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
+
 1.Make this Folder to Android's internal Storage.
 ```
 Android root
-   „¤„Ÿ„Ÿ mnt
-         „¤„Ÿ„Ÿ sdcard
-               „¤„Ÿ„Ÿ dConnect 
-                     „¤„Ÿ„Ÿ demoWebSite
+   â””â”€â”€ mnt
+       â””â”€â”€ sdcard
+           â””â”€â”€ dConnect
+                â””â”€â”€ demoWebSite
 ```
 
 2.Access the internal file URI with Chrome browser.
@@ -38,14 +39,14 @@ Android root
     <td>SmartWatchMN2</td>
     <td>Watch</td>
     <td>MN2/SW2</td>
-    <td></td>
+    <td>Need the app launch on SmartWatch</td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>SmartWatchSW2</td>
     <td>Watch</td>
     <td>MN2/SW2</td>
-    <td></td>
+    <td>Need the app launch on SmartWatch</td>
   </tr>
   <tr>
     <td>Orbotix</td>
@@ -143,21 +144,21 @@ Android root
     <td>G Watch</td>
     <td>Android  Wear</td>
     <td>Wear</td>
-    <td></td>
+    <td>Provisional support</td>
   </tr>
   <tr>
     <td>Samsung</td>
     <td>Gear Live</td>
     <td>Android  Wear</td>
     <td>Wear</td>
-    <td></td>
+    <td>Provisional support</td>
   </tr>
   <tr>
     <td>Google</td>
     <td>ChromeCast</td>
     <td>ChromeCast</td>
     <td>Chromecast</td>
-    <td></td>
+    <td>Need to register the Receiver Apps and device on Google Cast SDK Developer Console.</td>
   </tr>
   <tr>
     <td>AND</td>
