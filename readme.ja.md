@@ -2,7 +2,8 @@
 
 Device Connect WebAPIはスマートフォン上で仮想サーバとして動作するWebAPIで、様々なウェアラブルデバイスやIoTデバイスをWebブラウザやアプリから統一的な記述で簡単に利用することができます。
 
-* 動作環境として、Android、iOSに対応しています。WebブラウザとしてはChrome、Safari、Firefoxで動作を確認しています。
+* 動作環境として、Android、iOSに対応しています。WebブラウザとしてはChrome、Safari(擬似的な仕組み)、Firefoxで動作を確認しています。
+ 
   _※それぞれの動作環境で利用できる対応デバイスは異なります。_
 * 仮想サーバによるREST/WebSocketのWebAPIにより、任意の開発環境がご利用いただけます。
 * コンテンツ開発を容易にするために、Javascript用SDK、Android用SDK、iOS用SDKを用意しています。
@@ -34,6 +35,7 @@ Android root
 
 ３．"Download APK"のリンクから、Device Connect本体の"DeviceConnectManager"、
 　　デバイスプラグインの"Android Host"をダウンロードし、インストールしてください。
+
 　　_※設定のセキュリティから、提供元不明のアプリのインストールの許可が必要です。_
 
 ４．トップページに戻ってください。
@@ -54,6 +56,7 @@ Android root
 ##外部からのアクセスについて
 
 * demoWebSiteのHTMLにIPアドレスのパラメータを付加することで、ローカルネットワーク上の他の端末で動作するDeviceConnect WebAPIの操作も可能になります。ただし、操作される側の端末に以下の設定が必要です。
+
  _※遠隔で意図しない端末の操作およびデータ参照をされるリスクが伴います。信頼が出来ないローカルネットワーク環境では利用しないでください。_
 
 １．上記の動作確認と同様の手順で、操作対象の端末にDeviceConnect WebAPIをセットアップしてください。
@@ -84,14 +87,14 @@ Android root
     <td>SmartWatchMN2</td>
     <td>腕時計型デバイス</td>
     <td>ＭＮ２／ＳＷ２ プラグイン</td>
-    <td></td>
+    <td>通知以外の機能を利用するには、スマートウォッチ側でミニアプリの起動が必要</td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>SmartWatchSW2</td>
     <td>腕時計型デバイス</td>
     <td>ＭＮ２／ＳＷ２ プラグイン</td>
-    <td></td>
+    <td>通知以外の機能を利用するには、スマートウォッチ側でミニアプリの起動が必要</td>
   </tr>
   <tr>
     <td>Orbotix</td>
@@ -105,7 +108,8 @@ Android root
     <td>DICE+</td>
     <td>サイコロ型スマートトイ</td>
     <td>ＤＩＣＥ＋ プラグイン</td>
-    <td>開発者向けファームウェアへのアップデートが必要です。</td>
+"    <td>ソースコード開示なし
+開発者向けファームウェアへのアップデートが必要</td>"
   </tr>
   <tr>
     <td>Philips</td>
@@ -189,184 +193,183 @@ Android root
     <td>G Watch</td>
     <td>Android  Wear端末</td>
     <td>Ｗｅａｒプラグイン</td>
-    <td></td>
+    <td>仮対応のため、ADBでのAPKのインストールが必要</td>
   </tr>
   <tr>
     <td>Samsung</td>
     <td>Gear Live</td>
     <td>Android  Wear端末</td>
     <td>Ｗｅａｒプラグイン</td>
-    <td></td>
+    <td>仮対応のため、ADBでのAPKのインストールが必要</td>
   </tr>
   <tr>
     <td>Google</td>
     <td>ChromeCast</td>
     <td>HDMIドングル</td>
     <td>ＣｈｒｏｍｅＣａｓｔ プラグイン</td>
-    <td>Google Cast SDK Developer Consoleのページで、デバイスとReceiverアプリの登録が必要になります。</td>
+    <td>Google Cast SDK Developer ConsoleのページでデバイスとReceiverアプリの登録が必要</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UA-767PBT-C</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UA-851PBT-C</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>TM-2656VPM</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UC-321PBT-C</td>
     <td>体重計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HEM-708-IT</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HBF-206IT</td>
     <td>体重体組成計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HHX-IT1</td>
     <td>活動量計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UA-772</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UW201</td>
     <td>活動量計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HEM-7250IT</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HBF-208IT</td>
     <td>体重体組成計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HBF-215IT</td>
     <td>体重体組成計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>ESTERA</td>
     <td>FS-500</td>
     <td>歩数計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>ESTERA</td>
     <td>FS-700</td>
     <td>活動量計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>YAMASA</td>
     <td>EX-950</td>
     <td>歩数計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MSFV01</td>
     <td>血糖計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MT-KT02DZ</td>
     <td>歩行強度計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>C215</td>
     <td>体温計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ES-H700D</td>
     <td>血圧計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ZS-NS05</td>
     <td>パルスオキシメータ</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>WT-B100DZ</td>
     <td>体組成計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>Polar</td>
     <td>H7</td>
     <td>心拍計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>Mio Global</td>
     <td>Mio Alpha</td>
     <td>心拍計</td>
     <td>ｍＨｅａｌｔｈプラグイン</td>
-    <td></td>
+    <td>ソースコード開示なし</td>
   </tr>
-
 </table>
 
 * 各メーカーが動作を保障するものではありません
