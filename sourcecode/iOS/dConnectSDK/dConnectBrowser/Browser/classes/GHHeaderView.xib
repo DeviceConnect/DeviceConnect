@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GHHeaderView">
+            <connections>
+                <outlet property="reloadbtn" destination="rmc-Xb-kah" id="plT-IB-rIY"/>
+                <outlet property="searchBar" destination="Ye0-aN-oOu" id="Pgl-np-9TE"/>
+                <outlet property="urlLabel" destination="Jlw-4w-W4l" id="ESr-wx-1M5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ye0-aN-oOu">
+                    <rect key="frame" x="0.0" y="0.0" width="324" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="EVk-zH-yP1"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jlw-4w-W4l" customClass="GHURLLabel">
+                    <rect key="frame" x="10" y="7" width="305" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmc-Xb-kah">
+                    <rect key="frame" x="274" y="0.0" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="8RG-cr-JeO"/>
+                        <constraint firstAttribute="height" constant="44" id="EqH-SD-U1j"/>
+                    </constraints>
+                    <state key="normal" image="reload.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="gXM-n4-jAT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ye0-aN-oOu" secondAttribute="trailing" id="8Wc-2I-WNJ"/>
+                <constraint firstItem="Ye0-aN-oOu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pqo-gf-KYT"/>
+                <constraint firstItem="Jlw-4w-W4l" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="STE-tf-N5Q"/>
+                <constraint firstItem="rmc-Xb-kah" firstAttribute="top" secondItem="Ye0-aN-oOu" secondAttribute="top" id="axN-zL-bBD"/>
+                <constraint firstItem="rmc-Xb-kah" firstAttribute="centerY" secondItem="Jlw-4w-W4l" secondAttribute="centerY" id="exT-pr-vBw"/>
+                <constraint firstAttribute="trailing" secondItem="Jlw-4w-W4l" secondAttribute="trailing" constant="9" id="nBK-rD-IRy"/>
+                <constraint firstItem="Jlw-4w-W4l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ndT-iO-g7l"/>
+                <constraint firstAttribute="trailing" secondItem="rmc-Xb-kah" secondAttribute="trailing" constant="6" id="srS-Ef-qSM"/>
+                <constraint firstAttribute="bottom" secondItem="Jlw-4w-W4l" secondAttribute="bottom" constant="7" id="zHz-4G-TBW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="reload.png" width="30" height="30"/>
+    </resources>
+</document>

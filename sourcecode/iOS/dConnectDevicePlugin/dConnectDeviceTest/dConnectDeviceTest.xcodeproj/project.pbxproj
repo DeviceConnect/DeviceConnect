@@ -1,0 +1,908 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		300D50251990BD81007C9EDD /* dConnectDeviceTestFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 300D50281990BD81007C9EDD /* Build configuration list for PBXAggregateTarget "dConnectDeviceTestFramework" */;
+			buildPhases = (
+				300D50291990BD88007C9EDD /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceTestFramework;
+			productName = dConnectDeviceTestFramework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		301B89BA198F7799006EC109 /* TestNotificationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 301B89B9198F7799006EC109 /* TestNotificationProfile.m */; };
+		301B89BD198F7F66006EC109 /* TestPhoneProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 301B89BC198F7F66006EC109 /* TestPhoneProfile.m */; };
+		301B89C0198F848F006EC109 /* TestProximityProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 301B89BF198F848F006EC109 /* TestProximityProfile.m */; };
+		301B89C3198F871B006EC109 /* TestSettingsProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 301B89C2198F871B006EC109 /* TestSettingsProfile.m */; };
+		301B89C6198F8A20006EC109 /* TestSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 301B89C5198F8A20006EC109 /* TestSystemProfile.m */; };
+		301B89C9198F8C4E006EC109 /* TestVibrationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 301B89C8198F8C4E006EC109 /* TestVibrationProfile.m */; };
+		309CD51C198B2CCE002A5684 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309CD51B198B2CCE002A5684 /* Foundation.framework */; };
+		309CD52A198B2CCF002A5684 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309CD529198B2CCF002A5684 /* XCTest.framework */; };
+		309CD52B198B2CCF002A5684 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309CD51B198B2CCE002A5684 /* Foundation.framework */; };
+		309CD536198B2CCF002A5684 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 309CD534198B2CCF002A5684 /* InfoPlist.strings */; };
+		309CD545198B2E31002A5684 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CD544198B2E31002A5684 /* Info.plist */; };
+		309CD54D198B3BFE002A5684 /* DeviceTestPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD54C198B3BFE002A5684 /* DeviceTestPlugin.m */; };
+		309CD553198B3CF9002A5684 /* TestBatteryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD552198B3CF9002A5684 /* TestBatteryProfile.m */; };
+		309CD556198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD555198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.m */; };
+		309CD55C198B692B002A5684 /* TestConnectProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD55B198B692B002A5684 /* TestConnectProfile.m */; };
+		309CD55F198F2F7A002A5684 /* TestDeviceOrientationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD55E198F2F7A002A5684 /* TestDeviceOrientationProfile.m */; };
+		309CD562198F31E4002A5684 /* TestFileDescriptorProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD561198F31E4002A5684 /* TestFileDescriptorProfile.m */; };
+		309CD565198F3732002A5684 /* TestFileProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD564198F3732002A5684 /* TestFileProfile.m */; };
+		309CD568198F3D5D002A5684 /* TestMediaPlayerProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD567198F3D5D002A5684 /* TestMediaPlayerProfile.m */; };
+		309CD56B198F5FEE002A5684 /* TestMediaStreamRecordingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CD56A198F5FEE002A5684 /* TestMediaStreamRecordingProfile.m */; };
+		6B859FCC19C6E9D100EC5A8F /* libdConnectDeviceTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 309CD518198B2CCE002A5684 /* libdConnectDeviceTest.a */; };
+		840DC9C919A6D7AC00CA2EA0 /* RESTfulFailSettingsProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9C819A6D7AC00CA2EA0 /* RESTfulFailSettingsProfileTest.m */; };
+		840DC9CB19A6FD7200CA2EA0 /* RESTfulFailPhoneProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9CA19A6FD7200CA2EA0 /* RESTfulFailPhoneProfileTest.m */; };
+		840DC9CD19A70FF500CA2EA0 /* RESTfulFailNotificationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9CC19A70FF500CA2EA0 /* RESTfulFailNotificationProfileTest.m */; };
+		840DC9CF19A717A600CA2EA0 /* RESTfulFailFileDescriptorProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9CE19A717A600CA2EA0 /* RESTfulFailFileDescriptorProfileTest.m */; };
+		840DC9D119A71B9000CA2EA0 /* RESTfulFailFileProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9D019A71B9000CA2EA0 /* RESTfulFailFileProfileTest.m */; };
+		840DC9D319A7286700CA2EA0 /* RESTfulFailMediaPlayerProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9D219A7286700CA2EA0 /* RESTfulFailMediaPlayerProfileTest.m */; };
+		840DC9D519A7303200CA2EA0 /* RESTfulFailMediaStreamRecordingProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DC9D419A7303200CA2EA0 /* RESTfulFailMediaStreamRecordingProfileTest.m */; };
+		8428953F19A2002500D9ECFF /* RESTfulNormalFileProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953519A2002500D9ECFF /* RESTfulNormalFileProfileTest.m */; };
+		8428954019A2002500D9ECFF /* RESTfulNormalMediaPlayerProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953619A2002500D9ECFF /* RESTfulNormalMediaPlayerProfileTest.m */; };
+		8428954119A2002500D9ECFF /* RESTfulNormalMediaStreamRecordingProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953719A2002500D9ECFF /* RESTfulNormalMediaStreamRecordingProfileTest.m */; };
+		8428954219A2002500D9ECFF /* RESTfulNormalNotificationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953819A2002500D9ECFF /* RESTfulNormalNotificationProfileTest.m */; };
+		8428954319A2002500D9ECFF /* RESTfulNormalPhoneProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953919A2002500D9ECFF /* RESTfulNormalPhoneProfileTest.m */; };
+		8428954419A2002500D9ECFF /* RESTfulNormalProximityProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953A19A2002500D9ECFF /* RESTfulNormalProximityProfileTest.m */; };
+		8428954519A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953B19A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m */; };
+		8428954619A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953C19A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m */; };
+		8428954719A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953D19A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m */; };
+		84525F4C19CD557100F987E9 /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84525F4B19CD557100F987E9 /* DConnectSDK.framework */; };
+		845458A71998E5BE0017F06D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458A61998E5BE0017F06D /* libsqlite3.0.dylib */; };
+		845458A81998E5D50017F06D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458A61998E5BE0017F06D /* libsqlite3.0.dylib */; };
+		845458AE1998E9D50017F06D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458AC1998E9D50017F06D /* SRWebSocket.m */; };
+		845458B21998EA350017F06D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458B01998EA1D0017F06D /* libicucore.dylib */; };
+		845458B41998EA450017F06D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458B31998EA450017F06D /* CFNetwork.framework */; };
+		845458B61998EA520017F06D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458B51998EA520017F06D /* Security.framework */; };
+		845458B91999A4EB0017F06D /* RESTfulTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458B81999A4EB0017F06D /* RESTfulTestCase.m */; };
+		845458BE1999A6730017F06D /* DConnectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458BD1999A6730017F06D /* DConnectTestCase.m */; };
+		845458C01999D2160017F06D /* RESTfulNormalBatteryProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458BF1999D2160017F06D /* RESTfulNormalBatteryProfileTest.m */; };
+		845458C319A199F50017F06D /* RESTfulNormalConnectProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458C219A199F50017F06D /* RESTfulNormalConnectProfileTest.m */; };
+		845458C919A1C2A90017F06D /* RESTfulNormalFileDescriptorProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458C819A1C2A90017F06D /* RESTfulNormalFileDescriptorProfileTest.m */; };
+		845458D019A1C34D0017F06D /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458CD19A1C34D0017F06D /* Hash.m */; };
+		845458D119A1C34D0017F06D /* Multipart.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458CF19A1C34D0017F06D /* Multipart.m */; };
+		847B3B1E19BD7A3A003ED5F4 /* TestUniqueEventProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B3B1D19BD7A3A003ED5F4 /* TestUniqueEventProfile.m */; };
+		848EB54D19A33394001F307F /* RESTfulNormalNetworkServiceDiscoveryProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EB54C19A33394001F307F /* RESTfulNormalNetworkServiceDiscoveryProfileTest.m */; };
+		8490A34C19A488210031FD1E /* RESTfulNormalDeviceOrientationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490A34B19A488210031FD1E /* RESTfulNormalDeviceOrientationProfileTest.m */; };
+		8490A34F19A488350031FD1E /* RESTfulFailSystemProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490A34D19A488350031FD1E /* RESTfulFailSystemProfileTest.m */; };
+		8490A35019A488350031FD1E /* RESTfulFailNetworkServiceDiscoveryProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490A34E19A488350031FD1E /* RESTfulFailNetworkServiceDiscoveryProfileTest.m */; };
+		84EBE7D419B5CB1B0089AD35 /* RESTfulNormalAuthorizationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBE7D319B5CB1B0089AD35 /* RESTfulNormalAuthorizationProfileTest.m */; };
+		84EBE7D719B5E2340089AD35 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBE7D619B5E2340089AD35 /* AccessToken.m */; };
+		84EBE8EE19B88BFB0089AD35 /* RESTfulFailAuthorizationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBE8ED19B88BFB0089AD35 /* RESTfulFailAuthorizationProfileTest.m */; };
+		84FA974D19A4CF430053B2FD /* RESTfulStressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA974C19A4CF430053B2FD /* RESTfulStressTest.m */; };
+		84FA974F19A5942E0053B2FD /* RESTfulFailBatteryProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA974E19A5942E0053B2FD /* RESTfulFailBatteryProfileTest.m */; };
+		84FA975219A59CBD0053B2FD /* RESTfulFailCommonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA975119A59CBD0053B2FD /* RESTfulFailCommonTest.m */; };
+		84FA975519A5C8850053B2FD /* RESTfulNormalCommonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA975419A5C8850053B2FD /* RESTfulNormalCommonTest.m */; };
+		84FA975819A5D3580053B2FD /* TestUniquePingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA975719A5D3580053B2FD /* TestUniquePingProfile.m */; };
+		84FA975B19A5F1DE0053B2FD /* TestUniqueTimeoutProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA975A19A5F1DE0053B2FD /* TestUniqueTimeoutProfile.m */; };
+		84FA975D19A608ED0053B2FD /* RESTfulFailConnectProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA975C19A608ED0053B2FD /* RESTfulFailConnectProfileTest.m */; };
+		84FA975F19A610BA0053B2FD /* RESTfulFailDeviceOrientationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA975E19A610BA0053B2FD /* RESTfulFailDeviceOrientationProfileTest.m */; };
+		84FA976119A615400053B2FD /* RESTfulFailVibrationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA976019A615400053B2FD /* RESTfulFailVibrationProfileTest.m */; };
+		84FA976319A61A890053B2FD /* RESTfulFailProximityProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA976219A61A890053B2FD /* RESTfulFailProximityProfileTest.m */; };
+		84FF95A71998DCD500394D76 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FF95A61998DCD500394D76 /* AssetsLibrary.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		309CD52E198B2CCF002A5684 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 309CD510198B2CCE002A5684 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 309CD517198B2CCE002A5684;
+			remoteInfo = dConnectDeviceTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		309CD516198B2CCE002A5684 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		301B89B8198F7799006EC109 /* TestNotificationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNotificationProfile.h; sourceTree = "<group>"; };
+		301B89B9198F7799006EC109 /* TestNotificationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNotificationProfile.m; sourceTree = "<group>"; };
+		301B89BB198F7F66006EC109 /* TestPhoneProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPhoneProfile.h; sourceTree = "<group>"; };
+		301B89BC198F7F66006EC109 /* TestPhoneProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPhoneProfile.m; sourceTree = "<group>"; };
+		301B89BE198F848F006EC109 /* TestProximityProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProximityProfile.h; sourceTree = "<group>"; };
+		301B89BF198F848F006EC109 /* TestProximityProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProximityProfile.m; sourceTree = "<group>"; };
+		301B89C1198F871B006EC109 /* TestSettingsProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSettingsProfile.h; sourceTree = "<group>"; };
+		301B89C2198F871B006EC109 /* TestSettingsProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSettingsProfile.m; sourceTree = "<group>"; };
+		301B89C4198F8A20006EC109 /* TestSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSystemProfile.h; sourceTree = "<group>"; };
+		301B89C5198F8A20006EC109 /* TestSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSystemProfile.m; sourceTree = "<group>"; };
+		301B89C7198F8C4E006EC109 /* TestVibrationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVibrationProfile.h; sourceTree = "<group>"; };
+		301B89C8198F8C4E006EC109 /* TestVibrationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVibrationProfile.m; sourceTree = "<group>"; };
+		309CD518198B2CCE002A5684 /* libdConnectDeviceTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdConnectDeviceTest.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		309CD51B198B2CCE002A5684 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		309CD51F198B2CCE002A5684 /* dConnectDeviceTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectDeviceTest-Prefix.pch"; sourceTree = "<group>"; };
+		309CD528198B2CCF002A5684 /* dConnectDeviceTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDeviceTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		309CD529198B2CCF002A5684 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		309CD52C198B2CCF002A5684 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		309CD533198B2CCF002A5684 /* dConnectDeviceTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectDeviceTestTests-Info.plist"; sourceTree = "<group>"; };
+		309CD535198B2CCF002A5684 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		309CD544198B2E31002A5684 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		309CD54B198B3BFE002A5684 /* DeviceTestPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTestPlugin.h; sourceTree = "<group>"; };
+		309CD54C198B3BFE002A5684 /* DeviceTestPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTestPlugin.m; sourceTree = "<group>"; };
+		309CD551198B3CF9002A5684 /* TestBatteryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBatteryProfile.h; sourceTree = "<group>"; };
+		309CD552198B3CF9002A5684 /* TestBatteryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBatteryProfile.m; sourceTree = "<group>"; };
+		309CD554198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNetworkServiceDiscoveryProfile.h; sourceTree = "<group>"; };
+		309CD555198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNetworkServiceDiscoveryProfile.m; sourceTree = "<group>"; };
+		309CD55A198B692B002A5684 /* TestConnectProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestConnectProfile.h; sourceTree = "<group>"; };
+		309CD55B198B692B002A5684 /* TestConnectProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestConnectProfile.m; sourceTree = "<group>"; };
+		309CD55D198F2F7A002A5684 /* TestDeviceOrientationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDeviceOrientationProfile.h; sourceTree = "<group>"; };
+		309CD55E198F2F7A002A5684 /* TestDeviceOrientationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDeviceOrientationProfile.m; sourceTree = "<group>"; };
+		309CD560198F31E4002A5684 /* TestFileDescriptorProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFileDescriptorProfile.h; sourceTree = "<group>"; };
+		309CD561198F31E4002A5684 /* TestFileDescriptorProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFileDescriptorProfile.m; sourceTree = "<group>"; };
+		309CD563198F3731002A5684 /* TestFileProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFileProfile.h; sourceTree = "<group>"; };
+		309CD564198F3732002A5684 /* TestFileProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFileProfile.m; sourceTree = "<group>"; };
+		309CD566198F3D5D002A5684 /* TestMediaPlayerProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMediaPlayerProfile.h; sourceTree = "<group>"; };
+		309CD567198F3D5D002A5684 /* TestMediaPlayerProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMediaPlayerProfile.m; sourceTree = "<group>"; };
+		309CD569198F5FEE002A5684 /* TestMediaStreamRecordingProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMediaStreamRecordingProfile.h; sourceTree = "<group>"; };
+		309CD56A198F5FEE002A5684 /* TestMediaStreamRecordingProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMediaStreamRecordingProfile.m; sourceTree = "<group>"; };
+		840DC9C819A6D7AC00CA2EA0 /* RESTfulFailSettingsProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailSettingsProfileTest.m; path = dConnectManager/RESTful/RESTfulFailSettingsProfileTest.m; sourceTree = "<group>"; };
+		840DC9CA19A6FD7200CA2EA0 /* RESTfulFailPhoneProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailPhoneProfileTest.m; path = dConnectManager/RESTful/RESTfulFailPhoneProfileTest.m; sourceTree = "<group>"; };
+		840DC9CC19A70FF500CA2EA0 /* RESTfulFailNotificationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailNotificationProfileTest.m; path = dConnectManager/RESTful/RESTfulFailNotificationProfileTest.m; sourceTree = "<group>"; };
+		840DC9CE19A717A600CA2EA0 /* RESTfulFailFileDescriptorProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailFileDescriptorProfileTest.m; path = dConnectManager/RESTful/RESTfulFailFileDescriptorProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		840DC9D019A71B9000CA2EA0 /* RESTfulFailFileProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailFileProfileTest.m; path = dConnectManager/RESTful/RESTfulFailFileProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		840DC9D219A7286700CA2EA0 /* RESTfulFailMediaPlayerProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailMediaPlayerProfileTest.m; path = dConnectManager/RESTful/RESTfulFailMediaPlayerProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		840DC9D419A7303200CA2EA0 /* RESTfulFailMediaStreamRecordingProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailMediaStreamRecordingProfileTest.m; path = dConnectManager/RESTful/RESTfulFailMediaStreamRecordingProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		841B33EF19CAE962000278F7 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = "../../dConnectSDK/dConnectSDKForIOS/build/Release-framework/DConnectSDK.framework"; sourceTree = "<group>"; };
+		8428953519A2002500D9ECFF /* RESTfulNormalFileProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalFileProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalFileProfileTest.m; sourceTree = "<group>"; };
+		8428953619A2002500D9ECFF /* RESTfulNormalMediaPlayerProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalMediaPlayerProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalMediaPlayerProfileTest.m; sourceTree = "<group>"; };
+		8428953719A2002500D9ECFF /* RESTfulNormalMediaStreamRecordingProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalMediaStreamRecordingProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalMediaStreamRecordingProfileTest.m; sourceTree = "<group>"; };
+		8428953819A2002500D9ECFF /* RESTfulNormalNotificationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalNotificationProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalNotificationProfileTest.m; sourceTree = "<group>"; };
+		8428953919A2002500D9ECFF /* RESTfulNormalPhoneProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalPhoneProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalPhoneProfileTest.m; sourceTree = "<group>"; };
+		8428953A19A2002500D9ECFF /* RESTfulNormalProximityProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalProximityProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalProximityProfileTest.m; sourceTree = "<group>"; };
+		8428953B19A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalSettingsProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalSettingsProfileTest.m; sourceTree = "<group>"; };
+		8428953C19A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalSystemProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalSystemProfileTest.m; sourceTree = "<group>"; };
+		8428953D19A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalVibrationProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalVibrationProfileTest.m; sourceTree = "<group>"; };
+		84525F4819CD471C00F987E9 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = "../../dConnectSDK/dConnectSDKForIOS/build/Debug-framework/DConnectSDK.framework"; sourceTree = "<group>"; };
+		84525F4B19CD557100F987E9 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = ../../dConnectSDK/dConnectSDKForIOS/bin/DConnectSDK.framework; sourceTree = "<group>"; };
+		845458A61998E5BE0017F06D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		845458AB1998E9D50017F06D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		845458AC1998E9D50017F06D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		845458B01998EA1D0017F06D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		845458B31998EA450017F06D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		845458B51998EA520017F06D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		845458B71999A4EB0017F06D /* RESTfulTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESTfulTestCase.h; path = dConnectManager/RESTful/RESTfulTestCase.h; sourceTree = "<group>"; };
+		845458B81999A4EB0017F06D /* RESTfulTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulTestCase.m; path = dConnectManager/RESTful/RESTfulTestCase.m; sourceTree = "<group>"; };
+		845458BC1999A6730017F06D /* DConnectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DConnectTestCase.h; path = dConnectManager/DConnectTestCase.h; sourceTree = "<group>"; };
+		845458BD1999A6730017F06D /* DConnectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DConnectTestCase.m; path = dConnectManager/DConnectTestCase.m; sourceTree = "<group>"; };
+		845458BF1999D2160017F06D /* RESTfulNormalBatteryProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalBatteryProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalBatteryProfileTest.m; sourceTree = "<group>"; };
+		845458C219A199F50017F06D /* RESTfulNormalConnectProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalConnectProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalConnectProfileTest.m; sourceTree = "<group>"; };
+		845458C819A1C2A90017F06D /* RESTfulNormalFileDescriptorProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalFileDescriptorProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalFileDescriptorProfileTest.m; sourceTree = "<group>"; };
+		845458CC19A1C34D0017F06D /* Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hash.h; sourceTree = "<group>"; };
+		845458CD19A1C34D0017F06D /* Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hash.m; sourceTree = "<group>"; };
+		845458CE19A1C34D0017F06D /* Multipart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Multipart.h; sourceTree = "<group>"; };
+		845458CF19A1C34D0017F06D /* Multipart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Multipart.m; sourceTree = "<group>"; };
+		847B3B1C19BD7A3A003ED5F4 /* TestUniqueEventProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUniqueEventProfile.h; sourceTree = "<group>"; };
+		847B3B1D19BD7A3A003ED5F4 /* TestUniqueEventProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUniqueEventProfile.m; sourceTree = "<group>"; };
+		848EB54C19A33394001F307F /* RESTfulNormalNetworkServiceDiscoveryProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalNetworkServiceDiscoveryProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalNetworkServiceDiscoveryProfileTest.m; sourceTree = "<group>"; };
+		8490A34B19A488210031FD1E /* RESTfulNormalDeviceOrientationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalDeviceOrientationProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalDeviceOrientationProfileTest.m; sourceTree = "<group>"; };
+		8490A34D19A488350031FD1E /* RESTfulFailSystemProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailSystemProfileTest.m; path = dConnectManager/RESTful/RESTfulFailSystemProfileTest.m; sourceTree = "<group>"; };
+		8490A34E19A488350031FD1E /* RESTfulFailNetworkServiceDiscoveryProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailNetworkServiceDiscoveryProfileTest.m; path = dConnectManager/RESTful/RESTfulFailNetworkServiceDiscoveryProfileTest.m; sourceTree = "<group>"; };
+		84EBE7D319B5CB1B0089AD35 /* RESTfulNormalAuthorizationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalAuthorizationProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalAuthorizationProfileTest.m; sourceTree = "<group>"; };
+		84EBE7D519B5E2340089AD35 /* AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessToken.h; path = dConnectManager/AccessToken.h; sourceTree = "<group>"; };
+		84EBE7D619B5E2340089AD35 /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessToken.m; path = dConnectManager/AccessToken.m; sourceTree = "<group>"; };
+		84EBE7E919B6EE480089AD35 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84EBE8ED19B88BFB0089AD35 /* RESTfulFailAuthorizationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailAuthorizationProfileTest.m; path = dConnectManager/RESTful/RESTfulFailAuthorizationProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84FA974C19A4CF430053B2FD /* RESTfulStressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulStressTest.m; path = dConnectManager/RESTful/RESTfulStressTest.m; sourceTree = "<group>"; };
+		84FA974E19A5942E0053B2FD /* RESTfulFailBatteryProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailBatteryProfileTest.m; path = dConnectManager/RESTful/RESTfulFailBatteryProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84FA975119A59CBD0053B2FD /* RESTfulFailCommonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailCommonTest.m; path = dConnectManager/RESTful/RESTfulFailCommonTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84FA975419A5C8850053B2FD /* RESTfulNormalCommonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalCommonTest.m; path = dConnectManager/RESTful/RESTfulNormalCommonTest.m; sourceTree = "<group>"; };
+		84FA975619A5D3580053B2FD /* TestUniquePingProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUniquePingProfile.h; sourceTree = "<group>"; };
+		84FA975719A5D3580053B2FD /* TestUniquePingProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUniquePingProfile.m; sourceTree = "<group>"; };
+		84FA975919A5F1DE0053B2FD /* TestUniqueTimeoutProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUniqueTimeoutProfile.h; sourceTree = "<group>"; };
+		84FA975A19A5F1DE0053B2FD /* TestUniqueTimeoutProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUniqueTimeoutProfile.m; sourceTree = "<group>"; };
+		84FA975C19A608ED0053B2FD /* RESTfulFailConnectProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailConnectProfileTest.m; path = dConnectManager/RESTful/RESTfulFailConnectProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84FA975E19A610BA0053B2FD /* RESTfulFailDeviceOrientationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailDeviceOrientationProfileTest.m; path = dConnectManager/RESTful/RESTfulFailDeviceOrientationProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84FA976019A615400053B2FD /* RESTfulFailVibrationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailVibrationProfileTest.m; path = dConnectManager/RESTful/RESTfulFailVibrationProfileTest.m; sourceTree = "<group>"; };
+		84FA976219A61A890053B2FD /* RESTfulFailProximityProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailProximityProfileTest.m; path = dConnectManager/RESTful/RESTfulFailProximityProfileTest.m; sourceTree = "<group>"; };
+		84FF95A61998DCD500394D76 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		309CD515198B2CCE002A5684 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845458A81998E5D50017F06D /* libsqlite3.0.dylib in Frameworks */,
+				309CD51C198B2CCE002A5684 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		309CD525198B2CCF002A5684 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84525F4C19CD557100F987E9 /* DConnectSDK.framework in Frameworks */,
+				6B859FCC19C6E9D100EC5A8F /* libdConnectDeviceTest.a in Frameworks */,
+				845458B61998EA520017F06D /* Security.framework in Frameworks */,
+				845458B41998EA450017F06D /* CFNetwork.framework in Frameworks */,
+				845458B21998EA350017F06D /* libicucore.dylib in Frameworks */,
+				845458A71998E5BE0017F06D /* libsqlite3.0.dylib in Frameworks */,
+				84FF95A71998DCD500394D76 /* AssetsLibrary.framework in Frameworks */,
+				309CD52A198B2CCF002A5684 /* XCTest.framework in Frameworks */,
+				309CD52B198B2CCF002A5684 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		309CD50F198B2CCE002A5684 = {
+			isa = PBXGroup;
+			children = (
+				309CD51D198B2CCE002A5684 /* dConnectDeviceTest */,
+				309CD531198B2CCF002A5684 /* dConnectDeviceTestTests */,
+				309CD51A198B2CCE002A5684 /* Frameworks */,
+				309CD519198B2CCE002A5684 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		309CD519198B2CCE002A5684 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				309CD518198B2CCE002A5684 /* libdConnectDeviceTest.a */,
+				309CD528198B2CCF002A5684 /* dConnectDeviceTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		309CD51A198B2CCE002A5684 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84525F4B19CD557100F987E9 /* DConnectSDK.framework */,
+				84525F4819CD471C00F987E9 /* DConnectSDK.framework */,
+				841B33EF19CAE962000278F7 /* DConnectSDK.framework */,
+				84EBE7E919B6EE480089AD35 /* UIKit.framework */,
+				845458B51998EA520017F06D /* Security.framework */,
+				845458B31998EA450017F06D /* CFNetwork.framework */,
+				845458B01998EA1D0017F06D /* libicucore.dylib */,
+				845458A61998E5BE0017F06D /* libsqlite3.0.dylib */,
+				84FF95A61998DCD500394D76 /* AssetsLibrary.framework */,
+				309CD51B198B2CCE002A5684 /* Foundation.framework */,
+				309CD529198B2CCF002A5684 /* XCTest.framework */,
+				309CD52C198B2CCF002A5684 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		309CD51D198B2CCE002A5684 /* dConnectDeviceTest */ = {
+			isa = PBXGroup;
+			children = (
+				309CD543198B2E1B002A5684 /* Resources */,
+				309CD541198B2DF9002A5684 /* Classes */,
+				309CD51E198B2CCE002A5684 /* Supporting Files */,
+			);
+			path = dConnectDeviceTest;
+			sourceTree = "<group>";
+		};
+		309CD51E198B2CCE002A5684 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				309CD51F198B2CCE002A5684 /* dConnectDeviceTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		309CD531198B2CCF002A5684 /* dConnectDeviceTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				845458CA19A1C34D0017F06D /* Multipart */,
+				845458AA1998E9D50017F06D /* SocketRocket */,
+				84FF95721998502C00394D76 /* dConnectManager */,
+				309CD532198B2CCF002A5684 /* Supporting Files */,
+			);
+			path = dConnectDeviceTestTests;
+			sourceTree = "<group>";
+		};
+		309CD532198B2CCF002A5684 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				309CD533198B2CCF002A5684 /* dConnectDeviceTestTests-Info.plist */,
+				309CD534198B2CCF002A5684 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		309CD541198B2DF9002A5684 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				309CD550198B3CBE002A5684 /* Profile */,
+				309CD54B198B3BFE002A5684 /* DeviceTestPlugin.h */,
+				309CD54C198B3BFE002A5684 /* DeviceTestPlugin.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		309CD543198B2E1B002A5684 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				309CD544198B2E31002A5684 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		309CD550198B3CBE002A5684 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				309CD551198B3CF9002A5684 /* TestBatteryProfile.h */,
+				309CD552198B3CF9002A5684 /* TestBatteryProfile.m */,
+				309CD55A198B692B002A5684 /* TestConnectProfile.h */,
+				309CD55B198B692B002A5684 /* TestConnectProfile.m */,
+				309CD554198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.h */,
+				309CD555198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.m */,
+				309CD55D198F2F7A002A5684 /* TestDeviceOrientationProfile.h */,
+				309CD55E198F2F7A002A5684 /* TestDeviceOrientationProfile.m */,
+				309CD560198F31E4002A5684 /* TestFileDescriptorProfile.h */,
+				309CD561198F31E4002A5684 /* TestFileDescriptorProfile.m */,
+				309CD563198F3731002A5684 /* TestFileProfile.h */,
+				309CD564198F3732002A5684 /* TestFileProfile.m */,
+				309CD566198F3D5D002A5684 /* TestMediaPlayerProfile.h */,
+				309CD567198F3D5D002A5684 /* TestMediaPlayerProfile.m */,
+				309CD569198F5FEE002A5684 /* TestMediaStreamRecordingProfile.h */,
+				309CD56A198F5FEE002A5684 /* TestMediaStreamRecordingProfile.m */,
+				301B89B8198F7799006EC109 /* TestNotificationProfile.h */,
+				301B89B9198F7799006EC109 /* TestNotificationProfile.m */,
+				301B89BB198F7F66006EC109 /* TestPhoneProfile.h */,
+				301B89BC198F7F66006EC109 /* TestPhoneProfile.m */,
+				301B89BE198F848F006EC109 /* TestProximityProfile.h */,
+				301B89BF198F848F006EC109 /* TestProximityProfile.m */,
+				301B89C1198F871B006EC109 /* TestSettingsProfile.h */,
+				301B89C2198F871B006EC109 /* TestSettingsProfile.m */,
+				301B89C4198F8A20006EC109 /* TestSystemProfile.h */,
+				301B89C5198F8A20006EC109 /* TestSystemProfile.m */,
+				301B89C7198F8C4E006EC109 /* TestVibrationProfile.h */,
+				301B89C8198F8C4E006EC109 /* TestVibrationProfile.m */,
+				84FA975619A5D3580053B2FD /* TestUniquePingProfile.h */,
+				84FA975719A5D3580053B2FD /* TestUniquePingProfile.m */,
+				84FA975919A5F1DE0053B2FD /* TestUniqueTimeoutProfile.h */,
+				84FA975A19A5F1DE0053B2FD /* TestUniqueTimeoutProfile.m */,
+				847B3B1C19BD7A3A003ED5F4 /* TestUniqueEventProfile.h */,
+				847B3B1D19BD7A3A003ED5F4 /* TestUniqueEventProfile.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		845458AA1998E9D50017F06D /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				845458AB1998E9D50017F06D /* SRWebSocket.h */,
+				845458AC1998E9D50017F06D /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		845458BB1999A5560017F06D /* RESTful */ = {
+			isa = PBXGroup;
+			children = (
+				845458B71999A4EB0017F06D /* RESTfulTestCase.h */,
+				845458B81999A4EB0017F06D /* RESTfulTestCase.m */,
+				84FA975419A5C8850053B2FD /* RESTfulNormalCommonTest.m */,
+				84EBE7D319B5CB1B0089AD35 /* RESTfulNormalAuthorizationProfileTest.m */,
+				845458BF1999D2160017F06D /* RESTfulNormalBatteryProfileTest.m */,
+				845458C219A199F50017F06D /* RESTfulNormalConnectProfileTest.m */,
+				8490A34B19A488210031FD1E /* RESTfulNormalDeviceOrientationProfileTest.m */,
+				845458C819A1C2A90017F06D /* RESTfulNormalFileDescriptorProfileTest.m */,
+				8428953519A2002500D9ECFF /* RESTfulNormalFileProfileTest.m */,
+				8428953619A2002500D9ECFF /* RESTfulNormalMediaPlayerProfileTest.m */,
+				8428953719A2002500D9ECFF /* RESTfulNormalMediaStreamRecordingProfileTest.m */,
+				848EB54C19A33394001F307F /* RESTfulNormalNetworkServiceDiscoveryProfileTest.m */,
+				8428953819A2002500D9ECFF /* RESTfulNormalNotificationProfileTest.m */,
+				8428953919A2002500D9ECFF /* RESTfulNormalPhoneProfileTest.m */,
+				8428953A19A2002500D9ECFF /* RESTfulNormalProximityProfileTest.m */,
+				8428953B19A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m */,
+				8428953C19A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m */,
+				8428953D19A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m */,
+				84FA975119A59CBD0053B2FD /* RESTfulFailCommonTest.m */,
+				84EBE8ED19B88BFB0089AD35 /* RESTfulFailAuthorizationProfileTest.m */,
+				84FA974E19A5942E0053B2FD /* RESTfulFailBatteryProfileTest.m */,
+				84FA975C19A608ED0053B2FD /* RESTfulFailConnectProfileTest.m */,
+				84FA975E19A610BA0053B2FD /* RESTfulFailDeviceOrientationProfileTest.m */,
+				840DC9CE19A717A600CA2EA0 /* RESTfulFailFileDescriptorProfileTest.m */,
+				840DC9D019A71B9000CA2EA0 /* RESTfulFailFileProfileTest.m */,
+				840DC9D219A7286700CA2EA0 /* RESTfulFailMediaPlayerProfileTest.m */,
+				840DC9D419A7303200CA2EA0 /* RESTfulFailMediaStreamRecordingProfileTest.m */,
+				8490A34E19A488350031FD1E /* RESTfulFailNetworkServiceDiscoveryProfileTest.m */,
+				840DC9CC19A70FF500CA2EA0 /* RESTfulFailNotificationProfileTest.m */,
+				840DC9CA19A6FD7200CA2EA0 /* RESTfulFailPhoneProfileTest.m */,
+				84FA976219A61A890053B2FD /* RESTfulFailProximityProfileTest.m */,
+				840DC9C819A6D7AC00CA2EA0 /* RESTfulFailSettingsProfileTest.m */,
+				8490A34D19A488350031FD1E /* RESTfulFailSystemProfileTest.m */,
+				84FA976019A615400053B2FD /* RESTfulFailVibrationProfileTest.m */,
+				84FA974C19A4CF430053B2FD /* RESTfulStressTest.m */,
+			);
+			name = RESTful;
+			sourceTree = "<group>";
+		};
+		845458CA19A1C34D0017F06D /* Multipart */ = {
+			isa = PBXGroup;
+			children = (
+				845458CB19A1C34D0017F06D /* Tools */,
+			);
+			path = Multipart;
+			sourceTree = "<group>";
+		};
+		845458CB19A1C34D0017F06D /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				845458CC19A1C34D0017F06D /* Hash.h */,
+				845458CD19A1C34D0017F06D /* Hash.m */,
+				845458CE19A1C34D0017F06D /* Multipart.h */,
+				845458CF19A1C34D0017F06D /* Multipart.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		84FF95721998502C00394D76 /* dConnectManager */ = {
+			isa = PBXGroup;
+			children = (
+				845458BC1999A6730017F06D /* DConnectTestCase.h */,
+				845458BD1999A6730017F06D /* DConnectTestCase.m */,
+				84EBE7D519B5E2340089AD35 /* AccessToken.h */,
+				84EBE7D619B5E2340089AD35 /* AccessToken.m */,
+				845458BB1999A5560017F06D /* RESTful */,
+			);
+			name = dConnectManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		309CD517198B2CCE002A5684 /* dConnectDeviceTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 309CD53B198B2CCF002A5684 /* Build configuration list for PBXNativeTarget "dConnectDeviceTest" */;
+			buildPhases = (
+				309CD514198B2CCE002A5684 /* Sources */,
+				309CD515198B2CCE002A5684 /* Frameworks */,
+				309CD516198B2CCE002A5684 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceTest;
+			productName = dConnectDeviceTest;
+			productReference = 309CD518198B2CCE002A5684 /* libdConnectDeviceTest.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		309CD527198B2CCF002A5684 /* dConnectDeviceTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 309CD53E198B2CCF002A5684 /* Build configuration list for PBXNativeTarget "dConnectDeviceTestTests" */;
+			buildPhases = (
+				309CD524198B2CCF002A5684 /* Sources */,
+				309CD525198B2CCF002A5684 /* Frameworks */,
+				309CD526198B2CCF002A5684 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				309CD52F198B2CCF002A5684 /* PBXTargetDependency */,
+			);
+			name = dConnectDeviceTestTests;
+			productName = dConnectDeviceTestTests;
+			productReference = 309CD528198B2CCF002A5684 /* dConnectDeviceTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		309CD510198B2CCE002A5684 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "NTT DOCOMO, INC";
+			};
+			buildConfigurationList = 309CD513198B2CCE002A5684 /* Build configuration list for PBXProject "dConnectDeviceTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 309CD50F198B2CCE002A5684;
+			productRefGroup = 309CD519198B2CCE002A5684 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				309CD517198B2CCE002A5684 /* dConnectDeviceTest */,
+				309CD527198B2CCF002A5684 /* dConnectDeviceTestTests */,
+				300D50251990BD81007C9EDD /* dConnectDeviceTestFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		309CD526198B2CCF002A5684 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				309CD545198B2E31002A5684 /* Info.plist in Resources */,
+				309CD536198B2CCF002A5684 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		300D50291990BD88007C9EDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Environment Variables\nFRAMEWORK_NAME=${PROJECT_NAME}\nFRAMEWORK_VERSION=A\nFRAMEWORK_VERSION_NUMBER=1.0\nCONFIGURATION=\"Release\"\nFRAMEWORK_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nSTATICLIB_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-universal\"\n\n# Clean directories\nrm -rf \"${FRAMEWORK_BUILD_PATH}\"\n\n# Build simulator and device binaries.\n# Main target *must* have the same name as ${PROJECT_NAME}.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\n\n# create directories.\nmkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}\nmkdir -p ${STATICLIB_BUILD_PATH}\n# create symlinks\ncd ${FRAMEWORK_DIR}\nln -s ../Versions/${FRAMEWORK_VERSION} Versions/Current\nln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_NAME}\ncd ${SRCROOT}\n\n# create the universal library, and strip internal symbols from it\nlipo ${SRCROOT}/build/${CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a ${SRCROOT}/build/${CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a -create -output \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\n#strip -x \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\ncp \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\" \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\n# copy files\nrm -rf ${PROJECT_NAME}/${FRAMEWORK_NAME}.framework\ncp -fa $FRAMEWORK_DIR ${PROJECT_NAME}/";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		309CD514198B2CCE002A5684 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				309CD565198F3732002A5684 /* TestFileProfile.m in Sources */,
+				309CD56B198F5FEE002A5684 /* TestMediaStreamRecordingProfile.m in Sources */,
+				309CD568198F3D5D002A5684 /* TestMediaPlayerProfile.m in Sources */,
+				309CD562198F31E4002A5684 /* TestFileDescriptorProfile.m in Sources */,
+				309CD54D198B3BFE002A5684 /* DeviceTestPlugin.m in Sources */,
+				84FA975B19A5F1DE0053B2FD /* TestUniqueTimeoutProfile.m in Sources */,
+				309CD556198B3F72002A5684 /* TestNetworkServiceDiscoveryProfile.m in Sources */,
+				847B3B1E19BD7A3A003ED5F4 /* TestUniqueEventProfile.m in Sources */,
+				84FA975819A5D3580053B2FD /* TestUniquePingProfile.m in Sources */,
+				301B89BA198F7799006EC109 /* TestNotificationProfile.m in Sources */,
+				301B89C0198F848F006EC109 /* TestProximityProfile.m in Sources */,
+				309CD55F198F2F7A002A5684 /* TestDeviceOrientationProfile.m in Sources */,
+				309CD55C198B692B002A5684 /* TestConnectProfile.m in Sources */,
+				301B89C9198F8C4E006EC109 /* TestVibrationProfile.m in Sources */,
+				301B89BD198F7F66006EC109 /* TestPhoneProfile.m in Sources */,
+				301B89C3198F871B006EC109 /* TestSettingsProfile.m in Sources */,
+				301B89C6198F8A20006EC109 /* TestSystemProfile.m in Sources */,
+				309CD553198B3CF9002A5684 /* TestBatteryProfile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		309CD524198B2CCF002A5684 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8428954019A2002500D9ECFF /* RESTfulNormalMediaPlayerProfileTest.m in Sources */,
+				84EBE8EE19B88BFB0089AD35 /* RESTfulFailAuthorizationProfileTest.m in Sources */,
+				848EB54D19A33394001F307F /* RESTfulNormalNetworkServiceDiscoveryProfileTest.m in Sources */,
+				8428954719A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m in Sources */,
+				840DC9CD19A70FF500CA2EA0 /* RESTfulFailNotificationProfileTest.m in Sources */,
+				84FA974D19A4CF430053B2FD /* RESTfulStressTest.m in Sources */,
+				840DC9CB19A6FD7200CA2EA0 /* RESTfulFailPhoneProfileTest.m in Sources */,
+				8428954419A2002500D9ECFF /* RESTfulNormalProximityProfileTest.m in Sources */,
+				8490A34F19A488350031FD1E /* RESTfulFailSystemProfileTest.m in Sources */,
+				8428953F19A2002500D9ECFF /* RESTfulNormalFileProfileTest.m in Sources */,
+				8428954219A2002500D9ECFF /* RESTfulNormalNotificationProfileTest.m in Sources */,
+				8428954519A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m in Sources */,
+				84FA975219A59CBD0053B2FD /* RESTfulFailCommonTest.m in Sources */,
+				8490A35019A488350031FD1E /* RESTfulFailNetworkServiceDiscoveryProfileTest.m in Sources */,
+				845458AE1998E9D50017F06D /* SRWebSocket.m in Sources */,
+				840DC9D519A7303200CA2EA0 /* RESTfulFailMediaStreamRecordingProfileTest.m in Sources */,
+				845458B91999A4EB0017F06D /* RESTfulTestCase.m in Sources */,
+				845458C01999D2160017F06D /* RESTfulNormalBatteryProfileTest.m in Sources */,
+				845458D119A1C34D0017F06D /* Multipart.m in Sources */,
+				84EBE7D419B5CB1B0089AD35 /* RESTfulNormalAuthorizationProfileTest.m in Sources */,
+				840DC9D319A7286700CA2EA0 /* RESTfulFailMediaPlayerProfileTest.m in Sources */,
+				840DC9D119A71B9000CA2EA0 /* RESTfulFailFileProfileTest.m in Sources */,
+				84FA976319A61A890053B2FD /* RESTfulFailProximityProfileTest.m in Sources */,
+				84FA975D19A608ED0053B2FD /* RESTfulFailConnectProfileTest.m in Sources */,
+				845458BE1999A6730017F06D /* DConnectTestCase.m in Sources */,
+				84FA974F19A5942E0053B2FD /* RESTfulFailBatteryProfileTest.m in Sources */,
+				8490A34C19A488210031FD1E /* RESTfulNormalDeviceOrientationProfileTest.m in Sources */,
+				8428954619A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m in Sources */,
+				8428954119A2002500D9ECFF /* RESTfulNormalMediaStreamRecordingProfileTest.m in Sources */,
+				845458D019A1C34D0017F06D /* Hash.m in Sources */,
+				84FA975F19A610BA0053B2FD /* RESTfulFailDeviceOrientationProfileTest.m in Sources */,
+				84FA975519A5C8850053B2FD /* RESTfulNormalCommonTest.m in Sources */,
+				845458C919A1C2A90017F06D /* RESTfulNormalFileDescriptorProfileTest.m in Sources */,
+				84EBE7D719B5E2340089AD35 /* AccessToken.m in Sources */,
+				845458C319A199F50017F06D /* RESTfulNormalConnectProfileTest.m in Sources */,
+				8428954319A2002500D9ECFF /* RESTfulNormalPhoneProfileTest.m in Sources */,
+				84FA976119A615400053B2FD /* RESTfulFailVibrationProfileTest.m in Sources */,
+				840DC9C919A6D7AC00CA2EA0 /* RESTfulFailSettingsProfileTest.m in Sources */,
+				840DC9CF19A717A600CA2EA0 /* RESTfulFailFileDescriptorProfileTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		309CD52F198B2CCF002A5684 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 309CD517198B2CCE002A5684 /* dConnectDeviceTest */;
+			targetProxy = 309CD52E198B2CCF002A5684 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		309CD534198B2CCF002A5684 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				309CD535198B2CCF002A5684 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		300D50261990BD81007C9EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "../../dConnectSDK/dConnectSDKForIOS/build/Debug-framework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		300D50271990BD81007C9EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "../../dConnectSDK/dConnectSDKForIOS/build/Debug-framework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		309CD539198B2CCF002A5684 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		309CD53A198B2CCF002A5684 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+		309CD53C198B2CCF002A5684 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/dConnectDeviceTest.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/abe/Documents/project/2014/dconnect/project/ios/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
+					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceTest/dConnectDeviceTest-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-iphoneos",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		309CD53D198B2CCF002A5684 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/dConnectDeviceTest.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/abe/Documents/project/2014/dconnect/project/ios/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
+					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceTest/dConnectDeviceTest-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-iphoneos",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+		309CD53F198B2CCF002A5684 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
+					/Users/mtaka/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceTest/dConnectDeviceTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dConnectDeviceTestTests/dConnectDeviceTestTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		309CD540198B2CCF002A5684 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
+					/Users/mtaka/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceTest/dConnectDeviceTest-Prefix.pch";
+				INFOPLIST_FILE = "dConnectDeviceTestTests/dConnectDeviceTestTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		300D50281990BD81007C9EDD /* Build configuration list for PBXAggregateTarget "dConnectDeviceTestFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300D50261990BD81007C9EDD /* Debug */,
+				300D50271990BD81007C9EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		309CD513198B2CCE002A5684 /* Build configuration list for PBXProject "dConnectDeviceTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				309CD539198B2CCF002A5684 /* Debug */,
+				309CD53A198B2CCF002A5684 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		309CD53B198B2CCF002A5684 /* Build configuration list for PBXNativeTarget "dConnectDeviceTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				309CD53C198B2CCF002A5684 /* Debug */,
+				309CD53D198B2CCF002A5684 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		309CD53E198B2CCF002A5684 /* Build configuration list for PBXNativeTarget "dConnectDeviceTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				309CD53F198B2CCF002A5684 /* Debug */,
+				309CD540198B2CCF002A5684 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 309CD510198B2CCE002A5684 /* Project object */;
+}

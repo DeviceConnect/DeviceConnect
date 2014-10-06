@@ -1,0 +1,844 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		ABE8C5BB195800850083D672 /* dConnectDeviceSphero_framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = ABE8C5BC195800850083D672 /* Build configuration list for PBXAggregateTarget "dConnectDeviceSphero_framework" */;
+			buildPhases = (
+				ABE8C5BF1958008F0083D672 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceSphero_framework;
+			productName = DConnectSpheroDevicePlugin_framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		6611B2DB19BFDBA40034893E /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6611B2DA19BFDBA40034893E /* DConnectSDK.framework */; };
+		6611B2F019BFF5760034893E /* DPSpheroManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611B2EF19BFF5760034893E /* DPSpheroManager.m */; };
+		6611B2F619C1A1EF0034893E /* DPSpheroSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611B2F519C1A1EF0034893E /* DPSpheroSettingViewController.m */; };
+		6611B36619C27FB60034893E /* SpheroDevicePlugin_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6611B35A19C27FB60034893E /* SpheroDevicePlugin_iPad.storyboard */; };
+		6611B36719C27FB60034893E /* SpheroDevicePlugin_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6611B35C19C27FB60034893E /* SpheroDevicePlugin_iPhone.storyboard */; };
+		6611B36A19C27FB60034893E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6611B36219C27FB60034893E /* Info.plist */; };
+		6611B37019C27FE60034893E /* SpheroSettingConnected_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6611B36C19C27FE60034893E /* SpheroSettingConnected_2.png */; };
+		6611B37319C27FE60034893E /* SpheroSettingWakeup_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6611B36F19C27FE60034893E /* SpheroSettingWakeup_2.png */; };
+		6611B37F19C28A830034893E /* DPGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611B37E19C28A830034893E /* DPGuideViewController.m */; };
+		6611B38019C2A6410034893E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6611B38219C2A6410034893E /* Localizable.strings */; };
+		6611B39119C2D19D0034893E /* DCMDevicePluginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6611B39019C2D19D0034893E /* DCMDevicePluginSDK.framework */; };
+		AB00075119C95CFB008CED6A /* SpheroBluetoothSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = AB00075019C95CFB008CED6A /* SpheroBluetoothSetting.png */; };
+		AB00075219C95D23008CED6A /* SpheroBluetoothSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = AB00075019C95CFB008CED6A /* SpheroBluetoothSetting.png */; };
+		AB1061AE197E3B290005BB3F /* DPSpheroDriveControllerProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1061AD197E3B290005BB3F /* DPSpheroDriveControllerProfile.m */; };
+		AB1061B6197F46A30005BB3F /* DPSpheroLightProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1061B5197F46A30005BB3F /* DPSpheroLightProfile.m */; };
+		AB1061B919809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1061B819809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.m */; };
+		AB917003196157D80084DB70 /* DPSpheroDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FF7196157D80084DB70 /* DPSpheroDevicePlugin.m */; };
+		AB917004196157D80084DB70 /* DPSpheroProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FF8196157D80084DB70 /* DPSpheroProfile.m */; };
+		AB917005196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FFA196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m */; };
+		AB917006196157D80084DB70 /* DPSpheroSensorProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FFC196157D80084DB70 /* DPSpheroSensorProfile.m */; };
+		AB917008196157D80084DB70 /* DPSpheroSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB917000196157D80084DB70 /* DPSpheroSystemProfile.m */; };
+		AB91700D196158260084DB70 /* DConnectSpheroDevicePluginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB91700C196158260084DB70 /* DConnectSpheroDevicePluginTests.m */; };
+		AB91700F1961582B0084DB70 /* dConnectDeviceSpheroTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB91700E1961582B0084DB70 /* dConnectDeviceSpheroTests-Info.plist */; };
+		AB9170131961584F0084DB70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB9170111961584F0084DB70 /* InfoPlist.strings */; };
+		AB917015196158EB0084DB70 /* DPSpheroDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FF7196157D80084DB70 /* DPSpheroDevicePlugin.m */; };
+		AB917016196158EB0084DB70 /* DPSpheroProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FF8196157D80084DB70 /* DPSpheroProfile.m */; };
+		AB917018196158EB0084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FFA196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m */; };
+		AB91701A196158EB0084DB70 /* DPSpheroSensorProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB916FFC196157D80084DB70 /* DPSpheroSensorProfile.m */; };
+		AB91701E196158EB0084DB70 /* DPSpheroSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB917000196157D80084DB70 /* DPSpheroSystemProfile.m */; };
+		AB91707219617E940084DB70 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5C5195800E70083D672 /* CoreFoundation.framework */; };
+		AB91707819617E940084DB70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB91707619617E940084DB70 /* InfoPlist.strings */; };
+		ABE8C56A1957FE860083D672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5691957FE860083D672 /* Foundation.framework */; };
+		ABE8C5781957FE870083D672 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5771957FE870083D672 /* XCTest.framework */; };
+		ABE8C5791957FE870083D672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5691957FE860083D672 /* Foundation.framework */; };
+		ABE8C57E1957FE870083D672 /* libdConnectDeviceSphero.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5661957FE860083D672 /* libdConnectDeviceSphero.a */; };
+		ABE8C5F719580E5F0083D672 /* RobotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5F319580E5F0083D672 /* RobotKit.framework */; };
+		ABE8C5F819580E5F0083D672 /* RobotUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5F419580E5F0083D672 /* RobotUIKit.framework */; };
+		ABE8C62419581F710083D672 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C5C5195800E70083D672 /* CoreFoundation.framework */; };
+		ABE8C62819581F710083D672 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C62519581F710083D672 /* CoreMotion.framework */; };
+		ABE8C62919581F710083D672 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C62619581F710083D672 /* ExternalAccessory.framework */; };
+		ABE8C62A19581F710083D672 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C62719581F710083D672 /* GameKit.framework */; };
+		ABE8C646195903220083D672 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8C645195903220083D672 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ABE8C57C1957FE870083D672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABE8C55E1957FE860083D672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABE8C5651957FE860083D672;
+			remoteInfo = DConnectSpheroDevicePlugin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ABE8C5641957FE860083D672 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6611B2DA19BFDBA40034893E /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = "../../dConnectSDK/dConnectSDKForIOS/build/Debug-framework/DConnectSDK.framework"; sourceTree = "<group>"; };
+		6611B2EE19BFF5760034893E /* DPSpheroManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroManager.h; path = dConnectDeviceSphero/Classes/DPSpheroManager.h; sourceTree = SOURCE_ROOT; };
+		6611B2EF19BFF5760034893E /* DPSpheroManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroManager.m; path = dConnectDeviceSphero/Classes/DPSpheroManager.m; sourceTree = SOURCE_ROOT; };
+		6611B2F419C1A1EF0034893E /* DPSpheroSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroSettingViewController.h; path = dConnectDeviceSphero/Classes/DPSpheroSettingViewController.h; sourceTree = SOURCE_ROOT; };
+		6611B2F519C1A1EF0034893E /* DPSpheroSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroSettingViewController.m; path = dConnectDeviceSphero/Classes/DPSpheroSettingViewController.m; sourceTree = SOURCE_ROOT; };
+		6611B35B19C27FB60034893E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SpheroDevicePlugin_iPad.storyboard; sourceTree = "<group>"; };
+		6611B35D19C27FB60034893E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SpheroDevicePlugin_iPhone.storyboard; sourceTree = "<group>"; };
+		6611B36219C27FB60034893E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6611B36C19C27FE60034893E /* SpheroSettingConnected_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpheroSettingConnected_2.png; sourceTree = "<group>"; };
+		6611B36F19C27FE60034893E /* SpheroSettingWakeup_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpheroSettingWakeup_2.png; sourceTree = "<group>"; };
+		6611B37D19C28A830034893E /* DPGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPGuideViewController.h; path = dConnectDeviceSphero/Classes/DPGuideViewController.h; sourceTree = SOURCE_ROOT; };
+		6611B37E19C28A830034893E /* DPGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPGuideViewController.m; path = dConnectDeviceSphero/Classes/DPGuideViewController.m; sourceTree = SOURCE_ROOT; };
+		6611B38119C2A6410034893E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6611B38419C2A6480034893E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6611B38519C2A6790034893E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6611B38719C2A6BD0034893E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SpheroDevicePlugin_iPhone.strings; sourceTree = "<group>"; };
+		6611B38919C2A6BF0034893E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SpheroDevicePlugin_iPhone.strings; sourceTree = "<group>"; };
+		6611B38B19C2B9D20034893E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SpheroDevicePlugin_iPad.strings; sourceTree = "<group>"; };
+		6611B38D19C2B9DA0034893E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SpheroDevicePlugin_iPad.strings; sourceTree = "<group>"; };
+		6611B39019C2D19D0034893E /* DCMDevicePluginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DCMDevicePluginSDK.framework; path = "../DCMDevicePluginSDK/build/Debug-framework/DCMDevicePluginSDK.framework"; sourceTree = "<group>"; };
+		AB00075019C95CFB008CED6A /* SpheroBluetoothSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpheroBluetoothSetting.png; sourceTree = "<group>"; };
+		AB1061AC197E3B290005BB3F /* DPSpheroDriveControllerProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroDriveControllerProfile.h; path = dConnectDeviceSphero/Classes/DPSpheroDriveControllerProfile.h; sourceTree = SOURCE_ROOT; };
+		AB1061AD197E3B290005BB3F /* DPSpheroDriveControllerProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroDriveControllerProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroDriveControllerProfile.m; sourceTree = SOURCE_ROOT; };
+		AB1061B4197F46A30005BB3F /* DPSpheroLightProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroLightProfile.h; path = dConnectDeviceSphero/Classes/DPSpheroLightProfile.h; sourceTree = SOURCE_ROOT; };
+		AB1061B5197F46A30005BB3F /* DPSpheroLightProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroLightProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroLightProfile.m; sourceTree = SOURCE_ROOT; };
+		AB1061B719809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroDeviceOrientationProfile.h; path = dConnectDeviceSphero/Classes/DPSpheroDeviceOrientationProfile.h; sourceTree = SOURCE_ROOT; };
+		AB1061B819809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroDeviceOrientationProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroDeviceOrientationProfile.m; sourceTree = SOURCE_ROOT; };
+		AB6ABD6819AEF657006B3F1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB916FF6196157D80084DB70 /* DPSpheroDevicePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroDevicePlugin.h; path = dConnectDeviceSphero/Classes/DPSpheroDevicePlugin.h; sourceTree = SOURCE_ROOT; };
+		AB916FF7196157D80084DB70 /* DPSpheroDevicePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroDevicePlugin.m; path = dConnectDeviceSphero/Classes/DPSpheroDevicePlugin.m; sourceTree = SOURCE_ROOT; };
+		AB916FF8196157D80084DB70 /* DPSpheroProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroProfile.m; sourceTree = SOURCE_ROOT; };
+		AB916FF9196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroNetworkServiceDiscoveryProfile.h; path = dConnectDeviceSphero/Classes/DPSpheroNetworkServiceDiscoveryProfile.h; sourceTree = SOURCE_ROOT; };
+		AB916FFA196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroNetworkServiceDiscoveryProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroNetworkServiceDiscoveryProfile.m; sourceTree = SOURCE_ROOT; };
+		AB916FFB196157D80084DB70 /* DPSpheroSensorProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroSensorProfile.h; path = dConnectDeviceSphero/Classes/DPSpheroSensorProfile.h; sourceTree = SOURCE_ROOT; };
+		AB916FFC196157D80084DB70 /* DPSpheroSensorProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroSensorProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroSensorProfile.m; sourceTree = SOURCE_ROOT; };
+		AB916FFF196157D80084DB70 /* DPSpheroSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPSpheroSystemProfile.h; path = dConnectDeviceSphero/Classes/DPSpheroSystemProfile.h; sourceTree = SOURCE_ROOT; };
+		AB917000196157D80084DB70 /* DPSpheroSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPSpheroSystemProfile.m; path = dConnectDeviceSphero/Classes/DPSpheroSystemProfile.m; sourceTree = SOURCE_ROOT; };
+		AB91700A196157E70084DB70 /* DPSpheroProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DPSpheroProfile.h; path = dConnectDeviceSphero/Headers/DPSpheroProfile.h; sourceTree = SOURCE_ROOT; };
+		AB91700B196157F30084DB70 /* dConnectDeviceSphero-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "dConnectDeviceSphero-Prefix.pch"; path = "dConnectDeviceSphero/dConnectDeviceSphero-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AB91700C196158260084DB70 /* DConnectSpheroDevicePluginTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DConnectSpheroDevicePluginTests.m; path = dConnectDeviceSpheroTests/DConnectSpheroDevicePluginTests.m; sourceTree = SOURCE_ROOT; };
+		AB91700E1961582B0084DB70 /* dConnectDeviceSpheroTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "dConnectDeviceSpheroTests-Info.plist"; path = "dConnectDeviceSpheroTests/dConnectDeviceSpheroTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AB9170121961584F0084DB70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = dConnectDeviceSpheroTests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		AB91707119617E940084DB70 /* dConnectDeviceSphero_resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDeviceSphero_resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB91707519617E940084DB70 /* dConnectDeviceSphero_resources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectDeviceSphero_resources-Info.plist"; sourceTree = "<group>"; };
+		AB91707719617E940084DB70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB91707919617E940084DB70 /* dConnectDeviceSphero_resources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectDeviceSphero_resources-Prefix.pch"; sourceTree = "<group>"; };
+		ABE8C5661957FE860083D672 /* libdConnectDeviceSphero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdConnectDeviceSphero.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE8C5691957FE860083D672 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABE8C5761957FE870083D672 /* dConnectDeviceSpheroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDeviceSpheroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE8C5771957FE870083D672 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ABE8C5C5195800E70083D672 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		ABE8C5F319580E5F0083D672 /* RobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RobotKit.framework; sourceTree = "<group>"; };
+		ABE8C5F419580E5F0083D672 /* RobotUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RobotUIKit.framework; sourceTree = "<group>"; };
+		ABE8C5F519580E5F0083D672 /* RobotUIKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RobotUIKit.bundle; sourceTree = "<group>"; };
+		ABE8C62519581F710083D672 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		ABE8C62619581F710083D672 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		ABE8C62719581F710083D672 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		ABE8C645195903220083D672 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB91706E19617E940084DB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB91707219617E940084DB70 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABE8C5631957FE860083D672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABE8C646195903220083D672 /* UIKit.framework in Frameworks */,
+				ABE8C62419581F710083D672 /* CoreFoundation.framework in Frameworks */,
+				ABE8C62819581F710083D672 /* CoreMotion.framework in Frameworks */,
+				6611B39119C2D19D0034893E /* DCMDevicePluginSDK.framework in Frameworks */,
+				ABE8C62919581F710083D672 /* ExternalAccessory.framework in Frameworks */,
+				ABE8C62A19581F710083D672 /* GameKit.framework in Frameworks */,
+				6611B2DB19BFDBA40034893E /* DConnectSDK.framework in Frameworks */,
+				ABE8C5F819580E5F0083D672 /* RobotUIKit.framework in Frameworks */,
+				ABE8C56A1957FE860083D672 /* Foundation.framework in Frameworks */,
+				ABE8C5F719580E5F0083D672 /* RobotKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABE8C5731957FE870083D672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABE8C5781957FE870083D672 /* XCTest.framework in Frameworks */,
+				ABE8C5791957FE870083D672 /* Foundation.framework in Frameworks */,
+				ABE8C57E1957FE870083D672 /* libdConnectDeviceSphero.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6611B35919C27FB60034893E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB00075019C95CFB008CED6A /* SpheroBluetoothSetting.png */,
+				6611B35A19C27FB60034893E /* SpheroDevicePlugin_iPad.storyboard */,
+				6611B35C19C27FB60034893E /* SpheroDevicePlugin_iPhone.storyboard */,
+				6611B36219C27FB60034893E /* Info.plist */,
+				6611B36C19C27FE60034893E /* SpheroSettingConnected_2.png */,
+				6611B36F19C27FE60034893E /* SpheroSettingWakeup_2.png */,
+				6611B38219C2A6410034893E /* Localizable.strings */,
+			);
+			name = Resources;
+			path = dConnectDeviceSphero/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		AB8913B41974D1C90069CDA3 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				AB916FF9196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.h */,
+				AB916FFA196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m */,
+				AB916FFB196157D80084DB70 /* DPSpheroSensorProfile.h */,
+				AB916FFC196157D80084DB70 /* DPSpheroSensorProfile.m */,
+				AB916FFF196157D80084DB70 /* DPSpheroSystemProfile.h */,
+				AB917000196157D80084DB70 /* DPSpheroSystemProfile.m */,
+				AB1061AC197E3B290005BB3F /* DPSpheroDriveControllerProfile.h */,
+				AB1061AD197E3B290005BB3F /* DPSpheroDriveControllerProfile.m */,
+				AB1061B4197F46A30005BB3F /* DPSpheroLightProfile.h */,
+				AB1061B5197F46A30005BB3F /* DPSpheroLightProfile.m */,
+				AB1061B719809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.h */,
+				AB1061B819809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.m */,
+			);
+			name = profile;
+			sourceTree = "<group>";
+		};
+		AB8913B51974D1DF0069CDA3 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				6611B2F419C1A1EF0034893E /* DPSpheroSettingViewController.h */,
+				6611B2F519C1A1EF0034893E /* DPSpheroSettingViewController.m */,
+				6611B37D19C28A830034893E /* DPGuideViewController.h */,
+				6611B37E19C28A830034893E /* DPGuideViewController.m */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
+		AB8913B61974D1F60069CDA3 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB916FF8196157D80084DB70 /* DPSpheroProfile.m */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
+		AB91707319617E940084DB70 /* dConnectDeviceSphero_resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB91707419617E940084DB70 /* Supporting Files */,
+			);
+			path = dConnectDeviceSphero_resources;
+			sourceTree = "<group>";
+		};
+		AB91707419617E940084DB70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB91707519617E940084DB70 /* dConnectDeviceSphero_resources-Info.plist */,
+				AB91707619617E940084DB70 /* InfoPlist.strings */,
+				AB91707919617E940084DB70 /* dConnectDeviceSphero_resources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABE8C55D1957FE860083D672 = {
+			isa = PBXGroup;
+			children = (
+				ABE8C56B1957FE860083D672 /* dConnectDeviceSphero */,
+				ABE8C57F1957FE870083D672 /* dConnectDeviceSpheroTests */,
+				AB91707319617E940084DB70 /* dConnectDeviceSphero_resources */,
+				ABE8C5681957FE860083D672 /* Frameworks */,
+				ABE8C5671957FE860083D672 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABE8C5671957FE860083D672 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABE8C5661957FE860083D672 /* libdConnectDeviceSphero.a */,
+				ABE8C5761957FE870083D672 /* dConnectDeviceSpheroTests.xctest */,
+				AB91707119617E940084DB70 /* dConnectDeviceSphero_resources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABE8C5681957FE860083D672 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6611B39019C2D19D0034893E /* DCMDevicePluginSDK.framework */,
+				6611B2DA19BFDBA40034893E /* DConnectSDK.framework */,
+				ABE8C645195903220083D672 /* UIKit.framework */,
+				ABE8C62519581F710083D672 /* CoreMotion.framework */,
+				ABE8C62619581F710083D672 /* ExternalAccessory.framework */,
+				ABE8C62719581F710083D672 /* GameKit.framework */,
+				ABE8C5F319580E5F0083D672 /* RobotKit.framework */,
+				ABE8C5F419580E5F0083D672 /* RobotUIKit.framework */,
+				ABE8C5F519580E5F0083D672 /* RobotUIKit.bundle */,
+				ABE8C5691957FE860083D672 /* Foundation.framework */,
+				ABE8C5771957FE870083D672 /* XCTest.framework */,
+				ABE8C5C5195800E70083D672 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABE8C56B1957FE860083D672 /* dConnectDeviceSphero */ = {
+			isa = PBXGroup;
+			children = (
+				6611B35919C27FB60034893E /* Resources */,
+				ABE8C5901957FEEB0083D672 /* Classes */,
+				ABE8C58F1957FEAB0083D672 /* Headers */,
+				ABE8C56C1957FE860083D672 /* Supporting Files */,
+			);
+			name = dConnectDeviceSphero;
+			path = DConnectSpheroDevicePlugin;
+			sourceTree = "<group>";
+		};
+		ABE8C56C1957FE860083D672 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB91700B196157F30084DB70 /* dConnectDeviceSphero-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABE8C57F1957FE870083D672 /* dConnectDeviceSpheroTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB91700C196158260084DB70 /* DConnectSpheroDevicePluginTests.m */,
+				ABE8C5801957FE870083D672 /* Supporting Files */,
+			);
+			name = dConnectDeviceSpheroTests;
+			path = DConnectSpheroDevicePluginTests;
+			sourceTree = "<group>";
+		};
+		ABE8C5801957FE870083D672 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB9170111961584F0084DB70 /* InfoPlist.strings */,
+				AB91700E1961582B0084DB70 /* dConnectDeviceSpheroTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABE8C58F1957FEAB0083D672 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				AB91700A196157E70084DB70 /* DPSpheroProfile.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		ABE8C5901957FEEB0083D672 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AB8913B61974D1F60069CDA3 /* extension */,
+				AB8913B51974D1DF0069CDA3 /* setting */,
+				AB8913B41974D1C90069CDA3 /* profile */,
+				AB916FF6196157D80084DB70 /* DPSpheroDevicePlugin.h */,
+				AB916FF7196157D80084DB70 /* DPSpheroDevicePlugin.m */,
+				6611B2EE19BFF5760034893E /* DPSpheroManager.h */,
+				6611B2EF19BFF5760034893E /* DPSpheroManager.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB91707019617E940084DB70 /* dConnectDeviceSphero_resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB91707A19617E940084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceSphero_resources" */;
+			buildPhases = (
+				AB91706D19617E940084DB70 /* Sources */,
+				AB91706E19617E940084DB70 /* Frameworks */,
+				AB91706F19617E940084DB70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceSphero_resources;
+			productName = dConnectDeviceSpheroResources;
+			productReference = AB91707119617E940084DB70 /* dConnectDeviceSphero_resources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		ABE8C5651957FE860083D672 /* dConnectDeviceSphero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABE8C5891957FE870083D672 /* Build configuration list for PBXNativeTarget "dConnectDeviceSphero" */;
+			buildPhases = (
+				ABE8C5621957FE860083D672 /* Sources */,
+				ABE8C5631957FE860083D672 /* Frameworks */,
+				ABE8C5641957FE860083D672 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceSphero;
+			productName = DConnectSpheroDevicePlugin;
+			productReference = ABE8C5661957FE860083D672 /* libdConnectDeviceSphero.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		ABE8C5751957FE870083D672 /* dConnectDeviceSpheroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABE8C58C1957FE870083D672 /* Build configuration list for PBXNativeTarget "dConnectDeviceSpheroTests" */;
+			buildPhases = (
+				ABE8C5721957FE870083D672 /* Sources */,
+				ABE8C5731957FE870083D672 /* Frameworks */,
+				ABE8C5741957FE870083D672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABE8C57D1957FE870083D672 /* PBXTargetDependency */,
+			);
+			name = dConnectDeviceSpheroTests;
+			productName = DConnectSpheroDevicePluginTests;
+			productReference = ABE8C5761957FE870083D672 /* dConnectDeviceSpheroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABE8C55E1957FE860083D672 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "NTT DOCOMO, INC.";
+			};
+			buildConfigurationList = ABE8C5611957FE860083D672 /* Build configuration list for PBXProject "dConnectDeviceSphero" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ja,
+				Base,
+			);
+			mainGroup = ABE8C55D1957FE860083D672;
+			productRefGroup = ABE8C5671957FE860083D672 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABE8C5651957FE860083D672 /* dConnectDeviceSphero */,
+				ABE8C5751957FE870083D672 /* dConnectDeviceSpheroTests */,
+				ABE8C5BB195800850083D672 /* dConnectDeviceSphero_framework */,
+				AB91707019617E940084DB70 /* dConnectDeviceSphero_resources */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB91706F19617E940084DB70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB00075219C95D23008CED6A /* SpheroBluetoothSetting.png in Resources */,
+				6611B36719C27FB60034893E /* SpheroDevicePlugin_iPhone.storyboard in Resources */,
+				6611B38019C2A6410034893E /* Localizable.strings in Resources */,
+				6611B36619C27FB60034893E /* SpheroDevicePlugin_iPad.storyboard in Resources */,
+				6611B37319C27FE60034893E /* SpheroSettingWakeup_2.png in Resources */,
+				AB91707819617E940084DB70 /* InfoPlist.strings in Resources */,
+				6611B37019C27FE60034893E /* SpheroSettingConnected_2.png in Resources */,
+				6611B36A19C27FB60034893E /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABE8C5741957FE870083D672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB00075119C95CFB008CED6A /* SpheroBluetoothSetting.png in Resources */,
+				AB91700F1961582B0084DB70 /* dConnectDeviceSpheroTests-Info.plist in Resources */,
+				AB9170131961584F0084DB70 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ABE8C5BF1958008F0083D672 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Environment Variables\nFRAMEWORK_NAME=${PROJECT_NAME}\nFRAMEWORK_VERSION=A\nFRAMEWORK_VERSION_NUMBER=1.0\nCONFIGURATION=\"Release\"\nFRAMEWORK_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nSTATICLIB_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-universal\"\n\n# Clean directories\nrm -rf \"${FRAMEWORK_BUILD_PATH}\"\n\n# Build simulator and device binaries.\n# A target to build a static library *must* have the name ${PROJECT_NAME}.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\n# A target to build a bundle *must* have the name ${PROJECT_NAME}_resources. This target is optional.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME}_resources -configuration ${CONFIGURATION} clean build || true\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME}_resources -configuration ${CONFIGURATION} clean build || true\n\n# create directories.\nmkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\nmkdir -p ${STATICLIB_BUILD_PATH}\n# create symlinks\ncd ${FRAMEWORK_DIR}\nln -s ../Versions/${FRAMEWORK_VERSION} Versions/Current\nln -s Versions/Current/Headers Headers\n#ln -s Versions/Current/Resources Resources\nln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_NAME}\ncd ${SRCROOT}\n\n# create the universal library, and strip internal symbols from it\nlipo ${SRCROOT}/build/${CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a ${SRCROOT}/build/${CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a -create -output \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\n#strip -x \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\ncp \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\" \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\n# copy files\ncp -r ${SRCROOT}/${PROJECT_NAME}/Headers/ ${FRAMEWORK_DIR}/Headers/";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB91706D19617E940084DB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABE8C5621957FE860083D672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6611B2F619C1A1EF0034893E /* DPSpheroSettingViewController.m in Sources */,
+				AB917015196158EB0084DB70 /* DPSpheroDevicePlugin.m in Sources */,
+				AB1061B919809C4F0005BB3F /* DPSpheroDeviceOrientationProfile.m in Sources */,
+				6611B37F19C28A830034893E /* DPGuideViewController.m in Sources */,
+				AB917016196158EB0084DB70 /* DPSpheroProfile.m in Sources */,
+				AB917018196158EB0084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m in Sources */,
+				AB91701A196158EB0084DB70 /* DPSpheroSensorProfile.m in Sources */,
+				6611B2F019BFF5760034893E /* DPSpheroManager.m in Sources */,
+				AB1061AE197E3B290005BB3F /* DPSpheroDriveControllerProfile.m in Sources */,
+				AB1061B6197F46A30005BB3F /* DPSpheroLightProfile.m in Sources */,
+				AB91701E196158EB0084DB70 /* DPSpheroSystemProfile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABE8C5721957FE870083D672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB917006196157D80084DB70 /* DPSpheroSensorProfile.m in Sources */,
+				AB917004196157D80084DB70 /* DPSpheroProfile.m in Sources */,
+				AB917005196157D80084DB70 /* DPSpheroNetworkServiceDiscoveryProfile.m in Sources */,
+				AB917008196157D80084DB70 /* DPSpheroSystemProfile.m in Sources */,
+				AB917003196157D80084DB70 /* DPSpheroDevicePlugin.m in Sources */,
+				AB91700D196158260084DB70 /* DConnectSpheroDevicePluginTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ABE8C57D1957FE870083D672 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABE8C5651957FE860083D672 /* dConnectDeviceSphero */;
+			targetProxy = ABE8C57C1957FE870083D672 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6611B35A19C27FB60034893E /* SpheroDevicePlugin_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6611B35B19C27FB60034893E /* Base */,
+				6611B38B19C2B9D20034893E /* en */,
+				6611B38D19C2B9DA0034893E /* ja */,
+			);
+			name = SpheroDevicePlugin_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		6611B35C19C27FB60034893E /* SpheroDevicePlugin_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6611B35D19C27FB60034893E /* Base */,
+				6611B38719C2A6BD0034893E /* en */,
+				6611B38919C2A6BF0034893E /* ja */,
+			);
+			name = SpheroDevicePlugin_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		6611B38219C2A6410034893E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6611B38119C2A6410034893E /* Base */,
+				6611B38419C2A6480034893E /* ja */,
+				6611B38519C2A6790034893E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		AB9170111961584F0084DB70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB9170121961584F0084DB70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB91707619617E940084DB70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB91707719617E940084DB70 /* en */,
+				AB6ABD6819AEF657006B3F1D /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB91707B19617E940084DB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "build/$(CONFIGURATION)-resources";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceSphero_resources/dConnectDeviceSphero_resources-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dConnectDeviceSphero_resources/dConnectDeviceSphero_resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		AB91707C19617E940084DB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "build/$(CONFIGURATION)-resources";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceSphero_resources/dConnectDeviceSphero_resources-Prefix.pch";
+				INFOPLIST_FILE = "dConnectDeviceSphero_resources/dConnectDeviceSphero_resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		ABE8C5871957FE870083D672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ABE8C5881957FE870083D672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABE8C58A1957FE870083D672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/DConnectSpheroDevicePlugin.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
+					"$(PROJECT_DIR)/../DCMDevicePluginSDK/bin",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceSphero/dConnectDeviceSphero-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = dConnectDeviceSphero;
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ABE8C58B1957FE870083D672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/DConnectSpheroDevicePlugin.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
+					"$(PROJECT_DIR)/../DCMDevicePluginSDK/bin",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceSphero/dConnectDeviceSphero-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = dConnectDeviceSphero;
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ABE8C58D1957FE870083D672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DConnectSpheroDevicePlugin/DConnectSpheroDevicePlugin-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = dConnectDeviceSpheroTests;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ABE8C58E1957FE870083D672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DConnectSpheroDevicePlugin/DConnectSpheroDevicePlugin-Prefix.pch";
+				PRODUCT_NAME = dConnectDeviceSpheroTests;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		ABE8C5BD195800850083D672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = dConnectDeviceSphero_framework;
+			};
+			name = Debug;
+		};
+		ABE8C5BE195800850083D672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = dConnectDeviceSphero_framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB91707A19617E940084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceSphero_resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB91707B19617E940084DB70 /* Debug */,
+				AB91707C19617E940084DB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABE8C5611957FE860083D672 /* Build configuration list for PBXProject "dConnectDeviceSphero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE8C5871957FE870083D672 /* Debug */,
+				ABE8C5881957FE870083D672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABE8C5891957FE870083D672 /* Build configuration list for PBXNativeTarget "dConnectDeviceSphero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE8C58A1957FE870083D672 /* Debug */,
+				ABE8C58B1957FE870083D672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABE8C58C1957FE870083D672 /* Build configuration list for PBXNativeTarget "dConnectDeviceSpheroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE8C58D1957FE870083D672 /* Debug */,
+				ABE8C58E1957FE870083D672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABE8C5BC195800850083D672 /* Build configuration list for PBXAggregateTarget "dConnectDeviceSphero_framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE8C5BD195800850083D672 /* Debug */,
+				ABE8C5BE195800850083D672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABE8C55E1957FE860083D672 /* Project object */;
+}

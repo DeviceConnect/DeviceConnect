@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="0bM-va-ZDR">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="DEI-bF-190">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="0bM-va-ZDR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sQB-qe-JMW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vLf-6a-bmw" kind="relationship" relationship="rootViewController" id="wgB-Mj-pBb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bkj-bX-LKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344" y="-722"/>
+        </scene>
+        <!--IRKit-->
+        <scene sceneID="NJe-hs-dax">
+            <objects>
+                <viewController id="vLf-6a-bmw" customClass="DPIRKitSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dh0-f5-eTv"/>
+                        <viewControllerLayoutGuide type="bottom" id="AAN-uG-vhg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="khc-LM-kB9">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="IRKit" id="bxo-tg-JCJ">
+                        <barButtonItem key="leftBarButtonItem" title="＜CLOSE" id="RiJ-pA-y1J">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeBtnDidPushed:" destination="vLf-6a-bmw" id="atT-Cr-Rk4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODs-ln-TNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="-722"/>
+        </scene>
+        <!--Kit Page View Controller-->
+        <scene sceneID="Gys-GL-936">
+            <objects>
+                <viewController storyboardIdentifier="PowerGuide" id="dPk-jf-AZP" customClass="DPIRKitPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xWL-yY-2bv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mil-fL-Qs9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bHi-Ta-zfj">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="irkit01.png" translatesAutoresizingMaskIntoConstraints="NO" id="kfs-8b-2AQ">
+                                <rect key="frame" x="77" y="133" width="647" height="353"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="353" id="TJJ-J4-xn4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.IRKitの起動" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYR-aj-M3X">
+                                <rect key="frame" x="77" y="76" width="312" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Hi3-fo-4fv"/>
+                                    <constraint firstAttribute="width" constant="312" id="Msw-Kj-9HF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="647" translatesAutoresizingMaskIntoConstraints="NO" id="9EB-1C-Zad">
+                                <rect key="frame" x="77" y="517" width="647" height="458"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="210" id="fJP-7H-kDU"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="IRKit">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="に">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="PC">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="やアダプタからなど、電力を供給できる状態にした">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="microUSB">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ケーブルを接続すると、赤いランプが点滅します。">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="赤いランプが点滅しない場合は、">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="USB">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="の横にあるリセットボタンを">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="7">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="秒押してリセットします。">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9EB-1C-Zad" firstAttribute="leading" secondItem="bHi-Ta-zfj" secondAttribute="leading" constant="77" id="1Jv-LE-6tG"/>
+                            <constraint firstItem="PYR-aj-M3X" firstAttribute="leading" secondItem="bHi-Ta-zfj" secondAttribute="leading" constant="77" id="2y6-65-vvO"/>
+                            <constraint firstAttribute="trailing" secondItem="9EB-1C-Zad" secondAttribute="trailing" constant="44" id="CDl-Hv-GpV"/>
+                            <constraint firstItem="kfs-8b-2AQ" firstAttribute="top" secondItem="PYR-aj-M3X" secondAttribute="bottom" constant="8" id="FD3-D5-Bif"/>
+                            <constraint firstItem="Mil-fL-Qs9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9EB-1C-Zad" secondAttribute="bottom" constant="10" id="Fih-rO-xw3"/>
+                            <constraint firstItem="Mil-fL-Qs9" firstAttribute="top" secondItem="9EB-1C-Zad" secondAttribute="bottom" priority="999" constant="49" id="Ixf-28-9Rb"/>
+                            <constraint firstItem="9EB-1C-Zad" firstAttribute="top" secondItem="kfs-8b-2AQ" secondAttribute="bottom" priority="999" constant="31" id="JLE-OO-bho"/>
+                            <constraint firstItem="9EB-1C-Zad" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kfs-8b-2AQ" secondAttribute="bottom" constant="1" id="PEK-e4-E6u"/>
+                            <constraint firstAttribute="trailing" secondItem="kfs-8b-2AQ" secondAttribute="trailing" constant="44" id="eJ1-m1-sV1"/>
+                            <constraint firstItem="PYR-aj-M3X" firstAttribute="top" secondItem="bHi-Ta-zfj" secondAttribute="top" constant="76" id="hd6-HP-JhT"/>
+                            <constraint firstItem="kfs-8b-2AQ" firstAttribute="leading" secondItem="bHi-Ta-zfj" secondAttribute="leading" constant="77" id="mI0-Gv-1DI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AEm-IT-UcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="-717"/>
+        </scene>
+        <!--Kit Wi Fi Form View Controller-->
+        <scene sceneID="5Jo-hb-7If">
+            <objects>
+                <viewController storyboardIdentifier="WiFi" id="Pts-NU-GgX" customClass="DPIRKitWiFiFormViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hh1-VR-IFr"/>
+                        <viewControllerLayoutGuide type="bottom" id="O4Y-wL-G82"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ESf-oc-5hd">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.WiFiの設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEW-11-a2Z">
+                                <rect key="frame" x="77" y="76" width="338" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="338" id="Y9s-YK-lqy"/>
+                                    <constraint firstAttribute="height" constant="40" id="pQJ-T6-HaN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="647" translatesAutoresizingMaskIntoConstraints="NO" id="xsi-Ne-ed5">
+                                <rect key="frame" x="77" y="517" width="647" height="458"/>
+                                <string key="text">IRKitを接続したいネットワークのWi-FiスポットのSSIDとPASSWORDを入力します。
+
+入力が完了したら次のページに移動します。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zc4-Lg-UjL">
+                                <rect key="frame" x="77" y="133" width="647" height="353"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SSID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwm-Ih-xYv">
+                                        <rect key="frame" x="111" y="77" width="44" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rve-va-QY6">
+                                        <rect key="frame" x="180" y="73" width="356" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pass:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnD-qT-sm1">
+                                        <rect key="frame" x="117" y="255" width="43" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="0hN-pA-FiD">
+                                        <rect key="frame" x="111" y="163" width="425" height="29"/>
+                                        <segments>
+                                            <segment title="None"/>
+                                            <segment title="WEP"/>
+                                            <segment title="WPA/WPA2"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MIX-jW-3Yp">
+                                        <rect key="frame" x="180" y="251" width="356" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="647" id="WCM-I0-NaR"/>
+                                    <constraint firstAttribute="height" constant="353" id="h5B-Yr-6FE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EEW-11-a2Z" firstAttribute="leading" secondItem="ESf-oc-5hd" secondAttribute="leading" constant="77" id="AP8-0X-GEl"/>
+                            <constraint firstAttribute="trailing" secondItem="xsi-Ne-ed5" secondAttribute="trailing" constant="44" id="LNm-Gb-NWU"/>
+                            <constraint firstItem="zc4-Lg-UjL" firstAttribute="top" secondItem="EEW-11-a2Z" secondAttribute="bottom" constant="17" id="NcF-jq-uPa"/>
+                            <constraint firstItem="xsi-Ne-ed5" firstAttribute="top" secondItem="zc4-Lg-UjL" secondAttribute="bottom" constant="31" id="Td5-Im-Et2"/>
+                            <constraint firstItem="O4Y-wL-G82" firstAttribute="top" secondItem="xsi-Ne-ed5" secondAttribute="bottom" constant="49" id="llL-8x-DvW"/>
+                            <constraint firstAttribute="centerX" secondItem="zc4-Lg-UjL" secondAttribute="centerX" constant="-16.5" id="oXo-LJ-UvU"/>
+                            <constraint firstItem="EEW-11-a2Z" firstAttribute="top" secondItem="hh1-VR-IFr" secondAttribute="bottom" constant="56" id="qU0-fk-lar"/>
+                            <constraint firstItem="xsi-Ne-ed5" firstAttribute="leading" secondItem="ESf-oc-5hd" secondAttribute="leading" constant="77" id="t5r-Ew-wJa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordField" destination="MIX-jW-3Yp" id="xCt-7K-0LT"/>
+                        <outlet property="secTypeFiled" destination="0hN-pA-FiD" id="BRs-8n-sp3"/>
+                        <outlet property="ssidField" destination="rve-va-QY6" id="1gQ-kk-5fV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBS-8b-7Kj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2815" y="-717"/>
+        </scene>
+        <!--Kit Connection Guide View Controller-->
+        <scene sceneID="K7h-JL-lFb">
+            <objects>
+                <viewController storyboardIdentifier="ConnectionGuide" id="jz5-Al-yKY" customClass="DPIRKitConnectionGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z67-h1-5LT"/>
+                        <viewControllerLayoutGuide type="bottom" id="J45-RY-ANQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="De1-xP-s4d">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.IRKitへの設定値の送信" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubt-gf-nYK">
+                                <rect key="frame" x="77" y="76" width="338" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YYq-zF-BrG"/>
+                                    <constraint firstAttribute="width" constant="338" id="wgr-ry-S01"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="647" translatesAutoresizingMaskIntoConstraints="NO" id="y7O-g0-o6g">
+                                <rect key="frame" x="77" y="517" width="647" height="458"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="青いランプが点滅し続けている場合、設定した">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Wi-Fi">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="スポットに、">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="IRKit">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="が接続できていない状態です。">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="SSID">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="、">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Password">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="の設定ミスが考えられますので、再設定し、">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="1-4">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="の手順を再度やりなおしてください。">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsl-Y0-ggs">
+                                <rect key="frame" x="77" y="133" width="647" height="353"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IRKitにWiFiの接続情報を送信します。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sN-hD-7Xn">
+                                        <rect key="frame" x="20" y="17" width="574" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bc-7c-RFq">
+                                        <rect key="frame" x="33" y="72" width="580" height="113"/>
+                                        <state key="normal" image="irkit09.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="jz5-Al-yKY" eventType="touchUpInside" id="Zuj-eg-B5i"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="送信に成功すると、IRKitのLEDが青い点滅に変わり、Wi-Fi情報で送信したWi-Fiスポットに接続します。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="574" translatesAutoresizingMaskIntoConstraints="NO" id="bwy-fT-Vq2">
+                                        <rect key="frame" x="36" y="201" width="574" height="147"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="353" id="ZgF-6Z-PTR"/>
+                                    <constraint firstAttribute="width" constant="647" id="xle-3u-QkV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jr-XV-Tfb">
+                                <rect key="frame" x="256" y="394" width="256" height="236"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Iga-wp-rGo">
+                                        <rect key="frame" x="109" y="100" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Iga-wp-rGo" secondAttribute="centerY" id="FBX-2n-bzT"/>
+                                    <constraint firstAttribute="width" constant="256" id="Hyw-Bf-Niw"/>
+                                    <constraint firstAttribute="centerX" secondItem="Iga-wp-rGo" secondAttribute="centerX" id="QTR-kT-ws3"/>
+                                    <constraint firstAttribute="height" constant="236" id="yFg-6R-6N2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y7O-g0-o6g" firstAttribute="top" secondItem="Qsl-Y0-ggs" secondAttribute="bottom" constant="31" id="7VH-TF-Wa7"/>
+                            <constraint firstAttribute="centerX" secondItem="7jr-XV-Tfb" secondAttribute="centerX" id="A6E-uL-lli"/>
+                            <constraint firstItem="Qsl-Y0-ggs" firstAttribute="top" secondItem="ubt-gf-nYK" secondAttribute="bottom" constant="17" id="B1H-6N-j2x"/>
+                            <constraint firstAttribute="centerX" secondItem="Qsl-Y0-ggs" secondAttribute="centerX" constant="-16.5" id="GzY-0I-ePm"/>
+                            <constraint firstItem="y7O-g0-o6g" firstAttribute="leading" secondItem="De1-xP-s4d" secondAttribute="leading" constant="77" id="HSG-UK-gyX"/>
+                            <constraint firstItem="ubt-gf-nYK" firstAttribute="top" secondItem="z67-h1-5LT" secondAttribute="bottom" constant="56" id="MWK-VH-jOi"/>
+                            <constraint firstAttribute="trailing" secondItem="y7O-g0-o6g" secondAttribute="trailing" constant="44" id="SnA-fU-8Nf"/>
+                            <constraint firstItem="J45-RY-ANQ" firstAttribute="top" secondItem="y7O-g0-o6g" secondAttribute="bottom" constant="49" id="YON-qI-oOD"/>
+                            <constraint firstAttribute="centerY" secondItem="7jr-XV-Tfb" secondAttribute="centerY" id="czt-yu-LlQ"/>
+                            <constraint firstItem="ubt-gf-nYK" firstAttribute="leading" secondItem="De1-xP-s4d" secondAttribute="leading" constant="77" id="jHg-XP-KNv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indBackView" destination="7jr-XV-Tfb" id="dBh-Rf-dI5"/>
+                        <outlet property="indView" destination="Iga-wp-rGo" id="37h-9V-qWO"/>
+                        <outlet property="sendButton" destination="3Bc-7c-RFq" id="TFU-bh-yHM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lON-b8-gPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4441" y="-717"/>
+        </scene>
+        <!--Kit Wi Fi Selection Guide View Controller-->
+        <scene sceneID="Dwg-ZG-Tew">
+            <objects>
+                <viewController storyboardIdentifier="WiFiSelectionGuide" id="30n-Xn-2jM" customClass="DPIRKitWiFiSelectionGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8tV-OC-gWA"/>
+                        <viewControllerLayoutGuide type="bottom" id="d3n-15-qKB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rU7-I5-ZrR">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.IRKitXXXXとの接続" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6U-Rw-a8m">
+                                <rect key="frame" x="77" y="76" width="466" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="466" id="B2d-Kz-vdV"/>
+                                    <constraint firstAttribute="height" constant="51" id="WjV-3b-qJJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="irkit03.png" translatesAutoresizingMaskIntoConstraints="NO" id="inF-PP-4n1">
+                                <rect key="frame" x="77" y="133" width="647" height="353"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="353" id="Gb0-1B-hmj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ホームキーでアプリを中断し、iOSのメニューの設定に移動し、IRKit○○○○本体とWi-Fiで接続します。" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="647" translatesAutoresizingMaskIntoConstraints="NO" id="uvx-6L-xg6">
+                                <rect key="frame" x="77" y="517" width="647" height="458"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-n9-aM7">
+                                <rect key="frame" x="256" y="394" width="256" height="236"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9A2-Kf-d1Q">
+                                        <rect key="frame" x="109" y="100" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="9A2-Kf-d1Q" secondAttribute="centerX" id="517-Em-odk"/>
+                                    <constraint firstAttribute="centerY" secondItem="9A2-Kf-d1Q" secondAttribute="centerY" id="JfU-ql-SYy"/>
+                                    <constraint firstAttribute="width" constant="256" id="KiM-W2-vL1"/>
+                                    <constraint firstAttribute="height" constant="236" id="RVa-qG-Hwq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Qph-n9-aM7" secondAttribute="centerY" id="2QY-fT-Fjc"/>
+                            <constraint firstItem="uvx-6L-xg6" firstAttribute="top" secondItem="inF-PP-4n1" secondAttribute="bottom" constant="31" id="BR2-7M-erq"/>
+                            <constraint firstItem="inF-PP-4n1" firstAttribute="top" secondItem="Z6U-Rw-a8m" secondAttribute="bottom" constant="6" id="CwG-NM-YJx"/>
+                            <constraint firstItem="d3n-15-qKB" firstAttribute="top" secondItem="uvx-6L-xg6" secondAttribute="bottom" constant="49" id="EV5-GJ-0a8"/>
+                            <constraint firstItem="Z6U-Rw-a8m" firstAttribute="leading" secondItem="rU7-I5-ZrR" secondAttribute="leading" constant="77" id="SXb-8u-aoh"/>
+                            <constraint firstAttribute="trailing" secondItem="uvx-6L-xg6" secondAttribute="trailing" constant="44" id="WBA-I0-DoJ"/>
+                            <constraint firstAttribute="centerX" secondItem="Qph-n9-aM7" secondAttribute="centerX" id="YmU-oc-FYA"/>
+                            <constraint firstItem="uvx-6L-xg6" firstAttribute="leading" secondItem="rU7-I5-ZrR" secondAttribute="leading" constant="77" id="gLL-Yk-7Uy"/>
+                            <constraint firstItem="Z6U-Rw-a8m" firstAttribute="top" secondItem="rU7-I5-ZrR" secondAttribute="top" constant="76" id="gY8-vm-A57"/>
+                            <constraint firstItem="inF-PP-4n1" firstAttribute="leading" secondItem="rU7-I5-ZrR" secondAttribute="leading" constant="77" id="jdR-oS-hUo"/>
+                            <constraint firstAttribute="trailing" secondItem="inF-PP-4n1" secondAttribute="trailing" constant="44" id="tLC-6a-Qxy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indBackView" destination="Qph-n9-aM7" id="lLN-SV-dHl"/>
+                        <outlet property="indView" destination="9A2-Kf-d1Q" id="dbi-V1-jle"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XbS-xo-eTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3629" y="-717"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="irkit01.png" width="560" height="500"/>
+        <image name="irkit03.png" width="620" height="269"/>
+        <image name="irkit09.png" width="580" height="113"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MA7-TU-EJ6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Bookmark View Controller-->
+        <scene sceneID="ZbC-fP-vxJ">
+            <objects>
+                <tableViewController id="MA7-TU-EJ6" customClass="GHBookmarkViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pV0-kE-QBe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GIU-a0-zh6">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GIU-a0-zh6" id="AIz-RM-Ee5">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MA7-TU-EJ6" id="U1X-ya-yWr"/>
+                            <outlet property="delegate" destination="MA7-TU-EJ6" id="N39-yE-OLQ"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="新規フォルダ" id="pYQ-up-7Il">
+                            <connections>
+                                <action selector="newFolder:" destination="MA7-TU-EJ6" id="l4X-QM-qtJ"/>
+                                <segue destination="plf-qo-df3" kind="push" identifier="CreateFolder" id="17t-Ko-vTP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="XXP-U4-Ode"/>
+                        <barButtonItem title="編集" id="rXb-VD-ZY9">
+                            <connections>
+                                <action selector="edit:" destination="MA7-TU-EJ6" id="wUw-lN-6Dq"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="XvY-N3-So0">
+                        <barButtonItem key="rightBarButtonItem" title="完了" id="9uP-2Y-kkj">
+                            <connections>
+                                <action selector="close:" destination="MA7-TU-EJ6" id="MXe-uz-4mB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBtn" destination="9uP-2Y-kkj" id="0Ui-hZ-15a"/>
+                        <outlet property="editBtn" destination="rXb-VD-ZY9" id="giW-5u-qk2"/>
+                        <outlet property="folderBtn" destination="pYQ-up-7Il" id="T2H-hE-HRE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FW-B1-Etd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3504" y="-1024"/>
+        </scene>
+        <!--Folder Create Controller-->
+        <scene sceneID="Top-5G-ti4">
+            <objects>
+                <tableViewController id="plf-qo-df3" customClass="GHFolderCreateController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RkO-Af-foJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zh5-cU-K9h" customClass="GHFolderTitleCell">
+                                <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zh5-cU-K9h" id="kdP-Xz-ddZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="plf-qo-df3" id="lY1-QR-qkf"/>
+                            <outlet property="delegate" destination="plf-qo-df3" id="7jE-vR-zyb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="jCX-9a-jB5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tgU-Zf-4T8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103" y="-1024"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

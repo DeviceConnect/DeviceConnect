@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  dConnectDeviceIRKit
+
+  Created by 安部 将史 on 2014/08/23.
+  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
+*/
+
+// Alert
+// title
+"AlertTitleError" = "Error";
+"AlertTitleConnection" = "Connected";
+"AlertTitlePrepared" = "Prepared";
+
+// button
+"AlertBtnClose" = "Close";
+
+// message
+"AlertMessageConnectedWithWiFi" = "Success!";
+"AlertMessagePrepared" = "Connect with IRKit";
+"AlertMessageIsIRKit" = "Connected to WiFi of IRKit. Go to next page.";
+"AlertMessageIsNotIRKit" = "Not Connected to WiFi of IRKit. Please change WiFi to IRKit on settings page.";
+"AlertMessageNetworkError" = "Network Error";
+"AlertMessageNoNetworkError" = "Not reachable to the Internet. Please check connection to the Internet and retry.";
+"AlertMessageConnectedSuccess" = "I've confirmed that the IRKit is connected to the network.";
+"IRKitSettingsTitle"="IRKit";

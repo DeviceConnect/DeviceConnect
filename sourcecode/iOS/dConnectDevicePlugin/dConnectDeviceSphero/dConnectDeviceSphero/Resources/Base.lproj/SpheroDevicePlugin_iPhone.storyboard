@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ukr-0X-h6z">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Sphero Setting View Controller - 設定-->
+        <scene sceneID="Bsg-Qf-HQ5">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="2eT-GW-DkT" customClass="DPSpheroSettingViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="設定" id="9hY-Jp-mk8"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uNB-y7-YhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="1099"/>
+        </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="qkA-mQ-Z1c">
+            <objects>
+                <viewController storyboardIdentifier="PowerGuide" id="hQz-a6-nY5" customClass="DPGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ab9-VG-7K8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vpl-JD-Uwp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8m8-Ua-uio">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpheroSettingWakeup_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="WSv-Zf-QQa">
+                                <rect key="frame" x="50" y="110" width="220" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="2bg-uM-jBV"/>
+                                    <constraint firstAttribute="height" priority="998" constant="200" id="lQv-ws-ppW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.Spheroの起動" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5n-6x-zaX">
+                                <rect key="frame" x="35" y="75" width="230" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="9d6-ds-0Vf"/>
+                                    <constraint firstAttribute="height" constant="21" id="OkF-Yh-0V4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spheroを指でダブルタップすると起動します。Spheroの電源の切り方に関してはSpheroの説明書を参照してください。" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="kp7-Ik-pz2">
+                                <rect key="frame" x="31" y="348" width="260" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WSv-Zf-QQa" firstAttribute="trailing" secondItem="kp7-Ik-pz2" secondAttribute="leading" constant="239" id="5Kc-74-OG6"/>
+                            <constraint firstItem="kp7-Ik-pz2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WSv-Zf-QQa" secondAttribute="bottom" id="BLy-Ko-OfP"/>
+                            <constraint firstAttribute="trailing" secondItem="kp7-Ik-pz2" secondAttribute="trailing" constant="29" id="Eia-hP-9Cp"/>
+                            <constraint firstItem="Vpl-JD-Uwp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WSv-Zf-QQa" secondAttribute="bottom" constant="20" id="Ext-LO-75J"/>
+                            <constraint firstItem="Vpl-JD-Uwp" firstAttribute="top" secondItem="kp7-Ik-pz2" secondAttribute="bottom" constant="20" id="HLW-ua-Hmk"/>
+                            <constraint firstItem="g5n-6x-zaX" firstAttribute="top" secondItem="8m8-Ua-uio" secondAttribute="top" constant="75" id="QE2-yU-rHn"/>
+                            <constraint firstItem="WSv-Zf-QQa" firstAttribute="height" secondItem="kp7-Ik-pz2" secondAttribute="height" priority="999" id="Xw7-UU-l4p"/>
+                            <constraint firstItem="WSv-Zf-QQa" firstAttribute="leading" secondItem="8m8-Ua-uio" secondAttribute="leading" constant="50" id="cfW-N5-vaw"/>
+                            <constraint firstItem="g5n-6x-zaX" firstAttribute="leading" secondItem="8m8-Ua-uio" secondAttribute="leading" constant="35" id="mUk-DC-4WC"/>
+                            <constraint firstItem="WSv-Zf-QQa" firstAttribute="top" secondItem="g5n-6x-zaX" secondAttribute="bottom" constant="14" id="r7l-fe-bO8"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="horizontalSpace" destination="5Kc-74-OG6" id="w5r-pV-L1a"/>
+                        <outlet property="topSpace" destination="QE2-yU-rHn" id="1dP-OI-S3q"/>
+                        <outlet property="verticalSpace" destination="BLy-Ko-OfP" id="nvJ-Bq-zEc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQn-c9-YFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="1099"/>
+        </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="q36-m8-J5V">
+            <objects>
+                <viewController storyboardIdentifier="ConnectionGuide" id="GYg-1B-OYO" customClass="DPGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h23-iN-vMe"/>
+                        <viewControllerLayoutGuide type="bottom" id="GPa-L1-Z0Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hS4-u5-5s7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpheroBluetoothSetting.png" translatesAutoresizingMaskIntoConstraints="NO" id="GEi-2M-11K">
+                                <rect key="frame" x="50" y="110" width="220" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="200" id="CqI-xw-vS1"/>
+                                    <constraint firstAttribute="width" constant="220" id="ao7-i1-qC5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.Spheroとのペアリング" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heS-ph-PR2">
+                                <rect key="frame" x="35" y="75" width="230" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="pPK-bH-Z3O"/>
+                                    <constraint firstAttribute="width" constant="230" id="r0Y-XX-VxF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOSの設定画面からデバイス名が「Sphero-XXX」となっているものをタップすることによって、ペアリングを行うことが出来ます。すると、Spheroの点滅が止まります。" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="uGh-Il-Tkg">
+                                <rect key="frame" x="31" y="348" width="260" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GPa-L1-Z0Z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GEi-2M-11K" secondAttribute="bottom" constant="20" id="64G-06-bVF"/>
+                            <constraint firstItem="heS-ph-PR2" firstAttribute="leading" secondItem="hS4-u5-5s7" secondAttribute="leading" constant="35" id="8Dl-a3-hpZ"/>
+                            <constraint firstItem="GEi-2M-11K" firstAttribute="leading" secondItem="hS4-u5-5s7" secondAttribute="leading" constant="50" id="8hn-Vo-sYI"/>
+                            <constraint firstItem="GEi-2M-11K" firstAttribute="trailing" secondItem="uGh-Il-Tkg" secondAttribute="leading" constant="239" id="Nlz-7D-iMo"/>
+                            <constraint firstItem="heS-ph-PR2" firstAttribute="top" secondItem="hS4-u5-5s7" secondAttribute="top" constant="75" id="SAF-cH-FjT"/>
+                            <constraint firstAttribute="trailing" secondItem="uGh-Il-Tkg" secondAttribute="trailing" constant="29" id="Xcr-sa-OWJ"/>
+                            <constraint firstItem="uGh-Il-Tkg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GEi-2M-11K" secondAttribute="bottom" id="afH-Gr-ccF"/>
+                            <constraint firstItem="GEi-2M-11K" firstAttribute="height" secondItem="uGh-Il-Tkg" secondAttribute="height" id="qbR-kl-QKw"/>
+                            <constraint firstItem="GPa-L1-Z0Z" firstAttribute="top" secondItem="uGh-Il-Tkg" secondAttribute="bottom" constant="20" id="sJH-7o-7Or"/>
+                            <constraint firstItem="GEi-2M-11K" firstAttribute="top" secondItem="heS-ph-PR2" secondAttribute="bottom" constant="14" id="vWN-R2-xoi"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="horizontalSpace" destination="Nlz-7D-iMo" id="iUH-T3-LpU"/>
+                        <outlet property="topSpace" destination="SAF-cH-FjT" id="EC1-3J-Ugb"/>
+                        <outlet property="verticalSpace" destination="afH-Gr-ccF" id="cH0-lb-Bs9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ZO-hD-4Qi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="1099"/>
+        </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="0By-7d-4rD">
+            <objects>
+                <viewController storyboardIdentifier="ActivateGuide" id="hAw-Xa-F3E" customClass="DPGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u7S-Eg-UYD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eiq-lf-ZfO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OdD-I1-Y63">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpheroSettingConnected_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Gd-1y-bVe">
+                                <rect key="frame" x="50" y="110" width="220" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="200" id="3uX-77-TMG"/>
+                                    <constraint firstAttribute="width" constant="220" id="51S-FH-CXs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.Spheroの有効化" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHI-FP-PN8">
+                                <rect key="frame" x="35" y="75" width="230" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EQR-3I-hu1"/>
+                                    <constraint firstAttribute="width" constant="230" id="IuU-5o-5Sl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZr-Ry-Gxp">
+                                <rect key="frame" x="31" y="348" width="260" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spheroを有効化するためには、以下のスイッチをOnにします。切断する場合はOffにします。" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="fXU-49-r9m">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="cp0-WH-F2D"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wj0-cl-O4x">
+                                        <rect key="frame" x="0.0" y="108" width="260" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PkZ-yO-I2y">
+                                                <rect key="frame" x="181" y="5" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="49" id="JbY-H8-pVB"/>
+                                                    <constraint firstAttribute="height" constant="31" id="LM9-Sc-5fN"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="switchValueChanged:" destination="hAw-Xa-F3E" eventType="valueChanged" id="LjX-ws-b0e"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spheroの有効化" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVK-YL-ouU">
+                                                <rect key="frame" x="25" y="10" width="124" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="a8w-q2-4C6"/>
+                                                    <constraint firstAttribute="width" constant="124" id="vyQ-7x-faG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.089925878289999997" green="0.66850595469999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="PkZ-yO-I2y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hVK-YL-ouU" secondAttribute="trailing" constant="5" id="0o3-0v-ihg"/>
+                                            <constraint firstItem="PkZ-yO-I2y" firstAttribute="top" secondItem="wj0-cl-O4x" secondAttribute="top" constant="5" id="3Ue-zE-YbE"/>
+                                            <constraint firstAttribute="height" constant="41" id="6Ht-2y-Dtu"/>
+                                            <constraint firstAttribute="trailing" secondItem="PkZ-yO-I2y" secondAttribute="trailing" priority="998" constant="30" id="FBJ-OZ-GJf"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PkZ-yO-I2y" secondAttribute="trailing" constant="5" id="JPU-4s-B2v"/>
+                                            <constraint firstItem="hVK-YL-ouU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wj0-cl-O4x" secondAttribute="leading" constant="5" id="bz2-H5-Tib"/>
+                                            <constraint firstItem="hVK-YL-ouU" firstAttribute="top" secondItem="wj0-cl-O4x" secondAttribute="top" constant="10" id="d7X-3j-vcD"/>
+                                            <constraint firstItem="hVK-YL-ouU" firstAttribute="leading" secondItem="wj0-cl-O4x" secondAttribute="leading" priority="997" constant="25" id="sdF-VW-oc1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fXU-49-r9m" firstAttribute="leading" secondItem="hZr-Ry-Gxp" secondAttribute="leading" id="OCc-ie-WkO"/>
+                                    <constraint firstAttribute="trailing" secondItem="fXU-49-r9m" secondAttribute="trailing" id="Q3d-TX-no7"/>
+                                    <constraint firstItem="wj0-cl-O4x" firstAttribute="leading" secondItem="hZr-Ry-Gxp" secondAttribute="leading" id="Z3o-dk-BDB"/>
+                                    <constraint firstAttribute="trailing" secondItem="wj0-cl-O4x" secondAttribute="trailing" id="ow7-bw-MYn"/>
+                                    <constraint firstItem="fXU-49-r9m" firstAttribute="top" secondItem="hZr-Ry-Gxp" secondAttribute="top" id="rKs-Ee-YDK"/>
+                                    <constraint firstItem="wj0-cl-O4x" firstAttribute="top" secondItem="fXU-49-r9m" secondAttribute="bottom" constant="8" id="wtN-QR-oel"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Gd-1y-bVe" firstAttribute="trailing" secondItem="hZr-Ry-Gxp" secondAttribute="leading" constant="239" id="1Gs-xI-eNN"/>
+                            <constraint firstItem="hZr-Ry-Gxp" firstAttribute="height" secondItem="6Gd-1y-bVe" secondAttribute="height" id="4HE-xu-0Xa"/>
+                            <constraint firstItem="Eiq-lf-ZfO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Gd-1y-bVe" secondAttribute="bottom" constant="20" id="4qn-jE-WGU"/>
+                            <constraint firstItem="BHI-FP-PN8" firstAttribute="top" secondItem="OdD-I1-Y63" secondAttribute="top" constant="75" id="5GO-OW-dlU"/>
+                            <constraint firstItem="BHI-FP-PN8" firstAttribute="leading" secondItem="OdD-I1-Y63" secondAttribute="leading" constant="35" id="7Uh-vh-5su"/>
+                            <constraint firstItem="hZr-Ry-Gxp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Gd-1y-bVe" secondAttribute="bottom" id="CKg-hT-DFP"/>
+                            <constraint firstItem="6Gd-1y-bVe" firstAttribute="leading" secondItem="OdD-I1-Y63" secondAttribute="leading" constant="50" id="Hof-HS-9mW"/>
+                            <constraint firstAttribute="trailing" secondItem="hZr-Ry-Gxp" secondAttribute="trailing" priority="997" constant="29" id="JTa-PK-g6Q"/>
+                            <constraint firstItem="Eiq-lf-ZfO" firstAttribute="top" secondItem="hZr-Ry-Gxp" secondAttribute="bottom" constant="20" id="KdT-c0-KRV"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hZr-Ry-Gxp" secondAttribute="trailing" constant="5" id="Kgj-dH-SoK"/>
+                            <constraint firstItem="6Gd-1y-bVe" firstAttribute="top" secondItem="BHI-FP-PN8" secondAttribute="bottom" constant="14" id="MD4-46-ua3"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="activateSwitch" destination="PkZ-yO-I2y" id="27y-cF-fcP"/>
+                        <outlet property="horizontalSpace" destination="1Gs-xI-eNN" id="0w2-rD-JKX"/>
+                        <outlet property="topSpace" destination="5GO-OW-dlU" id="5FW-KR-T9H"/>
+                        <outlet property="verticalSpace" destination="CKg-hT-DFP" id="NeC-HU-UTb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K48-0Z-4Cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421" y="1099"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0L0-qa-ell">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ukr-0X-h6z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8wN-fz-fPD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2eT-GW-DkT" kind="relationship" relationship="rootViewController" id="oXX-Xk-drf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFr-2l-Xec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="1099"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SpheroBluetoothSetting.png" width="620" height="631"/>
+        <image name="SpheroSettingConnected_2.png" width="920" height="820"/>
+        <image name="SpheroSettingWakeup_2.png" width="920" height="820"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

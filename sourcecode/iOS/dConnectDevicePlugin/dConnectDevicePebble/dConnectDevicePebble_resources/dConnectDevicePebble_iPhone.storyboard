@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1Ej-BJ-DZG">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="6bn-iX-WuO">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1Ej-BJ-DZG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pM8-gB-ORl">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.62745098039215685" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="b4c-ZI-6aM" kind="relationship" relationship="rootViewController" id="FzZ-hz-KDR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAe-db-QBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1255" y="1399"/>
+        </scene>
+        <!--Pebble View Controller - Pebble-->
+        <scene sceneID="PnN-hn-8TR">
+            <objects>
+                <viewController id="b4c-ZI-6aM" customClass="PebbleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0aA-dr-hUi"/>
+                        <viewControllerLayoutGuide type="bottom" id="3f0-vi-Zwg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hIz-Yx-vWt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Pebble" id="xsb-JB-Xwp">
+                        <barButtonItem key="leftBarButtonItem" title=" &lt; CLOSE" id="S7H-9T-QmJ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeBtnDidPushed:" destination="b4c-ZI-6aM" id="9WU-1x-M4S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-wE-3eK" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-709" y="1399"/>
+        </scene>
+        <!--Pebble Setting View05 Controller-->
+        <scene sceneID="qA8-9A-QgN">
+            <objects>
+                <viewController storyboardIdentifier="PebbleSettingView05Controller" id="Db6-xp-ccp" customClass="PebbleSettingView05Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gux-EQ-hEB"/>
+                        <viewControllerLayoutGuide type="bottom" id="s9C-ie-Tgo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mx6-7h-laj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. Pebble接続設定完了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-vI-ev4">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="img05.png" translatesAutoresizingMaskIntoConstraints="NO" id="dnY-Gu-Wy3">
+                                <rect key="frame" x="85" y="135" width="150" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="J8Y-tZ-pj2"/>
+                                    <constraint firstAttribute="height" constant="120" id="h8P-Zu-wZO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以上でPebbleとの接続設定は完了です。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t06-W9-gnv">
+                                <rect key="frame" x="40" y="263" width="260" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="D9Q-6L-E9B"/>
+                                    <constraint firstAttribute="width" constant="260" id="adx-sV-fUo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1kw-vI-ev4" secondAttribute="trailing" constant="20" id="Fkp-Ts-Lya"/>
+                            <constraint firstItem="dnY-Gu-Wy3" firstAttribute="leading" secondItem="mx6-7h-laj" secondAttribute="leading" constant="85" id="Mn6-Gn-4cW"/>
+                            <constraint firstItem="s9C-ie-Tgo" firstAttribute="top" secondItem="t06-W9-gnv" secondAttribute="bottom" constant="101" id="UxF-Cd-m2M"/>
+                            <constraint firstItem="dnY-Gu-Wy3" firstAttribute="top" secondItem="1kw-vI-ev4" secondAttribute="bottom" constant="30" id="bZg-yQ-Onn"/>
+                            <constraint firstItem="1kw-vI-ev4" firstAttribute="leading" secondItem="mx6-7h-laj" secondAttribute="leading" constant="20" id="rUL-v5-Qqc"/>
+                            <constraint firstAttribute="trailing" secondItem="t06-W9-gnv" secondAttribute="trailing" constant="20" id="vD3-LX-cOk"/>
+                            <constraint firstItem="1kw-vI-ev4" firstAttribute="top" secondItem="mx6-7h-laj" secondAttribute="top" constant="84" id="vD9-gv-OKa"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="leadingConstraint" destination="Mn6-Gn-4cW" id="XpC-Eb-s3W"/>
+                        <outlet property="textHeight" destination="UxF-Cd-m2M" id="EYK-eG-OGr"/>
+                        <outlet property="textHorizontal" destination="vD3-LX-cOk" id="FBN-fe-MI1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4df-ci-xSE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1131" y="1393"/>
+        </scene>
+        <!--Pebble Setting View03 Controller-->
+        <scene sceneID="3OS-Of-AKW">
+            <objects>
+                <viewController storyboardIdentifier="PebbleSettingView03Controller" id="1J7-g5-GzH" customClass="PebbleSettingView03Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XuM-wr-1aM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eq2-gN-yO4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MnK-OO-KcW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Pebble管理アプリの実行" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9N-RB-HzC">
+                                <rect key="frame" x="20" y="79" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="3sm-uq-lxO"/>
+                                    <constraint firstAttribute="height" constant="21" id="GhM-fG-7Hx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) AppleStoreからPebble社の管理アプリをインストールして、アプリの指示に従いPebbleと端末を接続してください。  2) 接続が完了できたなら、4ページに進み手続きを続けてください。" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="fY6-gu-eiH">
+                                <rect key="frame" x="20" y="283" width="280" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Qim-ae-Qsm"/>
+                                    <constraint firstAttribute="height" constant="112" id="xlS-5N-f3P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="411-YE-KjL">
+                                <rect key="frame" x="80" y="404" width="161" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="MnV-a3-wqT"/>
+                                    <constraint firstAttribute="width" constant="161" id="YHB-OB-vsl"/>
+                                </constraints>
+                                <state key="normal" image="Download_on_the_App_Store_Badge_US-UK_135x40.png">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="getToPebble:" destination="1J7-g5-GzH" eventType="touchUpInside" id="jB9-28-j7d"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img03.png" translatesAutoresizingMaskIntoConstraints="NO" id="SXA-EC-BWN">
+                                <rect key="frame" x="90" y="108" width="130" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="2fG-8Y-cxr"/>
+                                    <constraint firstAttribute="height" constant="120" id="nJB-XW-qJq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fY6-gu-eiH" firstAttribute="centerX" secondItem="411-YE-KjL" secondAttribute="centerX" id="0ZG-f2-k8c"/>
+                            <constraint firstItem="SXA-EC-BWN" firstAttribute="top" secondItem="u9N-RB-HzC" secondAttribute="bottom" constant="8" symbolic="YES" id="GQd-bh-q9G"/>
+                            <constraint firstItem="411-YE-KjL" firstAttribute="top" secondItem="fY6-gu-eiH" secondAttribute="bottom" constant="9" id="JzO-At-jCY"/>
+                            <constraint firstItem="u9N-RB-HzC" firstAttribute="leading" secondItem="MnK-OO-KcW" secondAttribute="leading" constant="20" id="L4d-si-Vcv"/>
+                            <constraint firstAttribute="trailing" secondItem="u9N-RB-HzC" secondAttribute="trailing" constant="20" id="WUp-6I-avc"/>
+                            <constraint firstAttribute="centerX" secondItem="u9N-RB-HzC" secondAttribute="centerX" id="e9c-KG-GQp"/>
+                            <constraint firstItem="Eq2-gN-yO4" firstAttribute="top" secondItem="fY6-gu-eiH" secondAttribute="bottom" constant="41" id="fJX-SB-JH8"/>
+                            <constraint firstAttribute="trailing" secondItem="fY6-gu-eiH" secondAttribute="trailing" constant="20" id="rB5-HK-aN7"/>
+                            <constraint firstItem="SXA-EC-BWN" firstAttribute="leading" secondItem="MnK-OO-KcW" secondAttribute="leading" constant="90" id="rEE-5r-m5e"/>
+                            <constraint firstItem="u9N-RB-HzC" firstAttribute="top" secondItem="MnK-OO-KcW" secondAttribute="top" constant="79" id="vFk-NE-Prj"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="leadingConstraint" destination="rEE-5r-m5e" id="eWa-2a-6uT"/>
+                        <outlet property="textHeight" destination="fJX-SB-JH8" id="9SP-jd-ySU"/>
+                        <outlet property="textHorizontal" destination="rB5-HK-aN7" id="qea-6c-eAO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Xb-ve-JRt" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381" y="1393"/>
+        </scene>
+        <!--Pebble Setting View04 Controller-->
+        <scene sceneID="nbp-wb-v7k">
+            <objects>
+                <viewController storyboardIdentifier="PebbleSettingView04Controller" id="ukB-eu-A40" customClass="PebbleSettingView04Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VQA-rp-FeE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lge-vK-g8z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ttj-g7-d0Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iv5-lp-Gzc">
+                                <rect key="frame" x="115" y="355" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4Th-RE-9Gx"/>
+                                    <constraint firstAttribute="width" constant="90" id="z1g-Tk-26x"/>
+                                </constraints>
+                                <state key="normal" title="インストール">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getTopPugin:" destination="ukB-eu-A40" eventType="touchUpInside" id="dQ1-Jy-leu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Pebble側アプリのインストール" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fai-2k-J8T">
+                                <rect key="frame" x="20" y="79" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pebble側アプリのインストールを行います。インストールボタンをタップし &quot;Pebble&quot;で開く を選択、インストールを実行して下さい。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="fxO-nG-hq3">
+                                <rect key="frame" x="20" y="266" width="280" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="UCf-W0-9Jy"/>
+                                    <constraint firstAttribute="width" constant="280" id="g5g-Kz-rhd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img04.png" translatesAutoresizingMaskIntoConstraints="NO" id="yDp-QL-7YS">
+                                <rect key="frame" x="99" y="115" width="123" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="KLj-wF-4Qk"/>
+                                    <constraint firstAttribute="height" constant="118" id="vla-Rv-roB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="yDp-QL-7YS" firstAttribute="top" secondItem="Fai-2k-J8T" secondAttribute="bottom" constant="15" id="4hC-kO-CqN"/>
+                            <constraint firstAttribute="trailing" secondItem="fxO-nG-hq3" secondAttribute="trailing" constant="20" id="8Mo-fY-wWH"/>
+                            <constraint firstAttribute="trailing" secondItem="Fai-2k-J8T" secondAttribute="trailing" constant="20" id="WHl-0g-5TC"/>
+                            <constraint firstItem="Lge-vK-g8z" firstAttribute="top" secondItem="fxO-nG-hq3" secondAttribute="bottom" constant="100" id="fS2-il-qgd"/>
+                            <constraint firstItem="Fai-2k-J8T" firstAttribute="top" secondItem="Ttj-g7-d0Y" secondAttribute="top" constant="79" id="iSy-aT-2sV"/>
+                            <constraint firstItem="iv5-lp-Gzc" firstAttribute="top" secondItem="fxO-nG-hq3" secondAttribute="bottom" constant="19" id="kyp-Ma-iua"/>
+                            <constraint firstItem="iv5-lp-Gzc" firstAttribute="centerX" secondItem="fxO-nG-hq3" secondAttribute="centerX" id="qMf-0v-dcD"/>
+                            <constraint firstItem="Fai-2k-J8T" firstAttribute="leading" secondItem="Ttj-g7-d0Y" secondAttribute="leading" constant="20" id="r6d-Oo-cmF"/>
+                            <constraint firstItem="yDp-QL-7YS" firstAttribute="leading" secondItem="Ttj-g7-d0Y" secondAttribute="leading" constant="99" id="yox-GU-yR3"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="leadingConstraint" destination="yox-GU-yR3" id="uso-OW-tJb"/>
+                        <outlet property="textHeight" destination="fS2-il-qgd" id="DIK-hi-Uku"/>
+                        <outlet property="textHorizontal" destination="8Mo-fY-wWH" id="076-sX-kG8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAj-1v-2qv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755" y="1393"/>
+        </scene>
+        <!--Pebble Setting View02 Controller-->
+        <scene sceneID="3Vk-iP-cyG">
+            <objects>
+                <viewController storyboardIdentifier="PebbleSettingView02Controller" id="N4H-Ok-MYS" customClass="PebbleSettingView02Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eNL-gG-ZfV"/>
+                        <viewControllerLayoutGuide type="bottom" id="yp1-l7-wLP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P7n-9d-rW5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Pebbleとペアリング操作" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cc-nb-n7G">
+                                <rect key="frame" x="54" y="79" width="212" height="27"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="mxE-O7-mPd"/>
+                                    <constraint firstAttribute="height" constant="27" id="qAr-gC-9Wv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="端末のBluetooth設定画面上よりPebbleとのペアリングを実行してください。" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="4WA-q9-vc5">
+                                <rect key="frame" x="20" y="226" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="dC0-US-d96"/>
+                                    <constraint firstAttribute="width" constant="280" id="hML-G9-gXg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img02.png" translatesAutoresizingMaskIntoConstraints="NO" id="CGC-mG-1M5">
+                                <rect key="frame" x="104" y="114" width="113" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="ToQ-sC-GNU"/>
+                                    <constraint firstAttribute="height" constant="104" id="vcS-eY-Bh5"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pebble.png" translatesAutoresizingMaskIntoConstraints="NO" id="1dd-rk-4jt">
+                                <rect key="frame" x="20" y="278" width="280" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="KZv-d1-L9D"/>
+                                    <constraint firstAttribute="width" constant="280" id="bEt-sk-rgV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="CGC-mG-1M5" firstAttribute="top" secondItem="7Cc-nb-n7G" secondAttribute="bottom" constant="8" id="311-Wg-No1"/>
+                            <constraint firstAttribute="trailing" secondItem="7Cc-nb-n7G" secondAttribute="trailing" constant="54" id="GWc-oR-Q2z"/>
+                            <constraint firstItem="7Cc-nb-n7G" firstAttribute="top" secondItem="P7n-9d-rW5" secondAttribute="top" constant="79" id="Kkg-ba-5bZ"/>
+                            <constraint firstItem="4WA-q9-vc5" firstAttribute="leading" secondItem="1dd-rk-4jt" secondAttribute="leading" id="aAM-nF-jI0"/>
+                            <constraint firstItem="7Cc-nb-n7G" firstAttribute="leading" secondItem="P7n-9d-rW5" secondAttribute="leading" constant="54" id="cAL-F5-H3b"/>
+                            <constraint firstAttribute="trailing" secondItem="4WA-q9-vc5" secondAttribute="trailing" constant="20" id="j41-OH-EsB"/>
+                            <constraint firstItem="1dd-rk-4jt" firstAttribute="top" secondItem="4WA-q9-vc5" secondAttribute="bottom" constant="6" id="kJL-2u-vDW"/>
+                            <constraint firstAttribute="bottom" secondItem="4WA-q9-vc5" secondAttribute="bottom" constant="208" id="psW-NA-qVk"/>
+                            <constraint firstItem="CGC-mG-1M5" firstAttribute="leading" secondItem="P7n-9d-rW5" secondAttribute="leading" constant="104" id="xaH-0Y-rVA"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="leadingConstraint" destination="xaH-0Y-rVA" id="EYa-un-Ax9"/>
+                        <outlet property="textHeight" destination="psW-NA-qVk" id="GDJ-dj-Cdr"/>
+                        <outlet property="textHorizontal" destination="j41-OH-EsB" id="Dra-go-0SQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBu-Rm-DrH" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="1399"/>
+        </scene>
+        <!--Pebble Setting View01 Controller-->
+        <scene sceneID="Cga-9G-pgg">
+            <objects>
+                <viewController storyboardIdentifier="PebbleSettingView01Controller" id="cyp-pG-Lbs" customClass="PebbleSettingView01Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8ir-pf-KsJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="iOS-If-ElU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="top" id="gMX-TI-VFn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Pebbleを検出可能にする" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8V-YZ-NYc">
+                                <rect key="frame" x="21" y="84" width="277" height="27"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="Ga7-31-H2K"/>
+                                    <constraint firstAttribute="height" constant="27" id="nzc-e6-reC"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="zDo-uQ-MaV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img01.png" translatesAutoresizingMaskIntoConstraints="NO" id="S7f-d3-Tzm">
+                                <rect key="frame" x="102" y="131" width="116" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="O6m-g1-Rj1"/>
+                                    <constraint firstAttribute="height" constant="118" id="R28-dS-OBX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) 既にペアリングが終了している場合、3ページに進んでください。  2) Pebbleのsettingを選択してください。  3) settingのBuletoothを選択してください。  4) BuletoothをONにしてください。" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="279" translatesAutoresizingMaskIntoConstraints="NO" id="B4l-lq-Fp7">
+                                <rect key="frame" x="20" y="269" width="279" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="W5h-rZ-nmx"/>
+                                    <constraint firstAttribute="height" constant="151" id="ic2-Mw-XYA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="O8V-YZ-NYc" firstAttribute="top" secondItem="gMX-TI-VFn" secondAttribute="top" constant="84" id="2za-Br-qzf"/>
+                            <constraint firstItem="O8V-YZ-NYc" firstAttribute="leading" secondItem="gMX-TI-VFn" secondAttribute="leading" constant="21" id="BHz-F1-e50"/>
+                            <constraint firstItem="S7f-d3-Tzm" firstAttribute="leading" secondItem="gMX-TI-VFn" secondAttribute="leading" constant="102" id="Bxe-Nd-jtu"/>
+                            <constraint firstItem="iOS-If-ElU" firstAttribute="top" secondItem="B4l-lq-Fp7" secondAttribute="bottom" constant="11" id="Q0J-zL-Qfe"/>
+                            <constraint firstItem="S7f-d3-Tzm" firstAttribute="top" secondItem="O8V-YZ-NYc" secondAttribute="bottom" constant="20" id="c5K-qu-w65"/>
+                            <constraint firstAttribute="trailing" secondItem="O8V-YZ-NYc" secondAttribute="trailing" constant="22" id="goY-YZ-X9k"/>
+                            <constraint firstAttribute="trailing" secondItem="B4l-lq-Fp7" secondAttribute="trailing" constant="21" id="z92-wL-i7L"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="leadingConstraint" destination="Bxe-Nd-jtu" id="0I3-0r-T6h"/>
+                        <outlet property="textHeight" destination="Q0J-zL-Qfe" id="ty0-t9-CgL"/>
+                        <outlet property="textHorizontal" destination="z92-wL-i7L" id="h22-sJ-tpL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCd-TJ-EL8" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-347" y="1399"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Download_on_the_App_Store_Badge_US-UK_135x40.png" width="281" height="83"/>
+        <image name="img01.png" width="560" height="500"/>
+        <image name="img02.png" width="560" height="500"/>
+        <image name="img03.png" width="560" height="500"/>
+        <image name="img04.png" width="560" height="500"/>
+        <image name="img05.png" width="560" height="500"/>
+        <image name="pebble.png" width="620" height="631"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

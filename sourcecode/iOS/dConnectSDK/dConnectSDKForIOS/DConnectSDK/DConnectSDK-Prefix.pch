@@ -1,0 +1,48 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+//  Copyright (c) 2014 NTT DOCOMO,INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import "DConnectConst.h"
+#endif
+
+#ifdef DEBUG_LEVEL
+    #if DEBUG_LEVEL < 1
+        #define DCLogE(...)
+        #define DCLogW(...)
+        #define DCLogI(...)
+        #define DCLogD(...)
+    #elif DEBUG_LEVEL < 2
+        #define DCLogE(fmt, ...) NSLog((@"DConnectSDK [Error] " fmt), ##__VA_ARGS__)
+        #define DCLogW(...)
+        #define DCLogI(...)
+        #define DCLogD(...)
+    #elif DEBUG_LEVEL < 3
+        #define DCLogE(fmt, ...) NSLog((@"DConnectSDK [Error] " fmt), ##__VA_ARGS__)
+        #define DCLogW(fmt, ...) NSLog((@"DConnectSDK [Warning] " fmt), ##__VA_ARGS__)
+        #define DCLogI(...)
+        #define DCLogD(...)
+    #elif DEBUG_LEVEL < 4
+        #define DCLogE(fmt, ...) NSLog((@"DConnectSDK [Error] " fmt), ##__VA_ARGS__)
+        #define DCLogW(fmt, ...) NSLog((@"DConnectSDK [Warning] " fmt), ##__VA_ARGS__)
+        #define DCLogI(fmt, ...) NSLog((@"DConnectSDK [Info] " fmt), ##__VA_ARGS__)
+        #define DCLogD(...)
+    #else
+        #define DCLogE(fmt, ...) NSLog((@"DConnectSDK [Error] " fmt), ##__VA_ARGS__)
+        #define DCLogW(fmt, ...) NSLog((@"DConnectSDK [Warning] " fmt), ##__VA_ARGS__)
+        #define DCLogI(fmt, ...) NSLog((@"DConnectSDK [Info] " fmt), ##__VA_ARGS__)
+        #define DCLogD(fmt, ...) NSLog((@"DConnectSDK [Debug] " fmt), ##__VA_ARGS__)
+    #endif
+#else
+    #define DCLogE(...)
+    #define DCLogW(...)
+    #define DCLogI(...)
+    #define DCLogD(...)
+#endif

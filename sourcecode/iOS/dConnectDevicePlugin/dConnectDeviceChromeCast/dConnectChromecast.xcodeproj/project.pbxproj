@@ -1,0 +1,798 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		FF65A9E019B719B600DE9EF8 /* dConnectChromecast_framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FF65A9E119B719B600DE9EF8 /* Build configuration list for PBXAggregateTarget "dConnectChromecast_framework" */;
+			buildPhases = (
+				FF65A9E419B719C100DE9EF8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = dConnectChromecast_framework;
+			productName = dConnectChromecast_framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		253C9EE819C83C700013DCE1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65A9BD19B7183200DE9EF8 /* CoreFoundation.framework */; };
+		253C9EEE19C83C700013DCE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253C9EEC19C83C700013DCE1 /* InfoPlist.strings */; };
+		253C9EF319C83CBF0013DCE1 /* img01.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94396319C57441006B4A33 /* img01.png */; };
+		253C9EF419C83CBF0013DCE1 /* img02.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94396419C57441006B4A33 /* img02.png */; };
+		253C9EF519C83CBF0013DCE1 /* img03.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94396519C57441006B4A33 /* img03.png */; };
+		253C9EF619C83CBF0013DCE1 /* icon-cast-connected.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65A9EF19B8056700DE9EF8 /* icon-cast-connected.png */; };
+		253C9EF719C83CBF0013DCE1 /* icon-cast-identified.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65A9F019B8056700DE9EF8 /* icon-cast-identified.png */; };
+		6617D0EF19CBEAC600BC1E3C /* DPChromecastSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D0EE19CBEAC600BC1E3C /* DPChromecastSettingViewController.m */; };
+		6617D0F619CBF6CB00BC1E3C /* DPChromecastGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D0F519CBF6CB00BC1E3C /* DPChromecastGuideViewController.m */; };
+		665022D819CD51DE00156FBC /* Chromecast_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665022D719CD51DE00156FBC /* Chromecast_iPad.storyboard */; };
+		FF4ABE6119D0555A009BDFD9 /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4ABE6019D0555A009BDFD9 /* DConnectSDK.framework */; };
+		FF65A97519B709B500DE9EF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65A97419B709B500DE9EF8 /* Foundation.framework */; };
+		FF65A98419B709B500DE9EF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65A97419B709B500DE9EF8 /* Foundation.framework */; };
+		FF65A98919B709B500DE9EF8 /* libdConnectChromecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65A97119B709B500DE9EF8 /* libdConnectChromecast.a */; };
+		FF65A98F19B709B500DE9EF8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF65A98D19B709B500DE9EF8 /* InfoPlist.strings */; };
+		FF65A99119B709B500DE9EF8 /* dConnectChromecastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65A99019B709B500DE9EF8 /* dConnectChromecastTests.m */; };
+		FF65A9A319B70A7700DE9EF8 /* DPChromecastSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65A9A219B70A7700DE9EF8 /* DPChromecastSystemProfile.m */; };
+		FF65A9DF19B7190B00DE9EF8 /* DPChromecastDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65A9DE19B7190B00DE9EF8 /* DPChromecastDevicePlugin.m */; };
+		FF65A9EC19B8025800DE9EF8 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65A9EB19B8025800DE9EF8 /* GoogleCast.framework */; };
+		FF65A9F119B8056700DE9EF8 /* icon-cast-connected.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65A9EF19B8056700DE9EF8 /* icon-cast-connected.png */; };
+		FF65A9F219B8056700DE9EF8 /* icon-cast-identified.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65A9F019B8056700DE9EF8 /* icon-cast-identified.png */; };
+		FF65AA1B19BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65AA1A19BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.m */; };
+		FF65AA1E19BD8CFC00DE9EF8 /* DPChromecastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65AA1D19BD8CFC00DE9EF8 /* DPChromecastManager.m */; };
+		FF94393319C05976006B4A33 /* DPChromecastMediaPlayerProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94393219C05976006B4A33 /* DPChromecastMediaPlayerProfile.m */; };
+		FF94393519C0613E006B4A33 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF94393419C0613E006B4A33 /* MediaPlayer.framework */; };
+		FF94393719C06152006B4A33 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF94393619C06152006B4A33 /* MediaAccessibility.framework */; };
+		FF94393919C06161006B4A33 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF94393819C06161006B4A33 /* MediaToolbox.framework */; };
+		FF94396219C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94396119C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.m */; };
+		FF94396619C57441006B4A33 /* img01.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94396319C57441006B4A33 /* img01.png */; };
+		FF94396719C57441006B4A33 /* img02.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94396419C57441006B4A33 /* img02.png */; };
+		FF94396819C57441006B4A33 /* img03.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94396519C57441006B4A33 /* img03.png */; };
+		FF94397E19C57C82006B4A33 /* img01.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF94396319C57441006B4A33 /* img01.png */; };
+		FF94397F19C57C82006B4A33 /* img02.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF94396419C57441006B4A33 /* img02.png */; };
+		FF94398019C57C82006B4A33 /* img03.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF94396519C57441006B4A33 /* img03.png */; };
+		FF94398119C57C82006B4A33 /* icon-cast-connected.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF65A9EF19B8056700DE9EF8 /* icon-cast-connected.png */; };
+		FF94398219C57C82006B4A33 /* icon-cast-identified.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF65A9F019B8056700DE9EF8 /* icon-cast-identified.png */; };
+		FF94398419C57C82006B4A33 /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF65A9B319B717C200DE9EF8 /* Info.plist */; };
+		FFEF05CE19CA6BB200966390 /* Chromecast_iPhone.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = FFEF05D119CA6BB200966390 /* Chromecast_iPhone.storyboard */; };
+		FFEF05D219CA86A500966390 /* Chromecast_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFEF05D119CA6BB200966390 /* Chromecast_iPhone.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF65A98719B709B500DE9EF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF65A96919B709B500DE9EF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF65A97019B709B500DE9EF8;
+			remoteInfo = dConnectChromecast;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FF65A96F19B709B500DE9EF8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				FF94397E19C57C82006B4A33 /* img01.png in CopyFiles */,
+				FF94397F19C57C82006B4A33 /* img02.png in CopyFiles */,
+				FF94398019C57C82006B4A33 /* img03.png in CopyFiles */,
+				FF94398119C57C82006B4A33 /* icon-cast-connected.png in CopyFiles */,
+				FF94398219C57C82006B4A33 /* icon-cast-identified.png in CopyFiles */,
+				FFEF05CE19CA6BB200966390 /* Chromecast_iPhone.storyboard in CopyFiles */,
+				FF94398419C57C82006B4A33 /* Info.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		253C9EE719C83C700013DCE1 /* dConnectChromecast_resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectChromecast_resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		253C9EEB19C83C700013DCE1 /* dConnectChromecast_resources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectChromecast_resources-Info.plist"; sourceTree = "<group>"; };
+		253C9EED19C83C700013DCE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		253C9EEF19C83C700013DCE1 /* dConnectChromecast_resources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectChromecast_resources-Prefix.pch"; sourceTree = "<group>"; };
+		6617D0ED19CBEAC600BC1E3C /* DPChromecastSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastSettingViewController.h; sourceTree = "<group>"; };
+		6617D0EE19CBEAC600BC1E3C /* DPChromecastSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastSettingViewController.m; sourceTree = "<group>"; };
+		6617D0F419CBF6CB00BC1E3C /* DPChromecastGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastGuideViewController.h; sourceTree = "<group>"; };
+		6617D0F519CBF6CB00BC1E3C /* DPChromecastGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastGuideViewController.m; sourceTree = "<group>"; };
+		665022D719CD51DE00156FBC /* Chromecast_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chromecast_iPad.storyboard; sourceTree = "<group>"; };
+		FF4ABE6019D0555A009BDFD9 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = "../../dConnectSDK/dConnectSDKForIOS/build/Release-framework/DConnectSDK.framework"; sourceTree = "<group>"; };
+		FF65A97119B709B500DE9EF8 /* libdConnectChromecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdConnectChromecast.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF65A97419B709B500DE9EF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FF65A97819B709B500DE9EF8 /* dConnectChromecast-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectChromecast-Prefix.pch"; sourceTree = "<group>"; };
+		FF65A98119B709B500DE9EF8 /* dConnectChromecastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectChromecastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF65A98C19B709B500DE9EF8 /* dConnectChromecastTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectChromecastTests-Info.plist"; sourceTree = "<group>"; };
+		FF65A98E19B709B500DE9EF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FF65A99019B709B500DE9EF8 /* dConnectChromecastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dConnectChromecastTests.m; sourceTree = "<group>"; };
+		FF65A9A119B70A7700DE9EF8 /* DPChromecastSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastSystemProfile.h; sourceTree = "<group>"; };
+		FF65A9A219B70A7700DE9EF8 /* DPChromecastSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastSystemProfile.m; sourceTree = "<group>"; };
+		FF65A9B319B717C200DE9EF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF65A9BD19B7183200DE9EF8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		FF65A9DD19B7190B00DE9EF8 /* DPChromecastDevicePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastDevicePlugin.h; sourceTree = "<group>"; };
+		FF65A9DE19B7190B00DE9EF8 /* DPChromecastDevicePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastDevicePlugin.m; sourceTree = "<group>"; };
+		FF65A9EB19B8025800DE9EF8 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = "GoogleCastFramework-2.3.0-Release/GoogleCast.framework"; sourceTree = "<group>"; };
+		FF65A9EF19B8056700DE9EF8 /* icon-cast-connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-connected.png"; sourceTree = "<group>"; };
+		FF65A9F019B8056700DE9EF8 /* icon-cast-identified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified.png"; sourceTree = "<group>"; };
+		FF65AA1919BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastNotificationProfile.h; sourceTree = "<group>"; };
+		FF65AA1A19BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastNotificationProfile.m; sourceTree = "<group>"; };
+		FF65AA1C19BD8CFC00DE9EF8 /* DPChromecastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastManager.h; sourceTree = "<group>"; };
+		FF65AA1D19BD8CFC00DE9EF8 /* DPChromecastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastManager.m; sourceTree = "<group>"; };
+		FF94393119C05976006B4A33 /* DPChromecastMediaPlayerProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastMediaPlayerProfile.h; sourceTree = "<group>"; };
+		FF94393219C05976006B4A33 /* DPChromecastMediaPlayerProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastMediaPlayerProfile.m; sourceTree = "<group>"; };
+		FF94393419C0613E006B4A33 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FF94393619C06152006B4A33 /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
+		FF94393819C06161006B4A33 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
+		FF94396019C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChromecastNetworkServiceDiscoveryProfile.h; sourceTree = "<group>"; };
+		FF94396119C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChromecastNetworkServiceDiscoveryProfile.m; sourceTree = "<group>"; };
+		FF94396319C57441006B4A33 /* img01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img01.png; sourceTree = "<group>"; };
+		FF94396419C57441006B4A33 /* img02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img02.png; sourceTree = "<group>"; };
+		FF94396519C57441006B4A33 /* img03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img03.png; sourceTree = "<group>"; };
+		FF94397619C57AEE006B4A33 /* dConnectChromecast_iPhone.storyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectChromecast_iPhone.storyboard-Info.plist"; sourceTree = "<group>"; };
+		FF94397819C57AEE006B4A33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FF94397A19C57AEE006B4A33 /* dConnectChromecast_iPhone.storyboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectChromecast_iPhone.storyboard-Prefix.pch"; sourceTree = "<group>"; };
+		FFEF05D019CA6BB200966390 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Chromecast_iPhone.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		253C9EE419C83C700013DCE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253C9EE819C83C700013DCE1 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF65A96E19B709B500DE9EF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF94393919C06161006B4A33 /* MediaToolbox.framework in Frameworks */,
+				FF94393719C06152006B4A33 /* MediaAccessibility.framework in Frameworks */,
+				FF94393519C0613E006B4A33 /* MediaPlayer.framework in Frameworks */,
+				FF65A9EC19B8025800DE9EF8 /* GoogleCast.framework in Frameworks */,
+				FF65A97519B709B500DE9EF8 /* Foundation.framework in Frameworks */,
+				FF4ABE6119D0555A009BDFD9 /* DConnectSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF65A97E19B709B500DE9EF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF65A98919B709B500DE9EF8 /* libdConnectChromecast.a in Frameworks */,
+				FF65A98419B709B500DE9EF8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		253C9EE919C83C700013DCE1 /* dConnectChromecast_resources */ = {
+			isa = PBXGroup;
+			children = (
+				253C9EEA19C83C700013DCE1 /* Supporting Files */,
+			);
+			path = dConnectChromecast_resources;
+			sourceTree = "<group>";
+		};
+		253C9EEA19C83C700013DCE1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				253C9EEB19C83C700013DCE1 /* dConnectChromecast_resources-Info.plist */,
+				253C9EEC19C83C700013DCE1 /* InfoPlist.strings */,
+				253C9EEF19C83C700013DCE1 /* dConnectChromecast_resources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6617D0F019CBEACC00BC1E3C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				6617D0ED19CBEAC600BC1E3C /* DPChromecastSettingViewController.h */,
+				6617D0EE19CBEAC600BC1E3C /* DPChromecastSettingViewController.m */,
+				6617D0F419CBF6CB00BC1E3C /* DPChromecastGuideViewController.h */,
+				6617D0F519CBF6CB00BC1E3C /* DPChromecastGuideViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		6617D0F719CBFD3B00BC1E3C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FF94396019C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.h */,
+				FF94396119C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.m */,
+				FF65A9A119B70A7700DE9EF8 /* DPChromecastSystemProfile.h */,
+				FF65A9A219B70A7700DE9EF8 /* DPChromecastSystemProfile.m */,
+				FF65AA1919BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.h */,
+				FF65AA1A19BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.m */,
+				FF94393119C05976006B4A33 /* DPChromecastMediaPlayerProfile.h */,
+				FF94393219C05976006B4A33 /* DPChromecastMediaPlayerProfile.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		FF65A96819B709B500DE9EF8 = {
+			isa = PBXGroup;
+			children = (
+				FF65A97619B709B500DE9EF8 /* dConnectChromecast */,
+				FF65A98A19B709B500DE9EF8 /* dConnectChromecastTests */,
+				FF94397419C57AEE006B4A33 /* dConnectChromecast_iPhone.storyboard */,
+				253C9EE919C83C700013DCE1 /* dConnectChromecast_resources */,
+				FF65A97319B709B500DE9EF8 /* Frameworks */,
+				FF65A97219B709B500DE9EF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF65A97219B709B500DE9EF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF65A97119B709B500DE9EF8 /* libdConnectChromecast.a */,
+				FF65A98119B709B500DE9EF8 /* dConnectChromecastTests.xctest */,
+				253C9EE719C83C700013DCE1 /* dConnectChromecast_resources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF65A97319B709B500DE9EF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF4ABE6019D0555A009BDFD9 /* DConnectSDK.framework */,
+				FF94393819C06161006B4A33 /* MediaToolbox.framework */,
+				FF94393619C06152006B4A33 /* MediaAccessibility.framework */,
+				FF94393419C0613E006B4A33 /* MediaPlayer.framework */,
+				FF65A9EB19B8025800DE9EF8 /* GoogleCast.framework */,
+				FF65A97419B709B500DE9EF8 /* Foundation.framework */,
+				FF65A9BD19B7183200DE9EF8 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF65A97619B709B500DE9EF8 /* dConnectChromecast */ = {
+			isa = PBXGroup;
+			children = (
+				FF65A99C19B709E700DE9EF8 /* Resources */,
+				FF65A99B19B709D600DE9EF8 /* Classes */,
+				FF65A99A19B709C900DE9EF8 /* Headers */,
+				FF65A97719B709B500DE9EF8 /* Supporting Files */,
+			);
+			path = dConnectChromecast;
+			sourceTree = "<group>";
+		};
+		FF65A97719B709B500DE9EF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF65A97819B709B500DE9EF8 /* dConnectChromecast-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF65A98A19B709B500DE9EF8 /* dConnectChromecastTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF65A99019B709B500DE9EF8 /* dConnectChromecastTests.m */,
+				FF65A98B19B709B500DE9EF8 /* Supporting Files */,
+			);
+			path = dConnectChromecastTests;
+			sourceTree = "<group>";
+		};
+		FF65A98B19B709B500DE9EF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF65A98C19B709B500DE9EF8 /* dConnectChromecastTests-Info.plist */,
+				FF65A98D19B709B500DE9EF8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF65A99A19B709C900DE9EF8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		FF65A99B19B709D600DE9EF8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6617D0F019CBEACC00BC1E3C /* Setting */,
+				6617D0F719CBFD3B00BC1E3C /* Profile */,
+				FF65A9DD19B7190B00DE9EF8 /* DPChromecastDevicePlugin.h */,
+				FF65A9DE19B7190B00DE9EF8 /* DPChromecastDevicePlugin.m */,
+				FF65AA1C19BD8CFC00DE9EF8 /* DPChromecastManager.h */,
+				FF65AA1D19BD8CFC00DE9EF8 /* DPChromecastManager.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FF65A99C19B709E700DE9EF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF94396319C57441006B4A33 /* img01.png */,
+				FF94396419C57441006B4A33 /* img02.png */,
+				FF94396519C57441006B4A33 /* img03.png */,
+				FF65A9EF19B8056700DE9EF8 /* icon-cast-connected.png */,
+				FF65A9F019B8056700DE9EF8 /* icon-cast-identified.png */,
+				FFEF05D119CA6BB200966390 /* Chromecast_iPhone.storyboard */,
+				665022D719CD51DE00156FBC /* Chromecast_iPad.storyboard */,
+				FF65A9B319B717C200DE9EF8 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FF94397419C57AEE006B4A33 /* dConnectChromecast_iPhone.storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FF94397519C57AEE006B4A33 /* Supporting Files */,
+			);
+			path = dConnectChromecast_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		FF94397519C57AEE006B4A33 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF94397619C57AEE006B4A33 /* dConnectChromecast_iPhone.storyboard-Info.plist */,
+				FF94397719C57AEE006B4A33 /* InfoPlist.strings */,
+				FF94397A19C57AEE006B4A33 /* dConnectChromecast_iPhone.storyboard-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		253C9EE619C83C700013DCE1 /* dConnectChromecast_resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 253C9EF219C83C700013DCE1 /* Build configuration list for PBXNativeTarget "dConnectChromecast_resources" */;
+			buildPhases = (
+				253C9EE319C83C700013DCE1 /* Sources */,
+				253C9EE419C83C700013DCE1 /* Frameworks */,
+				253C9EE519C83C700013DCE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectChromecast_resources;
+			productName = dConnectChromecast_resources;
+			productReference = 253C9EE719C83C700013DCE1 /* dConnectChromecast_resources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		FF65A97019B709B500DE9EF8 /* dConnectChromecast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF65A99419B709B500DE9EF8 /* Build configuration list for PBXNativeTarget "dConnectChromecast" */;
+			buildPhases = (
+				FF65A96D19B709B500DE9EF8 /* Sources */,
+				FF65A96E19B709B500DE9EF8 /* Frameworks */,
+				FF65A96F19B709B500DE9EF8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectChromecast;
+			productName = dConnectChromecast;
+			productReference = FF65A97119B709B500DE9EF8 /* libdConnectChromecast.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FF65A98019B709B500DE9EF8 /* dConnectChromecastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF65A99719B709B500DE9EF8 /* Build configuration list for PBXNativeTarget "dConnectChromecastTests" */;
+			buildPhases = (
+				FF65A97D19B709B500DE9EF8 /* Sources */,
+				FF65A97E19B709B500DE9EF8 /* Frameworks */,
+				FF65A97F19B709B500DE9EF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF65A98819B709B500DE9EF8 /* PBXTargetDependency */,
+			);
+			name = dConnectChromecastTests;
+			productName = dConnectChromecastTests;
+			productReference = FF65A98119B709B500DE9EF8 /* dConnectChromecastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF65A96919B709B500DE9EF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "NTT DOCOMO, INC.";
+			};
+			buildConfigurationList = FF65A96C19B709B500DE9EF8 /* Build configuration list for PBXProject "dConnectChromecast" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FF65A96819B709B500DE9EF8;
+			productRefGroup = FF65A97219B709B500DE9EF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF65A97019B709B500DE9EF8 /* dConnectChromecast */,
+				FF65A98019B709B500DE9EF8 /* dConnectChromecastTests */,
+				FF65A9E019B719B600DE9EF8 /* dConnectChromecast_framework */,
+				253C9EE619C83C700013DCE1 /* dConnectChromecast_resources */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		253C9EE519C83C700013DCE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFEF05D219CA86A500966390 /* Chromecast_iPhone.storyboard in Resources */,
+				253C9EF319C83CBF0013DCE1 /* img01.png in Resources */,
+				253C9EF419C83CBF0013DCE1 /* img02.png in Resources */,
+				253C9EF519C83CBF0013DCE1 /* img03.png in Resources */,
+				253C9EF619C83CBF0013DCE1 /* icon-cast-connected.png in Resources */,
+				253C9EF719C83CBF0013DCE1 /* icon-cast-identified.png in Resources */,
+				665022D819CD51DE00156FBC /* Chromecast_iPad.storyboard in Resources */,
+				253C9EEE19C83C700013DCE1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF65A97F19B709B500DE9EF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF65A98F19B709B500DE9EF8 /* InfoPlist.strings in Resources */,
+				FF94396719C57441006B4A33 /* img02.png in Resources */,
+				FF94396819C57441006B4A33 /* img03.png in Resources */,
+				FF65A9F119B8056700DE9EF8 /* icon-cast-connected.png in Resources */,
+				FF94396619C57441006B4A33 /* img01.png in Resources */,
+				FF65A9F219B8056700DE9EF8 /* icon-cast-identified.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FF65A9E419B719C100DE9EF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Environment Variables\nFRAMEWORK_NAME=${PROJECT_NAME}\nFRAMEWORK_VERSION=A\nFRAMEWORK_VERSION_NUMBER=1.0\nCONFIGURATION=\"Release\"\nFRAMEWORK_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nSTATICLIB_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-universal\"\n\n# Clean directories\nrm -rf \"${FRAMEWORK_BUILD_PATH}\"\n\n# Build simulator and device binaries.\n# A target to build a static library *must* have the name ${PROJECT_NAME}.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\n# A target to build a bundle *must* have the name ${PROJECT_NAME}_resources. This target is optional.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME}_resources -configuration ${CONFIGURATION} clean build || true\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME}_resources -configuration ${CONFIGURATION} clean build || true\n\n# create directories.\nmkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\nmkdir -p ${STATICLIB_BUILD_PATH}\n# create symlinks\ncd ${FRAMEWORK_DIR}\nln -s ../Versions/${FRAMEWORK_VERSION} Versions/Current\nln -s Versions/Current/Headers Headers\n#ln -s Versions/Current/Resources Resources\nln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_NAME}\ncd ${SRCROOT}\n\n# create the universal library, and strip internal symbols from it\nlipo ${SRCROOT}/build/${CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a ${SRCROOT}/build/${CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a -create -output \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\n#strip -x \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\ncp \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\" \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\n# copy files\ncp -r ${SRCROOT}/${PROJECT_NAME}/Headers/ ${FRAMEWORK_DIR}/Headers/";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		253C9EE319C83C700013DCE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF65A96D19B709B500DE9EF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6617D0F619CBF6CB00BC1E3C /* DPChromecastGuideViewController.m in Sources */,
+				FF94393319C05976006B4A33 /* DPChromecastMediaPlayerProfile.m in Sources */,
+				FF65AA1E19BD8CFC00DE9EF8 /* DPChromecastManager.m in Sources */,
+				FF65A9DF19B7190B00DE9EF8 /* DPChromecastDevicePlugin.m in Sources */,
+				FF94396219C28169006B4A33 /* DPChromecastNetworkServiceDiscoveryProfile.m in Sources */,
+				FF65AA1B19BD4F4F00DE9EF8 /* DPChromecastNotificationProfile.m in Sources */,
+				6617D0EF19CBEAC600BC1E3C /* DPChromecastSettingViewController.m in Sources */,
+				FF65A9A319B70A7700DE9EF8 /* DPChromecastSystemProfile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF65A97D19B709B500DE9EF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF65A99119B709B500DE9EF8 /* dConnectChromecastTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF65A98819B709B500DE9EF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF65A97019B709B500DE9EF8 /* dConnectChromecast */;
+			targetProxy = FF65A98719B709B500DE9EF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		253C9EEC19C83C700013DCE1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				253C9EED19C83C700013DCE1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FF65A98D19B709B500DE9EF8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF65A98E19B709B500DE9EF8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FF94397719C57AEE006B4A33 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF94397819C57AEE006B4A33 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FFEF05D119CA6BB200966390 /* Chromecast_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFEF05D019CA6BB200966390 /* en */,
+			);
+			name = Chromecast_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		253C9EF019C83C700013DCE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "build/$(CONFIGURATION)-resources";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectChromecast_resources/dConnectChromecast_resources-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dConnectChromecast_resources/dConnectChromecast_resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		253C9EF119C83C700013DCE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "build/$(CONFIGURATION)-resources";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectChromecast_resources/dConnectChromecast_resources-Prefix.pch";
+				INFOPLIST_FILE = "dConnectChromecast_resources/dConnectChromecast_resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		FF65A99219B709B500DE9EF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FF65A99319B709B500DE9EF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF65A99519B709B500DE9EF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/dConnectChromecast.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleCastFramework-2.3.0-Release",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
+					/Users/Takahashi/XcodeProject/iOS/dConnectSDK/dConnectSDKForIOS/DConnectSDK,
+					"/Users/Takahashi/XcodeProject/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectChromecast/dConnectChromecast-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FF65A99619B709B500DE9EF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/dConnectChromecast.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleCastFramework-2.3.0-Release",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
+					/Users/Takahashi/XcodeProject/iOS/dConnectSDK/dConnectSDKForIOS/DConnectSDK,
+					"/Users/Takahashi/XcodeProject/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectChromecast/dConnectChromecast-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FF65A99819B709B500DE9EF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/Takahashi/XcodeProject/iOS/dConnectSDK/dConnectSDKForIOS/DConnectSDK,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectChromecast/dConnectChromecast-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dConnectChromecastTests/dConnectChromecastTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FF65A99919B709B500DE9EF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/Takahashi/XcodeProject/iOS/dConnectSDK/dConnectSDKForIOS/DConnectSDK,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectChromecast/dConnectChromecast-Prefix.pch";
+				INFOPLIST_FILE = "dConnectChromecastTests/dConnectChromecastTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		FF65A9E219B719B600DE9EF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FF65A9E319B719B600DE9EF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		253C9EF219C83C700013DCE1 /* Build configuration list for PBXNativeTarget "dConnectChromecast_resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253C9EF019C83C700013DCE1 /* Debug */,
+				253C9EF119C83C700013DCE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF65A96C19B709B500DE9EF8 /* Build configuration list for PBXProject "dConnectChromecast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF65A99219B709B500DE9EF8 /* Debug */,
+				FF65A99319B709B500DE9EF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF65A99419B709B500DE9EF8 /* Build configuration list for PBXNativeTarget "dConnectChromecast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF65A99519B709B500DE9EF8 /* Debug */,
+				FF65A99619B709B500DE9EF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF65A99719B709B500DE9EF8 /* Build configuration list for PBXNativeTarget "dConnectChromecastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF65A99819B709B500DE9EF8 /* Debug */,
+				FF65A99919B709B500DE9EF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF65A9E119B719B600DE9EF8 /* Build configuration list for PBXAggregateTarget "dConnectChromecast_framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF65A9E219B719B600DE9EF8 /* Debug */,
+				FF65A9E319B719B600DE9EF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF65A96919B709B500DE9EF8 /* Project object */;
+}

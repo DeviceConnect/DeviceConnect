@@ -1,0 +1,34 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+
+//////////////// 定数、マクロ 開始 /////////////////////
+#define DEFAULT_EVENT_DELAY 1.0f // 1000ミリ秒
+static NSString *const TDPDeviceId = @"test_device_id";
+
+// deviceIdがnilかどうか、設定されているdeviceIdと一致するかのチェックをし、それらの
+// if文に通過したあとのelse文の処理のマクロ
+#define CheckDID(res, did) \
+if (did == nil) { \
+    [res setErrorToEmptyDeviceId]; \
+} else if (![did isEqualToString:TDPDeviceId]) { \
+    [res setErrorToNotFoundDevice]; \
+} else
+
+#define CheckDIDAndSK(res, did, sk) \
+if (did == nil) { \
+    [res setErrorToEmptyDeviceId]; \
+} else if (![did isEqualToString:TDPDeviceId]) { \
+    [res setErrorToNotFoundDevice]; \
+} else if (sk == nil) { \
+    [res setErrorToInvalidRequestParameter]; \
+} else
+
+//////////////// 定数、マクロ 終了 /////////////////////
+
+#endif

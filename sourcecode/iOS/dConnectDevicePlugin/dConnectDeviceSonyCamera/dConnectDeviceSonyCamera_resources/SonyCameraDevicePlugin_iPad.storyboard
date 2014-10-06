@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="eB4-46-hO9">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="msN-GT-ZRe">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="eB4-46-hO9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7qI-5C-ekD">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="703-4V-yAM" kind="relationship" relationship="rootViewController" id="TKl-h6-QRp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8HM-K5-m9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1101" y="-243"/>
+        </scene>
+        <!--Sony Camera-->
+        <scene sceneID="clB-vc-fyl">
+            <objects>
+                <viewController id="703-4V-yAM" customClass="SonyCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I7W-xW-C47"/>
+                        <viewControllerLayoutGuide type="bottom" id="IfR-02-kHw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="502-Ir-ELC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sony Camera" id="c2x-7q-bH7">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; CLOSE" id="iSa-WV-Cd1">
+                            <connections>
+                                <action selector="closeBtnDidPushed:" destination="703-4V-yAM" id="gUh-vS-L7Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeBtn" destination="iSa-WV-Cd1" id="BGK-1e-FCX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-pU-vEd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="-243"/>
+        </scene>
+        <!--Sony Camera Setting View04 Controller-->
+        <scene sceneID="snT-py-3hH">
+            <objects>
+                <viewController storyboardIdentifier="SonyCameraSettingView04Controller" id="S4R-Ja-viH" customClass="SonyCameraSettingView04Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fXf-Jd-eTc"/>
+                        <viewControllerLayoutGuide type="bottom" id="EPS-s9-h4K"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ZwX-cT-FIQ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1b-V9-EN7" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="45" width="768" height="979"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97826086960000003" green="0.91848131079999995" blue="0.73914263440000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="EPS-s9-h4K" firstAttribute="top" secondItem="s1b-V9-EN7" secondAttribute="bottom" id="AOe-hN-b3j"/>
+                            <constraint firstItem="s1b-V9-EN7" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leading" id="QVv-BR-aSW"/>
+                            <constraint firstAttribute="trailing" secondItem="s1b-V9-EN7" secondAttribute="trailing" id="c0a-n2-Gwy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="s1b-V9-EN7" id="pFe-sd-Ez9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-Rr-ZGN" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="1033"/>
+        </scene>
+        <!--Sony Camera Setting View01 Controller-->
+        <scene sceneID="Gpn-jb-2Yi">
+            <objects>
+                <viewController storyboardIdentifier="SonyCameraSettingView01Controller" id="hGA-4V-XeH" customClass="SonyCameraSettingView01Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qqv-W0-XH3"/>
+                        <viewControllerLayoutGuide type="bottom" id="WNK-7W-Ld0"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="JWr-Q1-Sa2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-ea-USH" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="45" width="768" height="979"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uu4-vD-7X9">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="563"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sonycamera_img01.png" translatesAutoresizingMaskIntoConstraints="NO" id="8pi-5k-yrV">
+                                                <rect key="frame" x="151" y="77" width="120" height="120"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sonycamera_img02.png" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-xx-wGP">
+                                                <rect key="frame" x="485" y="77" width="120" height="120"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-9X-qnh">
+                                                <rect key="frame" x="91" y="287" width="240" height="200"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Sonyカメラ(*)とのWiFi接続を行います。画像はQX10のものです。
+
+接続するSonyカメラのSSIDとパスワードを確認してください。
+
+QXの場合は、バッテリーカバーの裏に書かれています。他のカメラは、取扱説明書などで確認してください。
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-Td-kNI">
+                                                <rect key="frame" x="440" y="284" width="240" height="211"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Sonyカメラの電源ボタンを押します。
+
+QX10ならばランプが緑に点灯し本体からレンズが身長します。
+
+AS30は本体背部のRECボタンを押すことで電源がONになります。他の対応機種については取扱説明書を参照してください。</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" text="※対応機種一覧:HDR-AS15,HDR-AS30,HDR-AS100,HDR-AS20,HDR-MV1,A7,A7R,A7S,NEX-6,NEX-5R,NEX-5T,A5000,A6000,DSC-HX60,DSC-HX400,DSC-RX100M3" translatesAutoresizingMaskIntoConstraints="NO" id="TNs-H1-9ZO">
+                                                <rect key="frame" x="91" y="473" width="240" height="101"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Uu4-vD-7X9" secondAttribute="centerX" id="gcD-1P-8c1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97826086960000003" green="0.91848131079999995" blue="0.73914263440000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="g6V-ea-USH" secondAttribute="trailing" id="0Rc-nw-HxE"/>
+                            <constraint firstItem="g6V-ea-USH" firstAttribute="leading" secondItem="JWr-Q1-Sa2" secondAttribute="leading" id="151-em-IQ4"/>
+                            <constraint firstItem="g6V-ea-USH" firstAttribute="top" secondItem="qqv-W0-XH3" secondAttribute="bottom" constant="44" id="LQg-ne-R8n"/>
+                            <constraint firstItem="WNK-7W-Ld0" firstAttribute="top" secondItem="g6V-ea-USH" secondAttribute="bottom" id="ig0-mB-ZhZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="g6V-ea-USH" id="wZK-Oq-eeZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8oz-nh-6Jn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="-267"/>
+        </scene>
+        <!--Sony Camera Setting View04 Controller-->
+        <scene sceneID="g6t-13-qbw">
+            <objects>
+                <viewController storyboardIdentifier="SonyCameraSettingView03Controller" id="i5h-fZ-3OT" customClass="SonyCameraSettingView04Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5O1-2z-uAY"/>
+                        <viewControllerLayoutGuide type="bottom" id="wUH-Ie-VRh"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="9ri-cM-U9d">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6m-Li-c6v" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="45" width="768" height="979"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-5n-yRv">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="723"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sonycamera_img03.png" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-TC-le7">
+                                                <rect key="frame" x="247" y="93" width="275" height="185"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tl9-gH-E89">
+                                                <rect key="frame" x="190" y="325" width="388" height="72"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">下に表示されているカメラ検索ボタンを押下してください。
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view hidden="YES" alpha="0.69999998807907104" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AaM-ZQ-zRL">
+                                                <rect key="frame" x="299" y="216" width="170" height="127"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bul-nj-5hb">
+                                                        <rect key="frame" x="67" y="45" width="37" height="37"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtN-T6-Xcs">
+                                                <rect key="frame" x="203" y="405" width="356" height="50"/>
+                                                <color key="backgroundColor" red="0.066666666666666666" green="0.5490196078431373" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   カメラを検索   ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="searchBtnDidPushed:" destination="i5h-fZ-3OT" eventType="touchUpInside" id="6a9-t7-TT0"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5d-ja-qS9">
+                                                <rect key="frame" x="245" y="506" width="278" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="SnQ-5n-yRv" secondAttribute="centerX" id="yRN-3j-x7J"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97826086960000003" green="0.91848131079999995" blue="0.73914263440000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="u6m-Li-c6v" firstAttribute="top" secondItem="5O1-2z-uAY" secondAttribute="bottom" id="FQI-xU-PAW"/>
+                            <constraint firstItem="u6m-Li-c6v" firstAttribute="leading" secondItem="9ri-cM-U9d" secondAttribute="leading" id="KcA-gL-rkN"/>
+                            <constraint firstItem="wUH-Ie-VRh" firstAttribute="top" secondItem="u6m-Li-c6v" secondAttribute="bottom" id="MBe-Ol-TdD"/>
+                            <constraint firstAttribute="trailing" secondItem="u6m-Li-c6v" secondAttribute="trailing" id="hXX-Ry-G7F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicator" destination="bul-nj-5hb" id="8R8-ie-CIz"/>
+                        <outlet property="mainView" destination="u6m-Li-c6v" id="cIj-OT-zec"/>
+                        <outlet property="progressView" destination="AaM-ZQ-zRL" id="uvf-Xx-rOW"/>
+                        <outlet property="searchBtn" destination="EtN-T6-Xcs" id="3dV-Q5-iIW"/>
+                        <outlet property="ssidLabel" destination="m5d-ja-qS9" id="BB0-Ds-A7b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adO-nQ-Uvv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="-243"/>
+        </scene>
+        <!--Sony Camera Setting View02 Controller-->
+        <scene sceneID="gkU-vR-k10">
+            <objects>
+                <viewController storyboardIdentifier="SonyCameraSettingView02Controller" id="ueh-7E-LZg" customClass="SonyCameraSettingView02Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SCJ-ZN-4bs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z8G-V4-SWn"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4kM-1l-Wa2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Yi-ra-Ri0" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="45" width="768" height="979"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-nw-mOW">
+                                        <rect key="frame" x="0.0" y="20" width="768" height="645"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbg-Pr-mnu">
+                                                <rect key="frame" x="178" y="335" width="432" height="106"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">iOSの設定画面からWiFiを有効にします。
+ネットワークを選択からカメラのSSIDを選択します。
+
+ネットワークに接続するときにパスワードを入力してください。
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings_ipad.png" translatesAutoresizingMaskIntoConstraints="NO" id="IBQ-Tq-ncU">
+                                                <rect key="frame" x="63" y="20" width="643" height="302"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="注意) モバイルデータ通信をオフにしてください。" translatesAutoresizingMaskIntoConstraints="NO" id="W6J-ca-3cQ">
+                                                <rect key="frame" x="215" y="455" width="339" height="58"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="oV0-nw-mOW" secondAttribute="centerX" id="FjH-rQ-Jg0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97826086960000003" green="0.91848131079999995" blue="0.73914263440000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Yi-ra-Ri0" secondAttribute="trailing" id="0OU-rL-VWh"/>
+                            <constraint firstItem="2Yi-ra-Ri0" firstAttribute="leading" secondItem="4kM-1l-Wa2" secondAttribute="leading" id="2jA-kt-4MG"/>
+                            <constraint firstItem="2Yi-ra-Ri0" firstAttribute="top" secondItem="SCJ-ZN-4bs" secondAttribute="bottom" constant="44" id="InR-Dn-fkt"/>
+                            <constraint firstItem="Z8G-V4-SWn" firstAttribute="top" secondItem="2Yi-ra-Ri0" secondAttribute="bottom" id="IqU-EO-PRd"/>
+                            <constraint firstAttribute="trailing" secondItem="2Yi-ra-Ri0" secondAttribute="trailing" id="Mug-6o-wD4"/>
+                            <constraint firstItem="Z8G-V4-SWn" firstAttribute="top" secondItem="2Yi-ra-Ri0" secondAttribute="bottom" id="UYH-3d-dAM"/>
+                            <constraint firstItem="Z8G-V4-SWn" firstAttribute="top" secondItem="2Yi-ra-Ri0" secondAttribute="bottom" id="aVm-K5-RXa"/>
+                            <constraint firstItem="2Yi-ra-Ri0" firstAttribute="leading" secondItem="4kM-1l-Wa2" secondAttribute="leading" id="wrI-Iz-Q2d"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="2Yi-ra-Ri0" id="tih-Um-hOH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9t-gj-cjp" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2104" y="1025"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settings_ipad.png" width="1536" height="512"/>
+        <image name="sonycamera_img01.png" width="120" height="120"/>
+        <image name="sonycamera_img02.png" width="120" height="120"/>
+        <image name="sonycamera_img03.png" width="275" height="185"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FDb-XO-4wo">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="GHMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpq-nH-4R2" customClass="GHToolView">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ePo-ao-lbF"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem tag="101" image="arrow-back.png" id="uAj-it-1u9">
+                                        <connections>
+                                            <action selector="btnAction:" destination="vXZ-lx-hvc" id="zOJ-c3-ZJp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4G9-Lc-QAL"/>
+                                    <barButtonItem tag="100" image="arrow-next.png" id="zeZ-TP-whJ">
+                                        <connections>
+                                            <action selector="btnAction:" destination="vXZ-lx-hvc" id="Poy-HU-dUZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pvD-Hs-g43"/>
+                                    <barButtonItem tag="102" image="upload.png" id="7vH-yO-jYy">
+                                        <connections>
+                                            <action selector="btnAction:" destination="vXZ-lx-hvc" id="giD-ds-Azw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ecq-wB-U8N"/>
+                                    <barButtonItem tag="103" image="bookmark.png" style="plain" id="Hx8-qC-TIl">
+                                        <connections>
+                                            <action selector="btnAction:" destination="vXZ-lx-hvc" id="SBl-VL-ngB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PFe-el-mHi"/>
+                                    <barButtonItem tag="104" image="setting.png" id="wsb-NC-V1Z">
+                                        <connections>
+                                            <action selector="btnAction:" destination="vXZ-lx-hvc" id="crS-wg-HBO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <connections>
+                                    <outlet property="addbtn" destination="7vH-yO-jYy" id="U1F-rc-WjG"/>
+                                    <outlet property="backbtn" destination="uAj-it-1u9" id="E17-mo-ZTF"/>
+                                    <outlet property="bookmarkbtn" destination="Hx8-qC-TIl" id="we5-oG-OeL"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="3Ez-O8-mPI"/>
+                                    <outlet property="nextbtn" destination="zeZ-TP-whJ" id="A54-Qd-Dba"/>
+                                    <outlet property="settingbtn" destination="wsb-NC-V1Z" id="qc4-uX-lNl"/>
+                                </connections>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cpq-nH-4R2" secondAttribute="trailing" id="JxO-yz-29P"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cpq-nH-4R2" secondAttribute="bottom" id="itS-hm-Jin"/>
+                            <constraint firstItem="cpq-nH-4R2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="j33-VB-LsI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2ST-hY-V40"/>
+                    <connections>
+                        <outlet property="toolView" destination="cpq-nH-4R2" id="L9p-fv-1j6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="421"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ymm-9J-heb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FDb-XO-4wo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="k19-QN-MA7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ly5-fT-3u2">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="fp5-uK-Ajb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GhN-Ua-MDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="1040"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow-back.png" width="30" height="30"/>
+        <image name="arrow-next.png" width="30" height="30"/>
+        <image name="bookmark.png" width="30" height="30"/>
+        <image name="setting.png" width="30" height="30"/>
+        <image name="upload.png" width="30" height="30"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

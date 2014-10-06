@@ -1,0 +1,17 @@
+/* Class = "IBUILabel"; text = "このアプリは次への権限が必要です。"; ObjectID = "Cl0-oZ-6xy"; */
+"Cl0-oZ-6xy.text" = "このアプリは次への権限が必要です。";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "N7N-fA-LPK"; */
+"N7N-fA-LPK.text" = "アクセス権限";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "OC4-Tj-L8Q"; */
+"OC4-Tj-L8Q.text" = "このアプリは次への権限が必要";
+
+/* Class = "IBUIBarButtonItem"; title = "Item"; ObjectID = "asD-zR-Fth"; */
+"asD-zR-Fth.title" = "閉じる";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "jyU-cg-FMy"; */
+"jyU-cg-FMy.normalTitle" = "同意する";
+
+/* Class = "IBUILabel"; text = "トークンがありません"; ObjectID = "ldN-WR-bgV"; */
+"ldN-WR-bgV.text" = "トークンがありません";

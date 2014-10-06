@@ -1,0 +1,18 @@
+/**
+ NSURLRequest+BodyAndBodyStreamInOne
+ Copyright (c) 2014 NTT DOCOMO,INC.
+ Released under the MIT license
+ http://opensource.org/licenses/mit-license.php
+ */
+
+#import <Foundation/Foundation.h>
+
+@interface NSURLRequest (BodyAndBodyStreamInOne)
+
+/*!
+ - HTTPBodyや- HTTPBodyStreamの差異を吸収してHTTPリクエストのボディデータを返却する。
+ @return HTTPリクエストのボディデータ
+ */
+- (NSData *)body;
+
+@end

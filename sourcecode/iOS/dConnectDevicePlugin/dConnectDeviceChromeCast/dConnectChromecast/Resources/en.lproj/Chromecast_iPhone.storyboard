@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1RF-3X-yYs">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Chromecast-->
+        <scene sceneID="Xje-oq-9jS">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="t1Z-WL-XaN" customClass="DPChromecastSettingViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Chromecast" id="9NH-a5-3um"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jc-JN-iZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="-161"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U0d-Q7-csC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1RF-3X-yYs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PGi-QJ-nQB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.62745098040000002" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t1Z-WL-XaN" kind="relationship" relationship="rootViewController" id="6rM-ns-Lt2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNx-G9-YrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="-161"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MTa-Zv-9EU">
+            <objects>
+                <viewController storyboardIdentifier="ConnectionGuide" id="pqs-XO-WMl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pjb-uZ-bro"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hcu-se-i6K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="56b-Vs-cv4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.Chromecastの接続" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnX-NS-Jb6">
+                                <rect key="frame" x="35" y="75" width="230" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4Nj-vw-Cd1"/>
+                                    <constraint firstAttribute="width" constant="230" id="63r-st-LJE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chromecast をテレビの HDMI 入力端子につなぎます。" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="LcA-xx-Ddp">
+                                <rect key="frame" x="30" y="348" width="260" height="200"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img02.png" translatesAutoresizingMaskIntoConstraints="NO" id="asW-PR-HST">
+                                <rect key="frame" x="30" y="104" width="260" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="999" constant="260" id="T5r-kU-WbR"/>
+                                    <constraint firstAttribute="height" priority="998" constant="200" id="rP4-lW-ogw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="asW-PR-HST" firstAttribute="top" secondItem="GnX-NS-Jb6" secondAttribute="bottom" constant="8" id="7DD-ax-fig"/>
+                            <constraint firstItem="GnX-NS-Jb6" firstAttribute="top" secondItem="56b-Vs-cv4" secondAttribute="top" constant="75" id="JJi-Dv-Whp"/>
+                            <constraint firstItem="asW-PR-HST" firstAttribute="leading" secondItem="LcA-xx-Ddp" secondAttribute="leading" id="MKN-Pd-gUp"/>
+                            <constraint firstItem="Hcu-se-i6K" firstAttribute="top" secondItem="LcA-xx-Ddp" secondAttribute="bottom" priority="995" constant="20" id="RIB-gb-Tub"/>
+                            <constraint firstItem="Hcu-se-i6K" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LcA-xx-Ddp" secondAttribute="bottom" id="Tlf-kD-Rb7"/>
+                            <constraint firstItem="asW-PR-HST" firstAttribute="leading" secondItem="56b-Vs-cv4" secondAttribute="leading" constant="30" id="bL0-rf-7Pk"/>
+                            <constraint firstItem="LcA-xx-Ddp" firstAttribute="top" relation="lessThanOrEqual" secondItem="asW-PR-HST" secondAttribute="bottom" constant="44" id="f8J-g1-PLS"/>
+                            <constraint firstItem="LcA-xx-Ddp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="asW-PR-HST" secondAttribute="bottom" id="fVc-5Y-wPd"/>
+                            <constraint firstAttribute="trailing" secondItem="asW-PR-HST" secondAttribute="trailing" constant="30" id="j05-w5-usH"/>
+                            <constraint firstItem="asW-PR-HST" firstAttribute="height" secondItem="LcA-xx-Ddp" secondAttribute="height" priority="999" id="kEn-sM-ciU"/>
+                            <constraint firstAttribute="trailing" secondItem="LcA-xx-Ddp" secondAttribute="trailing" constant="30" id="p5R-Ri-yHw"/>
+                            <constraint firstItem="GnX-NS-Jb6" firstAttribute="leading" secondItem="56b-Vs-cv4" secondAttribute="leading" constant="35" id="vLc-EI-coh"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DRN-xD-k2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="-161"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uzJ-ag-Bny">
+            <objects>
+                <viewController storyboardIdentifier="PowerGuide" id="3HU-a0-sqY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ca5-5a-Tjf"/>
+                        <viewControllerLayoutGuide type="bottom" id="DOr-Iu-VOa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6aG-BC-O9h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.電源の接続" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUN-Ma-zcR">
+                                <rect key="frame" x="35" y="75" width="230" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kZC-yu-v0k"/>
+                                    <constraint firstAttribute="width" constant="230" id="kiS-GY-Id9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="s5U-Th-gzw">
+                                <rect key="frame" x="30" y="348" width="260" height="200"/>
+                                <string key="text">電源ケーブルの一方の端を Chromecast に差し込み、もう一方の端を電源アダプターに差し込んでから、近くの電源コンセントにつなぎます。
+
+テレビにUSB ポートがある場合は直接差し込んで Chromecast に給電することもできます。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img03.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZRk-4E-l6S">
+                                <rect key="frame" x="30" y="104" width="260" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="999" constant="260" id="9jO-cK-GJ7"/>
+                                    <constraint firstAttribute="height" priority="998" constant="200" id="FcS-VE-aMG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZRk-4E-l6S" firstAttribute="leading" secondItem="6aG-BC-O9h" secondAttribute="leading" constant="30" id="6BM-ND-rl6"/>
+                            <constraint firstItem="ZRk-4E-l6S" firstAttribute="top" secondItem="AUN-Ma-zcR" secondAttribute="bottom" constant="8" id="FTt-W0-eL8"/>
+                            <constraint firstItem="AUN-Ma-zcR" firstAttribute="top" secondItem="6aG-BC-O9h" secondAttribute="top" constant="75" id="Fr6-T0-Ql0"/>
+                            <constraint firstAttribute="trailing" secondItem="s5U-Th-gzw" secondAttribute="trailing" constant="30" id="H7N-V7-taG"/>
+                            <constraint firstItem="AUN-Ma-zcR" firstAttribute="leading" secondItem="6aG-BC-O9h" secondAttribute="leading" constant="35" id="H9J-OL-VJH"/>
+                            <constraint firstAttribute="trailing" secondItem="ZRk-4E-l6S" secondAttribute="trailing" constant="30" id="Tre-9r-B1Y"/>
+                            <constraint firstItem="DOr-Iu-VOa" firstAttribute="top" secondItem="s5U-Th-gzw" secondAttribute="bottom" priority="995" constant="20" id="ifJ-JN-u1N"/>
+                            <constraint firstItem="ZRk-4E-l6S" firstAttribute="height" secondItem="s5U-Th-gzw" secondAttribute="height" priority="999" id="jT8-uQ-nYW"/>
+                            <constraint firstItem="DOr-Iu-VOa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s5U-Th-gzw" secondAttribute="bottom" id="sqs-ob-7K5"/>
+                            <constraint firstItem="s5U-Th-gzw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZRk-4E-l6S" secondAttribute="bottom" id="utl-RN-tWY"/>
+                            <constraint firstItem="ZRk-4E-l6S" firstAttribute="leading" secondItem="s5U-Th-gzw" secondAttribute="leading" id="vSt-83-UEw"/>
+                            <constraint firstItem="s5U-Th-gzw" firstAttribute="top" relation="lessThanOrEqual" secondItem="ZRk-4E-l6S" secondAttribute="bottom" constant="44" id="xgC-jB-Ekc"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDe-9p-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="-161"/>
+        </scene>
+        <!--Chromecast Guide View Controller-->
+        <scene sceneID="M04-A7-KtC">
+            <objects>
+                <viewController storyboardIdentifier="SettingGuide" id="66v-DA-aOI" customClass="DPChromecastGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0jX-Uu-5MB"/>
+                        <viewControllerLayoutGuide type="bottom" id="gy0-xk-3f9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gZK-v8-zhQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.Chromecastの設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR4-Nm-m8T">
+                                <rect key="frame" x="35" y="75" width="230" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="O3q-c1-bS5"/>
+                                    <constraint firstAttribute="height" constant="21" id="Q90-HX-MAR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img01.png" translatesAutoresizingMaskIntoConstraints="NO" id="GE5-T9-skv">
+                                <rect key="frame" x="30" y="104" width="260" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="998" constant="200" id="u4k-Ce-MRA"/>
+                                    <constraint firstAttribute="width" priority="999" constant="260" id="uZD-0T-YcT"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g55-ag-bo4">
+                                <rect key="frame" x="30" y="348" width="260" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chromecast を初めて使用する際には以下のURLをタップしてセットアップをしてください。" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="224" translatesAutoresizingMaskIntoConstraints="NO" id="c6c-o8-6nF">
+                                        <rect key="frame" x="18" y="45" width="224" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="PBg-8A-jqW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHN-Bd-X0B">
+                                        <rect key="frame" x="18" y="116" width="224" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2xc-IR-Aod"/>
+                                            <constraint firstAttribute="width" constant="224" id="xnr-qI-u9N"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="www.google.com/chromecast/setup">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rulButtonPressed:" destination="66v-DA-aOI" eventType="touchUpInside" id="KxZ-u9-CJY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bHN-Bd-X0B" firstAttribute="top" secondItem="c6c-o8-6nF" secondAttribute="bottom" constant="8" id="7bN-x7-rxo"/>
+                                    <constraint firstItem="c6c-o8-6nF" firstAttribute="top" secondItem="g55-ag-bo4" secondAttribute="top" priority="999" constant="45" id="HTM-44-1Cp"/>
+                                    <constraint firstAttribute="trailing" secondItem="c6c-o8-6nF" secondAttribute="trailing" constant="18" id="ebb-x2-KLF"/>
+                                    <constraint firstAttribute="centerX" secondItem="bHN-Bd-X0B" secondAttribute="centerX" id="ek3-Rk-mFE"/>
+                                    <constraint firstItem="c6c-o8-6nF" firstAttribute="leading" secondItem="g55-ag-bo4" secondAttribute="leading" constant="18" id="fx2-0a-GAe"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bHN-Bd-X0B" secondAttribute="bottom" id="xio-RR-JGZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g55-ag-bo4" firstAttribute="top" relation="lessThanOrEqual" secondItem="GE5-T9-skv" secondAttribute="bottom" constant="44" id="3Lm-U0-GxQ"/>
+                            <constraint firstItem="gy0-xk-3f9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="g55-ag-bo4" secondAttribute="bottom" id="7TK-9G-Qpz"/>
+                            <constraint firstAttribute="trailing" secondItem="g55-ag-bo4" secondAttribute="trailing" constant="30" id="9x5-Xr-3oC"/>
+                            <constraint firstItem="g55-ag-bo4" firstAttribute="leading" secondItem="GE5-T9-skv" secondAttribute="leading" id="H95-Yw-gio"/>
+                            <constraint firstItem="gy0-xk-3f9" firstAttribute="top" secondItem="g55-ag-bo4" secondAttribute="bottom" priority="995" constant="20" id="O3p-6I-9vp"/>
+                            <constraint firstItem="uR4-Nm-m8T" firstAttribute="leading" secondItem="gZK-v8-zhQ" secondAttribute="leading" constant="35" id="PkZ-wj-N8a"/>
+                            <constraint firstItem="g55-ag-bo4" firstAttribute="height" secondItem="GE5-T9-skv" secondAttribute="height" priority="999" id="V9I-lY-1lB"/>
+                            <constraint firstAttribute="trailing" secondItem="GE5-T9-skv" secondAttribute="trailing" constant="30" id="Xqh-WV-dnH"/>
+                            <constraint firstItem="g55-ag-bo4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GE5-T9-skv" secondAttribute="bottom" id="YRd-JQ-uNS"/>
+                            <constraint firstItem="GE5-T9-skv" firstAttribute="top" secondItem="uR4-Nm-m8T" secondAttribute="bottom" constant="8" id="c00-zC-Rbx"/>
+                            <constraint firstItem="uR4-Nm-m8T" firstAttribute="top" secondItem="gZK-v8-zhQ" secondAttribute="top" constant="75" id="qLU-Sp-uUA"/>
+                            <constraint firstItem="GE5-T9-skv" firstAttribute="leading" secondItem="gZK-v8-zhQ" secondAttribute="leading" constant="30" id="yZk-7X-mTv"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctG-rN-Zlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1895" y="-161"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="img01.png" width="560" height="500"/>
+        <image name="img02.png" width="560" height="500"/>
+        <image name="img03.png" width="560" height="500"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,45 @@
+/* 
+  Localizable.strings
+  DConnectSDK
+
+  Created by 安部 将史 on 2014/08/25.
+  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
+*/
+
+// Profile Name
+"display_scope_authorization" = "認証";
+"display_scope_battery" = "バッテリー";
+"display_scope_connect" = "接続";
+"display_scope_deviceorientation" = "加速度";
+"display_scope_file_descriptor" = "ファイルディスクリプタ";
+"display_scope_file" = "ファイル";
+"display_scope_vcr" = "操作イベント受信";
+"display_scope_media_player" = "メディア再生";
+"display_scope_mediastream_recording" = "写真動画撮影／音声録音";
+"display_scope_network_service_discovery" = "デバイス検索";
+"display_scope_notification" = "通知";
+"display_scope_phone" = "電話";
+"display_scope_proximity" = "近接";
+"display_scope_rssi" = "電界強度";
+"display_scope_settings" = "設定";
+"display_scope_system" = "システム";
+"display_scope_vibration" = "バイブレーション";
+
+
+
+// Wording
+"token_list_scopes" = "%@ 他%d件";
+"token_expiration_date" = "有効期限 %@ まで";
+"token_default_expiration_date" = "承認後プロファイルにアクセスできるのは %@ まで";
+
+// Alert Title
+"alert_title_all_delete" = "全削除";
+
+// Alert Message
+"alert_message_all_delete" = "全てのアクセストークンを削除してよろしいですか？";
+"alert_message_delete" = "削除してよろしいですか？";
+
+// Alert Button
+"alert_btn_cancel" = "キャンセル";
+"alert_btn_delete" = "削除";
+

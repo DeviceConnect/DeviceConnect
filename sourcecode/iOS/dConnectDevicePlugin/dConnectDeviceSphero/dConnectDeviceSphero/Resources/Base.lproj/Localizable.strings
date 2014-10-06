@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  dConnectDeviceSphero
+
+  Created by 星　貴之 on 2014/08/28.
+  Copyright (c) 2014年 Docomo. All rights reserved.
+*/
+"SpheroDisconnecMessage"="切断";
+"SpheroDisconnectedMessage"="切断完了しました";
+"SpheroConnectMessage"="接続完了";
+"SpheroConnectedMessage"="接続しました";
+"SpheroFailMessage"="接続に失敗しました";
+"SpheroSettingsTitle"="Sphero";
