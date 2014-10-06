@@ -192,28 +192,21 @@ public class HueControl {
     }
 
     /**
-     * ４回までアクセスリトライする.
+     * アクセスポイントリストのリストを取得する。４回までリトライし、 取得できなかった場合は空のリストを返す
      * @return アクセスポイントリスト
      */
     public List<PHAccessPoint> getSyncAllAccessPoint() {
 
-        List<PHAccessPoint> list = getSyncAllAccessPointPrivate();
-        
-        //1回でだめなら4回たたく
-        if (list == null || list.size() == 0) {
+        List<PHAccessPoint> list;
+        //PHAccessPointを取得できるまで4回まで試す
+        final int maxRetry = 4;
+        for (int i = 0; i < maxRetry; i++) {
             list = getSyncAllAccessPointPrivate();
+            if (list != null && list.size() != 0) {
+                break;
+            }
         }
-
-        if (list == null || list.size() == 0) {
-            list = getSyncAllAccessPointPrivate();
-        }
-
-        if (list == null || list.size() == 0) {
-            list = getSyncAllAccessPointPrivate();
-        }
-
         return list;
-        
     }
     
     /**
