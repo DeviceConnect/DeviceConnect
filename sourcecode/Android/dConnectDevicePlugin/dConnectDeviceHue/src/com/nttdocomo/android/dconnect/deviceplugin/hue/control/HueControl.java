@@ -1,8 +1,14 @@
+/*
+HueControl
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+ */
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.control;
 
 import java.util.List;
 
-import android.os.Build;
 import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerHue;
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHBridgeSearchManager;
@@ -11,13 +17,6 @@ import com.philips.lighting.hue.sdk.PHSDKListener;
 import com.philips.lighting.model.PHBridge;
 import com.philips.lighting.model.PHHueError;
 import com.philips.lighting.model.PHHueParsingError;
-
-/**
-HueControl
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * HueControlクラス.
@@ -46,58 +45,12 @@ public class HueControl {
      */
     private static PHHueSDK mPhHueSDK;
 
-    /**
-     * 最大ウェイト値.
-     */
-    private static final int MAX_WAIT_COUNT = 15;
-    /**
-     * ウェイト時間(ミリ秒).
-     */
-    private static final long WAIT_MMSEC = 500;
-    /**
-     * アクセス回数.
-     */
-    private static int mGettingAccessPointWaitCount;
-    /**
-     * アクセスポイントリスト用アレイリスト.
-     */
-    private static List<PHAccessPoint> mAccessPointList;
-    
-    /**
-     * アクセスポイントリストの取得.
-     * @return アクセスポイント
-     */
-    private static synchronized List<PHAccessPoint> getAccessPointList() {
-        return mAccessPointList;
-    }
-
-    
     public static synchronized BridgeConnectState getBridgeConnectState(){
         return mBridgeConnectState;
     }
 
     private static synchronized void setBridgeConnectState(BridgeConnectState state){
         mBridgeConnectState = state;
-    }
-
-    /**
-     * アクセスポイントリストの長さの取得.
-     * @return アクセスポイントリストの長さ
-     */
-    private static synchronized int getAccessPointListSize() {
-        if (mAccessPointList == null) {
-            return 0;
-        } else {
-            return mAccessPointList.size();
-        }
-    }
-
-    /**
-     * アクセスポイントリストの取得.
-     * @param accessPointList 
-     */
-    private static synchronized void setAccessPointList(final List<PHAccessPoint> accessPointList) {
-        mAccessPointList = accessPointList;
     }
 
     /**
@@ -140,80 +93,20 @@ public class HueControl {
         PHBridge bridge = mPhHueSDK.getSelectedBridge();
 
         if (bridge != null) {
-            //エラーは無視
+            // TODO: エラー処理
             try {
                 mPhHueSDK.disconnect(bridge);
-                
             } catch (Exception e) {
             }
-
         }
 
         if (mPhListener != null) {
-
             mPhHueSDK.getNotificationManager().unregisterSDKListener(mPhListener);
-
         }
-
-
         setBridgeConnectState(BridgeConnectState.STATE_INIT);
 
         logger.exiting("HueControl", "destroyPHHueSDK");
 
-    }
-    
-    /**
-     * アクセス回数：カウントアップ.
-     */
-    private static synchronized void addAccessPointCount() {
-        mGettingAccessPointWaitCount++;
-    }
-
-    /**
-     * アクセス回数：クリア.
-     */
-    private static synchronized void clearAccessPointCount() {
-        mGettingAccessPointWaitCount = 0;
-    }
-
-    /**
-     * アクセス回数：最大値.
-     */
-    private static synchronized void setMaxAccessPointCount() {
-        mGettingAccessPointWaitCount = MAX_WAIT_COUNT;
-    }
-
-    /**
-     * リトライ回数が最大値かどうかの確認.
-     * @return アクセスリトライ回数
-     */
-    private static synchronized boolean isMaxAccessPointCount() {
-        return mGettingAccessPointWaitCount >= MAX_WAIT_COUNT;
-    }
-
-    /**
-     * ４回までアクセスリトライする.
-     * @return アクセスポイントリスト
-     */
-    public List<PHAccessPoint> getSyncAllAccessPoint() {
-
-        List<PHAccessPoint> list = getSyncAllAccessPointPrivate();
-        
-        //1回でだめなら4回たたく
-        if (list == null || list.size() == 0) {
-            list = getSyncAllAccessPointPrivate();
-        }
-
-        if (list == null || list.size() == 0) {
-            list = getSyncAllAccessPointPrivate();
-        }
-
-        if (list == null || list.size() == 0) {
-            list = getSyncAllAccessPointPrivate();
-        }
-
-        return list;
-        
     }
     
     /**
@@ -235,48 +128,6 @@ public class HueControl {
         
         logger.exiting("HueControl", "updateAccessPointCache");
     }
-    
-    /**
-     * ブリッジ情報を取得.
-     * @return ブリッジ情報 
-     */
-    private List<PHAccessPoint> getSyncAllAccessPointPrivate() {
-        
-        DcLoggerHue logger = new DcLoggerHue();
-        logger.entering(this, "getAllAccessPoint");
-
-        setAccessPointList(null);
-        clearAccessPointCount();
-        
-        //ブリッジ情報を取得
-        PHHueSDK hueSdk = HueControl.getPHHueSDK();
-        setAccessPointList(hueSdk.getAccessPointsFound());
-        
-        if (getAccessPointListSize() > 0) {
-
-            setMaxAccessPointCount();
-
-        } else {
-            doBridgeSearch(hueSdk);
-            while (!isMaxAccessPointCount()) {
-                
-                sleep(WAIT_MMSEC);
-                addAccessPointCount();
-                
-                if (getAccessPointListSize() > 0) {
-                    setMaxAccessPointCount();
-                }
-
-//                logger.fine(this, "getSyncAllAccessPointPrivate wait cnt", mGettingAccessPointWaitCount);
-
-            }
-        
-        }
-        
-        logger.exiting(this, "getSyncAllAccessPointPrivate", mAccessPointList);
-        
-        return getAccessPointList();
-      }
     
     /**
      * 指定ミリ秒実行を止めるメソッド.
@@ -316,24 +167,11 @@ public class HueControl {
             if (accessPoint != null && accessPoint.size() > 0) {
                 phHueSDK.getAccessPointsFound().clear();
                 phHueSDK.getAccessPointsFound().addAll(accessPoint);
-                
-                setAccessPointList(accessPoint);
-                setMaxAccessPointCount();
                 logger.fine("HueControl", "onAccessPointsFound size", accessPoint.size());
                    
             } else {
-                // FallBack Mechanism.  If a UPNP Search returns no results then perform an IP Scan.
-//                Of course it could fail as the user has disconnected their bridge, 
-//                connected to a wrong network or disabled Network Discovery on their 
-//                router so it is not guaranteed to work.
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-                    PHBridgeSearchManager sm = (PHBridgeSearchManager) phHueSDK.getSDKService(PHHueSDK.SEARCH_BRIDGE);
-                    // Start the IP Scan Search if the UPNP and NPNP return 0 results.
-                    sm.search(false, false, true);
-                    
-                    logger.fine("HueControl", "onAccessPointsFound", "sm.search(false, false, true)");
-
-                }
+                PHBridgeSearchManager sm = (PHBridgeSearchManager) phHueSDK.getSDKService(PHHueSDK.SEARCH_BRIDGE);
+                sm.search(false, false, true);
             }
             
             logger.exiting("HueControl", "onAccessPointsFound");
