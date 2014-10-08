@@ -1,3 +1,10 @@
+/*
+HueSystemProfile
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.profile;
 
 import android.app.Activity;
@@ -8,13 +15,6 @@ import com.nttdocomo.android.dconnect.deviceplugin.hue.activity.HueMainActivity;
 import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerHue;
 import com.nttdocomo.android.dconnect.profile.DConnectProfileProvider;
 import com.nttdocomo.android.dconnect.profile.SystemProfile;
-
-/**
-HueSystemProfile
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * Hueデバイスプラグイン, System プロファイル.

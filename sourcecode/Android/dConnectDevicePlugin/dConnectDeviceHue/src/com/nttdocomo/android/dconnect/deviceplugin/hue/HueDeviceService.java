@@ -1,3 +1,10 @@
+/*
+HueDeviceService
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue;
 
 import com.nttdocomo.android.dconnect.deviceplugin.hue.control.HueControl;
@@ -9,12 +16,6 @@ import com.nttdocomo.android.dconnect.message.DConnectMessageService;
 import com.nttdocomo.android.dconnect.profile.NetworkServiceDiscoveryProfile;
 import com.nttdocomo.android.dconnect.profile.SystemProfile;
 
-/**
-HueDeviceService
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * 本デバイスプラグインのプロファイルをdConnectに登録するサービス.

@@ -1,3 +1,10 @@
+/*
+HueLightProfile
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.profile;
 
 import android.content.Intent;
@@ -6,13 +13,6 @@ import com.nttdocomo.android.dconnect.deviceplugin.hue.profile.attribute.HueGrou
 import com.nttdocomo.android.dconnect.deviceplugin.hue.profile.attribute.HueLightAttribute;
 import com.nttdocomo.android.dconnect.deviceplugin.param.DcParam.DcParamException;
 import com.nttdocomo.android.dconnect.profile.LightProfile;
-
-/**
-HueLightProfile
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * 親クラスで振り分けられたメソッドに対して、Hueのlight attribute処理を呼び出す.

@@ -1,3 +1,10 @@
+/*
+AccessPointListAdapter
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.util;
 
 import java.util.ArrayList;
@@ -13,12 +20,6 @@ import android.widget.TextView;
 import com.nttdocomo.android.dconnect.deviceplugin.hue.R;
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 
-/**
-AccessPointListAdapter
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * This class provides adapter view for a list of Found Bridges.

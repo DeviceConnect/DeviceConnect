@@ -1,3 +1,10 @@
+/*
+HueLightAttribute
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.profile.attribute;
 
 import java.util.ArrayList;
@@ -30,13 +37,6 @@ import com.philips.lighting.model.PHHueError;
 import com.philips.lighting.model.PHLight;
 import com.philips.lighting.model.PHLightState;
 import com.philips.lighting.model.PHLight.PHLightColorMode;
-
-/**
-HueLightAttribute
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * HueライトAttributeクラス.

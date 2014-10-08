@@ -1,15 +1,15 @@
-package com.nttdocomo.android.dconnect.deviceplugin.hue.control;
-
-import com.nttdocomo.android.dconnect.deviceplugin.hue.HueDeviceService;
-import com.philips.lighting.model.PHBridge;
-import com.philips.lighting.model.PHLight;
-
-/**
+/*
 HueControlLight
 Copyright (c) 2014 NTT DOCOMO,INC.
 Released under the MIT license
 http://opensource.org/licenses/mit-license.php
 */
+
+package com.nttdocomo.android.dconnect.deviceplugin.hue.control;
+
+import com.nttdocomo.android.dconnect.deviceplugin.hue.HueDeviceService;
+import com.philips.lighting.model.PHBridge;
+import com.philips.lighting.model.PHLight;
 
 /**
  * HueControlLightクラス.
@@ -38,9 +38,9 @@ public class HueControlLight extends HueControl {
      */
     public PHLight getLight(final String deviceid, final String lightID) {
 
-        HueControlBrige cb = new HueControlBrige();
+        HueControlBridge controlBridge = new HueControlBridge();
 
-        PHBridge phBridge = cb.getBridgeSync(deviceid);
+        PHBridge phBridge = controlBridge.getBridgeSync(deviceid);
 
         if (phBridge == null) {
             return null;
@@ -64,8 +64,8 @@ public class HueControlLight extends HueControl {
     public PHLight getLight(final String deviceid) {
         // PHHueSDK phHueSDK = HueControl.getPHHueSDK();
 
-        HueControlBrige cb = new HueControlBrige();
-        PHBridge phBridge = cb.getBridgeSync(deviceid);
+        HueControlBridge controlBridge = new HueControlBridge();
+        PHBridge phBridge = controlBridge.getBridgeSync(deviceid);
 
         if (phBridge != null) {
             for (PHLight light : phBridge.getResourceCache().getAllLights()) {

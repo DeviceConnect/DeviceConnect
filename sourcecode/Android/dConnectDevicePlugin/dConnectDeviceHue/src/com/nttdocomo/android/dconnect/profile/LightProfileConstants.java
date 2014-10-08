@@ -1,13 +1,15 @@
-package com.nttdocomo.android.dconnect.profile;
-
-import com.nttdocomo.dconnect.profile.DConnectProfileConstants;
-
-/**
+/*
 LightProfileConstants
 Copyright (c) 2014 NTT DOCOMO,INC.
 Released under the MIT license
 http://opensource.org/licenses/mit-license.php
 */
+
+package com.nttdocomo.android.dconnect.profile;
+
+import com.nttdocomo.dconnect.profile.DConnectProfileConstants;
+
+
 
 /**
  * ライトプロファイルパラメータ定義.

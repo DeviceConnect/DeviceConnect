@@ -1,3 +1,10 @@
+/*
+HueGroupAttribute
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.profile.attribute;
 
 import java.util.ArrayList;
@@ -11,7 +18,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import com.nttdocomo.android.dconnect.deviceplugin.hue.HueDeviceService;
 import com.nttdocomo.android.dconnect.deviceplugin.hue.control.HueControl;
-import com.nttdocomo.android.dconnect.deviceplugin.hue.control.HueControlBrige;
+import com.nttdocomo.android.dconnect.deviceplugin.hue.control.HueControlBridge;
 import com.nttdocomo.android.dconnect.deviceplugin.hue.param.DcParamLightHue;
 import com.nttdocomo.android.dconnect.deviceplugin.hue.profile.HueLightProfileConstants;
 import com.nttdocomo.android.dconnect.deviceplugin.param.DcParam;
@@ -26,13 +33,6 @@ import com.philips.lighting.model.PHBridgeResource;
 import com.philips.lighting.model.PHGroup;
 import com.philips.lighting.model.PHHueError;
 import com.philips.lighting.model.PHLightState;
-
-/**
-HueGroupAttribute
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * HueグループAttribute.
@@ -109,9 +109,9 @@ public class HueGroupAttribute extends HueLightAttribute implements HueLightProf
 
         }
 
-        HueControlBrige cb = new HueControlBrige();
+        HueControlBridge controlBridge = new HueControlBridge();
 
-        PHBridge bridge = cb.getBridgeSync(deviceid);
+        PHBridge bridge = controlBridge.getBridgeSync(deviceid);
 
         if (bridge == null) {
 
@@ -153,9 +153,9 @@ public class HueGroupAttribute extends HueLightAttribute implements HueLightProf
         String groupName = DcParamLightHue.getName(request);
         String lightIds = DcParamLightHue.getLightIds(request);
 
-        HueControlBrige cb = new HueControlBrige();
+        HueControlBridge controlBridge = new HueControlBridge();
 
-        PHBridge bridge = cb.getBridgeSync(deviceid);
+        PHBridge bridge = controlBridge.getBridgeSync(deviceid);
 
         if (bridge == null) {
 
@@ -213,9 +213,9 @@ public class HueGroupAttribute extends HueLightAttribute implements HueLightProf
 
         }
 
-        HueControlBrige cb = new HueControlBrige();
+        HueControlBridge controlBridge = new HueControlBridge();
 
-        PHBridge bridge = cb.getBridgeSync(deviceid);
+        PHBridge bridge = controlBridge.getBridgeSync(deviceid);
 
         if (bridge == null) {
 
@@ -261,9 +261,9 @@ public class HueGroupAttribute extends HueLightAttribute implements HueLightProf
     private PHGroup getGroup(final String deviceid, final String groupID) {
         mLogger.entering(this, "getGroup", groupID);
 
-        HueControlBrige cb = new HueControlBrige();
+        HueControlBridge controlBridge = new HueControlBridge();
 
-        PHBridge phBridge = cb.getBridgeSync(deviceid);
+        PHBridge phBridge = controlBridge.getBridgeSync(deviceid);
 
         mLogger.fine(this, "getGroup getBridgeConnectState", HueControl.getBridgeConnectState());
         

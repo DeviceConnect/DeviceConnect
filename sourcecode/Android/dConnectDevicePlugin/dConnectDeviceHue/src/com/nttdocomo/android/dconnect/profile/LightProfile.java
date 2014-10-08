@@ -1,3 +1,10 @@
+/*
+LightProfile
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.profile;
 
 import android.content.Intent;
@@ -6,13 +13,6 @@ import com.nttdocomo.android.dconnect.deviceplugin.param.DcParam.DcParamExceptio
 import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerLight;
 import com.nttdocomo.android.dconnect.message.MessageUtils;
 import com.nttdocomo.dconnect.message.DConnectMessage;
-
-/**
-LightProfile
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * Light Profile. 標準化されたProfile,Interface,Attributeのメソッドの呼び出しを行う振り分けクラス。

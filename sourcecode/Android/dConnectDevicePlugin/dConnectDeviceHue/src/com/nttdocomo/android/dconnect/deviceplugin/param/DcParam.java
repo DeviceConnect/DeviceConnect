@@ -1,15 +1,15 @@
-package com.nttdocomo.android.dconnect.deviceplugin.param;
-
-import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerHue;
-
-import android.content.Intent;
-
-/**
+/*
 DcParam
 Copyright (c) 2014 NTT DOCOMO,INC.
 Released under the MIT license
 http://opensource.org/licenses/mit-license.php
 */
+
+package com.nttdocomo.android.dconnect.deviceplugin.param;
+
+import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerHue;
+
+import android.content.Intent;
 
 /**
  * パラメータ関連クラス.

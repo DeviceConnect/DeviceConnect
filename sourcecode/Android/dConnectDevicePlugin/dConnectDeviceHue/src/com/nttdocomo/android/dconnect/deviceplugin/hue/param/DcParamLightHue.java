@@ -1,3 +1,10 @@
+/*
+DcParamLightHue
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.param;
 
 import com.nttdocomo.android.dconnect.deviceplugin.hue.profile.HueLightProfileConstants;
@@ -6,13 +13,6 @@ import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerHue;
 import com.philips.lighting.hue.sdk.utilities.PHUtilities;
 import android.content.Intent;
 import android.graphics.Color;
-
-/**
-DcParamLightHue
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
 
 /**
  * Hueライトパラメータ管理クラス.

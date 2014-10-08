@@ -1,14 +1,14 @@
-package com.nttdocomo.android.dconnect.deviceplugin.param;
-
-import android.content.Intent;
-import com.nttdocomo.android.dconnect.profile.LightProfileConstants;
-
-/**
+/*
 DcParamLight
 Copyright (c) 2014 NTT DOCOMO,INC.
 Released under the MIT license
 http://opensource.org/licenses/mit-license.php
 */
+
+package com.nttdocomo.android.dconnect.deviceplugin.param;
+
+import android.content.Intent;
+import com.nttdocomo.android.dconnect.profile.LightProfileConstants;
 
 /**
  * ライトパラメータ関連クラス.

@@ -1,3 +1,10 @@
+/*
+HueLightsAttribute
+Copyright (c) 2014 NTT DOCOMO,INC.
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+
 package com.nttdocomo.android.dconnect.deviceplugin.hue.profile.attribute;
 
 import java.util.List;
@@ -6,7 +13,7 @@ import java.util.Map;
 import android.content.Intent;
 
 import com.nttdocomo.android.dconnect.deviceplugin.hue.HueDeviceService;
-import com.nttdocomo.android.dconnect.deviceplugin.hue.control.HueControlBrige;
+import com.nttdocomo.android.dconnect.deviceplugin.hue.control.HueControlBridge;
 import com.nttdocomo.android.dconnect.deviceplugin.util.DcLoggerHue;
 import com.nttdocomo.android.dconnect.message.MessageUtils;
 import com.philips.lighting.hue.listener.PHLightListener;
@@ -16,15 +23,7 @@ import com.philips.lighting.model.PHHueError;
 import com.philips.lighting.model.PHLight;
 
 /**
-HueLightsAttribute
-Copyright (c) 2014 NTT DOCOMO,INC.
-Released under the MIT license
-http://opensource.org/licenses/mit-license.php
-*/
-
-/**
  * 複数HueライトAttribute.
- * 
  * 
  */
 public class HueLightsAttribute extends HueCommonAttribute {
@@ -58,9 +57,9 @@ public class HueLightsAttribute extends HueCommonAttribute {
 
         String deviceid = getDeviceID(request);
 
-        HueControlBrige cb = new HueControlBrige();
+        HueControlBridge controlBridge = new HueControlBridge();
 
-        PHBridge bridge = cb.getBridgeSync(deviceid);
+        PHBridge bridge = controlBridge.getBridgeSync(deviceid);
 
         if (bridge == null) {
 
