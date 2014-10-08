@@ -16,8 +16,7 @@ import android.graphics.Color;
 
 /**
  * Hueライトパラメータ管理クラス.
- * 
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class DcParamLightHue extends DcParamLight implements HueLightProfileConstants {
     /**
@@ -31,8 +30,6 @@ public class DcParamLightHue extends DcParamLight implements HueLightProfileCons
 
     /**
      * XY管理クラス.
-     * 
-     * 
      */
     public static class XyData {
         /**

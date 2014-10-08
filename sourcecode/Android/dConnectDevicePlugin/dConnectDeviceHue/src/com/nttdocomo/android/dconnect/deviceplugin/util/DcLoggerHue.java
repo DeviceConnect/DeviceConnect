@@ -10,9 +10,8 @@ package com.nttdocomo.android.dconnect.deviceplugin.util;
 import java.util.logging.Logger;
 
 /**
- * 
  * Hue用ログ出力クラス.
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class DcLoggerHue extends DcLogger {
 

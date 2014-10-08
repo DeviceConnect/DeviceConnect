@@ -13,7 +13,7 @@ import android.content.Intent;
 
 /**
  * パラメータ関連クラス.
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class DcParam {
 

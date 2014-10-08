@@ -15,8 +15,12 @@ import com.nttdocomo.android.dconnect.message.MessageUtils;
 import com.nttdocomo.dconnect.message.DConnectMessage;
 
 /**
- * Light Profile. 標準化されたProfile,Interface,Attributeのメソッドの呼び出しを行う振り分けクラス。
- * 例外処理い標準化されたエラー結果を返す。
+ * Light Profile. 
+ * <p>
+ * 標準化されたProfile,Interface,Attributeのメソッドの呼び出しを行う振り分けクラス.
+ * 例外処理では標準化されたエラー結果を返す.
+ * </p>
+ * @author NTT DOCOMO, INC.
  */
 public abstract class LightProfile extends DConnectProfile implements LightProfileConstants {
 
@@ -37,17 +41,11 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
 
     @Override
     public String getProfileName() {
-
-        // mLogger.fine(this, "getProfileName", PROFILE_NAME);
-
         return PROFILE_NAME;
     }
 
     @Override
     protected boolean onGetRequest(final Intent request, final Intent response) {
-
-        // mLogger.entering(this, "onGetRequest");
-
         try {
 
             if (isNullAttribute(request)) {

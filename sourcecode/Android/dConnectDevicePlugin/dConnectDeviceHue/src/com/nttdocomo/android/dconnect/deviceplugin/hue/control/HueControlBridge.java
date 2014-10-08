@@ -18,6 +18,7 @@ import com.philips.lighting.model.PHBridge;
 
 /**
  * HueControlBridgeクラス.
+ * @author NTT DOCOMO, INC.
  */
 public class HueControlBridge extends HueControl {
 

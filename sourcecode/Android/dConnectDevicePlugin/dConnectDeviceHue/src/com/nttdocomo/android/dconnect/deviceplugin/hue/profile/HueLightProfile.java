@@ -16,7 +16,7 @@ import com.nttdocomo.android.dconnect.profile.LightProfile;
 
 /**
  * 親クラスで振り分けられたメソッドに対して、Hueのlight attribute処理を呼び出す.
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class HueLightProfile extends LightProfile implements HueLightProfileConstants {
 

@@ -17,8 +17,7 @@ import android.util.Log;
 
 /**
  * ログ出力.
- * 
- * @see http://www.atmarkit.co.jp/ait/articles/0801/08/news128_2.html
+ * @author NTT DOCOMO, INC.
  */
 public abstract class DcLogger {
 

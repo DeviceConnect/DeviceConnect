@@ -13,6 +13,7 @@ import com.philips.lighting.model.PHLight;
 
 /**
  * HueControlLightクラス.
+ * @author NTT DOCOMO, INC.
  */
 public class HueControlLight extends HueControl {
 

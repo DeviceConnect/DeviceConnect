@@ -17,6 +17,7 @@ import com.nttdocomo.android.dconnect.message.DConnectMessageServiceProvider;
  * プロバイダ.
  *
  * @param <T> Service
+ * @author NTT DOCOMO, INC.
  */
 public class HueDeviceProvider<T extends Service> extends DConnectMessageServiceProvider<Service> {
 

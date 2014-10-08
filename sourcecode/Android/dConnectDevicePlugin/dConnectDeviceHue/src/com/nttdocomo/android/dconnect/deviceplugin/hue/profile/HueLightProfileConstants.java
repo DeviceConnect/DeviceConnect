@@ -11,8 +11,8 @@ import com.nttdocomo.android.dconnect.profile.LightProfileConstants;
 
 
 /**
- * 
- *HueLightProfile定数を定義するインターフェース.
+ * HueLightProfile定数を定義するインターフェース.
+ * @author NTT DOCOMO, INC.
  */
 public interface HueLightProfileConstants extends LightProfileConstants {
     /**
@@ -34,10 +34,4 @@ public interface HueLightProfileConstants extends LightProfileConstants {
      * sleepで処理を止める秒数(msec).
      */
     int HUE_SLEEP_TIME_500 = 500;
-    
-    /**
-     * ProfileName getter.
-     * @return ProfileName
-     */
-    String getProfileName();
 }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+	
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,16 +15,16 @@
             android:id="@+id/textViewNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           	android:background="#00a0e9"
-        	android:textColor="#ffffff"
+            android:background="#00a0e9"
             android:gravity="center"
             android:text="@string/index3"
+            android:textColor="#ffffff"
             android:textSize="20dip" />
 
+       
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
             android:orientation="vertical"
             android:padding="24dp" >
 
@@ -33,26 +34,55 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/img03" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_light_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/message_searching"
+                android:textColor="#666666"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="20sp"
-                android:text="ブリッジにライトを登録します。\n\n新しいライトがある場合は下のボタンを押して３０秒お待ちください。\n以上でhueの設定は完了です。"
+                android:text="@string/frag03_light_howto"
                 android:textColor="#666666"
                 android:textSize="18dp" />
-			
+
             <Button
                 android:id="@+id/btnSearchLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="ブリッジに新規ライトを登録" 
-                 android:background="@drawable/button_blue"
-                 android:textColor="#FFFFFF"
-                />
+                android:background="@drawable/button_blue"
+                android:text="@string/frag03_light_btn"
+                android:textColor="#FFFFFF" />
+            
         </LinearLayout>
+        
     </LinearLayout>
 </LinearLayout>

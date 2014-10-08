@@ -11,8 +11,7 @@ import java.util.logging.Logger;
 
 /**
  * ライト関連ログクラス.
- * 
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class DcLoggerLight extends DcLogger {
 

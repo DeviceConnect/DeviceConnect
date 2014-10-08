@@ -18,6 +18,7 @@ import com.nttdocomo.android.dconnect.profile.SystemProfile;
 
 /**
  * Hueデバイスプラグイン, System プロファイル.
+ * @author NTT DOCOMO, INC.
  */
 public class HueSystemProfile extends SystemProfile {
 

@@ -24,7 +24,7 @@ import com.philips.lighting.model.PHLight;
 
 /**
  * 複数HueライトAttribute.
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class HueLightsAttribute extends HueCommonAttribute {
 

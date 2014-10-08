@@ -29,7 +29,7 @@ import com.nttdocomo.dconnect.message.http.impl.factory.HttpMessageFactory;
 
 /**
  * dConnectとの通信を簡略化するためのユーティリティクラス.
- * 
+ * @author NTT DOCOMO, INC.
  */
 public final class DConnectUtil {
 

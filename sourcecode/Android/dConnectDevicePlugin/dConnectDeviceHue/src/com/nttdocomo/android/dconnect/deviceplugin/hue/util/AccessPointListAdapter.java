@@ -23,7 +23,7 @@ import com.philips.lighting.hue.sdk.PHAccessPoint;
 
 /**
  * This class provides adapter view for a list of Found Bridges.
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class AccessPointListAdapter extends BaseAdapter {
     /**

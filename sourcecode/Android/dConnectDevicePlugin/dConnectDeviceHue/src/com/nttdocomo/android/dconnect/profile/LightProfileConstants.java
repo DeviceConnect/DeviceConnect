@@ -9,12 +9,9 @@ package com.nttdocomo.android.dconnect.profile;
 
 import com.nttdocomo.dconnect.profile.DConnectProfileConstants;
 
-
-
 /**
  * ライトプロファイルパラメータ定義.
- * 
- * 
+ * @author NTT DOCOMO, INC.
  */
 public interface LightProfileConstants extends DConnectProfileConstants {
 
@@ -110,11 +107,4 @@ public interface LightProfileConstants extends DConnectProfileConstants {
      * 数値パラメータ.
      */
     int INTEGER_SIX = 6;
-
-    /**
-     * プロファイル名getter.
-     * 
-     * @return profileName
-     */
-    String getProfileName();
 }

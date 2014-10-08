@@ -19,7 +19,7 @@
             android:text="@string/index2"
             android:textColor="#ffffff"
             android:textSize="20dip" />
-
+		
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                     android:textSize="18dp" />
 
                 <TextView
-                    android:id="@+id/textMac"
+                    android:id="@+id/text_mac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp" />
@@ -66,12 +66,12 @@
                     android:textSize="18dp" />
 
                 <TextView
-                    android:id="@+id/textIp"
+                    android:id="@+id/text_ip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp" />
             </LinearLayout>
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/button_blue"
-                android:text="ライト登録画面へ進む"
+                android:text=""
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>

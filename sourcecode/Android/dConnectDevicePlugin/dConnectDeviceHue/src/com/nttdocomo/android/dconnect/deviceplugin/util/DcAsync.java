@@ -23,8 +23,7 @@ import com.nttdocomo.dconnect.message.http.impl.factory.HttpMessageFactory;
 
 /**
  * 非同期クラス.
- * 
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class DcAsync {
 

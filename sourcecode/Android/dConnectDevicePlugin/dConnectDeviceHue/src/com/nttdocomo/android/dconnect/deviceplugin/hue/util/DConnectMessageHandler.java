@@ -12,6 +12,7 @@ import com.nttdocomo.dconnect.message.DConnectMessage;
 
 /**
  * d-Connect メッセージハンドラー.
+ * @author NTT DOCOMO, INC.
  */
 public interface DConnectMessageHandler {
 

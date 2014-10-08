@@ -36,7 +36,7 @@ import com.philips.lighting.model.PHLightState;
 
 /**
  * HueグループAttribute.
- *
+ * @author NTT DOCOMO, INC.
  */
 public class HueGroupAttribute extends HueLightAttribute implements HueLightProfileConstants {
 
