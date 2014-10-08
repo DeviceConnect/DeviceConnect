@@ -20,11 +20,11 @@ import com.nttdocomo.dconnect.message.DConnectMessage;
 import com.nttdocomo.dconnect.profile.NetworkServiceDiscoveryProfileConstants;
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHHueSDK;
+import com.philips.lighting.model.PHBridge;
 
 /**
- * 
  * スマートデバイス検索機能を提供するAPI.>
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class HueNetworkServceDiscoveryProfile extends NetworkServiceDiscoveryProfile {
 
@@ -49,7 +49,7 @@ public class HueNetworkServceDiscoveryProfile extends NetworkServiceDiscoveryPro
                 service.putBoolean(NetworkServiceDiscoveryProfileConstants.PARAM_ONLINE, true);
                 services.add(service);
             }
-
+            
             // レスポンスを設定
             setServices(response, services);
             setResult(response, DConnectMessage.RESULT_OK);

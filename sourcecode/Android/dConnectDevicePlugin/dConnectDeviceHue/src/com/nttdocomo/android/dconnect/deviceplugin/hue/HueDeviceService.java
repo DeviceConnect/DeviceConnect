@@ -19,6 +19,7 @@ import com.nttdocomo.android.dconnect.profile.SystemProfile;
 
 /**
  * 本デバイスプラグインのプロファイルをdConnectに登録するサービス.
+ * @author NTT DOCOMO, INC.
  */
 public class HueDeviceService extends DConnectMessageService {
 

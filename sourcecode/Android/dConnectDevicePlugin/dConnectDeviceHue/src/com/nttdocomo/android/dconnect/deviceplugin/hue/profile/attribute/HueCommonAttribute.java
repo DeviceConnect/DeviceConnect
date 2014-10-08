@@ -16,7 +16,7 @@ import com.nttdocomo.dconnect.message.DConnectMessage;
 
 /**
  * Hue共通アトリビュート.
- *
+ * @author NTT DOCOMO, INC.
  */
 public abstract class HueCommonAttribute extends HueLightProfile {
 

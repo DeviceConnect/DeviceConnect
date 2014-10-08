@@ -87,7 +87,7 @@ public class HueFragment03 extends Fragment implements OnClickListener {
 
         mPhHueSDK = PHHueSDK.create();
         PHBridge bridge = mPhHueSDK.getSelectedBridge();
-
+        
         if (bridge == null) {
             mProgressView.setVisibility(View.GONE);
             return;
@@ -121,7 +121,7 @@ public class HueFragment03 extends Fragment implements OnClickListener {
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-
+                    
                     mProgressView.setVisibility(View.GONE);
                     mProgressView.invalidate();
                     
@@ -132,9 +132,11 @@ public class HueFragment03 extends Fragment implements OnClickListener {
                         lightSize = 0;
                     }
                     
-                    String message = getString(R.string.frag03_light_result1);
-                    message += lightSize + getString(R.string.frag03_light_result2);
-                    Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
+                    try {
+                        String message = getString(R.string.frag03_light_result1);
+                        message += lightSize + getString(R.string.frag03_light_result2);
+                        Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
+                    } catch (Exception e){}
                 }
             });
         }
@@ -153,11 +155,11 @@ public class HueFragment03 extends Fragment implements OnClickListener {
 
         PHBridge bridge = mPhHueSDK.getSelectedBridge();
         if (bridge != null) {
-
+            
             if (mPhHueSDK.isHeartbeatEnabled(bridge)) {
                 mPhHueSDK.disableHeartbeat(bridge);
             }
-
+            
             mPhHueSDK.disconnect(bridge);
             super.onDestroy();
         }

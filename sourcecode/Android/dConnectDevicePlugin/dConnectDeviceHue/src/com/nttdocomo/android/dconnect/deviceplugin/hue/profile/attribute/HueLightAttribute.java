@@ -40,8 +40,7 @@ import com.philips.lighting.model.PHLight.PHLightColorMode;
 
 /**
  * HueライトAttributeクラス.
- * 
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class HueLightAttribute extends HueCommonAttribute implements HueLightProfileConstants {
     /**
@@ -410,10 +409,10 @@ public class HueLightAttribute extends HueCommonAttribute implements HueLightPro
         DcAsync.getAsyncResponse(getUrl(request), new DConnectMessageHandler() {
             @Override
             public void handleMessage(final DConnectMessage message) {
-
+                
                 if (message == null) {
 //                    mLogger.fine("HueLightAttribute", "getState", "message = null");
-
+                    
                     MessageUtils.setUnknownError(response, "hueからのレスポンスありませんでした");
                     sendResultERR(response);
                     return;

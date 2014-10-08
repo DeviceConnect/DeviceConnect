@@ -14,34 +14,36 @@
             android:id="@+id/textViewNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#00a0e9"
             android:gravity="center"
             android:text="@string/index1"
-			android:background="#00a0e9"
-        	android:textColor="#ffffff"
+            android:textColor="#ffffff"
             android:textSize="20dip" />
-
+		
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="24dp" >
-			<ImageView
+
+            <ImageView
                 android:id="@+id/iv01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/img01" />
-			
-			<TextView
+
+            <TextView
                 android:id="@+id/txtBridgeMac"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="設定するhueを選択してください。"
+                android:text="@string/frag01_howto"
                 android:textColor="#666666"
                 android:textSize="18dp" />
-			</LinearLayout>
-             <LinearLayout
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/progress_zone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,15 +62,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/message_searching"
-	            android:textColor="#666666"
+                android:textColor="#666666"
                 android:textSize="18sp" />
         </LinearLayout>
-             <LinearLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="0dp" >
+
             <ListView
                 android:id="@+id/bridge_list2"
                 android:layout_width="fill_parent"
@@ -82,26 +86,24 @@
                 android:dividerHeight="3sp"
                 android:focusable="true" >
             </ListView>
-         
         </LinearLayout>
-        	     <LinearLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="24dp" >
-    	 <Button
+
+            <Button
                 android:id="@+id/btnRefresh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="hueブリッジを再検索" 
-                android:textColor="#FFFFFF"
                 android:background="@drawable/button_blue"
-                />
-</LinearLayout>
-             
+                android:text="@string/frag01_btn"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
     </LinearLayout>
-    
 
 </LinearLayout>

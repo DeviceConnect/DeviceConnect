@@ -12,8 +12,7 @@ import com.nttdocomo.android.dconnect.profile.LightProfileConstants;
 
 /**
  * ライトパラメータ関連クラス.
- * 
- * 
+ * @author NTT DOCOMO, INC.
  */
 public class DcParamLight extends DcParam implements LightProfileConstants {
 
@@ -389,10 +388,5 @@ public class DcParamLight extends DcParam implements LightProfileConstants {
 
         return value.length() > 0;
 
-    }
-
-    @Override
-    public String getProfileName() {
-        return null;
     }
 }
