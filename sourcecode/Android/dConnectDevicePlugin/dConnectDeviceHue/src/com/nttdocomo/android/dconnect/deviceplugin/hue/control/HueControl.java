@@ -41,6 +41,11 @@ public class HueControl {
     public static final String APNAME = "DConnectDeviceHueAndroid";
     
     /**
+     * アプリケーションネーム.
+     */
+    public static final String USERNAME = "DeviceConnetHueClient";
+    
+    /**
      * PH_SDKオブジェクト.
      */
     private static PHHueSDK mPhHueSDK;
