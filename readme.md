@@ -28,7 +28,7 @@ Android root
 
 5.Try the prototype GotAPI behavior from "Launch UI-App".
 
-#List of the corresponding device
+#Supported devices
 <table>
   <tr>
     <td>Manufacturer</td>
@@ -193,13 +193,6 @@ Android root
   </tr>
   <tr>
     <td>OMRON HEALTHCARE</td>
-    <td>HEM-708-IT</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
     <td>HBF-206IT</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
@@ -231,21 +224,21 @@ Android root
     <td>HEM-7250IT</td>
     <td>Sphygmomanometer</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>OMRON HEALTHCARE</td>
     <td>HBF-208IT</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>OMRON HEALTHCARE</td>
     <td>HBF-215IT</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>ESTERA</td>
@@ -270,45 +263,45 @@ Android root
   </tr>
   <tr>
     <td>TERUMO</td>
-    <td>MSFV01</td>
+    <td>MS-FRV01</td>
     <td>Blood glucose meter</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MT-KT02DZ</td>
     <td>Walking intensity meter</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>C215</td>
     <td>Thermometer</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ES-H700D</td>
     <td>Sphygmomanometer</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ZS-NS05</td>
     <td>Pulse Oximeter</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>WT-B100DZ</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>Polar</td>
