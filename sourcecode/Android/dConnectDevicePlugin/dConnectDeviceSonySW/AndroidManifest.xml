@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttdocomo.android.dconnect.deviceplugin.sw"
+    package="org.deviceconnect.android.deviceplugin.sw"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -15,37 +15,36 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".SWApplication"
+        android:name="org.deviceconnect.android.deviceplugin.sw.SWApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
         <!-- 設定画面 -->
-        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.AccessTokenListActivity" >
+        <activity android:name="org.deviceconnect.android.localoauth.activity.AccessTokenListActivity" >
         </activity>
         
         <activity
-            android:name=".setting.SWSettingMainActivity"
+            android:name="org.deviceconnect.android.deviceplugin.sw.setting.SWSettingMainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             
         </activity>
-        <activity
-            android:name=".setting.SWSettingStepsActivity"
+        <activity android:name="org.deviceconnect.android.deviceplugin.sw.setting.SWSettingStepsActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <!-- Contents Provider -->
         <provider
-            android:name="com.nttdocomo.android.dconnect.provider.FileProvider"
-            android:authorities="com.nttdocomo.android.dconnect.deviceplugin.sw.SWProvider"
+            android:name="org.deviceconnect.android.provider.FileProvider"
+            android:authorities="org.deviceconnect.android.deviceplugin.sw.SWProvider"
             android:exported="true" />
 
         <!-- dConnect Provider -->
-        <receiver android:name="com.nttdocomo.android.dconnect.deviceplugin.sw.SWProvider" >
+        <receiver android:name="org.deviceconnect.android.deviceplugin.sw.SWProvider" >
             <meta-data
-                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:name="org.deviceconnect.android.deviceplugin"
                 android:resource="@xml/deviceplugin" />
 
             <intent-filter>
@@ -58,31 +57,31 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.nttdocomo.android.dconnect.deviceplugin.sw.SWService" >
+        <service android:name="org.deviceconnect.android.deviceplugin.sw.SWService" >
         </service>
 
         <!-- LocalOAuth -->
-        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity"
+        <activity android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity"
             android:theme="@style/AppTheme.Translucent">
         </activity>
 
         <service
-            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+                <action android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service" />
             </intent-filter>
         </service>
 
         <!-- Sony Smart Extensions API -->
-        <service android:name="com.nttdocomo.android.dconnect.deviceplugin.sw.smartconnect.SWExtensionService" />
+        <service android:name="org.deviceconnect.android.deviceplugin.sw.smartconnect.SWExtensionService" />
         <service android:name="com.sonyericsson.extras.liveware.extension.util.TunnelService" >
             <intent-filter>
                 <action android:name="com.sonyericsson.extras.liveware.aef.tunnel.action.BIND" />
             </intent-filter>
         </service>
 
-        <receiver android:name="com.nttdocomo.android.dconnect.deviceplugin.sw.smartconnect.SWExtensionReceiver" >
+        <receiver android:name="org.deviceconnect.android.deviceplugin.sw.smartconnect.SWExtensionReceiver" >
             <intent-filter>
 
                 <!-- Generic extension intents. -->

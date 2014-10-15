@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttdocomo.android.dconnect"
+    package="org.deviceconnect.android.manager"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -20,7 +20,7 @@
 
         <!-- dConnect Manager設定画面用Activity. -->
         <activity
-            android:name="com.nttdocomo.android.dconnect.manager.setting.SettingActivity"
+            android:name="org.deviceconnect.android.manager.setting.SettingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -33,38 +33,38 @@
                     android:host="start"
                     android:path="/"
                     android:scheme="dconnect" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <!-- キーワード表示用Activitiy. -->
         <activity
-            android:name="com.nttdocomo.android.dconnect.manager.setting.KeywordDialogAcitivty"
+            android:name="org.deviceconnect.android.manager.setting.KeywordDialogAcitivty"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Translucent" >
         </activity>
 
         <!-- dConnect Managerデバック用Activity. -->
         <activity
-            android:name="com.nttdocomo.android.dconnect.manager.setting.ReqResDebugActivity"
+            android:name="org.deviceconnect.android.manager.setting.ReqResDebugActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+            </intent-filter>
         </activity>
 
         <!-- 警告画面用Activity. -->
         <activity
-            android:name="com.nttdocomo.android.dconnect.observer.activity.WarningDialogActivity"
+            android:name="org.deviceconnect.android.observer.activity.WarningDialogActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Translucent" >
         </activity>
 
         <!-- 各アプリやデバイスプラグインからのDConnectMessageを受領するためのBroadcastReceiver. -->
-        <receiver android:name="com.nttdocomo.android.dconnect.DConnectBroadcastReceiver" >
+        <receiver android:name="org.deviceconnect.android.manager.DConnectBroadcastReceiver" >
             <intent-filter>
                 <action android:name="org.deviceconnect.action.GET" />
                 <action android:name="org.deviceconnect.action.PUT" />
@@ -76,7 +76,7 @@
         </receiver>
 
         <!-- アプリケーションのインストールやアンインストールといったイベントを受領するためのBroadcastReceiver. -->
-        <receiver android:name="com.nttdocomo.android.dconnect.manager.receiver.PackageManageReceiver" >
+        <receiver android:name="org.deviceconnect.android.manager.receiver.PackageManageReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -89,53 +89,50 @@
         <!-- dConnect Manager本体のサービス. -->
         <!-- Activityとは別プロセスで動作させるために、:dconnect_process上で動作させている。 -->
         <service
-            android:name="com.nttdocomo.android.dconnect.DConnectService"
+            android:name="org.deviceconnect.android.manager.DConnectService"
             android:exported="false"
             android:process=":dconnect_process" >
         </service>
 
         <!-- dConnectのファイルを管理するProvider. -->
         <provider
-            android:name="com.nttdocomo.android.dconnect.provider.FileProvider"
-            android:authorities="com.nttdocomo.android.dconnect.manager.provider"
+            android:name="org.deviceconnect.android.provider.FileProvider"
+            android:authorities="org.deviceconnect.android.manager.provider"
             android:exported="true" />
 
         <!-- LocalOAuth -->
         <!-- Local OAuth 認可ダイアログ用Activity. -->
         <activity
-            android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity"
+            android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity"
             android:theme="@style/AppTheme.Translucent" >
         </activity>
 
         <!-- Local OAuth アクセストークン管理用Activity. -->
-        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.AccessTokenListActivity" >
+        <activity android:name="org.deviceconnect.android.localoauth.activity.AccessTokenListActivity" >
         </activity>
 
         <!-- Local OAuth 認可処理用サービス. -->
         <service
-            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service"
             android:exported="false"
             android:process=":dconnect_process" >
-            <intent-filter>
-                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
-            </intent-filter>
         </service>
 
-        <!-- dConnect監視サービス. -->
-        <!-- dConnectの生存確認を行うため、dConnectManagerとは別プロセスで動作する。 -->
+        <!-- Device Connect監視サービス. -->
+        <!-- dConnectManagerの生存確認を行うため、dConnectManagerとは別プロセスで動作する。 -->
         <service
-            android:name="com.nttdocomo.android.dconnect.observer.DConnectObservationService"
+            android:name="org.deviceconnect.android.observer.DConnectObservationService"
             android:exported="false"
             android:process=":dconnect_observer_process" >
         </service>
 
         <!-- アプリ起動を受領し、監視プログラムを立ち上げるためのBroadcastReceiver. -->
-        <receiver android:name="com.nttdocomo.android.dconnect.observer.receiver.ObserverReceiver" >
+        <receiver android:name="org.deviceconnect.android.observer.receiver.ObserverReceiver" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
-                <action android:name="com.nttdocomo.android.dconnect.intent.action.observer.START" />
-                <action android:name="com.nttdocomo.android.dconnect.intent.action.observer.STOP" />
-                <action android:name="com.nttdocomo.android.dconnect.intent.action.observer.CHECK" />
+                <action android:name="org.deviceconnect.android.intent.action.observer.START" />
+                <action android:name="org.deviceconnect.android.intent.action.observer.STOP" />
+                <action android:name="org.deviceconnect.android.intent.action.observer.CHECK" />
             </intent-filter>
         </receiver>
     </application>

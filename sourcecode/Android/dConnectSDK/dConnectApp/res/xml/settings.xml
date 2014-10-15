@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="@string/dconnect_authorization" >
+    <PreferenceCategory android:title="@string/authorization" >
         <EditTextPreference
             android:enabled="false"
             android:key="@string/key_settings_dconn_client_id"
@@ -20,7 +20,7 @@
             android:title="@string/authorization_access_token" />
     </PreferenceCategory>
     
-    <PreferenceCategory android:title="@string/dconnect_manager" >
+    <PreferenceCategory android:title="@string/manager" >
         <CheckBoxPreference
             android:key="@string/key_settings_dconn_ssl"
             android:summaryOff="@string/ssl_disabled"

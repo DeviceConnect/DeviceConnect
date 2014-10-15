@@ -33,7 +33,7 @@
 
 package org.restlet.ext.oauth.internal;
 
-import com.nttdocomo.android.dconnect.localoauth.temp.AuthenticationException;
+import org.deviceconnect.android.localoauth.temp.AuthenticationException;
 
 /**
  * 

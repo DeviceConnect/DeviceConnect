@@ -16,6 +16,8 @@
 
 package android.support.v4.preference;
 
+import org.deviceconnect.android.uiapp.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,8 +33,6 @@ import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.ListView;
-
-import com.nttdocomo.android.dconnect.uiapp.R;
 
 public abstract class PreferenceFragment extends Fragment implements
 		PreferenceManagerCompat.OnPreferenceTreeClickListener {

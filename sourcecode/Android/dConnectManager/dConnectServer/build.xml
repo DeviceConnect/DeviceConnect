@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="dConnectServer" default="jar" basedir=".">
 	<property name="src.dir" value="src" />
-	<property name="packagenames" value="com.nttdocomo.dconnect.server" />
+	<property name="packagenames" value="org.deviceconnect.server" />
 	<property name="classes.dir" value="classes" />
 	<property name="javadoc.dir" value="docs" />
 	<property name="jar.dir" value="dist" />
-	<property name="jar.version" value="0.0.1" />
+	<property name="jar.version" value="1.0.1" />
 	<property name="jar.name" value="dConnectServer-${jar.version}.jar" />
 
 	<target name="jar" depends="compile, javadoc">

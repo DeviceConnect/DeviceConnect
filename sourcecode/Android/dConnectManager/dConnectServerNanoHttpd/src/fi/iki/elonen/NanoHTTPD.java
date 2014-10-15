@@ -44,7 +44,7 @@ import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
 
-import com.nttdocomo.dconnect.server.nanohttpd.security.Firewall;
+import org.deviceconnect.server.nanohttpd.security.Firewall;
 
 /**
  * A simple, tiny, nicely embeddable HTTP server in Java

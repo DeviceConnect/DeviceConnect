@@ -6,13 +6,12 @@
     <string name="action_settings">Settings</string>
     <string name="action_open_websocket">Open Websocket</string>
     <string name="action_plugins">Open Plugin List</string>
-    <string name="docomo_social_service">docomo Cloud</string>
     <string name="external_social_service">External Social Service</string>
     <string name="twitter">twitter</string>
     <string name="facebook">facebook</string>
     <string name="googleplus">Google+</string>
     <string name="evernote">Evernote</string>
-    <string name="dconnect_manager">d-Connect Manager</string>
+    <string name="manager">Device Connect Manager</string>
     <string name="ssl">SSL</string>
     <string name="ssl_enabled">SSL Enabled</string>
     <string name="ssl_disabled">SSL Disabled</string>
@@ -93,7 +92,7 @@
     <string name="fragment_vibration_result">Response</string>
     <string name="register_event">Register</string>
     <string name="unregister_event">Unregister</string>
-    <string name="dconnect_authorization">Authorization</string>
+    <string name="authorization">Authorization</string>
     <string name="authorization_client_id">Client Id</string>
     <string name="authorization_client_secret">Client Secret</string>
     <string name="authorization_access_token">Access Token</string>

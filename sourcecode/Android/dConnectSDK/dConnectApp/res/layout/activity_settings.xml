@@ -8,6 +8,6 @@
         android:id="@+id/activity_settings_category_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.nttdocomo.android.dconnect.uiapp.fragment.SettingsFragment" />
+        class="org.deviceconnect.android.uiapp.fragment.SettingsFragment" />
 
 </FrameLayout>

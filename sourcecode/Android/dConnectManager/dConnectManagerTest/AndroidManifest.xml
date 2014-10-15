@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttdocomo.android.dconnect.test"
+    package="org.deviceconnect.android.test"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,11 +14,11 @@
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.nttdocomo.android.dconnect.test" />
+        android:targetPackage="org.deviceconnect.android.test" />
 
     <instrumentation
         android:name="com.zutubi.android.junitreport.JUnitReportTestRunner"
-        android:targetPackage="com.nttdocomo.android.dconnect.test" />
+        android:targetPackage="org.deviceconnect.android.test" />
 
      <application
         android:icon="@drawable/ic_launcher"
@@ -26,15 +26,15 @@
         <uses-library android:name="android.test.runner" />
 
         <receiver
-            android:name="com.nttdocomo.android.dconnect.test.TestCaseBroadcastReceiver"
+            android:name="org.deviceconnect.android.test.TestCaseBroadcastReceiver"
             android:enabled="true"
             android:exported="true" >
         </receiver>
 
         <!-- テスト用ファイルを管理するProvider. -->
         <provider
-            android:name="com.nttdocomo.android.dconnect.test.TestFileProvider"
-            android:authorities="com.nttdocomo.android.dconnect.test.file"
+            android:name="org.deviceconnect.android.test.TestFileProvider"
+            android:authorities="org.deviceconnect.android.test.file"
             android:exported="true" />
     </application>
 

@@ -33,6 +33,8 @@
 
 package org.restlet.ext.oauth;
 
+import org.deviceconnect.android.localoauth.ScopeUtil;
+import org.deviceconnect.android.localoauth.temp.RedirectRepresentation;
 import org.restlet.ext.oauth.internal.Client;
 
 import java.util.ArrayList;
@@ -49,9 +51,6 @@ import org.restlet.representation.Representation;
 //import freemarker.template.Configuration;
 //import org.restlet.data.CacheDirective;
 import org.restlet.ext.oauth.internal.Token;
-
-import com.nttdocomo.android.dconnect.localoauth.ScopeUtil;
-import com.nttdocomo.android.dconnect.localoauth.temp.RedirectRepresentation;
 
 /**
  * Helper class to the AuhorizationResource Handles Authorization requests. By

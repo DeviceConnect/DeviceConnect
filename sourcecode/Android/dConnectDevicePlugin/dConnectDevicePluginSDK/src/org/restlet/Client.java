@@ -37,7 +37,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.restlet.data.Protocol;
-import org.restlet.data.Status;
 
 /**
  * Connector acting as a generic client. It internally uses one of the available

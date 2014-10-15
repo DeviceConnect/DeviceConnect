@@ -7,7 +7,7 @@
 
     <string name="activity_settings_server_on_off">Device Connect Manager</string>
     <string name="activity_settings_observer">Monitoring Service</string>
-    <string name="activity_settings_allow_global_ip">Allow Global IP</string>
+    <string name="activity_settings_allow_external_ip">Allow External IP</string>
     <string name="activity_settings_server_keyword">Keyword</string>
     <string name="activity_settings_server_settings">Settings</string>
     <string name="activity_settings_dconnect_enabled">On</string>
@@ -40,7 +40,7 @@
     <string name="key_settings_dconn_server_on_off">settings_dconn_server_on_off</string>
     <string name="key_settings_dconn_observer_on_off">settings_dconn_observer_on_off</string>
     <string name="key_settings_dconn_keyword">settings_dconn_server_keyword</string>
-    <string name="key_settings_dconn_allow_global_ip">settings_dconn_allow_global_ip</string>
+    <string name="key_settings_dconn_allow_external_ip">settings_dconn_allow_external_ip</string>
     <string name="key_settings_dconn_white_list">settings_dconn_ip_white_list</string>
     <string name="key_settings_dconn_ssl">settings_dconn_ssl</string>
     <string name="key_settings_dconn_host">settings_dconn_host</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">IRKit 1.0</string>
+    <string name="app_name">IRKit 1.0.1</string>
     <string name="no_device">No device</string>
     <string name="hint_ssid">SSID</string>
     <string name="column_ssid">SSID</string>
@@ -40,7 +40,10 @@
     <string name="alert_message_connected">IRKitがネットワークに接続されていることを確認しました。</string>
     <string name="alert_btn_close">閉じる</string>
 
-    <!-- IRKit Parameters -->
-    <string name="apikey">D3FEA7C4CD824FDDB1C0D730D33EF03E</string>
+    <!--
+    IRKit Parameters.
+    IRKitから取得したAPI KEYを記載してください。
+     -->
+    <string name="apikey">[YOUR API KEY]</string>
 
 </resources>

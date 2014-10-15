@@ -33,6 +33,7 @@
 
 package org.restlet.ext.oauth;
 
+import org.deviceconnect.android.localoauth.temp.ResultRepresentation;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.restlet.data.Form;
@@ -47,8 +48,6 @@ import org.restlet.representation.Representation;
 import org.restlet.security.User;
 
 import android.util.Base64;
-
-import com.nttdocomo.android.dconnect.localoauth.temp.ResultRepresentation;
 
 /**
  * Server resource used to acquire an OAuth token. A code, or refresh token can
