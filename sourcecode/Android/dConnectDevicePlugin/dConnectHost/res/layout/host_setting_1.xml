@@ -10,6 +10,4 @@
     android:layout_gravity="center"
     tools:context=".WiFiDeviceListActivity" >
 
-
-
 </LinearLayout>

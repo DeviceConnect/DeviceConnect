@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttdocomo.android.dconnect.deviceplugin.sphero"
+    package="org.deviceconnect.android.deviceplugin.sphero"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -19,33 +19,33 @@
 
         <!-- d-Connect sphero Device Plugin Provider. -->
 
-        <receiver android:name=".SpheroDeviceProvider" 
+        <receiver android:name="org.deviceconnect.android.deviceplugin.sphero.SpheroDeviceProvider" 
             android:enabled="true"
             android:exported="true">
             <meta-data
-                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:name="org.deviceconnect.android.deviceplugin"
                 android:resource="@xml/deviceplugin" />
         </receiver>
-        <service android:name=".SpheroDeviceService" 
+        <service android:name="org.deviceconnect.android.deviceplugin.sphero.SpheroDeviceService" 
             android:enabled="true"
             android:exported="false">
         </service>
        <activity
-            android:name="com.nttdocomo.android.dconnect.deviceplugin.sphero.setting.SettingActivity"
+            android:name="org.deviceconnect.android.deviceplugin.sphero.setting.SettingActivity"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleInstance"
             android:label="@string/app_name">
         </activity>
          <!-- LocalOAuth ユーザ認可ダイアログ用Activity -->
-        <activity android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity" >
+        <activity android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity" >
         </activity>
         
         <!-- LocalOAuth ユーザ認可ダイアログ用Service -->
         <service
-            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+                <action android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service" />
             </intent-filter>
         </service>        
     </application>

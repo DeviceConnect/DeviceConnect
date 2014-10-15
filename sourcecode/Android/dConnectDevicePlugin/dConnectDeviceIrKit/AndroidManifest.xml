@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttdocomo.android.dconnect.deviceplugin.irkit"
+    package="org.deviceconnect.android.deviceplugin.irkit"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/dconnect_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-              
-        <receiver android:name=".IRKitDeviceProvider" 
-            android:enabled="true"
-            android:exported="true">
+        <receiver
+            android:name="org.deviceconnect.android.deviceplugin.irkit.IRKitDeviceProvider"
+            android:exported="true" >
             <meta-data
-                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:name="org.deviceconnect.android.deviceplugin"
                 android:resource="@xml/deviceplugin" />
 
             <intent-filter>
@@ -35,42 +35,30 @@
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
-    
-        <service android:name=".IRKitDeviceService" 
-            android:enabled="true"
-            android:exported="true"
-            android:process=":irkit_service_process">
-            <intent-filter>
-                <action android:name="org.deviceconnect.action.GET" />
-                <action android:name="org.deviceconnect.action.PUT" />
-                <action android:name="org.deviceconnect.action.POST" />
-                <action android:name="org.deviceconnect.action.DELETE" />
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-                <action android:name="android.net.wifi.STATE_CHANGE" />
-            </intent-filter>
+
+        <service
+            android:name="org.deviceconnect.android.deviceplugin.irkit.IRKitDeviceService"
+            android:exported="false"
+            android:process=":irkit_service_process" >
         </service>
-        
-         <activity
-            android:name="com.nttdocomo.android.dconnect.deviceplugin.irkit.settings.activity.IRKitSettingActivity"
+
+        <activity
+            android:name="org.deviceconnect.android.deviceplugin.irkit.settings.activity.IRKitSettingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        
-         <!-- LocalOAuth -->
-        <activity 
-            android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity" 
-            android:process=":irkit_service_process">
+
+        <!-- LocalOAuth -->
+        <activity
+            android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity"
+            android:process=":irkit_service_process" >
         </activity>
 
         <service
-            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service"
             android:exported="false"
-            android:process=":irkit_service_process">
-            <intent-filter>
-                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
-            </intent-filter>
+            android:process=":irkit_service_process" >
         </service>
-        
     </application>
 
 </manifest>

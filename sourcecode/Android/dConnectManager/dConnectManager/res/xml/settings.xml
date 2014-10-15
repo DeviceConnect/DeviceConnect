@@ -47,10 +47,10 @@
             android:title="@string/activity_settings_local_oauth" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="@string/key_settings_dconn_allow_global_ip"
+            android:key="@string/key_settings_dconn_allow_external_ip"
             android:summaryOff="@string/activity_settings_dconn_disabled"
             android:summaryOn="@string/activity_settings_dconn_enabled"
-            android:title="@string/activity_settings_allow_global_ip" />
+            android:title="@string/activity_settings_allow_external_ip" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/activity_settings_about" >
         <PreferenceScreen

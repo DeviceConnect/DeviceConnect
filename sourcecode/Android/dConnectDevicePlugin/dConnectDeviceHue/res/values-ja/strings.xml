@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">hue 1.0</string>
+    <string name="app_name">hue 1.0.1</string>
 
     <!-- Copy from Philips hue App. -->
     <string name="action_settings">Settings</string>

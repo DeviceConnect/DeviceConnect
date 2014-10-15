@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.deviceconnect.android.localoauth.temp.RedirectRepresentation;
 import org.restlet.ext.oauth.internal.Client;
 import org.restlet.data.Form;
 import org.restlet.data.Reference;
@@ -47,8 +48,6 @@ import org.restlet.ext.oauth.internal.Scopes;
 import org.restlet.ext.oauth.internal.ServerToken;
 import org.restlet.representation.Representation;
 import org.restlet.security.User;
-
-import com.nttdocomo.android.dconnect.localoauth.temp.RedirectRepresentation;
 
 /**
  * 

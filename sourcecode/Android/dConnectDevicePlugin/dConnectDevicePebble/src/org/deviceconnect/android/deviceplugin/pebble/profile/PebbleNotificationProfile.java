@@ -1,0 +1,13 @@
+/*
+ PebbleNotificationProfile.java
+ Copyright (c) 2014 NTT DOCOMO,INC.
+ Released under the MIT license
+ http://opensource.org/licenses/mit-license.php
+ */
+package org.deviceconnect.android.deviceplugin.pebble.profile;import java.util.regex.Matcher;import java.util.regex.Pattern;
+import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
+import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager;
+
+import android.content.Intent;
+import org.deviceconnect.android.message.MessageUtils;import org.deviceconnect.android.profile.NotificationProfile;import org.deviceconnect.message.DConnectMessage;/** * Pebble用 Notification Profile.
+ * @author NTT DOCOMO, INC. */public class PebbleNotificationProfile extends NotificationProfile {    @Override    public boolean onPostNotify(final Intent request, final Intent response, final String deviceId,            final NotificationType type, final Direction dir, final String lang, String body, final String tag,            final byte[] iconData) {        if (deviceId == null) {            MessageUtils.setEmptyDeviceIdError(response);            return true;        } else if (!checkDeviceId(deviceId)) {            MessageUtils.setNotFoundDeviceError(response);            return true;        } else if (type == null || type == NotificationType.UNKNOWN) {            createEmptyType(response);            return true;        } else {            // タグをタイトルとしておく            // タグが設定されていない場合にはno titleを表示            String title = tag;            if (title == null) {                title = "no title";            }            if (body == null) {                body = " ";            }            if (body.length() == 0) {                body = " ";            }            PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();            mgr.sendNotificationToPebble(title, body);            setResult(response, DConnectMessage.RESULT_OK);            //IDは取得できないので、処理のしようがない            setNotificationId(response, "0");            return true;        }    }    /**     * デバイスIDをチェックする.     *      * @param deviceId デバイスID     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse     */    private boolean checkDeviceId(final String deviceId) {        String regex = PebbleNetworkServceDiscoveryProfile.DEVICE_ID;        Pattern p = Pattern.compile(regex);        Matcher m = p.matcher(deviceId);        return m.find();    }    /**     * typeが正しい値じゃなかった場合のエラーを作成する.     *      * @param response レスポンスを格納するIntent     */    private void createEmptyType(final Intent response) {        MessageUtils.setInvalidRequestParameterError(response, "Type : UNKNOWN");    }}

@@ -22,23 +22,21 @@
             android:id="@+id/dice_ui"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="0dp" 
             android:gravity="center"
-            >
-            
-	  <TextView
-        android:id="@+id/host_ipaddress"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:singleLine="false"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text=""
-        android:textSize="20sp" />
-	      
-	
-</LinearLayout>
-</ScrollView>
+            android:orientation="vertical"
+            android:padding="0dp" >
+
+            <TextView
+                android:id="@+id/host_ipaddress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:singleLine="false"
+                android:text=""
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

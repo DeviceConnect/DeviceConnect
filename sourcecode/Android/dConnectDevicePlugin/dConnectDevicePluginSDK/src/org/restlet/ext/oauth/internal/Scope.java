@@ -1,7 +1,7 @@
 package org.restlet.ext.oauth.internal;
 
-import com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Settings;
-import com.nttdocomo.android.dconnect.localoauth.ScopeUtil;
+import org.deviceconnect.android.localoauth.LocalOAuth2Settings;
+import org.deviceconnect.android.localoauth.ScopeUtil;
 
 /**
  * スコープ.

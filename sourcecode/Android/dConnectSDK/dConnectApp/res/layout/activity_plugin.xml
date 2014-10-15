@@ -8,6 +8,6 @@
         android:id="@+id/activity_device_plugins_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.nttdocomo.android.dconnect.uiapp.fragment.PluginListFragment" />
+        class="org.deviceconnect.android.uiapp.fragment.PluginListFragment" />
 
 </FrameLayout>

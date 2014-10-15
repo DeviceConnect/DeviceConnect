@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
-                android:text="AndroidWearアプリをGoogle Playからダウンロードきて、AndroidWearの設定をします。"
+                android:text="Android WearアプリをGoogle Playからダウンロードしてきます。Android Wearアプリで設定をおこないます。"
                 android:textSize="18dp" />
 
             <ImageView

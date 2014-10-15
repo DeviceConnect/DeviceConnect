@@ -33,26 +33,21 @@
 
 package org.restlet.ext.oauth;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentMap;
+
 import org.json.JSONException;
-import org.restlet.Context;
 import org.restlet.Request;
 import org.restlet.Response;
-//import org.restlet.data.CacheDirective;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.ext.json.JsonRepresentation;
-import org.restlet.ext.oauth.internal.Scopes;
 import org.restlet.ext.oauth.internal.Client;
 import org.restlet.ext.oauth.internal.ClientManager;
+import org.restlet.ext.oauth.internal.Scopes;
 import org.restlet.ext.oauth.internal.TokenManager;
 import org.restlet.representation.Representation;
 import org.restlet.representation.StringRepresentation;
-import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
 /**

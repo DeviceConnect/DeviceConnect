@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttdocomo.android.dconnect.deviceplugin.wear"
+    package="org.deviceconnect.android.deviceplugin.wear"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -9,6 +9,7 @@
 	
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     
     <uses-feature
         android:name="android.hardware.type.watch"
@@ -31,7 +32,7 @@
     	    android:value="@integer/google_play_services_version" />
 		
     	<!--  Setting -->
-    	<activity android:name=".setting.WearSettingActivity">
+    	<activity android:name="org.deviceconnect.android.deviceplugin.wear.setting.WearSettingActivity">
     	     <intent-filter>
                 
             </intent-filter>
@@ -39,11 +40,11 @@
             
         <!-- d-Connect Test Device Plugin Provider. -->
         <receiver
-            android:name=".WearDeviceProvider"
+            android:name="org.deviceconnect.android.deviceplugin.wear.WearDeviceProvider"
             android:enabled="true"
             android:exported="true" >
             <meta-data
-                android:name="com.nttdocomo.android.dconnect.deviceplugin"
+                android:name="org.deviceconnect.android.deviceplugin"
                 android:resource="@xml/deviceplugin" />
             <intent-filter>
                 <action android:name="org.deviceconnect.action.GET" />
@@ -54,7 +55,7 @@
         </receiver>
         
         <service
-            android:name=".WearDeviceService"
+            android:name="org.deviceconnect.android.deviceplugin.wear.WearDeviceService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="org.deviceconnect.action.GET" />
@@ -67,13 +68,13 @@
 
         <!-- LocalOAuth -->
         <activity
-            android:name="com.nttdocomo.android.dconnect.localoauth.activity.ConfirmAuthActivity">
+            android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity">
         </activity>
         <service
-            android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service"
+            android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.nttdocomo.android.dconnect.localoauth.LocalOAuth2Service" />
+                <action android:name="org.deviceconnect.android.localoauth.LocalOAuth2Service" />
             </intent-filter>
         </service>
     </application>

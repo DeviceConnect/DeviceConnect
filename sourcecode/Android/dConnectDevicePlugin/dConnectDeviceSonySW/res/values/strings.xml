@@ -3,7 +3,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <!-- Name of app, shown when installing/uninstalling extension -->
-    <string name="app_name">Sony Watch 1.0</string>
+    <string name="app_name">Sony Watch 1.0.1</string>
     <!-- Title of preference activity -->
     <string name="preference_activity_title">SW Device Plugin settings</string>
     <!-- Name of extension, shown in preferences -->
