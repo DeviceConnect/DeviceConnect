@@ -16,6 +16,15 @@ Device Connect WebAPIはスマートフォン上で仮想サーバとして動�
 # サンプルでの動作確認（Android用）
 * https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
 
+_2014/10/15にAndroid用動作サンプルのAPKファイルのパッケージ名を一部更新しました。_
+_お手数ですが以前のAPKがインストールされている場合、以下の手順で旧データを削除してからご確認ください。_
+```
+ １．内部ストレージのdemoWebSite.zipから展開したファイルを削除
+ ２．DeviceConnect ManagerおよびPlug-inのAPKをアンインストール
+ ３．（Chromeブラウザの場合）メニューの”履歴”から”閲覧履歴データの消去...”を選択
+ ４．”キャッシュの消去”のチェックを有効化し、”クリア”ボタンを選択
+```
+
 ## Android端末でのChromeブラウザからの動作確認
 
 １．Androidの内部ストレージにデモコンテンツをフォルダを作成し（[例]"dConnect"）、
@@ -63,7 +72,7 @@ Android root
 
 ##外部からのアクセスについて
 
-* demoWebSiteのHTMLにIPアドレスのパラメータを付加することで、ローカルネットワーク上の他の端末で動作するDeviceConnect WebAPIの操作も可能になります。ただし、操作される側の端末に以下の設定が必要です。
+* demoWebSiteのURLにIPアドレスのパラメータを付加することで、ローカルネットワーク上の他の端末で動作するDeviceConnect WebAPIの操作も可能になります。ただし、操作される側の端末に以下の設定が必要です。
 
  _※遠隔で意図しない端末の操作およびデータ参照をされるリスクが伴います。信頼が出来ないローカルネットワーク環境では利用しないでください。_
 
