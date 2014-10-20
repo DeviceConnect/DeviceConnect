@@ -23,11 +23,14 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.nfc.NfcAdapter;
+import android.util.Log;
 
 /**
  * Connect プロファイル.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostConnectProfile extends ConnectProfile {
@@ -35,14 +38,12 @@ public class HostConnectProfile extends ConnectProfile {
     /** Debug Tag. */
     private static final String TAG = "HOST";
 
-    /**
-     * Bluetooth Adapter.
-     */
+    /** Bluetooth Adapter. */
     private BluetoothAdapter mBluetoothAdapter;
 
     /** Error. */
     private static final int ERROR_VALUE_IS_NULL = 100;
-    
+
     /**
      * コンストラクタ.
      * 
@@ -64,6 +65,7 @@ public class HostConnectProfile extends ConnectProfile {
             setResult(response, IntentDConnectMessage.RESULT_OK);
         }
         return true;
+
     }
 
     @Override
@@ -78,10 +80,12 @@ public class HostConnectProfile extends ConnectProfile {
             setResult(response, IntentDConnectMessage.RESULT_OK);
         }
         return true;
+
     }
 
     @Override
     protected boolean onGetBLE(final Intent request, final Intent response, final String deviceId) {
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -91,37 +95,36 @@ public class HostConnectProfile extends ConnectProfile {
             setResult(response, IntentDConnectMessage.RESULT_OK);
         }
         return true;
+
     }
-    
+
     @Override
     protected boolean onGetNFC(final Intent request, final Intent response, final String deviceId) {
-    
-       if (deviceId == null) {
-           createEmptyDeviceId(response);
-       } else if (!checkDeviceId(deviceId)) {
-           createNotFoundDevice(response);
-       } else {
-           NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this.getContext());
-           if (adapter != null) {
-               if (adapter.isEnabled()) {
-                   response.putExtra(PARAM_ENABLE, true);
-               } else {
-                   response.putExtra(PARAM_ENABLE, false);
-               }
-           } else {
-               response.putExtra(PARAM_ENABLE, false);
-           }
-           setResult(response, IntentDConnectMessage.RESULT_OK);
-       }
-       
-       return true;
-       
+
+        if (deviceId == null) {
+            createEmptyDeviceId(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
+        } else {
+            NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this.getContext());
+            if (adapter != null) {
+                if (adapter.isEnabled()) {
+                    response.putExtra(PARAM_ENABLE, true);
+                } else {
+                    response.putExtra(PARAM_ENABLE, false);
+                }
+            } else {
+                response.putExtra(PARAM_ENABLE, false);
+            }
+            setResult(response, IntentDConnectMessage.RESULT_OK);
+        }
+
+        return true;
+
     }
-    
-    
+
     @Override
     protected boolean onPutWifi(final Intent request, final Intent response, final String deviceId) {
-
 
         if (deviceId == null) {
             createEmptyDeviceId(response);
@@ -142,30 +145,30 @@ public class HostConnectProfile extends ConnectProfile {
         } else if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
-           setEnabledBluetooth(request, response, true);
-           setResult(response, IntentDConnectMessage.RESULT_OK);
+            setEnabledBluetooth(request, response, true);
+            setResult(response, IntentDConnectMessage.RESULT_OK);
         }
         return true;
     }
-    
+
     @Override
     protected boolean onPutBLE(final Intent request, final Intent response, final String deviceId) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
-           
-           setEnabledBluetooth(request, response, true);
-           setResult(response, IntentDConnectMessage.RESULT_OK);
+
+            setEnabledBluetooth(request, response, true);
+            setResult(response, IntentDConnectMessage.RESULT_OK);
         }
         return true;
     }
 
-    
     @Override
     protected boolean onDeleteWifi(final Intent request, final Intent response, final String deviceId) {
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -176,9 +179,10 @@ public class HostConnectProfile extends ConnectProfile {
         }
         return true;
     }
-    
+
     @Override
     protected boolean onDeleteBluetooth(final Intent request, final Intent response, final String deviceId) {
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -189,10 +193,10 @@ public class HostConnectProfile extends ConnectProfile {
         }
         return true;
     }
-    
+
     @Override
     protected boolean onDeleteBLE(final Intent request, final Intent response, final String deviceId) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -203,9 +207,10 @@ public class HostConnectProfile extends ConnectProfile {
         }
         return true;
     }
-    
+
     @Override
     protected boolean onDeleteNFC(final Intent request, final Intent response, final String deviceId) {
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -216,11 +221,11 @@ public class HostConnectProfile extends ConnectProfile {
         }
         return true;
     }
-    
+
     @Override
     protected boolean onPutOnWifiChange(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -240,16 +245,16 @@ public class HostConnectProfile extends ConnectProfile {
                 setResult(response, DConnectMessage.RESULT_ERROR);
                 return true;
             }
-            
+
         }
-        
+
         return true;
     }
-    
+
     @Override
     protected boolean onPutOnBluetoothChange(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -257,8 +262,7 @@ public class HostConnectProfile extends ConnectProfile {
         } else if (sessionKey == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
-            
-         
+
             // イベントの登録
             EventError error = EventManager.INSTANCE.addEvent(request);
 
@@ -272,10 +276,11 @@ public class HostConnectProfile extends ConnectProfile {
 
         return true;
     }
+
     @Override
     protected boolean onDeleteOnWifiChange(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -283,6 +288,7 @@ public class HostConnectProfile extends ConnectProfile {
         } else if (sessionKey == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
+
             // イベントの解除
             EventError error = EventManager.INSTANCE.removeEvent(request);
             if (error == EventError.NONE) {
@@ -295,10 +301,11 @@ public class HostConnectProfile extends ConnectProfile {
         }
         return true;
     }
-    
+
     @Override
     protected boolean onDeleteOnBluetoothChange(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -306,6 +313,7 @@ public class HostConnectProfile extends ConnectProfile {
         } else if (sessionKey == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
+
             // イベントの解除
             EventError error = EventManager.INSTANCE.removeEvent(request);
             if (error == EventError.NONE) {
@@ -318,7 +326,7 @@ public class HostConnectProfile extends ConnectProfile {
         }
         return true;
     }
-    
+
     /**
      * WiFi接続の状態を取得する.
      * 
@@ -326,12 +334,14 @@ public class HostConnectProfile extends ConnectProfile {
      * @param response レスポンス
      */
     protected void getEnabledOfWiFi(final Intent request, final Intent response) {
-    	setResult(response, IntentDConnectMessage.RESULT_OK);
-    	
-    	WifiManager wifiMgr = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
-    	response.putExtra(PARAM_ENABLE, wifiMgr.isWifiEnabled());
+
+        setResult(response, IntentDConnectMessage.RESULT_OK);
+
+        WifiManager mWifiManager = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
+        Log.i(TAG, "FifiManager:" + mWifiManager.isWifiEnabled());
+        response.putExtra(PARAM_ENABLE, mWifiManager.isWifiEnabled());
     }
-    
+
     /**
      * WiFi接続の状態を設定する.
      * 
@@ -340,12 +350,13 @@ public class HostConnectProfile extends ConnectProfile {
      * @param enabled WiFi接続状態
      */
     protected void setEnabledOfWiFi(final Intent request, final Intent response, final boolean enabled) {
-    	setResult(response, IntentDConnectMessage.RESULT_OK);
-    	
-    	WifiManager wifiMgr = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
-    	wifiMgr.setWifiEnabled(enabled);
+
+        setResult(response, IntentDConnectMessage.RESULT_OK);
+
+        WifiManager wifiMgr = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
+        wifiMgr.setWifiEnabled(enabled);
     }
-    
+
     /**
      * Bluetooth接続の状態を取得する.
      * 
@@ -353,6 +364,7 @@ public class HostConnectProfile extends ConnectProfile {
      * @param response レスポンス
      */
     protected void getEnabledBluetooth(final Intent request, final Intent response) {
+
         setResult(response, IntentDConnectMessage.RESULT_OK);
         response.putExtra(PARAM_ENABLE, mBluetoothAdapter.isEnabled());
     }
@@ -368,7 +380,7 @@ public class HostConnectProfile extends ConnectProfile {
         if (enabled) {
             // enable bluetooth
             if (!mBluetoothAdapter.isEnabled()) {
-                
+
                 Intent intent = new Intent(request);
                 intent.setClass(getContext(), BluetoothManageActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -391,7 +403,6 @@ public class HostConnectProfile extends ConnectProfile {
 
         }
     }
-    
 
     /**
      * Bluetooth Low Enery接続の状態を取得する.
@@ -400,17 +411,16 @@ public class HostConnectProfile extends ConnectProfile {
      * @param response レスポンス
      */
     protected void getEnabledOfBluetoothLowEnery(final Intent request, final Intent response) {
-        
-    	// Bluetoothが機能していないときはBluetooth LEも機能しない扱いに。
+
+        // Bluetoothが機能していないときはBluetooth LEも機能しない扱いに。
         if (this.getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
-        		&& mBluetoothAdapter.isEnabled()) {
+                && mBluetoothAdapter.isEnabled()) {
             response.putExtra(PARAM_ENABLE, true);
         } else {
             response.putExtra(PARAM_ENABLE, false);
         }
     }
 
-    
     /**
      * NFCの状態を変更する.
      * 

@@ -84,7 +84,7 @@ public abstract class DConnectMessageService extends Service
     /** デバイスプラグイン管理. */
     protected DevicePluginManager mPluginMgr;
 
-    /** DConnectの設定. */
+    /** DeviceConnectの設定. */
     protected DConnectSettings mSettings;
     
     /** ファイル管理用プロバイダ. */

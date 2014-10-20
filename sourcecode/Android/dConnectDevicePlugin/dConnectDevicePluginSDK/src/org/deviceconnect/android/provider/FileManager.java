@@ -22,7 +22,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ProviderInfo;
 import android.net.Uri;
 import android.os.Environment;
-import android.util.Log;
 
 /**
  * ファイルを管理するためのクラス.
@@ -141,7 +140,6 @@ public class FileManager {
                 throw new IOException("Cannot create a folder.");
             }
         }
-        Log.i("SDK", "tmpPath:" + new File(tmpPath, filename));
         Uri u = Uri.parse("file://" + new File(tmpPath, filename).getAbsolutePath());
         ContentResolver contentResolver = mContext.getContentResolver();
         OutputStream out = null;

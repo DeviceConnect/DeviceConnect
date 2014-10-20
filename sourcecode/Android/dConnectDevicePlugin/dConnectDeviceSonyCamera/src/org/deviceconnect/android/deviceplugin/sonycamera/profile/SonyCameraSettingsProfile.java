@@ -14,7 +14,8 @@ import android.content.Intent;
 import org.deviceconnect.android.profile.SettingsProfile;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Sony Camera 用 Settings プロファイル.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraSettingsProfile extends SettingsProfile {
 

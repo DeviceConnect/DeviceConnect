@@ -15,14 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Sony Camera の電源をONにするフラグメント.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraTurnOnFragment extends SonyCameraBaseFragment {
     @Override
     public View onCreateView(final LayoutInflater inflater,
             final ViewGroup container, final Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_turn_on, container, false);
-
         return root;
     }
 }

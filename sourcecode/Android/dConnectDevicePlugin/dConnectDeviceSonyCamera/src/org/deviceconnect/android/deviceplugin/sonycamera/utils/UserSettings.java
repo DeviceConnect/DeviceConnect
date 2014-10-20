@@ -12,7 +12,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * UserSettings.
+ * @author NTT DOCOMO, INC.
  */
 public class UserSettings {
     /** プリファレンス名. */

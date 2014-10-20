@@ -13,7 +13,8 @@ import org.deviceconnect.android.message.DConnectMessageServiceProvider;
 
 /**
  * SonyCameraデバイスプラグイン.
- * @param <T>
+ * @param <T> 
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraDeviceProvider<T extends Service> extends DConnectMessageServiceProvider<Service> {
     @SuppressWarnings("unchecked")

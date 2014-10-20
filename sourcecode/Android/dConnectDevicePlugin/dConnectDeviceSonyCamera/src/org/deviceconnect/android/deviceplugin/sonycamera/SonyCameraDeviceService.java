@@ -24,13 +24,7 @@ import org.deviceconnect.android.deviceplugin.sonycamera.profile.SonyCameraMedia
 import org.deviceconnect.android.deviceplugin.sonycamera.profile.SonyCameraNetworkServiceDiscoveryProfile;
 import org.deviceconnect.android.deviceplugin.sonycamera.profile.SonyCameraSystemProfile;
 import org.deviceconnect.android.deviceplugin.sonycamera.profile.SonyCameraZoomProfile;
-import org.deviceconnect.android.deviceplugin.sonycamera.sdk.ServerDevice;
-import org.deviceconnect.android.deviceplugin.sonycamera.sdk.SimpleCameraEventObserver;
-import org.deviceconnect.android.deviceplugin.sonycamera.sdk.SimpleRemoteApi;
-import org.deviceconnect.android.deviceplugin.sonycamera.sdk.SimpleSsdpClient;
 import org.deviceconnect.android.deviceplugin.sonycamera.utils.DConnectUtil;
-import org.deviceconnect.android.deviceplugin.sonycamera.utils.SimpleLiveviewSlicer;
-import org.deviceconnect.android.deviceplugin.sonycamera.utils.SimpleLiveviewSlicer.Payload;
 import org.deviceconnect.android.deviceplugin.sonycamera.utils.UserSettings;
 import org.deviceconnect.android.event.Event;
 import org.deviceconnect.android.event.EventManager;
@@ -49,6 +43,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.sony.cameraremote.ServerDevice;
+import com.example.sony.cameraremote.SimpleCameraEventObserver;
+import com.example.sony.cameraremote.SimpleRemoteApi;
+import com.example.sony.cameraremote.SimpleSsdpClient;
+import com.example.sony.cameraremote.utils.SimpleLiveviewSlicer;
+import com.example.sony.cameraremote.utils.SimpleLiveviewSlicer.Payload;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -59,7 +60,8 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * SonyCameraデバイスプラグイン用サービス.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraDeviceService extends DConnectMessageService {
     /** ファイル名に付けるプレフィックス. */
@@ -89,7 +91,7 @@ public class SonyCameraDeviceService extends DConnectMessageService {
     private static final String SONY_CAMERA_SHOOT_MODE_PIC = "still";
 
     /** ロガー. */
-    private Logger mLogger = Logger.getLogger("deviceconnect.dplugin");
+    private Logger mLogger = Logger.getLogger("sonycamera.dplugin");
 
     /** SonyCameraとの接続管理クライアント. */
     private SimpleSsdpClient mSsdpClient;
@@ -144,6 +146,11 @@ public class SonyCameraDeviceService extends DConnectMessageService {
      */
     private ExecutorService mExecutor = Executors.newSingleThreadExecutor();
 
+    /**
+     * 接続中のSonyCameraのSSIDを保持する.
+     */
+    private String mSSID;
+
     @Override
     public void onCreate() {
         mLogger.entering(this.getClass().getName(), "onCreate");
@@ -159,12 +166,11 @@ public class SonyCameraDeviceService extends DConnectMessageService {
 
         addProfile(new SonyCameraMediaStreamRecordingProfile());
         addProfile(new SonyCameraZoomProfile());
-        /**
-         * SonyCameraデバイスプラグインではSettingsプロファイルは非サポート.
-         */
+
+        // SonyCameraデバイスプラグインではSettingsプロファイルは非サポート.
         //addProfile(new SonyCameraSettingsProfile());
 
-        WifiManager wifiMgr = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
         if (DConnectUtil.checkSSID(wifiInfo.getSSID())) {
             connectSonyCamera();
@@ -213,7 +219,9 @@ public class SonyCameraDeviceService extends DConnectMessageService {
                 if (ni.isConnected() && state == NetworkInfo.State.CONNECTED && type == ConnectivityManager.TYPE_WIFI) {
                     WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
                     if (DConnectUtil.checkSSID(wifiInfo.getSSID())) {
-                        connectSonyCamera();
+                        if (!wifiInfo.getSSID().equals(mSSID)) {
+                            connectSonyCamera();
+                        }
                     } else {
                         deleteSonyCameraSDK();
                     }
@@ -225,8 +233,10 @@ public class SonyCameraDeviceService extends DConnectMessageService {
     }
 
     /**
-     * SonyCameraデバイスの検索を行う. Network Service Deiscovery APIに対応する.
-     * 
+     * SonyCameraデバイスの検索を行う. 
+     * <p>
+     * Network Service Deiscovery APIに対応する.
+     * </p>
      * @param request リクエスト
      * @param response レスポンス
      * @return 即座にレスポンスを返す場合はtrue、それ以外はfalse
@@ -234,7 +244,7 @@ public class SonyCameraDeviceService extends DConnectMessageService {
     public boolean searchSonyCameraDevice(final Intent request, final Intent response) {
         mLogger.entering(this.getClass().getName(), "createSearchResponse");
 
-        WifiManager wifiMgr = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
         List<Bundle> services = new ArrayList<Bundle>();
         if (checkDevice() && DConnectUtil.checkSSID(wifiInfo.getSSID())) {
@@ -324,8 +334,6 @@ public class SonyCameraDeviceService extends DConnectMessageService {
      * @param response レスポンス
      * @param deviceId デバイスID
      * @return 即座にレスポンスする場合はtrue、それ以外はfalse
-     * @throws JSONException
-     * @throws IOException
      */
     public boolean getMediaRecorder(final Intent request, final Intent response, final String deviceId) {
 
@@ -333,10 +341,12 @@ public class SonyCameraDeviceService extends DConnectMessageService {
             MessageUtils.setEmptyDeviceIdError(response);
             return true;
         }
+
         if (mAvailableApiList == null) {
             MessageUtils.setUnknownError(response);
             return true;
         }
+
         if (mAvailableApiList.indexOf("getStillSize") == -1) {
             MessageUtils.setNotSupportActionError(response);
             return true;
@@ -809,6 +819,11 @@ public class SonyCameraDeviceService extends DConnectMessageService {
                 mLogger.fine("Found SonyCamera device." + device.getModelName());
                 found[0] = true;
                 createSonyCameraSDK(device);
+                
+                // 接続したwifiのSSIDを保持
+                WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+                mSSID = wifiInfo.getSSID();
             }
 
             @Override
@@ -900,6 +915,7 @@ public class SonyCameraDeviceService extends DConnectMessageService {
             // Intent event = MessageUtils.createEventIntent();
         }
         mRetryCount = 0;
+        mSSID = null;
     }
 
     /**
@@ -999,19 +1015,12 @@ public class SonyCameraDeviceService extends DConnectMessageService {
             @Override
             public void run() {
                 try {
-                    // Prepare for connecting.
-                    JSONObject replyJson = null;
-                    replyJson = mRemoteApi.stopLiveview();
-                    
+                    JSONObject replyJson = mRemoteApi.stopLiveview();
                     if (!isErrorReply(replyJson)) {
-                        //エラーチェック
-                        JSONArray resultsObj = replyJson.getJSONArray("result");
+                        mLogger.warning("cannot stop preview.");
                     }
-
                 } catch (IOException e) {
                     mLogger.warning("IOException while fetching: " + e.getMessage());
-                } catch (JSONException e) {
-                    mLogger.warning("JSONException while fetching");
                 }
             }
         });
@@ -1066,7 +1075,10 @@ public class SonyCameraDeviceService extends DConnectMessageService {
                                     MediaStreamRecordingProfileConstants.PROFILE_NAME, null,
                                     MediaStreamRecordingProfileConstants.ATTRIBUTE_ON_DATA_AVAILABLE);
                             if (evts.size() > 0) {
-                                String mediaId = "preview" + count + ".png";
+                                String mediaId = "preview" + count + ".jpg";
+                                if (!mFileMgr.removeFile(mediaId)) {
+                                    mLogger.warning("cannot remove file: " + mediaId);
+                                }
                                 String uri = mFileMgr.saveFile(mediaId, payload.getJpegData());
                                 notifyDataAvailable(mediaId, uri);
                                 count++;
@@ -1083,8 +1095,7 @@ public class SonyCameraDeviceService extends DConnectMessageService {
                     // slicerのclose()に著しく時間がかかる場合があるので、別スレッドでclose()を実行する。
                     final SimpleLiveviewSlicer tmp = slicer;
                     if (slicer != null) {
-                        ExecutorService slicerCloser = Executors.newSingleThreadExecutor();
-                        Thread thread = new Thread() {
+                        (new Thread() {
                             @Override
                             public void run() {
                                 try {
@@ -1095,13 +1106,19 @@ public class SonyCameraDeviceService extends DConnectMessageService {
                                                     + e.getMessage());
                                 }
                             }
-                        };
-                        slicerCloser.execute(thread);
+                        }).start();
                     }
                     try {
                         mRemoteApi.stopLiveview();
                     } catch (IOException e) {
                         mLogger.warning("IOException while closing slicer: " + e.getMessage());
+                    }
+
+                    for (int i = 0; i < MAX_PREVIEW; i++) {
+                        String mediaId = "preview" + i + ".jpg";
+                        if (!mFileMgr.removeFile(mediaId)) {
+                            mLogger.warning("cannot remove file: " + mediaId);
+                        }
                     }
 
                     mWhileFetching = false;

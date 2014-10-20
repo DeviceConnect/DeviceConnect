@@ -7,6 +7,17 @@ https://github.com/DeviceConnect/DeviceConnect/blob/master/readme.ja.md
 # Example for Android
 * https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
 
+_Updated some package names of the sample for Android at 2014/10/15._
+_Please reinstall by following procedure if you would check this sample again._
+
+```
+  1. Delete files that are related to the demoWebSite.zip on internal storage. 
+  2. Uninstall a APK of old Manager and plugins. 
+  3. Choose "CLEAR BROWSING DATA..." in "history" on Chrome Browser menu. 
+  4. Choose "Clear" button with "Clear the cache" check box. 
+  5. Refer to the procedure for "Example for Android" in "Readme.md".
+```
+
 1.Make this Folder to Android's internal Storage.
 ```
 Android root
@@ -28,7 +39,26 @@ Android root
 
 5.Try the prototype GotAPI behavior from "Launch UI-App".
 
-#List of the corresponding device
+
+##About access from the external devices
+
+By adding the parameter of the IP address to the demoWebSite URL, can control the external device  by DeviceConnect WebAPI  at a local network. However, the following settings are required for terminal on the operation side.
+
+_*Please do not use at network that can not be trusted because there is a security risk._
+
+1. By the procedure as above , set up the DeviceConnect WebAPI to the terminal of the operation target. 
+
+2. Start the DeviceConnectManager from the launcher of Android,and turn off the slide toggle for DeviceConnectManager  service. 
+3. Enable "Allow External IP" checkbox, and turn on the slide toggle for DeviceConnectManager  service. 
+
+4. Add the IP address of the operation target in URL of demoWebSite on the operation side terminal.
+```
+ e.g. "file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3"
+ ```
+
+
+
+#Supported devices
 <table>
   <tr>
     <td>Manufacturer</td>
@@ -193,13 +223,6 @@ Android root
   </tr>
   <tr>
     <td>OMRON HEALTHCARE</td>
-    <td>HEM-708-IT</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
     <td>HBF-206IT</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
@@ -231,21 +254,21 @@ Android root
     <td>HEM-7250IT</td>
     <td>Sphygmomanometer</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>OMRON HEALTHCARE</td>
     <td>HBF-208IT</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>OMRON HEALTHCARE</td>
     <td>HBF-215IT</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>ESTERA</td>
@@ -270,45 +293,45 @@ Android root
   </tr>
   <tr>
     <td>TERUMO</td>
-    <td>MSFV01</td>
+    <td>MS-FRV01</td>
     <td>Blood glucose meter</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MT-KT02DZ</td>
     <td>Walking intensity meter</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>C215</td>
     <td>Thermometer</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ES-H700D</td>
     <td>Sphygmomanometer</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ZS-NS05</td>
     <td>Pulse Oximeter</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>WT-B100DZ</td>
     <td>Body composition monitors</td>
     <td>mHealth</td>
-    <td></td>
+    <td>In preparation</td>
   </tr>
   <tr>
     <td>Polar</td>

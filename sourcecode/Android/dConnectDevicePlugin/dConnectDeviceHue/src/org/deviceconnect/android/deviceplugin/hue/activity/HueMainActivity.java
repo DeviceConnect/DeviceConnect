@@ -19,7 +19,7 @@ import org.deviceconnect.android.deviceplugin.hue.R;
 import org.deviceconnect.android.deviceplugin.hue.activity.fragment.HueFragment01;
 
 /**
- * Hueデバイスプラグイン.
+ * Hueデバイスプラグインの設定画面.
  */
 public class HueMainActivity extends FragmentActivity {
 
@@ -44,7 +44,7 @@ public class HueMainActivity extends FragmentActivity {
         transaction.add(R.id.fragment_frame, mFirstFragment, "fragment002");
         transaction.commit();
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {

@@ -7,11 +7,8 @@ http://opensource.org/licenses/mit-license.php
 
 package org.deviceconnect.android.profile;
 
-import org.deviceconnect.android.deviceplugin.param.DcParam.DcParamException;
 import org.deviceconnect.android.deviceplugin.util.DcLoggerLight;
 import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.DConnectProfile;
-import org.deviceconnect.message.DConnectMessage;
 
 import android.content.Intent;
 
@@ -31,16 +28,6 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      */
     protected DcLoggerLight mLogger = new DcLoggerLight();
 
-    /**
-     * 同期の場合の戻り値.
-     */
-    protected static final boolean SYNC_RESPONSE = true;
-
-    /**
-     * 非同期の場合の戻り値.
-     */
-    protected static final boolean ASYNC_RESPONSE = false;
-
     @Override
     public String getProfileName() {
         return PROFILE_NAME;
@@ -48,29 +35,13 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
 
     @Override
     protected boolean onGetRequest(final Intent request, final Intent response) {
-        try {
-
-            if (isNullAttribute(request)) {
-                // Profileのみ指定
-                return onGetLight(request, response);
-
-            } else if (isLightGroupAttribute(request)) {
-                // Profileのみ指定
-                return onGetLightGroup(request, response);
-
-            } else {
-                // Attribute、Interfaceが定義されていないのに指定されている
-                return onGetOther(request, response);
-
-            }
-
-        } catch (DcParamException e) {
-
-            setErrParameter(e, response);
-            return SYNC_RESPONSE;
-
+        if (isNullAttribute(request)) {
+            return onGetLight(request, response);
+        } else if (isLightGroupAttribute(request)) {
+            return onGetLightGroup(request, response);
+        } else {
+            return onGetOther(request, response);
         }
-
     }
 
     /**
@@ -82,36 +53,15 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      */
     @Override
     protected boolean onPostRequest(final Intent request, final Intent response) {
-
-        // mLogger.entering(this, "onPostRequest");
-
-        try {
-
-            if (isNullAttribute(request)) {
-                // Profileのみ指定
-                return onPostLight(request, response);
-
-            } else if (isLightGroupAttribute(request)) {
-                // Profileのみ指定
-                return onPostLightGroup(request, response);
-
-            } else if (isLightGroupCreateAttribute(request)) {
-                // Profileのみ指定
-                return onPostLightGroupCreate(request, response);
-
-            } else {
-                // Attribute、Interfaceが定義されていないのに指定されている
-                return onPostOther(request, response);
-
-            }
-
-        } catch (DcParamException e) {
-
-            setErrParameter(e, response);
-            return SYNC_RESPONSE;
-
+        if (isNullAttribute(request)) {
+            return onPostLight(request, response);
+        } else if (isLightGroupAttribute(request)) {
+            return onPostLightGroup(request, response);
+        } else if (isLightGroupCreateAttribute(request)) {
+            return onPostLightGroupCreate(request, response);
+        } else {
+            return onPostOther(request, response);
         }
-
     }
 
     /**
@@ -123,36 +73,15 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      */
     @Override
     protected boolean onDeleteRequest(final Intent request, final Intent response) {
-
-        // mLogger.entering(this, "onDeleteRequest");
-
-        try {
-
-            if (isNullAttribute(request)) {
-                // Profileのみ指定
-                return onDeleteLight(request, response);
-
-            } else if (isLightGroupAttribute(request)) {
-                // Profileのみ指定
-                return onDeleteLightGroup(request, response);
-
-            } else if (isLightGroupClearAttribute(request)) {
-                // Profileのみ指定
-                return onDeleteLightGroupClear(request, response);
-
-            } else {
-                // Attribute、Interfaceが定義されていないのに指定されている
-                return onDeleteOther(request, response);
-
-            }
-
-        } catch (DcParamException e) {
-
-            setErrParameter(e, response);
-            return SYNC_RESPONSE;
-
+        if (isNullAttribute(request)) {
+            return onDeleteLight(request, response);
+        } else if (isLightGroupAttribute(request)) {
+            return onDeleteLightGroup(request, response);
+        } else if (isLightGroupClearAttribute(request)) {
+            return onDeleteLightGroupClear(request, response);
+        } else {
+            return onDeleteOther(request, response);
         }
-
     }
 
     /**
@@ -164,32 +93,13 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      */
     @Override
     protected boolean onPutRequest(final Intent request, final Intent response) {
-
-        // mLogger.entering(this, "onPutRequest");
-
-        try {
-
-            if (isNullAttribute(request)) {
-                // Profileのみ指定
-                return onPutLight(request, response);
-
-            } else if (isLightGroupAttribute(request)) {
-                // Profileのみ指定
-                return onPutLightGroup(request, response);
-
-            } else {
-                // Attribute、Interfaceが定義されていないのに指定されている
-                return onPutOther(request, response);
-
-            }
-
-        } catch (DcParamException e) {
-
-            setErrParameter(e, response);
-            return SYNC_RESPONSE;
-
+        if (isNullAttribute(request)) {
+            return onPutLight(request, response);
+        } else if (isLightGroupAttribute(request)) {
+            return onPutLightGroup(request, response);
+        } else {
+            return onPutOther(request, response);
         }
-
     }
 
     /**
@@ -198,10 +108,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
-     * @throws org.deviceconnect.android.deviceplugin.param.DcParam.DcParamException
      */
-    protected abstract boolean onGetLight(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onGetLight(final Intent request, final Intent response);
 
     /**
      * onPostLightメソッドハンドラー.<br>
@@ -209,9 +117,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onPostLight(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onPostLight(final Intent request, final Intent response);
 
     /**
      * onDeleteLightメソッドハンドラー.<br>
@@ -219,9 +126,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onDeleteLight(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onDeleteLight(final Intent request, final Intent response);
 
     /**
      * onPutLightメソッドハンドラー.<br>
@@ -229,9 +135,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onPutLight(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onPutLight(final Intent request, final Intent response);
 
     /**
      * onGetLightGroupメソッドハンドラー.<br>
@@ -239,9 +144,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onGetLightGroup(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onGetLightGroup(final Intent request, final Intent response);
 
     /**
      * onPostLightGroupメソッドハンドラー.<br>
@@ -249,9 +153,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onPostLightGroup(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onPostLightGroup(final Intent request, final Intent response);
 
     /**
      * onDeleteLightGroupメソッドハンドラー.<br>
@@ -259,9 +162,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onDeleteLightGroup(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onDeleteLightGroup(final Intent request, final Intent response);
 
     /**
      * onPutLightGroupメソッドハンドラー.<br>
@@ -269,9 +171,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onPutLightGroup(final Intent request, final Intent response) throws DcParamException;
+    protected abstract boolean onPutLightGroup(final Intent request, final Intent response);
 
     /**
      * onPostLightGroupCreateメソッドハンドラー.<br>
@@ -279,10 +180,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onPostLightGroupCreate(final Intent request, final Intent response)
-            throws DcParamException;
+    protected abstract boolean onPostLightGroupCreate(final Intent request, final Intent response);
 
     /**
      * onDeleteLightGroupClearメソッドハンドラー.<br>
@@ -290,10 +189,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param request リクエストパラメータ
      * @param response レスポンスパラメータ
      * @return レスポンスパラメータを送信するか否か
-     * @throws DcParamException パラメータ異常
      */
-    protected abstract boolean onDeleteLightGroupClear(final Intent request, final Intent response)
-            throws DcParamException;
+    protected abstract boolean onDeleteLightGroupClear(final Intent request, final Intent response);
 
     /**
      * onGetOtherメソッドハンドラー AttributeやInterfaceがある場合はコチラを継承.<br>
@@ -303,10 +200,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return レスポンスパラメータを送信するか否か
      */
     protected boolean onGetOther(final Intent request, final Intent response) {
-
         setErrAttribute(response);
-
-        return SYNC_RESPONSE;
+        return true;
     }
 
     /**
@@ -317,10 +212,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return レスポンスパラメータを送信するか否か
      */
     protected boolean onPostOther(final Intent request, final Intent response) {
-
         setErrAttribute(response);
-
-        return SYNC_RESPONSE;
+        return true;
     }
 
     /**
@@ -331,10 +224,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return レスポンスパラメータを送信するか否か
      */
     protected boolean onDeleteOther(final Intent request, final Intent response) {
-
         setErrAttribute(response);
-
-        return SYNC_RESPONSE;
+        return true;
     }
 
     /**
@@ -345,10 +236,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return レスポンスパラメータを送信するか否か
      */
     protected boolean onPutOther(final Intent request, final Intent response) {
-
         setErrAttribute(response);
-
-        return SYNC_RESPONSE;
+        return true;
     }
 
     /**
@@ -358,9 +247,7 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return Attributeがnullの場合はtrue
      */
     protected boolean isNullAttribute(final Intent request) {
-
         return getAttribute(request) == null;
-
     }
 
     /**
@@ -370,9 +257,7 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return Interfaceがnullの場合はtrue
      */
     protected boolean isNullInterface(final Intent request) {
-
         return getInterface(request) == null;
-
     }
 
     /**
@@ -382,11 +267,8 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return Attributeがnullの場合はtrue
      */
     protected boolean isLightGroupAttribute(final Intent request) {
-
         String attribute = getAttribute(request);
-
         return isNullInterface(request) && ATTRIBUTE_GROUP.equals(attribute);
-
     }
 
     /**
@@ -396,12 +278,9 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return Attributeがnullの場合はtrue
      */
     protected boolean isLightGroupCreateAttribute(final Intent request) {
-
         String myInterface = getInterface(request);
         String attribute = getAttribute(request);
-
         return INTERFACE_GROUP.equals(myInterface) && ATTRIBUTE_CREATE.equals(attribute);
-
     }
 
     /**
@@ -411,21 +290,9 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @return Attributeがnullの場合はtrue
      */
     protected boolean isLightGroupClearAttribute(final Intent request) {
-
         String myInterface = getInterface(request);
         String attribute = getAttribute(request);
-
         return INTERFACE_GROUP.equals(myInterface) && ATTRIBUTE_CLEAR.equals(attribute);
-
-    }
-
-    /**
-     * OKのレスポンスを返す.
-     * 
-     * @param response レスポンスパラメータ
-     */
-    protected void setResultOK(final Intent response) {
-        setResult(response, DConnectMessage.RESULT_OK);
     }
 
     /**
@@ -434,7 +301,6 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param response レスポンスパラメータ
      */
     protected void setErrNotSupportAction(final Intent response) {
-        setResult(response, DConnectMessage.RESULT_ERROR);
         MessageUtils.setNotSupportActionError(response);
     }
 
@@ -444,7 +310,6 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param response レスポンスパラメータ
      */
     protected void setErrAttribute(final Intent response) {
-        setResult(response, DConnectMessage.RESULT_ERROR);
         MessageUtils.setUnknownAttributeError(response);
     }
 
@@ -455,8 +320,6 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param response レスポンスパラメータ
      */
     protected void setErrParameter(final Exception e, final Intent response) {
-        mLogger.warning(this, "onPutRequest", "setErrParameter", e);
-        setResult(response, DConnectMessage.RESULT_ERROR);
         MessageUtils.setInvalidRequestParameterError(response, e.getMessage());
     }
 
@@ -467,8 +330,6 @@ public abstract class LightProfile extends DConnectProfile implements LightProfi
      * @param response レスポンスパラメータ
      */
     protected void setErrUnknown(final Exception e, final Intent response) {
-        mLogger.warning(this, "onPutRequest", "setErrUnknown", e);
-        setResult(response, DConnectMessage.RESULT_ERROR);
         MessageUtils.setUnknownError(response);
     }
 
