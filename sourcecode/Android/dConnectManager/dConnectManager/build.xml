@@ -2,9 +2,6 @@
 <project name="dConnectManager" default="help">
 
     <property environment="env" />
-    <condition property="ndk.dir" value="${env.ANDROID_NDK_HOME}">
-        <isset property="env.ANDROID_NDK_HOME" />
-    </condition>
 
     <!-- The local.properties file is created and updated by the 'android' tool.
          It contains the path to the SDK. It should *NOT* be checked into
@@ -58,13 +55,6 @@
             message="sdk.dir is missing. Make sure to generate local.properties using 'android update project' or to inject it through the ANDROID_HOME environment variable."
             unless="sdk.dir"
     />
-    
-    <target name="-pre-build">
-        <exec executable="${ndk.dir}/ndk-build">
-            <arg value="NDK_DEBUG=0"></arg>
-            <arg value="-B"></arg>
-        </exec>
-    </target>
     
     <!--
         Import per project custom build rules if present at the root of the project.

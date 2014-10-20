@@ -9,6 +9,8 @@ package org.deviceconnect.android.deviceplugin.hue.activity.fragment;
 
 import java.util.List;
 
+import org.deviceconnect.android.deviceplugin.hue.R;
+import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,9 +29,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.deviceconnect.android.deviceplugin.hue.R;
-import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
-
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHBridgeSearchManager;
 import com.philips.lighting.hue.sdk.PHHueSDK;
@@ -43,9 +42,6 @@ import com.philips.lighting.model.PHHueParsingError;
  * 
  */
 public class HueFragment02 extends Fragment implements OnClickListener {
-
-    /** TAG. */
-    private static final String TAG = "HUE_FRAGMENT";
 
     /** アクセスポイント. */
     private static PHAccessPoint mAccessPoint;
@@ -248,7 +244,7 @@ public class HueFragment02 extends Fragment implements OnClickListener {
                     R.anim.fragment_slide_left_enter, 
                     R.anim.fragment_slide_right_exit);
             
-            transaction.replace(R.id.fragment_frame, HueFragment03.newInstance(mAccessPoint));
+            transaction.replace(R.id.fragment_frame, HueFragment03.newInstance());
 
             transaction.commit();
 

@@ -6,11 +6,14 @@ http://opensource.org/licenses/mit-license.php
  */
 package org.deviceconnect.android.deviceplugin.sonycamera.activity;
 
+import org.deviceconnect.android.deviceplugin.sonycamera.R;
+
 import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Sony Camera ベースフラグメント.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraBaseFragment extends Fragment {
 
@@ -52,8 +55,8 @@ public class SonyCameraBaseFragment extends Fragment {
             return;
         }
         mDialog = new ProgressDialog(getActivity());
-        mDialog.setTitle("処理中");
-        mDialog.setMessage("Now Loading...");
+        mDialog.setTitle(R.string.sonycamera_proccessing);
+        mDialog.setMessage(getString(R.string.sonycamera_now_loading));
         mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mDialog.setCancelable(true);
         mDialog.show();

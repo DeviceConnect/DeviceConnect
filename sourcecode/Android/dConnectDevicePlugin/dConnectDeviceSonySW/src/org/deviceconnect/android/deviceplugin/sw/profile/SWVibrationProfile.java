@@ -46,7 +46,7 @@ public class SWVibrationProfile extends VibrationProfile {
         mLogger.entering(this, "onPutVibrate");
 
         if (!checkPutVibrate(response, deviceId, pattern)) {
-            return SWConstants.SYNC_RESPONSE;
+            return true;
         }
 
         runThread(response, deviceId, pattern);

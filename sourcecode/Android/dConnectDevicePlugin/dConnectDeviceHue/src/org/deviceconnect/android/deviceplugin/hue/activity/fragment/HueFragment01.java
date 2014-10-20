@@ -9,6 +9,8 @@ package org.deviceconnect.android.deviceplugin.hue.activity.fragment;
 
 import java.util.List;
 
+import org.deviceconnect.android.deviceplugin.hue.R;
+import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,9 +29,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.deviceconnect.android.deviceplugin.hue.R;
-import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
-
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHBridgeSearchManager;
 import com.philips.lighting.hue.sdk.PHHueSDK;
@@ -41,9 +40,6 @@ import com.philips.lighting.model.PHHueParsingError;
  * Hue設定画面(1)フラグメント.
  */
 public class HueFragment01 extends Fragment implements OnClickListener, OnItemClickListener {
-
-    /** TAG. */
-    private static final String TAG = "HUE_FRAGMENT";
 
     /** ListViewのAdapter. */
     private CustomAdapter mAdapter;

@@ -20,7 +20,8 @@ import org.deviceconnect.android.profile.SystemProfile;
 import org.deviceconnect.message.DConnectMessage;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Sony Camera 用 System プロファイル.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraSystemProfile extends SystemProfile {
 

@@ -110,9 +110,7 @@ public class VideoPlayer extends Activity implements OnCompletionListener {
                 } else if (mVideoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_PLAYER_SEEK)) {
                     int pos = intent.getIntExtra("pos", -1);
                     mVideoView.seekTo(pos);
-
-                }
-                
+                }               
             }
         }
     };

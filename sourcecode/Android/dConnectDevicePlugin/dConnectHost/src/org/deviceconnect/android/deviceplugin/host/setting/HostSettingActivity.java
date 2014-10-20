@@ -59,7 +59,6 @@ public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
             
             @Override
             public void onPageSelected(final int position) {
-               
             }
         });
     }
@@ -84,8 +83,4 @@ public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
     public int getPageCount() {
         return PAGE_COUNT;
     }
-
-   
-    
-    
 }

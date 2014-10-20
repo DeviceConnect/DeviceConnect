@@ -24,13 +24,18 @@ import org.deviceconnect.message.intent.message.IntentDConnectMessage;
 import org.deviceconnect.profile.NotificationProfileConstants.Direction;
 import org.deviceconnect.profile.NotificationProfileConstants.NotificationType;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+import android.widget.Toast;
 
 /**
  * ホストデバイスプラグイン, Notification プロファイル.
@@ -113,34 +118,43 @@ public class HostNotificationProfile extends NotificationProfile {
 
                     Random random = new Random();
                     int notifyId =  random.nextInt(RANDAM_SEED);
+
+                    if (Build.MODEL.endsWith("M100")) {
+                        Log.i(TAG, "@@@@M1000");
+                        Toast.makeText(this.getContext(), encodeBody, Toast.LENGTH_SHORT).show();
+                        
+                        response.putExtra(NotificationProfile.PARAM_NOTIFICATION_ID, notifyId);
+                        setResult(response, IntentDConnectMessage.RESULT_OK);
+                    } else {
                     
-                    // Build intent for notification content
-                    Intent notifyIntent = new Intent(ACTON_NOTIFICATION);
-                    notifyIntent.putExtra("notificationId", notifyId);
-                    notifyIntent.putExtra("deviceId", deviceId);
-                    
-                    PendingIntent mPendingIntent = PendingIntent.getBroadcast(this.getContext(), 
-                            notifyId, 
-                            notifyIntent,
-                            android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                    NotificationCompat.Builder notificationBuilder = 
-                            new NotificationCompat.Builder(this.getContext())
-                            .setSmallIcon(iconType)
-                            .setContentTitle("" + mTitle)
-                            .setContentText(encodeBody)
-                            .setContentIntent(mPendingIntent);
-
-                    // Get an instance of the NotificationManager service
-                    NotificationManager mNotification = (NotificationManager) getContext()
-                            .getSystemService(Context.NOTIFICATION_SERVICE);
-
-                    // Build the notification and issues it with notification
-                    // manager.
-                    mNotification.notify(notifyId, notificationBuilder.build());
-
-                    response.putExtra(NotificationProfile.PARAM_NOTIFICATION_ID, notifyId);
-                    setResult(response, IntentDConnectMessage.RESULT_OK);
+                        // Build intent for notification content
+                        Intent notifyIntent = new Intent(ACTON_NOTIFICATION);
+                        notifyIntent.putExtra("notificationId", notifyId);
+                        notifyIntent.putExtra("deviceId", deviceId);
+                        
+                        PendingIntent mPendingIntent = PendingIntent.getBroadcast(this.getContext(), 
+                                notifyId, 
+                                notifyIntent,
+                                android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+    
+                        NotificationCompat.Builder notificationBuilder = 
+                                new NotificationCompat.Builder(this.getContext())
+                                .setSmallIcon(iconType)
+                                .setContentTitle("" + mTitle)
+                                .setContentText(encodeBody)
+                                .setContentIntent(mPendingIntent);
+    
+                        // Get an instance of the NotificationManager service
+                        NotificationManager mNotification = (NotificationManager) getContext()
+                                .getSystemService(Context.NOTIFICATION_SERVICE);
+    
+                        // Build the notification and issues it with notification
+                        // manager.
+                        mNotification.notify(notifyId, notificationBuilder.build());
+    
+                        response.putExtra(NotificationProfile.PARAM_NOTIFICATION_ID, notifyId);
+                        setResult(response, IntentDConnectMessage.RESULT_OK);
+                    }
                     
                     List<Event> events = EventManager.INSTANCE.getEventList(
                             deviceId, 

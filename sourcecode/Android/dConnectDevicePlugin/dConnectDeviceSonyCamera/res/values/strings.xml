@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Sony Camera 1.0.2</string>
-    <string name="action_search">WiFi Search</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_register">Register onphoto</string>
-    <string name="action_unregister">Unregister onphoto</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="running">Running</string>
-    <string name="stopped">Stopped</string>
-    <string name="image_description">description</string>
-    <string name="btn_search_qx10">Search SonyCamera device</string>
-    <string name="btn_take_photo">Take a Picture</string>
-    <string name="btn_register_onphoto">Register onphoto event</string>
-    <string name="btn_unregister_onphoto">Unregister onphoto event</string>
-    <string name="btn_register_ondataavailble">Register ondataavaible event</string>
-    <string name="btn_unregister_ondataavailble">Unregister ondataavaible event</string>
-    <string name="no_device"> </string>
-    <!-- チュートリアル用テキスト -->
+    <string name="app_name">Sony Camera 1.0.4</string>
+
+    <string name="sonycamera_no_device"></string>
     <string name="sonycamera_setting_message_QX_1_1">Sonyカメラとの接続</string>
     <string name="sonycamera_setting_message_QX_1_2">Sonyカメラ(※)とのWiFi接続を行います。画像はQX10のものです。</string>
     <string name="sonycamera_setting_message_QX_1_3">接続するSonyカメラのSSIDとパスワードを確認してください。</string>
@@ -28,8 +14,24 @@
     <string name="sonycamera_setting_message_QX_2_3">AS30は本体背部のRECボタンを押すことで電源がONになります。他の対応機種については取扱説明書を参照してください。</string>
     <string name="sonycamera_setting_message_2_1">Sonyカメラ検索ボタンをタップし SSIDを選択して、次にSSIDのパスワードを入力します。</string>
     <string name="sonycamera_setting_message_2_2">WiFiがONになっていれば接続を開始します OFFならWiFiをONにしてSonyカメラとの接続を開始します</string>
+    <string name="sonycamera_search_button">Sonyカメラの検索</string>
+    <string name="sonycamera_image_description"></string>
     <string name="index1">[1/3] 下準備</string>
     <string name="index2">[2/3] Cameraの電源をOnにする</string>
     <string name="index3">[3/3] Wifiでカメラに接続する</string>
-    
+
+    <string name="sonycamera_proccessing">処理中</string>
+    <string name="sonycamera_now_loading">Now Loading...</string>
+    <string name="sonycamera_connect">Sonyカメラに接続しました。</string>
+    <string name="sonycamera_already_connect">Sonyカメラは接続済みです。</string>
+    <string name="sonycamera_not_found">Sonyカメラが見つかりません。</string>
+    <string name="sonycamera_connecting">Sonyカメラに接続中......</string>
+    <string name="sonycamera_not_found_wifi">SonyCameraデバイスのWifiが見つかりません。\nSonyCameraデバイスの電源を入れてください。</string>
+    <string name="sonycamera_confirm_wifi">Wi-Fi接続確認</string>
+    <string name="sonycamera_confirm_wifi_enable">Wi-Fiの機能をONにしても良いでしょうか？</string>
+    <string name="sonycamera_ok">OK</string>
+    <string name="sonycamera_cancel">キャンセル</string>
+    <string name="sonycamera_password_dialog">パスワード入力ダイアログ</string>
+    <string name="sonycamera_not_connected">Wi-Fiがつながりません</string>
+
 </resources>

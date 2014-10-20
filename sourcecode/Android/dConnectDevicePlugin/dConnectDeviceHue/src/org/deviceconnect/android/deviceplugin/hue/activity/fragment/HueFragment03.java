@@ -10,6 +10,8 @@ package org.deviceconnect.android.deviceplugin.hue.activity.fragment;
 import java.util.List;
 import java.util.Map;
 
+import org.deviceconnect.android.deviceplugin.hue.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.deviceconnect.android.deviceplugin.hue.R;
 import com.philips.lighting.hue.listener.PHLightListener;
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHHueSDK;
@@ -33,12 +34,6 @@ import com.philips.lighting.model.PHLight;
  * Hue設定画面(3)フラグメント.
  */
 public class HueFragment03 extends Fragment implements OnClickListener {
-
-    /** TAG. */
-    private static final String TAG = "HUE_FRAGMENT";
-
-    /** アクセスポイント. */
-    private static PHAccessPoint mAccessPoint;
 
     /** ライトの登録. */
     private static Button mButtonRegister;
@@ -54,13 +49,9 @@ public class HueFragment03 extends Fragment implements OnClickListener {
 
     /** LightHeader. */
     private List<PHBridgeResource> mLightHeaders;
-    
-    public static HueFragment03 newInstance(final PHAccessPoint accessPoint) {
-        HueFragment03 fragment = new HueFragment03();
 
-        mAccessPoint = accessPoint;
-
-        return fragment;
+    public static HueFragment03 newInstance() {
+        return new HueFragment03();
     }
 
     @Override

@@ -25,6 +25,7 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -60,16 +61,13 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // タイトルを非表示
+        // タイトルを非表示.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        // Cameraのインスタンスを取得
-        mCamera = getCameraInstance();
-
-        // Layoutを設定
+        // Layoutを設定.
         setContentView(R.layout.video_main);
 
-        // SurfaceViewを取得
+        // SurfaceViewを取得.
         mSurfaceView = (SurfaceView) findViewById(R.id.surface_view);
 
         // SurfaceView用 Holderを設定
@@ -84,7 +82,6 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         Intent mIntent = new Intent(this, HostDeviceService.class);
         mIntent.setAction("camera");
         mActivity.bindService(mIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
-
     }
 
     @Override
@@ -100,6 +97,9 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         IntentFilter mFilter = new IntentFilter();
         mFilter.addAction(PhotoConst.SEND_HOSTDP_TO_PHOTO);
         registerReceiver(myReceiver, mFilter);
+        
+        // Cameraのインスタンスを取得
+        mCamera = getCameraInstance();
     }
 
     @Override
@@ -108,6 +108,57 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
 
         // レシーバーを削除
         unregisterReceiver(myReceiver);
+        releaseCamera();
+    }
+    
+    /**
+     * SurfaceViewが生成された時に呼ばれる.
+     * 
+     * @param holder
+     */
+    public void surfaceCreated(final SurfaceHolder holder) {
+    }
+
+    /**
+     * SurfaceViewの状態が変わった時に呼び出される.
+     * 
+     * @param holder フォルダ
+     * @param format フォーマット
+     * @param width 幅
+     * @param height 高さ
+     * 
+     */
+    public void surfaceChanged(final SurfaceHolder holder, final int format, final int width, final int height) {
+
+        // Holderがない場合は、ここで終了
+        if (mHolder.getSurface() == null) {
+            return;
+        }
+
+        // 前に作られたPreviewを停止する
+        try {
+            mCamera.stopPreview();
+        } catch (Exception e) {
+            
+        }
+
+        // Previewの作成と表示.
+        try {
+            Camera.Parameters parameters = mCamera.getParameters();
+
+            List<Camera.Size> pictureSizes = parameters.getSupportedPictureSizes();
+            List<Camera.Size> previewSizes = parameters.getSupportedPreviewSizes();
+
+            Camera.Size previewSize = previewSizes.get(previewSizes.size() - 1);
+            Camera.Size pictureSize = pictureSizes.get(0);
+
+            parameters.setPreviewSize(previewSize.width, previewSize.height);
+            parameters.setPictureSize(pictureSize.width, pictureSize.height);
+
+            mCamera.setPreviewDisplay(holder);
+            mCamera.setPreviewCallback(this);
+            mCamera.startPreview();
+        } catch (Exception e) {}
     }
 
     @Override
@@ -141,75 +192,24 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         }
         return c;
     }
-
+    
     /**
-     * SurfaceViewが生成された時に呼ばれる.
-     * 
-     * @param holder
+     * カメラの解放.
      */
-    public void surfaceCreated(final SurfaceHolder holder) {
-        try {
-            Camera.Parameters parameters = mCamera.getParameters();
-
-            List<Camera.Size> pictureSizes = parameters.getSupportedPictureSizes();
-            List<Camera.Size> previewSizes = parameters.getSupportedPreviewSizes();
-
-            Camera.Size previewSize = previewSizes.get(previewSizes.size() - 1);
-            Camera.Size pictureSize = pictureSizes.get(0);
-
-            parameters.setPreviewSize(previewSize.width, previewSize.height);
-            parameters.setPictureSize(pictureSize.width, pictureSize.height);
-
-            mCamera.setPreviewDisplay(holder);
-            mCamera.setPreviewCallback(this);
-            mCamera.startPreview();
-        } catch (Exception e) {
-        }
-    }
-
-    /**
-     * SurfaceViewの状態が変わった時に呼び出される.
-     * 
-     * @param holder フォルダ
-     * @param format フォーマット
-     * @param width 幅
-     * @param height 高さ
-     * 
-     */
-    public void surfaceChanged(final SurfaceHolder holder, final int format, final int width, final int height) {
-
-        // Holderがない場合は、ここで終了
-        if (mHolder.getSurface() == null) {
-            // preview surface does not exist
-            return;
-        }
-
-        // 前に作られたPreviewを停止する
-        try {
+    private void releaseCamera() {
+        
+        if (mCamera != null) {
+            try {
+                mCamera.setPreviewCallback(null);
+                mCamera.setPreviewDisplay(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             mCamera.stopPreview();
-        } catch (Exception e) {
-            
+            mCamera.release();
+
+            mCamera = null;
         }
-
-        // Previewの作成
-        try {
-            Camera.Parameters parameters = mCamera.getParameters();
-
-            List<Camera.Size> pictureSizes = parameters.getSupportedPictureSizes();
-            List<Camera.Size> previewSizes = parameters.getSupportedPreviewSizes();
-
-            Camera.Size previewSize = previewSizes.get(previewSizes.size() - 1);
-            Camera.Size pictureSize = pictureSizes.get(0);
-
-            parameters.setPreviewSize(previewSize.width, previewSize.height);
-            parameters.setPictureSize(pictureSize.width, pictureSize.height);
-
-            mCamera.setPreviewDisplay(holder);
-            mCamera.setPreviewCallback(this);
-            mCamera.startPreview();
-        } catch (Exception e) {
-        }
-
     }
 
     /**
@@ -218,32 +218,15 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
      * @param holder サーフェイスHolder
      */
     public void surfaceDestroyed(final SurfaceHolder holder) {
-
-        if (mCamera != null) {
-            try {
-                mCamera.setPreviewCallback(null);
-                mCamera.setPreviewDisplay(null);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-            mCamera.stopPreview();
-            mCamera.release();
-
-            mCamera = null;
-        }
     }
 
     @Override
     public void onPreviewFrame(final byte[] data, final Camera camera) {
-        // Log.i(TAG, "data:" + data.length);
         mCamera.setPreviewCallback(null);
 
         int format = mCamera.getParameters().getPreviewFormat();
         int width = mCamera.getParameters().getPreviewSize().width;
         int height = mCamera.getParameters().getPreviewSize().height;
-        // mCamera.stopPreview();
         if (mService == null) {
             // ServiceにBinds
             Intent mIntent = new Intent(this, HostDeviceService.class);
@@ -281,9 +264,7 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
                 String photoAction = intent.getStringExtra(PhotoConst.EXTRA_NAME);
 
                 if (photoAction.equals(PhotoConst.EXTRA_VALUE_EXIT)) {
-
                     finish();
-
                 }
             }
         }

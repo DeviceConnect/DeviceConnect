@@ -10,7 +10,8 @@ package org.deviceconnect.android.deviceplugin.sonycamera.utils;
 import org.deviceconnect.message.DConnectMessage;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Device Connect メッセージハンドラー.
+ * @author NTT DOCOMO, INC.
  */
 public interface DConnectMessageHandler {
 

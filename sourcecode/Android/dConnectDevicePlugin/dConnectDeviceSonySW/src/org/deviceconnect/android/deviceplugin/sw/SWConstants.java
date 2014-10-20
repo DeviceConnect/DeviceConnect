@@ -100,12 +100,4 @@ public interface SWConstants {
      * 加速度取得用デフォルトインターバル.
      */
     int DEFAULT_SENSOR_INTERVAL = 1000;
-    /**
-     * 同期の場合のレスポンス.
-     */
-    boolean SYNC_RESPONSE = true;
-    /**
-     * 非同期の場合のレスポンス.
-     */
-    boolean ASYNC_RESPONSE = false;
 }

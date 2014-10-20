@@ -10,24 +10,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import android.app.Application;
-
-import org.deviceconnect.android.deviceplugin.sonycamera.BuildConfig;
 import org.deviceconnect.android.logger.AndroidHandler;
+
+import android.app.Application;
 
 /**
  * SonyCameraデバイスプラグイン.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraDeviceApplication extends Application {
     /** ロガー. */
-    private Logger mLogger = Logger.getLogger("deviceconnect.dplugin");
+    private Logger mLogger = Logger.getLogger("sonycamera.dplugin");
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         if (BuildConfig.DEBUG) {
-            AndroidHandler handler = new AndroidHandler("deviceconnect.dplugin");
+            AndroidHandler handler = new AndroidHandler("sonycamera.dplugin");
             handler.setFormatter(new SimpleFormatter());
             handler.setLevel(Level.ALL);
             mLogger.addHandler(handler);
