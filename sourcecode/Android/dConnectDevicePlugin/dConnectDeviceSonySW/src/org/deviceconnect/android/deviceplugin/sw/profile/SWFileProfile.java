@@ -58,7 +58,7 @@ public class SWFileProfile extends FileProfile {
             final String path, final String mimeType, final byte[] data) {
 
         if (!checkSendFile(response, deviceId, data, path)) {
-            return SWConstants.SYNC_RESPONSE;
+            return true;
         }
 
         mLogger.info(this, "onPostSend", path);

@@ -100,12 +100,7 @@ public class SWSettingStepsActivity extends DConnectSettingPageFragmentActivity 
     public void setCurrentPage(final int position) {
         getViewPager().setCurrentItem(position, true);
     }
-    /**
-    BaseFragment
-    Copyright (c) 2014 NTT DOCOMO,INC.
-    Released under the MIT license
-    http://opensource.org/licenses/mit-license.php
-    */
+
     public static class BaseFragment extends Fragment {
         
         /** ロガー. */
