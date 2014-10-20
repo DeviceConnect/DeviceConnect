@@ -97,9 +97,7 @@ public class HostSettingFragment extends Fragment {
            
             // Host IP表示用
             mDeviceHostIpTextView = (TextView) mView.findViewById(R.id.host_ipaddress);
-            mDeviceHostIpTextView.setText("Your IP:" + formatedIpAddress);
-            
-            
+            mDeviceHostIpTextView.setText("Your IP:" + formatedIpAddress);    
         }
 
         return mView;
@@ -116,9 +114,7 @@ public class HostSettingFragment extends Fragment {
 
     }
 
-  
-
-    /**
+   /**
      * Host PluginをSearchします.
      */
     public void searchHost() {
@@ -150,7 +146,6 @@ public class HostSettingFragment extends Fragment {
             e.printStackTrace();
         }
         dismissProgressDialog();
-
     }
 
 
@@ -186,7 +181,6 @@ public class HostSettingFragment extends Fragment {
         mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mDialog.setCancelable(false);
         mDialog.show();
-
     }
 
     /**
@@ -210,7 +204,6 @@ public class HostSettingFragment extends Fragment {
 
                 Toast.makeText(mActivity, "Hostが発見できません。(エラー:タイムアウト, 原因:同じネットワーク内にHostsが存在しません。)", Toast.LENGTH_SHORT)
                         .show();
-
             }
         }
     }
@@ -243,7 +236,6 @@ public class HostSettingFragment extends Fragment {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
     };
 
@@ -270,9 +262,7 @@ public class HostSettingFragment extends Fragment {
                 Toast.makeText(mActivity, "Hostが発見できません。(エラー:タイムアウト, 原因:同じネットワーク内にIrKitが存在しません。)", Toast.LENGTH_SHORT)
                         .show();
                 Looper.loop();
-
             }
-
         }
 
         @Override

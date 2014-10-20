@@ -19,7 +19,8 @@ import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.message.intent.message.IntentDConnectMessage;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Sony Camera 用 Network Service Discovery プロファイル.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryProfile {
 

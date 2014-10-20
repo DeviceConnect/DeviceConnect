@@ -14,7 +14,8 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Wi-Fiイベント受信用レシーバー.
+ * @author NTT DOCOMO, INC.
  */
 public class WiFiStateReceiver extends BroadcastReceiver {
     @Override

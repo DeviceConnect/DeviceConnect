@@ -84,6 +84,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 /**
@@ -983,11 +984,12 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
      */
     public void putMediaId(final Intent response, final String mediaId) {
         mCurrentMediaId = mediaId;
+ 
         // Videoとしてパスを取得
         Uri mUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, Long.valueOf(mediaId));
   
         String filePath = getPathFromUri(mUri);
-
+       
         // nullなら、Audioとしてパスを取得
         if (filePath == null) {
             mUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, Long.valueOf(mediaId));
@@ -995,7 +997,7 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
         }
 
         String mMineType = getMIMEType(filePath);
-        
+
         // パス指定の場合
         if ("audio/mpeg".equals(mMineType) 
                 || "audio/x-wav".equals(mMineType)
@@ -1028,7 +1030,6 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                 || "video/3gpp2".equals(mMineType)
                 || "video/mpeg".equals(mMineType)) {
 
-            // if (checkVideo(new File(filePath))) {
             try {
 
                 mSetMediaType = MEDIA_TYPE_VIDEO;

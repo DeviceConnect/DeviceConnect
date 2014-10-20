@@ -17,7 +17,8 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import org.deviceconnect.android.ui.activity.DConnectSettingPageFragmentActivity;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * Sony Cameraデバイスプラグイン設定画面用Activity.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraSettingActivity extends DConnectSettingPageFragmentActivity {
     /** QX10のデバイスID. */
@@ -74,9 +75,9 @@ public class SonyCameraSettingActivity extends DConnectSettingPageFragmentActivi
     @Override
     public Fragment createPage(final int position) {
         if (fragments.size() == 0) {
-            fragments.add(new SonyCameraIndexFragment());
+            fragments.add(new SonyCameraPreparationFragment());
             fragments.add(new SonyCameraTurnOnFragment());
-            fragments.add(new SonyCameraSettingFragment());
+            fragments.add(new SonyCameraConnectingFragment());
         }
 
         SonyCameraBaseFragment fragment = fragments.get(position);

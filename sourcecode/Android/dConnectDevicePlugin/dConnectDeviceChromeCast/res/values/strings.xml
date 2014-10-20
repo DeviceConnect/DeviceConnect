@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources>
     <string name="app_name">Chromecast 1.0.2</string>
     <string name="device_name">Chromecast</string>
     <string name="preference_activity_title">Chromecast 1.0.2</string>

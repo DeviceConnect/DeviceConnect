@@ -90,7 +90,7 @@ public class DConnectService extends DConnectMessageService {
         builder.port(mSettings.getPort()).isSsl(mSettings.isSSL())
             .documentRootPath(getFilesDir().getAbsolutePath());
 
-        if (!mSettings.alowExternalIP()) {
+        if (!mSettings.allowExternalIP()) {
             ArrayList<String> list = new ArrayList<String>();
             list.add("127.0.0.1");
             builder.ipWhiteList(list);
@@ -99,7 +99,7 @@ public class DConnectService extends DConnectMessageService {
         sLogger.fine("Host: " + mSettings.getHost());
         sLogger.fine("Port: " + mSettings.getPort());
         sLogger.fine("SSL: " + mSettings.isSSL());
-        sLogger.fine("External IP: " + mSettings.alowExternalIP());
+        sLogger.fine("External IP: " + mSettings.allowExternalIP());
 
         if (mWebServer == null) {
             mWebServer = new DConnectServerNanoHttpd(builder.build(), this);

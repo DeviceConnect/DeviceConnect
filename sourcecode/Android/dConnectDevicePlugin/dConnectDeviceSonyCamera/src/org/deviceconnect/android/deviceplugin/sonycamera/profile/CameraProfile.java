@@ -13,7 +13,8 @@ import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.DConnectProfile;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * カメラプロファイル.
+ * @author NTT DOCOMO, INC.
  */
 public class CameraProfile extends DConnectProfile {
 

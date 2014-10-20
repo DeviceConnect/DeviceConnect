@@ -17,7 +17,8 @@ import org.deviceconnect.android.profile.MediaStreamRecordingProfile;
 import org.deviceconnect.message.DConnectMessage;
 
 /**
- * 
+ * Sony Camera用 Media Stream Recording プロファイル.
+ * @author NTT DOCOMO, INC.
  */
 public class SonyCameraMediaStreamRecordingProfile extends MediaStreamRecordingProfile {
 

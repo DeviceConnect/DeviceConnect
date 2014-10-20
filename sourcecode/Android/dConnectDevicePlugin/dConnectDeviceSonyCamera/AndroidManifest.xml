@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.deviceconnect.android.deviceplugin.sonycamera"
-    android:versionCode="3"
-    android:versionName="1.0.3" >
+    android:versionCode="4"
+    android:versionName="1.0.4" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -55,8 +55,6 @@
                 <action android:name="org.deviceconnect.action.PUT" />
                 <action android:name="org.deviceconnect.action.POST" />
                 <action android:name="org.deviceconnect.action.DELETE" />
-                <action android:name="org.deviceconnect.action.RESPONSE" />
-                <action android:name="org.deviceconnect.action.EVENT" />
             </intent-filter>
         </receiver>
 

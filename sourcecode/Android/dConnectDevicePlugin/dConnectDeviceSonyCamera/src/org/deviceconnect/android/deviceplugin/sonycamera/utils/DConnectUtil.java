@@ -30,7 +30,8 @@ import org.deviceconnect.message.http.impl.client.HttpDConnectClient;
 import org.deviceconnect.message.http.impl.factory.HttpMessageFactory;
 
 /**
- * SonyCameraデバイスプラグイン.
+ * ユーティリティクラス.
+ * @author NTT DOCOMO, INC.
  */
 public final class DConnectUtil {
     /** SonyCameraのWiFiのプレフィックス. */

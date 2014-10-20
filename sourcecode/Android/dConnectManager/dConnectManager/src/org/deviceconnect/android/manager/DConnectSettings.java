@@ -153,7 +153,7 @@ public final class DConnectSettings {
      * </p>
      * @return trueの場合は許可、falseの場合は不許可
      */
-    public boolean alowExternalIP() {
+    public boolean allowExternalIP() {
         return mAllowExternalIP;
     }
 
