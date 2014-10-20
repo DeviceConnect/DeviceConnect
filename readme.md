@@ -7,6 +7,17 @@ https://github.com/DeviceConnect/DeviceConnect/blob/master/readme.ja.md
 # Example for Android
 * https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
 
+_Updated some package names of the sample for Android at 2014/10/15._
+_Please reinstall by following procedure if you would check this sample again._
+
+```
+  1. Delete files that are related to the demoWebSite.zip on internal storage. 
+  2. Uninstall a APK of old Manager and plugins. 
+  3. Choose "CLEAR BROWSING DATA..." in "history" on Chrome Browser menu. 
+  4. Choose "Clear" button with "Clear the cache" check box. 
+  5. Refer to the procedure for "Example for Android" in "Readme.md".
+```
+
 1.Make this Folder to Android's internal Storage.
 ```
 Android root
@@ -27,6 +38,25 @@ Android root
 4.Go back to the top page.
 
 5.Try the prototype GotAPI behavior from "Launch UI-App".
+
+
+##About access from the external devices
+
+By adding the parameter of the IP address to the demoWebSite URL, can control the external device  by DeviceConnect WebAPI  at a local network. However, the following settings are required for terminal on the operation side.
+
+_*Please do not use at network that can not be trusted because there is a security risk._
+
+1. By the procedure as above , set up the DeviceConnect WebAPI to the terminal of the operation target. 
+
+2. Start the DeviceConnectManager from the launcher of Android,and turn off the slide toggle for DeviceConnectManager  service. 
+3. Enable "Allow External IP" checkbox, and turn on the slide toggle for DeviceConnectManager  service. 
+
+4. Add the IP address of the operation target in URL of demoWebSite on the operation side terminal.
+```
+ e.g. "file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3"
+ ```
+
+
 
 #Supported devices
 <table>
