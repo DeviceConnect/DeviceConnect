@@ -21,12 +21,14 @@
     <string name="display_scope_deviceorientation">deviceorientation</string>
     <string name="display_scope_file_descriptor">file_descriptor</string>
     <string name="display_scope_file">file</string>
+    <string name="display_scope_vcr">vcr</string>
     <string name="display_scope_mediastreams_play">mediastreams_play</string>
     <string name="display_scope_mediastream_recording">mediastream_recording</string>
     <string name="display_scope_network_service_discovery">network_service_discovery</string>
     <string name="display_scope_notification">notification</string>
     <string name="display_scope_phone">phone</string>
     <string name="display_scope_proximity">proximity</string>
+    <string name="display_scope_rssi">rssi</string>
     <string name="display_scope_settings">settings</string>
     <string name="display_scope_system">system</string>
     <string name="display_scope_vibration">vibration</string>
@@ -47,5 +49,4 @@
     <string name="no_application_name">no name</string>
     <string name="expire_period_date_format">Expiration date: %1$s</string>
 
-    <string name="image_description"></string>
 </resources>

@@ -1,11 +1,10 @@
-//
-//  Localizable.strings
-//  DConnectSDK
-//
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
-//
+/*
+ Localizable.strings
+ dConnectDeviceSphero
+ 
+ Created by 星　貴之 on 2014/08/28.
+ Copyright (c) 2014年 Docomo. All rights reserved.
+ */
 "SpheroDisconnecMessage"="Disconnected";
 "SpheroDisconnectedMessage"="Has disconnected completed";
 "SpheroConnectMessage"="Connected";

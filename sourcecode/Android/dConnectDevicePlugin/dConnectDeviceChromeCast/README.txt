@@ -8,17 +8,4 @@ ChromeCast Device Plugin
 4. dConnectSDKAndroid
 5. dConnectDevicePluginSDK
 
-Project → Properties → Android → Library に参照を追加します。
-
-android-support-v7-mediarouter
-  - android-support-v7-appcompat
-  
-dConnectDevicePluginSDK
-  - dConnectSDKAndroid
-
-dConnectDeviceChromeCast
-  - android-support-v7-mediarouter
-  - dConnectDevicePluginSDK
-  - google-play-services_lib
-
 以上

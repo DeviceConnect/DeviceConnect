@@ -165,7 +165,7 @@
     DConnectLocalOAuthDB *authDB = [DConnectLocalOAuthDB sharedLocalOAuthDB];
     DConnectAuthData *data = [authDB getAuthDataByDeviceId:deviceId];
     if (data == nil) {
-		DConnectResponseMessage *response = [self createClientToDevicePlugin:plugin deviceId:deviceId];
+        DConnectResponseMessage *response = [self createClientToDevicePlugin:plugin];
         if ([response result] == DConnectMessageResultTypeOk) {
             NSString *clientId = [response stringForKey:DConnectAuthorizationProfileParamClientId];
             NSString *clientSecret = [response stringForKey:DConnectAuthorizationProfileParamClientSecret];
@@ -195,14 +195,13 @@
     return accessToken;
 }
 
-- (DConnectResponseMessage *) createClientToDevicePlugin:(DConnectDevicePlugin *)plugin  deviceId:(NSString*)deviceId{
+- (DConnectResponseMessage *) createClientToDevicePlugin:(DConnectDevicePlugin *)plugin {
     DConnectRequestMessage *request = [DConnectRequestMessage message];
     [request setAction:DConnectMessageActionTypeGet];
     [request setProfile:DConnectAuthorizationProfileName];
     [request setAttribute:DConnectAuthorizationProfileAttrCreateClient];
     [request setString:@"manager" forKey:DConnectAuthorizationProfileParamPackage];
-	[request setDeviceId:deviceId];
-	
+ 
     DConnectResponseMessage *response = [DConnectResponseMessage message];
     BOOL result = [plugin didReceiveRequest:request response:response];
     if (!result) {

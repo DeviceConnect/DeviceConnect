@@ -14,38 +14,54 @@
 
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import <netinet/in.h>
 
-struct sockaddr_in;
 
-typedef enum {
-    NotReachable = 0,
-    ReachableViaWiFi,
-    ReachableViaWWAN
+typedef enum : NSInteger {
+	NotReachable = 0,
+	ReachableViaWiFi,
+	ReachableViaWWAN
 } NetworkStatus;
-#define kReachabilityChangedNotification @"kNetworkReachabilityChangedNotification"
 
-@interface DPHostReachability: NSObject
 
-//reachabilityWithHostName- Use to check the reachability of a particular host name.
-+ (DPHostReachability*) reachabilityWithHostName: (NSString*) hostName;
+extern NSString *kReachabilityChangedNotification;
 
-//reachabilityWithAddress- Use to check the reachability of a particular IP address.
-+ (DPHostReachability*) reachabilityWithAddress: (const struct sockaddr_in*) hostAddress;
 
-//reachabilityForInternetConnection- checks whether the default route is available.
-//  Should be used by applications that do not connect to a particular host
-+ (DPHostReachability*) reachabilityForInternetConnection;
+@interface DPHostReachability : NSObject
 
-//reachabilityForLocalWiFi- checks whether a local wifi connection is available.
-+ (DPHostReachability*) reachabilityForLocalWiFi;
+/*!
+ * Use to check the reachability of a given host name.
+ */
++ (instancetype)reachabilityWithHostName:(NSString *)hostName;
 
-//Start listening for reachability notifications on the current run loop
-- (BOOL) startNotifier;
-- (void) stopNotifier;
+/*!
+ * Use to check the reachability of a given IP address.
+ */
++ (instancetype)reachabilityWithAddress:(const struct sockaddr_in *)hostAddress;
 
-- (NetworkStatus) currentReachabilityStatus;
-//WWAN may be available, but not active until a connection has been established.
-//WiFi may require a connection for VPN on Demand.
-- (BOOL) connectionRequired;
+/*!
+ * Checks whether the default route is available. Should be used by applications that do not connect to a particular host.
+ */
++ (instancetype)reachabilityForInternetConnection;
+
+/*!
+ * Checks whether a local WiFi connection is available.
+ */
++ (instancetype)reachabilityForLocalWiFi;
+
+/*!
+ * Start listening for reachability notifications on the current run loop.
+ */
+- (BOOL)startNotifier;
+- (void)stopNotifier;
+
+- (NetworkStatus)currentReachabilityStatus;
+
+/*!
+ * WWAN may be available, but not active until a connection has been established. WiFi may require a connection for VPN on Demand.
+ */
+- (BOOL)connectionRequired;
 
 @end
+
+

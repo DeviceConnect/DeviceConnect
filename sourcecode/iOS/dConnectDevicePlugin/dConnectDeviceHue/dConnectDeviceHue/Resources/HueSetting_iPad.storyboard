@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="AMv-bc-E8J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="AMv-bc-E8J">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="449" y="1367"/>
         </scene>
-        <!--hue-->
+        <!--Hue View Controller - hue-->
         <scene sceneID="wBQ-HG-LO9">
             <objects>
-                <viewController id="I9w-il-qML" customClass="DPHueViewController" sceneMemberID="viewController">
+                <viewController id="I9w-il-qML" customClass="HueViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MJj-yp-zHl"/>
                         <viewControllerLayoutGuide type="bottom" id="nIm-n4-KfI"/>
@@ -52,7 +52,7 @@
         <!--Hue Setting View Controller2-->
         <scene sceneID="tRJ-Op-4Af">
             <objects>
-                <viewController storyboardIdentifier="DPHueSettingViewController2" id="Pl2-ve-Zvi" customClass="DPHueSettingViewController2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HueSettingViewController2" id="Pl2-ve-Zvi" customClass="HueSettingViewController2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lM8-6D-t7a"/>
                         <viewControllerLayoutGuide type="bottom" id="0sf-qy-vIf"/>
@@ -63,9 +63,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkv-fU-voT">
                                 <rect key="frame" x="128" y="140" width="512" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue002.png" translatesAutoresizingMaskIntoConstraints="NO" id="9g6-NA-cZ1">
                                         <rect key="frame" x="116" y="10" width="280" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -75,25 +77,30 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzt-jl-HAx">
                                 <rect key="frame" x="128" y="442" width="512" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="btnSearchBridge" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usU-Dy-fns">
                                         <rect key="frame" x="43" y="5" width="425" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="ブリッジにアプリを登録">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="registerAppNameForHueBridge:" destination="Pl2-ve-Zvi" eventType="touchUpInside" id="21f-yA-Z7P"/>
+                                            <action selector="btnAppTouroku:" destination="Pl2-ve-Zvi" eventType="touchUpInside" id="JSJ-TS-Vje"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7u-PL-46u">
                                         <rect key="frame" x="0.0" y="0.0" width="512" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wIA-hh-gaj">
                                                 <rect key="frame" x="174" y="25" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                             </activityIndicatorView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="認証中!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9f-SH-O2Z">
                                                 <rect key="frame" x="202" y="14" width="132" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -109,39 +116,47 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CF-DR-Nsz">
                                 <rect key="frame" x="184" y="567" width="400" height="402"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MACアドレス：" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="w1O-IY-yjG">
                                         <rect key="frame" x="15" y="5" width="180" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11:22:33:44:55:66" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="202" translatesAutoresizingMaskIntoConstraints="NO" id="d0R-ZR-HCc">
                                         <rect key="frame" x="195" y="5" width="202" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IPアドレス：" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="uvc-HG-ULE">
                                         <rect key="frame" x="20" y="40" width="180" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="111.222.333.444" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="188" translatesAutoresizingMaskIntoConstraints="NO" id="Sid-hO-zhJ">
                                         <rect key="frame" x="195" y="40" width="188" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="状態：" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="sQ6-o3-s6J">
                                         <rect key="frame" x="20" y="75" width="180" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="認証済み" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="S0p-Lp-h6C">
                                         <rect key="frame" x="195" y="75" width="100" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ブリッジのボタンを押してください。ボタンを押すと、本アプリが登録されます。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="374" translatesAutoresizingMaskIntoConstraints="NO" id="7SP-uN-02w">
                                         <rect key="frame" x="20" y="130" width="374" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -163,18 +178,18 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="authorizeStateLabel" destination="S0p-Lp-h6C" id="aQu-zp-BMc"/>
-                        <outlet property="bridgeInfoXConstraint" destination="9yT-fB-BFU" id="ZHG-vT-xJG"/>
-                        <outlet property="bridgeInfoYConstraint" destination="9cR-fD-8mX" id="2Gy-y7-7Ji"/>
-                        <outlet property="pushlinkIcomYConstraint" destination="XDd-5O-351" id="Ic4-rK-rAN"/>
-                        <outlet property="pushlinkIconImageView" destination="9g6-NA-cZ1" id="mCk-kj-ayj"/>
-                        <outlet property="pushlinkIconXConstraint" destination="el5-gA-IDC" id="4ew-V0-5AR"/>
-                        <outlet property="pushlinkWaitIndicator" destination="wIA-hh-gaj" id="yKa-fo-HVY"/>
-                        <outlet property="searchButtonXConstraint" destination="ujt-jv-h7K" id="wZj-xk-lFK"/>
-                        <outlet property="searchButtonYConstraint" destination="pHv-1C-tXp" id="pO9-oS-1jV"/>
-                        <outlet property="searchingView" destination="Q7u-PL-46u" id="nQt-gI-et1"/>
-                        <outlet property="selectedIpAddressLabel" destination="Sid-hO-zhJ" id="SFU-4M-R88"/>
-                        <outlet property="selectedMacAddressLabel" destination="d0R-ZR-HCc" id="R3c-7j-7Fy"/>
+                        <outlet property="Indicator" destination="wIA-hh-gaj" id="uKp-Cy-11a"/>
+                        <outlet property="SearchingView" destination="Q7u-PL-46u" id="D2P-nX-OlS"/>
+                        <outlet property="authState" destination="S0p-Lp-h6C" id="0f2-qc-I5F"/>
+                        <outlet property="iconImage" destination="9g6-NA-cZ1" id="g6h-mr-VDL"/>
+                        <outlet property="lcIcomY" destination="XDd-5O-351" id="kL4-QE-AP0"/>
+                        <outlet property="lcIconX" destination="el5-gA-IDC" id="SSV-VA-1OG"/>
+                        <outlet property="lcListX" destination="9yT-fB-BFU" id="zjC-AU-RY0"/>
+                        <outlet property="lcListY" destination="9cR-fD-8mX" id="XyM-d2-kNp"/>
+                        <outlet property="lcSearchX" destination="ujt-jv-h7K" id="K4i-X3-Pyw"/>
+                        <outlet property="lcSearchY" destination="pHv-1C-tXp" id="adg-b0-mEf"/>
+                        <outlet property="selectedIp" destination="Sid-hO-zhJ" id="jb1-tp-WKm"/>
+                        <outlet property="selectedMac" destination="d0R-ZR-HCc" id="acs-sD-deA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Okd-UL-CYF" sceneMemberID="firstResponder"/>
@@ -184,7 +199,7 @@
         <!--Hue Setting View Controller3-->
         <scene sceneID="uKc-41-5rs">
             <objects>
-                <viewController storyboardIdentifier="DPHueSettingViewController3" id="9Z4-8z-DlU" customClass="DPHueSettingViewController3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HueSettingViewController3" id="9Z4-8z-DlU" customClass="HueSettingViewController3" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="usd-Kg-94G"/>
                         <viewControllerLayoutGuide type="bottom" id="PB0-Q5-qG9"/>
@@ -195,12 +210,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-zX-eWi">
                                 <rect key="frame" x="128" y="140" width="512" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue004.png" translatesAutoresizingMaskIntoConstraints="NO" id="TPo-sW-gPx">
                                         <rect key="frame" x="76" y="10" width="360" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue003.png" translatesAutoresizingMaskIntoConstraints="NO" id="56E-az-scB">
                                         <rect key="frame" x="76" y="10" width="360" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -210,25 +228,30 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJw-2X-HLe">
                                 <rect key="frame" x="128" y="442" width="512" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="btnSearchBridge" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="und-9g-yRS">
                                         <rect key="frame" x="43" y="5" width="425" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="ブリッジにライトを登録">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchLight:" destination="9Z4-8z-DlU" eventType="touchUpInside" id="qhY-KY-b7i"/>
+                                            <action selector="btnSearchLight:" destination="9Z4-8z-DlU" eventType="touchUpInside" id="Spu-Rv-QwN"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39c-wW-eCv">
                                         <rect key="frame" x="0.0" y="0.0" width="512" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b33-RO-pdD">
                                                 <rect key="frame" x="174" y="25" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                             </activityIndicatorView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="認証中!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhd-4h-SOL">
                                                 <rect key="frame" x="202" y="14" width="132" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -244,9 +267,11 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-SU-qFN">
                                 <rect key="frame" x="184" y="567" width="400" height="402"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="374" translatesAutoresizingMaskIntoConstraints="NO" id="BgL-Wz-LhH">
                                         <rect key="frame" x="13" y="20" width="374" height="215"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">ブリッジにライトを登録します。
 新しいライトがある場合は上のボタンを押して３０秒お待ちください。
 
@@ -272,15 +297,15 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="lightIcomYConstraint" destination="qQF-UZ-NHO" id="hcU-mw-M4f"/>
-                        <outlet property="lightIconXConstraint" destination="RG2-9x-jKQ" id="EV3-rS-T1F"/>
-                        <outlet property="lightOffIconImageView" destination="56E-az-scB" id="yy3-xc-gRn"/>
-                        <outlet property="lightOnIconImageView" destination="TPo-sW-gPx" id="f2p-aL-0Qh"/>
-                        <outlet property="lightSearchButtonXConstraint" destination="3iW-zS-9WP" id="m5q-ek-ghy"/>
-                        <outlet property="lightSearchButtonYConstraint" destination="sBh-Pc-iIL" id="PKT-Pw-K0h"/>
-                        <outlet property="lightSearchDescriptionXConstraint" destination="GoW-DK-0Rf" id="i9W-3A-EDK"/>
-                        <outlet property="lightSearchDescriptionYConstraint" destination="Lh7-B2-TFD" id="Xrq-jG-Vnp"/>
-                        <outlet property="lightSearchingIndicator" destination="b33-RO-pdD" id="pNv-cp-efA"/>
+                        <outlet property="Indicator" destination="b33-RO-pdD" id="VFt-K9-LnD"/>
+                        <outlet property="iconImage" destination="56E-az-scB" id="b1m-Vt-jSz"/>
+                        <outlet property="iconImage2" destination="TPo-sW-gPx" id="JYL-1w-FhY"/>
+                        <outlet property="lcIcomY" destination="qQF-UZ-NHO" id="Mgg-cz-IAj"/>
+                        <outlet property="lcIconX" destination="RG2-9x-jKQ" id="uVv-5n-4l8"/>
+                        <outlet property="lcListX" destination="GoW-DK-0Rf" id="SCf-oJ-jyW"/>
+                        <outlet property="lcListY" destination="Lh7-B2-TFD" id="FoJ-SY-qkG"/>
+                        <outlet property="lcSearchX" destination="3iW-zS-9WP" id="h3n-Te-6X1"/>
+                        <outlet property="lcSearchY" destination="sBh-Pc-iIL" id="ExX-lz-YD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Io-gC-OPZ" sceneMemberID="firstResponder"/>
@@ -290,7 +315,7 @@
         <!--Hue Setting View Controller1-->
         <scene sceneID="q53-Li-Be9">
             <objects>
-                <viewController storyboardIdentifier="DPHueSettingViewController1" id="IPf-zk-t0T" customClass="DPHueSettingViewController1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HueSettingViewController1" id="IPf-zk-t0T" customClass="HueSettingViewController1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G2X-UR-RT7"/>
                         <viewControllerLayoutGuide type="bottom" id="Fkf-os-orT"/>
@@ -301,9 +326,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VZ-UO-uaH">
                                 <rect key="frame" x="128" y="140" width="512" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue001.png" translatesAutoresizingMaskIntoConstraints="NO" id="3QL-HG-jnb">
                                         <rect key="frame" x="116" y="10" width="280" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -313,25 +340,30 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEn-rW-Z4r">
                                 <rect key="frame" x="128" y="442" width="512" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="btnSearchBridge" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isj-wS-vmf">
                                         <rect key="frame" x="43" y="5" width="425" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="hueブリッジを再検索">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchHueBridge:" destination="IPf-zk-t0T" eventType="touchUpInside" id="hat-mr-Qog"/>
+                                            <action selector="btnBridgeSearch:" destination="IPf-zk-t0T" eventType="touchUpInside" id="9wB-F9-yTj"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="avw-LL-KIu">
                                         <rect key="frame" x="0.0" y="0.0" width="512" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TU8-LD-aQ2">
                                                 <rect key="frame" x="130" y="25" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                             </activityIndicatorView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hueを検索中" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gZ-sD-OMN">
                                                 <rect key="frame" x="156" y="14" width="200" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -347,9 +379,11 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6v-5V-pWj">
                                 <rect key="frame" x="184" y="533" width="400" height="402"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-np-RQR">
                                         <rect key="frame" x="80" y="59" width="270" height="315"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellBridge" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellBridge" textLabel="evz-br-ywV" rowHeight="86" style="IBUITableViewCellStyleDefault" id="ROh-6f-eWB">
@@ -373,6 +407,7 @@
                                     </tableView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="設定するhueを選択してください。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="394" translatesAutoresizingMaskIntoConstraints="NO" id="Isd-l4-RBj">
                                         <rect key="frame" x="20" y="5" width="394" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -394,16 +429,16 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="bridgeIconXConstraint" destination="Zlb-nQ-EDs" id="1Zt-Wl-wiy"/>
-                        <outlet property="bridgeIconYConstraint" destination="esS-OM-9cw" id="uwX-Om-PRk"/>
-                        <outlet property="bridgeListTableView" destination="U4t-np-RQR" id="RFt-9r-lcr"/>
-                        <outlet property="bridgeListXConstraint" destination="DEG-lS-1bb" id="16N-lH-kMN"/>
-                        <outlet property="bridgeListYConstraint" destination="81O-gC-eHz" id="PqA-lQ-XDj"/>
-                        <outlet property="processingLabel" destination="6gZ-sD-OMN" id="TRV-FY-c0B"/>
-                        <outlet property="searchButtonXConstraint" destination="qwG-HS-qdz" id="k2w-UM-jR2"/>
-                        <outlet property="searchButtonYConstraint" destination="7uV-lB-M1n" id="B4y-ub-yYw"/>
-                        <outlet property="searchingBridgeIndicator" destination="TU8-LD-aQ2" id="u2o-cW-iGv"/>
-                        <outlet property="searchingView" destination="avw-LL-KIu" id="dTl-VR-eee"/>
+                        <outlet property="Indicator" destination="TU8-LD-aQ2" id="cA1-Ue-pg9"/>
+                        <outlet property="SearchingView" destination="avw-LL-KIu" id="UAR-iT-bXu"/>
+                        <outlet property="lblSyorityu" destination="6gZ-sD-OMN" id="Vyf-tP-Qen"/>
+                        <outlet property="lcIcomY" destination="esS-OM-9cw" id="iuS-uW-UT5"/>
+                        <outlet property="lcIconX" destination="Zlb-nQ-EDs" id="tt0-iV-8ll"/>
+                        <outlet property="lcListX" destination="DEG-lS-1bb" id="HTc-gY-qxT"/>
+                        <outlet property="lcListY" destination="81O-gC-eHz" id="Mc0-yb-KTk"/>
+                        <outlet property="lcSearchX" destination="qwG-HS-qdz" id="v10-jx-geJ"/>
+                        <outlet property="lcSearchY" destination="7uV-lB-M1n" id="RVK-WC-et5"/>
+                        <outlet property="listBridge" destination="U4t-np-RQR" id="3fS-Bp-TXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMh-js-4bQ" sceneMemberID="firstResponder"/>

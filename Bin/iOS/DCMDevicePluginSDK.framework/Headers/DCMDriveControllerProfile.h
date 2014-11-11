@@ -1,10 +1,9 @@
 //
-//  DCMDriveControllerProfileName.h
-//  DConnectSDK
+//  DCMDriveControllerProfile.h
+//  dConnectDeviceSphero
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 星　貴之 on 2014/07/22.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 /*! @file
  @brief DriveControllerプロファイルを実装するための機能を提供する。
@@ -56,7 +55,6 @@ extern NSString *const DCMDriveControllerProfileParamSpeed;
  [対応するRESTful]
  POST http://{dConnectドメイン}/drive_controller/move?deviceId=xxxxx
  </pre>
- @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -79,7 +77,6 @@ extern NSString *const DCMDriveControllerProfileParamSpeed;
  [対応するRESTful]
  PUT http://{dConnectドメイン}/drive_controller/rotate?deviceId=xxxxx
  </pre>
- @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -100,8 +97,7 @@ extern NSString *const DCMDriveControllerProfileParamSpeed;
  [対応するRESTful]
  DELETE http://{dConnectドメイン}/drive_controller/stop?deviceId=xxxxx
  </pre>
- @param[in] profile プロファイル
-@param[in] request リクエスト
+ @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
  @retval YES レスポンスパラメータを返却する。

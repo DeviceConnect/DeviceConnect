@@ -1,27 +1,32 @@
 //
-//  DPHueLightProfile.h
-//  DConnectSDK
+//  HueProfile.h
+//  dConnectDeviceHue
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 星　貴之 on 2014/07/08.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
-/*! @file
- @brief Hue用 Light プロファイル。
- @author NTT DOCOMO
- @date 作成日(2014.7.15)
- */
 #import <UIKit/UIKit.h>
 #import <DCMDevicePluginSDK/DCMLightProfile.h>
-#import "DPHueManager.h"
+
+enum {
+    HueStatusUpdate,
+    HueCreateGroup,
+    HueClearGroup
+};
 
 
+typedef enum BridgeConnectState : NSInteger {
 
-/*!
- @class DPHueLightProfile
- @brief Hue用 Light プロファイル。
- */
+    STATE_INIT,
+    STATE_CONNECT,
+    STATE_NON_CONNECT,
+    STATE_NOT_AUTHENTICATED
+    
+} BridgeConnectState;
+
+@class PHHueSDK;
+
 @interface DPHueLightProfile : DCMLightProfile<DCMLightProfileDelegate>
 
 

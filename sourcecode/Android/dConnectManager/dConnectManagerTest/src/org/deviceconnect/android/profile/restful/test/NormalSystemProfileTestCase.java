@@ -79,7 +79,7 @@ public class NormalSystemProfileTestCase extends RESTfulDConnectTestCase
             JSONObject testPlugin = null;
             for (int i = 0; i < plugins.length(); i++) {
                 JSONObject plugin = plugins.getJSONObject(i);
-                if ("Device Connect Device Plugin for Test".equals(plugin.getString(SystemProfileConstants.PARAM_NAME))) {
+                if ("dConnectDeviceTest".equals(plugin.getString(SystemProfileConstants.PARAM_NAME))) {
                     testPlugin = plugin;
                     break;
                 }

@@ -23,6 +23,7 @@
 /*!
  URLパラメータが記述されたマルチパートボディを解析し、パラメータをリクエストメッセージに追加する。
  @param[in,out] requestMessage URLパラメータを追加するリクエストメッセージ
+ TODO: [2014/05/12 福井] マルチパート解析の単体テスト
  */
 - (void)addParametersFromMultipartToRequestMessage:(DConnectMessage *)requestMessage;
 
@@ -48,11 +49,13 @@
 
 /*!
  Device Connect ServerのURLのホスト部分
+ MARK: この変数は果たしてこのクラス/モジュールに持たせるべきなのだろうか？ ~~ 2014/05/02 福井
  */
 + (NSString *)host;
 
 /*!
  Device Connect ServerのURLのポート部分
+ MARK: この変数は果たしてこのクラス/モジュールに持たせるべきなのだろうか？ ~~ 2014/05/02 福井
  */
 + (int)port;
 
@@ -64,12 +67,14 @@
 /*!
  Device Connect ServerのURLのホスト部分を設定する
  @param[in] host Device Connect ServerのURLのホスト部分
+ MARK: この変数は果たしてこのクラス/モジュールに持たせるべきなのだろうか？ ~~ 2014/05/02 福井
  */
 + (void)setHost:(NSString *)host;
 
 /*!
  Device Connect ServerのURLのポート部分を設定する
  @param[in] port Device Connect ServerのURLのポート部分
+ MARK: この変数は果たしてこのクラス/モジュールに持たせるべきなのだろうか？ ~~ 2014/05/02 福井
  */
 + (void)setPort:(int)port;
 

@@ -103,7 +103,9 @@
 
         <!-- LocalOAuth -->
         <!-- Local OAuth 認可ダイアログ用Activity. -->
-        <activity android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity">
+        <activity
+            android:name="org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity"
+            android:theme="@style/AppTheme.Translucent" >
         </activity>
 
         <!-- Local OAuth アクセストークン管理用Activity. -->

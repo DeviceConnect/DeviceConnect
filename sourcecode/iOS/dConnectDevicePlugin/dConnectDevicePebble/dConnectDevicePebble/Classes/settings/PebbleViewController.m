@@ -1,15 +1,6 @@
-//
-//  PebbleViewController.m
-//  DConnectSDK
-//
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
-//
 #import "PebbleViewController.h"
 #import "PebbleModelController.h"
 #import "PebbleDataViewController.h"
-#import "pebble_device_plugin_defines.h"
 
 @interface PebbleViewController ()
 @property (readonly, strong, nonatomic) PebbleModelController *PebbleModelController;

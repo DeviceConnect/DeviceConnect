@@ -7,22 +7,24 @@
 package org.deviceconnect.android.deviceplugin.pebble.profile;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnReceivedEventListener;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnSendCommandListener;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.getpebble.android.kit.util.PebbleDictionary;
 import org.deviceconnect.android.event.Event;
 import org.deviceconnect.android.event.EventError;
 import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.BatteryProfile;
 import org.deviceconnect.message.DConnectMessage;
-
-import android.content.Intent;
-import android.os.Bundle;
-
-import com.getpebble.android.kit.util.PebbleDictionary;
 
 
 /**
@@ -33,8 +35,6 @@ import com.getpebble.android.kit.util.PebbleDictionary;
 public class PebbleBatteryProfile extends BatteryProfile {
     /** パーセント値にする時の定数. */
     private static final double TO_PERCENT = 100.0;
-    /** sessionKeyが設定されていないときのエラーメッセージ. */
-    private static final String ERROR_MESSAGE = "sessionKey must be specified.";
     /**
      * コンストラクタ.
      * @param service Pebble デバイスサービス
@@ -63,10 +63,10 @@ public class PebbleBatteryProfile extends BatteryProfile {
     @Override
     protected boolean onGetAll(final Intent request, final Intent response, final String deviceId) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -103,10 +103,10 @@ public class PebbleBatteryProfile extends BatteryProfile {
     @Override
     protected boolean onGetLevel(final Intent request, final Intent response, final String deviceId) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -140,10 +140,10 @@ public class PebbleBatteryProfile extends BatteryProfile {
     @Override
     protected boolean onGetCharging(final Intent request, final Intent response, final String deviceId) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -178,13 +178,13 @@ public class PebbleBatteryProfile extends BatteryProfile {
     protected boolean onPutOnBatteryChange(final Intent request, final Intent response, 
             final String deviceId, final String sessionKey) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
-           return true;
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
+            return true;
         } else if (sessionKey == null) {
-            MessageUtils.setInvalidRequestParameterError(response, ERROR_MESSAGE);
+            createEmptySessionKey(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -219,13 +219,13 @@ public class PebbleBatteryProfile extends BatteryProfile {
     protected boolean onPutOnChargingChange(final Intent request, final Intent response, 
             final String deviceId, final String sessionKey) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else if (sessionKey == null) {
-            MessageUtils.setInvalidRequestParameterError(response, ERROR_MESSAGE);
+            createEmptySessionKey(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -259,13 +259,13 @@ public class PebbleBatteryProfile extends BatteryProfile {
     @Override
     protected boolean onDeleteOnBatteryChange(Intent request, Intent response, String deviceId, String sessionKey) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else if (sessionKey == null) {
-            MessageUtils.setInvalidRequestParameterError(response, ERROR_MESSAGE);
+            createEmptySessionKey(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -295,13 +295,13 @@ public class PebbleBatteryProfile extends BatteryProfile {
     protected boolean onDeleteOnChargingChange(final Intent request, final Intent response, 
             final String deviceId, final String sessionKey) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else if (sessionKey == null) {
-            MessageUtils.setInvalidRequestParameterError(response, ERROR_MESSAGE);
+            createEmptySessionKey(response);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -325,6 +325,47 @@ public class PebbleBatteryProfile extends BatteryProfile {
             }
             return true;
         }
+    }
+
+    /**
+     * デバイスIDをチェックする.
+     * 
+     * @param deviceId デバイスID
+     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
+     */
+    private boolean checkDeviceId(final String deviceId) {
+        String regex = PebbleNetworkServceDiscoveryProfile.DEVICE_ID;
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(deviceId);
+        return m.find();
+    }
+
+    /**
+     * デバイスIDが空の場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createEmptyDeviceId(final Intent response) {
+        MessageUtils.setEmptyDeviceIdError(response);
+    }
+
+    /**
+     * セッションキーが空の場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createEmptySessionKey(final Intent response) {
+        final int errorCode = 10;
+        MessageUtils.setError(response, errorCode, "sessionKey must be specified.");
+    }
+
+    /**
+     * デバイスが発見できなかった場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createNotFoundDevice(final Intent response) {
+        MessageUtils.setNotFoundDeviceError(response);
     }
 
     /**

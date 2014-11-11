@@ -19,9 +19,11 @@ import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.message.DConnectMessage;
 import org.deviceconnect.message.intent.message.IntentDConnectMessage;
 import org.deviceconnect.profile.AuthorizationProfileConstants;
-import org.deviceconnect.profile.DConnectProfileConstants;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 
 /**
  * LocalOAuthを行うためのリクエスト.
@@ -143,7 +145,6 @@ public class LocalOAuthRequest extends DConnectRequest {
         request.putExtra(DConnectMessage.EXTRA_PROFILE, AuthorizationProfileConstants.PROFILE_NAME);
         request.putExtra(DConnectMessage.EXTRA_ATTRIBUTE, AuthorizationProfileConstants.ATTRIBUTE_CREATE_CLIENT);
         request.putExtra(AuthorizationProfileConstants.PARAM_PACKAGE, getContext().getPackageName());
-        request.putExtra(DConnectProfileConstants.PARAM_DEVICE_ID, deviceId);
 
         // デバイスプラグインに送信
         mContext.sendBroadcast(request);
@@ -216,7 +217,7 @@ public class LocalOAuthRequest extends DConnectRequest {
         request.putExtra(AuthorizationProfileConstants.PARAM_CLIENT_ID, clientId);
         request.putExtra(AuthorizationProfileConstants.PARAM_GRANT_TYPE,
                 AuthorizationProfileConstants.GrantType.AUTHORIZATION_CODE.getValue());
-        request.putExtra(AuthorizationProfileConstants.PARAM_APPLICATION_NAME, mDevicePlugin.getDeviceName());
+        request.putExtra(AuthorizationProfileConstants.PARAM_APPLICATION_NAME, getApplicationName());
         request.putExtra(AuthorizationProfileConstants.PARAM_SCOPE, combineStr(getScope()));
 
         // シグネイチャ作成
@@ -367,6 +368,21 @@ public class LocalOAuthRequest extends DConnectRequest {
             return mLocalOAuth.getAccessToken(oauth.getId());
         }
         return null;
+    }
+    /**
+     * AndroidManifest.xmlのアプリを取得する.
+     * 
+     * @return アプリ名
+     */
+    private String getApplicationName() {
+        PackageManager pkgMgr = getContext().getPackageManager();
+        try {
+            PackageInfo packageInfo = pkgMgr.getPackageInfo(getContext().getPackageName(),
+                    PackageManager.GET_ACTIVITIES);
+            return packageInfo.applicationInfo.loadLabel(pkgMgr).toString();
+        } catch (NameNotFoundException e) {
+            return "Unknown";
+        }
     }
 
     /**

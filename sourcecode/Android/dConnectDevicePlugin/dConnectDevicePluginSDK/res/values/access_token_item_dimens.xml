@@ -2,10 +2,8 @@
 <resources>
     
     <!-- アクセストークン詳細画面 -->
-    <dimen name="access_token_item_title_margin">8dp</dimen>
+    <dimen name="access_token_item_title_margin">10dp</dimen>
     <dimen name="access_token_item_width">270dp</dimen>
     <dimen name="access_token_item_height">350dp</dimen>
-    <dimen name="access_token_inner_margin">8dp</dimen>
-    <dimen name="access_token_listitem_margin">8dp</dimen>
     
 </resources>

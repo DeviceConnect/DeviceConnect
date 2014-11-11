@@ -88,7 +88,7 @@ NSString *const DConnectAuthorizationProfileGrantTypeAuthorizationCode = @"autho
         [response setErrorToInvalidRequestParameter];
     } else {
         LocalOAuth2Main *oauth = [LocalOAuth2Main sharedOAuthForClass:[self.object class]];
-		LocalOAuthPackageInfo *packageInfo = [[LocalOAuthPackageInfo alloc] initWithPackageNameDeviceId:package deviceId:deviceId];
+        LocalOAuthPackageInfo *packageInfo = [[LocalOAuthPackageInfo alloc] initWithPackageName:package];
         LocalOAuthClientData *clientData = [oauth createClientWithPackageInfo:packageInfo];
         if (clientData) {
             [response setResult:DConnectMessageResultTypeOk];

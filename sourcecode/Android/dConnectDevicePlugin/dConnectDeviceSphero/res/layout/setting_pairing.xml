@@ -8,13 +8,13 @@
         android:id="@+id/textViewNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_title"
+        android:background="#00a0e9"
         android:gravity="center"
-        android:paddingBottom="@dimen/margin_title"
-        android:paddingTop="@dimen/margin_title"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         android:text="@string/page_2"
-        android:textColor="@color/text_light"
-        android:textSize="@dimen/text_title" />
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,23 +26,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/layout_margin" >
+            android:padding="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/index2"
+                android:textColor="#666666"
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/animView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:contentDescription="@string/description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:text="@string/sphero_setting_message_2_1"
-                android:textColor="@color/text_dark"
-                android:textSize="@dimen/text_description" />
+                android:layout_marginBottom="16dp"
+                android:text="@string/sphero_setting_message_2_2"
+                android:textColor="#666666"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btnSetting"
@@ -51,23 +60,25 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:background="@drawable/button_blue"
                 android:text="@string/sphero_setting_btn_setting"
-                android:textColor="@color/text_light" />
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:text="@string/sphero_setting_message_2_2"
-                android:textColor="@color/text_dark"
-                android:textSize="@dimen/text_description" />
-            
+                android:text="@string/sphero_setting_message_2_3"
+                android:textColor="#666666"
+                android:textSize="16sp" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:contentDescription="@string/description"
-                android:src="@drawable/sphero002" />
-
+                android:src="@drawable/sphero002"
+                android:textColor="#000000"
+                android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>
 

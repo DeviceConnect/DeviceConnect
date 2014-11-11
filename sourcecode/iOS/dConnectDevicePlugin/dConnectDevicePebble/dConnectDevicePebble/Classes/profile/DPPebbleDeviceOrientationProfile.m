@@ -1,104 +1,190 @@
+
 //
 //  DPPebbleDeviceOrientationProfile.m
-//  DConnectSDK
+//  dConnectDevicePebble
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 小林伸郎 on 2014/08/24.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import "DPPebbleDeviceOrientationProfile.h"
 #import "DPPebbleDevicePlugin.h"
-#import "DPPebbleManager.h"
-#import "DPPebbleProfileUtil.h"
+
+/** milli G を m/s^2 の値にする係数. */
+#define G_TO_MS2_COEFFICIENT 9.81/1000.0
 
 @interface DPPebbleDeviceOrientationProfile ()
+/*!
+ @brief Pebble管理クラス。
+ */
+@property (nonatomic) DPPebbleManager *mgr;
+/*!
+ @brief PebbleID保存用変数。
+ */
+@property (nonatomic) NSString *pDeviceId;
 @end
+
 
 @implementation DPPebbleDeviceOrientationProfile
 
-// 初期化
-- (id)init
-{
-	self = [super init];
-	if (self) {
-		self.delegate = self;
-	}
-	return self;
-	
+/*!
+ @brief PebbleID取得用変数。
+ */
+-(NSString*)getDeviceId{
+    return self.pDeviceId;
+}
+
+/*!
+ @brief PebbleID保存用変数。
+ */
+-(void)setDeviceId:(DConnectRequestMessage*)request{
+    self.pDeviceId=request.deviceId;
+}
+
+- (id) initWithDevicePlugin:(DPPebbleDevicePlugin *)plugin {
+    self = [super init];
+    if (self) {
+        self.mgr = plugin.mgr;
+        self.delegate = self;
+        
+        __unsafe_unretained typeof(self) eventCallbackSelf = self;
+        [self.mgr addEventCallback:^(NSDictionary *message) {
+            NSNumber *xx = message[@(KEY_PARAM_DEVICE_ORIENTATION_X)];
+            NSNumber *yy = message[@(KEY_PARAM_DEVICE_ORIENTATION_Y)];
+            NSNumber *zz = message[@(KEY_PARAM_DEVICE_ORIENTATION_Z)];
+            NSNumber *intervalX = message[@(KEY_PARAM_DEVICE_ORIENTATION_INTERVAL)];
+            
+            double x = [xx intValue] *(double)G_TO_MS2_COEFFICIENT;
+            double y = [yy intValue] *(double)G_TO_MS2_COEFFICIENT;
+            double z = [zz intValue] *(double)G_TO_MS2_COEFFICIENT;
+            
+            long long interval = [intervalX longLongValue];
+            
+            DConnectMessage *orientation = [DConnectMessage message];
+            DConnectMessage *accelerationIncludingGravity = [DConnectMessage message];
+            [DConnectDeviceOrientationProfile setX:x target:accelerationIncludingGravity];
+            [DConnectDeviceOrientationProfile setY:y target:accelerationIncludingGravity];
+            [DConnectDeviceOrientationProfile setZ:z target:accelerationIncludingGravity];
+            
+            [DConnectDeviceOrientationProfile setAccelerationIncludingGravity:accelerationIncludingGravity target:orientation];
+            [DConnectDeviceOrientationProfile setInterval:interval target:orientation];
+            
+            // イベントの取得
+            DConnectEventManager *mgr = [DConnectEventManager sharedManagerForClass:[DPPebbleDevicePlugin class]];
+            NSArray *evts = [mgr eventListForDeviceId:[eventCallbackSelf getDeviceId]
+                                              profile:DConnectDeviceOrientationProfileName
+                                            attribute:DConnectDeviceOrientationProfileAttrOnDeviceOrientation];
+            // イベント送信
+            for (DConnectEvent *evt in evts) {
+                DConnectMessage *eventMsg = [DConnectEventManager createEventMessageWithEvent:evt];
+                [DConnectDeviceOrientationProfile setOrientation:orientation target:eventMsg];
+                [plugin sendEvent:eventMsg];
+            }
+        }
+                           profile:@(PROFILE_DEVICE_ORIENTATION)];
+        
+    }
+    return self;
 }
 
 
 #pragma mark - DConnectDeviceOrientationProfileDelegate
 
-// ondeviceorientationイベント登録リクエストを受け取った
 - (BOOL)                        profile:(DConnectDeviceOrientationProfile *)profile
 didReceivePutOnDeviceOrientationRequest:(DConnectRequestMessage *)request
                                response:(DConnectResponseMessage *)response
                                deviceId:(NSString *)deviceId
                              sessionKey:(NSString *)sessionKey
 {
-	__block BOOL responseFlg = YES;
-	// イベント登録
-	[DPPebbleProfileUtil handleRequest:request response:response isRemove:NO callback:^{
-		
-		// Pebbleに登録
-		[[DPPebbleManager sharedManager] registDeviceOrientationEvent:deviceId callback:^(NSError *error) {
-			// 登録成功
-			// エラーチェック
-			[DPPebbleProfileUtil handleErrorNormal:error response:response];
-			
-		} eventCallback:^(float x, float y, float z, long long t) {
-			// イベントコールバック
-			// DConnectメッセージ作成
-			DConnectMessage *message = [DConnectMessage message];
-			DConnectMessage *accelerationIncludingGravity = [DConnectMessage message];
-			[DConnectDeviceOrientationProfile setX:x target:accelerationIncludingGravity];
-			[DConnectDeviceOrientationProfile setY:y target:accelerationIncludingGravity];
-			[DConnectDeviceOrientationProfile setZ:z target:accelerationIncludingGravity];
-			
-			[DConnectDeviceOrientationProfile setAccelerationIncludingGravity:accelerationIncludingGravity target:message];
-			[DConnectDeviceOrientationProfile setInterval:t target:message];
-			
-			// DConnectにイベント送信
-			[DPPebbleProfileUtil sendMessageWithProvider:self.provider
-												 profile:DConnectDeviceOrientationProfileName
-											   attribute:DConnectDeviceOrientationProfileAttrOnDeviceOrientation
-												deviceID:deviceId
-										 messageCallback:^(DConnectMessage *eventMsg)
-			 {
-				 // イベントにメッセージ追加
-				 [DConnectDeviceOrientationProfile setOrientation:message target:eventMsg];
-			 } deleteCallback:^
-			 {
-				 // Pebbleのイベント削除
-				 [[DPPebbleManager sharedManager] deleteDeviceOrientationEvent:deviceId callback:^(NSError *error) {
-					 if (error) NSLog(@"Error:%@", error);
-				 }];
-			 }];
-		}];
-		
-		responseFlg = NO;
-	}];
-	
-	return responseFlg;
+    NSString* mDeviceId=[self.mgr getConnectWatcheName];
+    if (deviceId == nil) {
+        [response setErrorToEmptyDeviceId];
+        return YES;
+    }else if(![deviceId isEqualToString:mDeviceId]) {
+        [response setErrorToNotFoundDevice];
+        return YES;
+        
+    } else if(sessionKey == nil) {
+        [response setErrorToInvalidRequestParameterWithMessage:@"sessionKey must be specified."];
+        return YES;
+    } else {
+        [self setDeviceId:request];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        dic[@(KEY_PROFILE)] = [NSNumber numberWithUint32:PROFILE_DEVICE_ORIENTATION];
+        dic[@(KEY_ATTRIBUTE)] = [NSNumber numberWithUint32:DEVICE_ORIENTATION_ATTRIBUTE_ON_DEVICE_ORIENTATION];
+        dic[@(KEY_ACTION)] = [NSNumber numberWithUint32:ACTION_PUT];
+        
+        [self.mgr sendCommandToPebble:dic callback:^(NSDictionary *dic) {}];
+        Class class = [DPPebbleDevicePlugin class];
+        DConnectEventManager *mgr = [DConnectEventManager sharedManagerForClass:class];
+        DConnectEventError error = [mgr addEventForRequest:request];
+        
+        switch (error) {
+            case DConnectEventErrorNone:
+                [response setResult:DConnectMessageResultTypeOk];
+                break;
+            case DConnectEventErrorInvalidParameter:
+                [response setErrorToInvalidRequestParameter];
+                break;
+            case DConnectEventErrorNotFound:
+            case DConnectEventErrorFailed:
+            default:
+                [response setErrorToUnknown];
+                break;
+        }
+        return YES;
+    }
 }
 
-// ondeviceorientationイベント解除リクエストを受け取った
 - (BOOL)                           profile:(DConnectDeviceOrientationProfile *)profile
 didReceiveDeleteOnDeviceOrientationRequest:(DConnectRequestMessage *)request
                                   response:(DConnectResponseMessage *)response
                                   deviceId:(NSString *)deviceId
                                 sessionKey:(NSString *)sessionKey
 {
-	// DConnectイベント削除
-	[DPPebbleProfileUtil handleRequest:request response:response isRemove:YES callback:^{
-		// Pebbleのイベント削除
-		[[DPPebbleManager sharedManager] deleteDeviceOrientationEvent:deviceId callback:^(NSError *error) {
-			if (error) NSLog(@"Error:%@", error);
-		}];
-	}];
-	return YES;
+    NSString* mDeviceId=[self.mgr getConnectWatcheName];
+    if (deviceId == nil) {
+        [response setErrorToEmptyDeviceId];
+        return YES;
+    }else if(![deviceId isEqualToString:mDeviceId]) {
+        [response setErrorToNotFoundDevice];
+        return YES;
+        
+    } else if(sessionKey == nil) {
+        [response setErrorToInvalidRequestParameterWithMessage:@"sessionKey must be specified."];
+        return YES;
+    } else {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        dic[@(KEY_PROFILE)] = [NSNumber numberWithUint32:PROFILE_DEVICE_ORIENTATION];
+        dic[@(KEY_ATTRIBUTE)] = [NSNumber numberWithUint32:DEVICE_ORIENTATION_ATTRIBUTE_ON_DEVICE_ORIENTATION];
+        dic[@(KEY_ACTION)] =[NSNumber numberWithUint32:ACTION_DELETE];
+        [self.mgr sendCommandToPebble:dic callback:^(NSDictionary *dic) {
+            if (dic) {
+                DConnectEventManager *mgr = [DConnectEventManager sharedManagerForClass:[DPPebbleDevicePlugin class]];
+                DConnectEventError error = [mgr removeEventForRequest:request];
+                switch (error) {
+                    case DConnectEventErrorNone:
+                        [response setResult:DConnectMessageResultTypeOk];
+                        break;
+                    case DConnectEventErrorInvalidParameter:
+                        [response setErrorToInvalidRequestParameter];
+                        break;
+                    case DConnectEventErrorNotFound:
+                    case DConnectEventErrorFailed:
+                    default:
+                        [response setErrorToUnknown];
+                        break;
+                }
+            } else {
+                [response setErrorToUnknown];
+            }
+            // レスポンスを返却
+            [[DConnectManager sharedManager] sendResponse:response];
+        }];
+        // 非同期で返却するのでNO
+        return NO;
+    }
+    
 }
 
 @end

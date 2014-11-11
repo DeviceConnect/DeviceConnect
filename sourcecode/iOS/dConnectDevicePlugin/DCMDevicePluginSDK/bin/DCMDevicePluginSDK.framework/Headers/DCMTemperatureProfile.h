@@ -1,10 +1,9 @@
 //
-//  DCMTemperatureProfileName.h
-//  DConnectSDK
+//  DConnectMagnetometerProfile.h
+//  dConnectDeviceTemperaturePlus
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 星　貴之 on 2014/07/15.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 /*! @file
  @brief Temperatureプロファイルを実装するための機能を提供する。
@@ -57,7 +56,6 @@ enum {
  [対応するRESTful]
  PUT http://{dConnectドメイン}/temperature?deviceId=xxxxx
  </pre>
- @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID

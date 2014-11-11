@@ -6,18 +6,14 @@
  */
 package org.deviceconnect.android.localoauth.activity;
 
-import org.deviceconnect.android.R;
+import org.deviceconnect.android.localoauth.fragment.ConfirmAuthFragmentListener;
 import org.deviceconnect.android.localoauth.fragment.ConfirmAuthFramgment;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.Window;
+import android.support.v4.app.FragmentActivity;
 
 /**
- * 認証確認画面.
- * <p>
+ * 認証確認画面.<br>
  * ・Intentに下記のパラメータを指定して起動すること。<br>
  * - EXTRA_THREADID : ServiceのスレッドIDを設定する。<br>
  * - EXTRA_APPLICATIONNAME : アプリケーション名を設定する。<br>
@@ -29,10 +25,9 @@ import android.view.Window;
  * - EXTRA_DEVICEID : デバイスID(デバイスプラグインの場合のみ設定する)<br>
  * - EXTRA_IS_FOR_DEVICEPLUGIN : デバイスプラグインの認証確認画面の場合はtrueを、アプリの場合はfalseを設定する。<br>
  * - EXTRA_SERVICE_PACKAGE_NAME : Messageを受信するServiceのパッケージ名.<br>
- * </p>
  * @author NTT DOCOMO, INC.
  */
-public class ConfirmAuthActivity extends Activity {
+public class ConfirmAuthActivity extends FragmentActivity implements ConfirmAuthFragmentListener {
 
     /** EXTRA: 呼び出し元のスレッドID. */
     public static final String EXTRA_THREADID = "thread_id";
@@ -52,29 +47,34 @@ public class ConfirmAuthActivity extends Activity {
     /** EXTRA: デバイスID(デバイスプラグインの場合のみ設定する). */
     public static final String EXTRA_DEVICEID = "deviceId";
 
-    /** 承認を表す定数. */
-    public static final int APPROVAL = 1;
-
-    /** 不承認を表す定数. */
-    public static final int DISAPPROVAL = 0;
+    /** EXTRA: 承認・拒否されたかを返すメッセージID. */
+    public static final String EXTRA_APPROVAL_MESSAGEID = "approvalMessageId";
+    
+    /** EXTRA: threadIdが有効かを返すメッセージID. */
+    public static final String EXTRA_CHECK_THREADID_MESSAGEID = "checkThreadIdMessageId";
+    
+    
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_confirm_auth);
+        ConfirmAuthFramgment fragment = new ConfirmAuthFramgment();
+        fragment.setDialogListener(this);
+        fragment.show(getSupportFragmentManager(), "dialog");
     }
 
+    /**
+     * OKボタンをおした時.
+     */
+    public void doPositiveClick() {
+        finish();
+    }
+
+    /**
+     * NGボタンをおした時.
+     */
     @Override
-    public boolean onKeyDown(final int keyCode, final KeyEvent event) {
-        if (keyCode != KeyEvent.KEYCODE_BACK) {
-            return super.onKeyDown(keyCode, event);
-        } else {
-            FragmentManager mgr = getFragmentManager();
-            ConfirmAuthFramgment fragment = (ConfirmAuthFramgment) mgr
-                    .findFragmentById(R.id.container);
-            fragment.notApprovalProc();
-            return false;
-        }
+    public void doNegativeClick() {
+        finish();
     }
 }

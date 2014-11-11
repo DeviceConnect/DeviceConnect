@@ -9,14 +9,8 @@ package org.deviceconnect.android.deviceplugin.wear.profile;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-
-import org.deviceconnect.android.deviceplugin.wear.BuildConfig;
-import org.deviceconnect.android.event.Event;
-import org.deviceconnect.android.event.EventError;
-import org.deviceconnect.android.event.EventManager;
-import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.DeviceOrientationProfile;
-import org.deviceconnect.message.DConnectMessage;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -33,6 +27,13 @@ import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 
+import org.deviceconnect.android.event.Event;
+import org.deviceconnect.android.event.EventError;
+import org.deviceconnect.android.event.EventManager;
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.DeviceOrientationProfile;
+import org.deviceconnect.message.DConnectMessage;
+
 /**
  * DeviceOrientationプロファイル.
  * 
@@ -47,6 +48,9 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
     /** Tag. */
     private static final String TAG = "WEAR";
 
+    /** Tag. */
+    private static final String TAG_DATA = "DATA";
+
     /** StaticなDevice名. */
     private static String mDeviceId;
 
@@ -59,16 +63,51 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
     /** EVENT_UNREGISTER . */
     private static final int EVENT_UNREGISTER = 2;
 
+    /** Inerval Time. */
+    private static final int INTERVAL_TIME = 200;
+
     /** 内部管理用iD. */
     private static String mId = "";
+
+    /**
+     * デバイスIDをチェックする.
+     * 
+     * @param deviceId デバイスID
+     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
+     */
+    private boolean checkDeviceId(final String deviceId) {
+        String regex = WearNetworkServiceDiscoveryProfile.DEVICE_ID;
+        Pattern mPattern = Pattern.compile(regex);
+        Matcher match = mPattern.matcher(deviceId);
+
+        return match.find();
+    }
+
+    /**
+     * デバイスIDが空の場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createEmptyDeviceId(final Intent response) {
+        setResult(response, DConnectMessage.RESULT_ERROR);
+    }
+
+    /**
+     * デバイスが発見できなかった場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createNotFoundDevice(final Intent response) {
+        setResult(response, DConnectMessage.RESULT_ERROR);
+    }
 
     @Override
     protected boolean onPutOnDeviceOrientation(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
-        } else if (!WearUtils.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+            createEmptyDeviceId(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
         } else if (sessionKey == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
@@ -104,9 +143,9 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
     protected boolean onDeleteOnDeviceOrientation(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
-        } else if (!WearUtils.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+            createEmptyDeviceId(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
         } else if (sessionKey == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
@@ -147,9 +186,7 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
     @Override
     public void onConnected(final Bundle connectionHint) {
 
-        if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onConnected");
-        }
+        Log.i(TAG, "onConnected");
 
         if (statusEvent == EVENT_REGISTER) {
 
@@ -164,9 +201,7 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
             }.execute();
 
         } else if (statusEvent == EVENT_UNREGISTER) {
-            if (BuildConfig.DEBUG) {
-                Log.i(TAG, "onConnected:EVENT_UNREGISTER");
-            }
+            Log.i(TAG, "onConnected:EVENT_UNREGISTER");
 
             new AsyncTask<Void, Void, Void>() {
                 @Override
@@ -183,16 +218,14 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
 
     @Override
     public void onConnectionSuspended(final int cause) {
-        if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onConnectionSuspended");
-        }
+        // TODO Auto-generated method stub
+        Log.i(TAG, "onConnectionSuspended");
     }
 
     @Override
     public void onConnectionFailed(final ConnectionResult result) {
-        if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onConnectionFailed");
-        }
+        // TODO Auto-generated method stub
+        Log.i(TAG, "onConnectionFailed");
     }
 
     /**
@@ -206,9 +239,7 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
         NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
 
         for (Node node : nodes.getNodes()) {
-            if (BuildConfig.DEBUG) {
-                Log.d(TAG, "node.getId():" + node.getId());
-            }
+            Log.d(TAG, "node.getId():" + node.getId());
             results.add(node.getId());
         }
 
@@ -275,9 +306,7 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
      * @param data 受信した文字列
      */
     private void sendMessageToEvent(final String data) {
-        if (BuildConfig.DEBUG) {
-            Log.i(TAG, "@@@@@@SUCCESS");
-        }
+        Log.i(TAG, "@@@@@@SUCCESS");
         String[] mDataArray = data.split(",", 0);
 
         Bundle orientation = new Bundle();
@@ -297,7 +326,7 @@ public class WearDeviceOrientationProfile extends DeviceOrientationProfile imple
         orientation.putBundle(DeviceOrientationProfile.PARAM_ACCELERATION_INCLUDING_GRAVITY, a2);
         orientation.putBundle(DeviceOrientationProfile.PARAM_ROTATION_RATE, r);
         orientation.putLong(DeviceOrientationProfile.PARAM_INTERVAL, 0);
-        setInterval(orientation, Integer.parseInt(mDataArray[6]));
+        setInterval(orientation, INTERVAL_TIME);
 
         List<Event> events = EventManager.INSTANCE.getEventList(mDeviceId, DeviceOrientationProfile.PROFILE_NAME, null,
                 DeviceOrientationProfile.ATTRIBUTE_ON_DEVICE_ORIENTATION);

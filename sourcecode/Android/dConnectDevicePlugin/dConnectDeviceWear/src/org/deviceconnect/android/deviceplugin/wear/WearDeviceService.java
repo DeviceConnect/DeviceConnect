@@ -14,15 +14,20 @@ import org.deviceconnect.android.deviceplugin.wear.profile.WearNetworkServiceDis
 import org.deviceconnect.android.deviceplugin.wear.profile.WearNotificationProfile;
 import org.deviceconnect.android.deviceplugin.wear.profile.WearSystemProfile;
 import org.deviceconnect.android.deviceplugin.wear.profile.WearVibrationProfile;
+
+import android.content.Intent;
+import android.util.Log;
+
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.wearable.Wearable;
 import org.deviceconnect.android.event.Event;
+
 import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.event.cache.db.DBCacheController;
 import org.deviceconnect.android.localoauth.LocalOAuth2Main;
 import org.deviceconnect.android.message.DConnectMessageService;
 import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
 import org.deviceconnect.android.profile.SystemProfile;
-
-import android.content.Intent;
 
 /**
  * Service.
@@ -31,6 +36,9 @@ import android.content.Intent;
  * @author NTT DOCOMO, INC.
  */
 public class WearDeviceService extends DConnectMessageService {
+
+    /** Tag. */
+    private static final String TAG = "WEAR";
 
     @Override
     public void onCreate() {
@@ -50,7 +58,6 @@ public class WearDeviceService extends DConnectMessageService {
     @Override
     public int onStartCommand(final Intent intent, final int flags, final int startId) {
         if (intent != null) {
-            
             String action = intent.getAction();
             if (action.equals(WearConst.DEVICE_TO_WEAR_NOTIFICATION_OPEN)) {
                 String deviceId = intent.getStringExtra(WearConst.PARAM_DEVICEID);

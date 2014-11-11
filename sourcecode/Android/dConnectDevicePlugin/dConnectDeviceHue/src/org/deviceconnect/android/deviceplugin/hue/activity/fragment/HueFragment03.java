@@ -7,7 +7,6 @@ http://opensource.org/licenses/mit-license.php
 
 package org.deviceconnect.android.deviceplugin.hue.activity.fragment;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +23,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.philips.lighting.hue.listener.PHLightListener;
+import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHHueSDK;
 import com.philips.lighting.model.PHBridge;
 import com.philips.lighting.model.PHBridgeResource;
@@ -44,14 +44,30 @@ public class HueFragment03 extends Fragment implements OnClickListener {
     /** ProgressView. */
     private View mProgressView;
 
+    /** Activity. */
+    private static Activity mActivity;
+
+    /** LightHeader. */
+    private List<PHBridgeResource> mLightHeaders;
+
+    public static HueFragment03 newInstance() {
+        return new HueFragment03();
+    }
+
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+
         View mRootView = inflater.inflate(R.layout.hue_fragment_03, container, false);
+
         if (mRootView != null) {
             mButtonRegister = (Button) mRootView.findViewById(R.id.btnSearchLight);
             mButtonRegister.setOnClickListener(this);
+
             mProgressView = mRootView.findViewById(R.id.progress_light_search);
         }
+
+        mActivity = this.getActivity();
+
         return mRootView;
     }
 
@@ -68,17 +84,14 @@ public class HueFragment03 extends Fragment implements OnClickListener {
             return;
         } else {
             mProgressView.setVisibility(View.VISIBLE);
-            bridge.findNewLights(new PHLightListenerImpl());
+            bridge.findNewLights(mListener);
         }
     }
 
     /**
-     * ライト検索リスナー.
+     * Lightリスナー.
      */
-    private class PHLightListenerImpl implements PHLightListener {
-
-        /** LightHeader. */
-        private final List<PHBridgeResource> mLightHeaders = new LinkedList<PHBridgeResource>();
+    PHLightListener mListener = new PHLightListener() {
 
         @Override
         public void onError(final int code, final String message) {
@@ -90,31 +103,31 @@ public class HueFragment03 extends Fragment implements OnClickListener {
 
         @Override
         public void onReceivingLights(final List<PHBridgeResource> lightHeaders) {
-            for (PHBridgeResource header : lightHeaders) {
-                boolean duplicated = false;
-                for (PHBridgeResource cache : mLightHeaders) {
-                    if (cache.getIdentifier().equals(header.getIdentifier())) {
-                        duplicated = true;
-                        break;
-                    }
-                }
-                if (!duplicated) {
-                    mLightHeaders.add(header);
-                }
-            }
+            mLightHeaders = lightHeaders;
         }
 
         @Override
         public void onSearchComplete() {
-            final Activity activity = getActivity();
-            activity.runOnUiThread(new Runnable() {
+            
+            mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    
                     mProgressView.setVisibility(View.GONE);
                     mProgressView.invalidate();
-                    String message = getString(R.string.frag03_light_result1);
-                    message += mLightHeaders.size() + getString(R.string.frag03_light_result2);
-                    Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+                    
+                    int lightSize = -1;
+                    try {
+                        lightSize = mLightHeaders.size();
+                    } catch(Exception e){
+                        lightSize = 0;
+                    }
+                    
+                    try {
+                        String message = getString(R.string.frag03_light_result1);
+                        message += lightSize + getString(R.string.frag03_light_result2);
+                        Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
+                    } catch (Exception e){}
                 }
             });
         }
@@ -124,9 +137,9 @@ public class HueFragment03 extends Fragment implements OnClickListener {
         }
 
         @Override
-        public void onReceivingLightDetails(PHLight light) {
+        public void onReceivingLightDetails(PHLight arg0) {
         }
-    }
+    };
 
     @Override
     public void onDestroy() {

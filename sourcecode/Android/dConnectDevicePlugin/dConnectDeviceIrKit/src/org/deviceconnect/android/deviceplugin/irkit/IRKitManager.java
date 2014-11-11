@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
@@ -128,9 +126,6 @@ public enum IRKitManager {
     private static final String[] NOT_JP_COUNTRIES = {"CA", "MX", "US", "AU", "HK", "IN", "MY", "NZ", "PH", "TW",
             "RU", "AR", "BR", "CL", "CO", "CR", "DO", "DM", "EC", "PA", "PY", "PE", "PR", "VE" };
 
-    /** スリープ時間を定義. */
-    private static final long SLEEP_TIME = 1000;
-
     /**
      * 検知リスナー.
      */
@@ -180,11 +175,6 @@ public enum IRKitManager {
      * 消失検出ハンドラ.
      */
     private ServiceRemovingDiscoveryHandler mRemoveHandler;
-    
-    /**
-     * 実行用スレッド管理クラス.
-     */
-    private ExecutorService mExecutor = Executors.newSingleThreadExecutor();
 
     /**
      * WiFiのセキュリティタイプ.
@@ -628,7 +618,7 @@ public enum IRKitManager {
      * @param callback 処理結果を受けるコールバック
      */
     public void fetchMessage(final String ip, final GetMessageCallback callback) {
-        mExecutor.execute(new Runnable() {
+        new Thread(new Runnable() {
 
             @Override
             public void run() {
@@ -636,16 +626,8 @@ public enum IRKitManager {
                 HttpClient client = createClient();
                 String message = executeRequest(req, client);
                 callback.onGetMessage(message);
-
-                // 連続でIRKitに通信を行わないようにするためのスリープ
-                // IRKitに連続で通信を行うと正常に動作しないことがあるため
-                try {
-                    Thread.sleep(SLEEP_TIME);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
-        });
+        }).start();
     }
 
     /**
@@ -656,7 +638,7 @@ public enum IRKitManager {
      * @param callback 処理結果の通知を受けるコールバック
      */
     public void sendMessage(final String ip, final String message, final PostMessageCallback callback) {
-        mExecutor.execute(new Runnable() {
+        new Thread(new Runnable() {
 
             @Override
             public void run() {
@@ -673,14 +655,6 @@ public enum IRKitManager {
                     if (res.getStatusLine().getStatusCode() == STATUS_CODE_OK) {
                         result = true;
                     }
-                    
-                    // 連続でIRKitに通信を行わないようにするためのスリープ
-                    // IRKitに連続で通信を行うと正常に動作しないことがあるため
-                    try {
-                        Thread.sleep(SLEEP_TIME);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 } catch (ClientProtocolException e) {
                     if (BuildConfig.DEBUG) {
                         e.printStackTrace();
@@ -693,8 +667,9 @@ public enum IRKitManager {
                     client.getConnectionManager().shutdown();
                     callback.onPostMessage(result);
                 }
+
             }
-        });
+        }).start();
     }
 
     /**
@@ -744,13 +719,6 @@ public enum IRKitManager {
                 } while (false);
 
                 callback.onGetClientKey(clientKey);
-
-                // 連続でIRKitに通信を行わないようにするためのスリープ
-                try {
-                    Thread.sleep(SLEEP_TIME);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }).start();
     }
@@ -1119,6 +1087,7 @@ public enum IRKitManager {
             device.setIp(ip);
 
             synchronized (INSTANCE) {
+                Log.d("", "added lock");
                 addService(device);
                 
                 if (BuildConfig.DEBUG) {
@@ -1218,9 +1187,7 @@ public enum IRKitManager {
                     }
                 }
                 
-                if (BuildConfig.DEBUG) {
-                    Log.d("IRKit", "start remove checking. " + mDelay);
-                }
+                Log.d("IRKit", "start remove checking. " + mDelay);
                 
                 try {
                     if (isInterrupted()) {

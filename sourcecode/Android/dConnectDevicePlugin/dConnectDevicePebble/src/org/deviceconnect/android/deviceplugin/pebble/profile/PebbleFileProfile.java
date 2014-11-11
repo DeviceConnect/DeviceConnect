@@ -9,15 +9,16 @@ package org.deviceconnect.android.deviceplugin.pebble.profile;
 import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnSendDataListener;
+
+import android.content.Intent;
+
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.FileProfile;
 import org.deviceconnect.android.provider.FileManager;
 import org.deviceconnect.message.DConnectMessage;
 
-import android.content.Intent;
-
 /**
- * Pebble 用 Fileプロファイル.
+ * Pebble 用の pbi イメージを作成して、バイナリー送信をするサンプルプログラム.
  * @author NTT DOCOMO, INC.
  */
 public class PebbleFileProfile extends FileProfile {
@@ -41,16 +42,6 @@ public class PebbleFileProfile extends FileProfile {
 
         if (data == null) {
             MessageUtils.setInvalidRequestParameterError(response, "data is not specied to update a file.");
-            return true;
-        }
-
-        if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
-            return true;
-        }
-
-        if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
             return true;
         }
 

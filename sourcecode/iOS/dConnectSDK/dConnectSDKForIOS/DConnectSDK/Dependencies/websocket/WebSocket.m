@@ -34,10 +34,10 @@
 #define WS_OP_PING                 9
 #define WS_OP_PONG                 10
 
-//static inline BOOL WS_OP_IS_FINAL_FRAGMENT(UInt8 frame)
-//{
-//	return (frame & 0x80) ? YES : NO;
-//}
+static inline BOOL WS_OP_IS_FINAL_FRAGMENT(UInt8 frame)
+{
+	return (frame & 0x80) ? YES : NO;
+}
 
 static inline BOOL WS_PAYLOAD_IS_MASKED(UInt8 frame)
 {
@@ -636,7 +636,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 		NSUInteger length = WS_PAYLOAD_LENGTH(frame);
 		nextFrameMasked = masked;
 		maskingKey = nil;
-        if (length <= 125)
+		if (length <= 125)
 		{
 			if (nextFrameMasked)
 			{
@@ -697,10 +697,6 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	else if (tag == TAG_MSG_MASKING_KEY)
 	{
 		maskingKey = data.copy;
-        
-        if (nextOpCode == WS_OP_CONNECTION_CLOSE) {
-            [self didClose];
-        }
 	}
 	else
 	{

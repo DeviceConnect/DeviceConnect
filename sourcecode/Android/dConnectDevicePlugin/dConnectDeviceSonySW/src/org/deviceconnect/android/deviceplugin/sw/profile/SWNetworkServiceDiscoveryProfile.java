@@ -10,18 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.deviceconnect.android.deviceplugin.sw.SWConstants;
-import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
-import org.deviceconnect.message.DConnectMessage;
+import org.deviceconnect.android.deviceplugin.util.DcLoggerSW;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 
-import com.sonyericsson.extras.liveware.aef.registration.Registration.Device;
-import com.sonyericsson.extras.liveware.aef.registration.Registration.DeviceColumns;
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
+import org.deviceconnect.message.DConnectMessage;
 import com.sonyericsson.extras.liveware.extension.util.registration.RegistrationAdapter;
 
 /**
@@ -30,55 +28,69 @@ import com.sonyericsson.extras.liveware.extension.util.registration.Registration
  */
 public class SWNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryProfile {
 
+    /** ロガー. */
+    private DcLoggerSW mLogger = new DcLoggerSW();
+
     @Override
     protected boolean onGetGetNetworkServices(final Intent request, final Intent response) {
-        List<Bundle> services = new ArrayList<Bundle>();
+
+        mLogger.entering(this, "onGetGetNetworkServices");
+
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (adapter != null) {
-            Set<BluetoothDevice> bondedDevices = adapter.getBondedDevices();
-            if (bondedDevices != null) {
-                for (BluetoothDevice device : bondedDevices) {
-                    String deviceName = device.getName();
-                    if (deviceName == null) {
-                        continue;
-                    }
-                    if (deviceName.startsWith(SWConstants.DEVICE_NAME_PREFIX)) {
-                        long hostAppId = RegistrationAdapter.
-                                getHostApplication(getContext(), SWUtil.toHostAppPackageName(deviceName)).getId(); 
-                        if (isConnected(hostAppId)) {
-                            Bundle bundle = SWUtil.toBundle(device);
-                            services.add(bundle);
-                        }
-                    }
-                }
-            }
+        if (adapter == null) {
+            return true;
         }
-        setResult(response, DConnectMessage.RESULT_OK);
-        setServices(response, services);
+        List<Bundle> services = new ArrayList<Bundle>();
+        Set<BluetoothDevice> bondedDevices = adapter.getBondedDevices();
+        if (bondedDevices.size() > 0) {
+
+            try {
+                bondedDevicesList(bondedDevices, services);
+                
+                setResult(response, DConnectMessage.RESULT_OK);
+                setServices(response, services);
+                
+            } catch (Exception e) {
+                MessageUtils.setNotFoundDeviceError(response, "No device is found: " + e);
+                return true;
+            }
+
+        } else {
+            MessageUtils.setNotFoundDeviceError(response, "No device is found");
+        }
+
+        mLogger.exiting(this, "onGetGetNetworkServices");
         return true;
     }
 
     /**
-     * SonyWatchがオンラインかどうかの判定をする.
      * 
-     * @param hostAppId ホストアプリケーションID
-     * @return オンラインであればtrue、そうでない場合はfalse
+     * @param bondedDevices ペアリング中デバイス一覧
+     * @param services デバイス一覧送信用バンドル
      */
-    private boolean isConnected(final long hostAppId) {
-        Cursor cursor = null;
-        try {
-            String selection = DeviceColumns.HOST_APPLICATION_ID + " = " + hostAppId + " AND "
-                    + DeviceColumns.ACCESSORY_CONNECTED + " = 1";
-            cursor = getContext().getContentResolver().query(Device.URI, null, selection, null, null);
-            if (cursor != null) {
-                return (cursor.getCount() > 0);
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
+    private void bondedDevicesList(final Set<BluetoothDevice> bondedDevices, final List<Bundle> services) {
+
+        mLogger.entering(this, "bondedDevicesList");
+
+        for (BluetoothDevice device : bondedDevices) {
+            String deviceName = device.getName();
+            mLogger.info(this, "bondedDevicesList deviceName", deviceName);
+            if (deviceName.startsWith("SmartWatch")) {
+                Bundle bundle = SWUtil.toBundle(device);
+                mLogger.fine(this, "bondedDevicesList", bundle);
+                long hostAppId = RegistrationAdapter.
+                        getHostApplication(getContext(), SWUtil.toHostAppPackageName(deviceName)).getId(); 
+                boolean connected = SWUtil.checkDeviceConnecting(getContext(), hostAppId);
+                if (connected) {
+                    mLogger.fine(this, "○ bondedDevicesList deviceConnected:", connected);
+                    services.add(bundle);
+                } else {
+                    mLogger.fine(this, "× bondedDevicesList deviceDisConnected:", connected);
+                }
             }
         }
-        return false;
+
+        mLogger.exiting(this, "bondedDevicesList");
     }
 
 }

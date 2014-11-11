@@ -1,16 +1,13 @@
 //
 //  DPGuideViewController.h
-//  DConnectSDK
+//  dConnectDeviceSphero
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Takashi Tsuchiya on 2014/09/12.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-/*!
- @brief 設定画面のViewController。
- */
+
 @interface DPGuideViewController : UIViewController
 
 @end

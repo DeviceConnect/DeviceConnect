@@ -1,11 +1,13 @@
-//
-//  Multipart.m
-//  DConnectSDK
-//
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
-//
+/**
+ * Multipart.m
+ * DConnectSDK
+ *
+ * Created by 福井 重和 on 2014/05/08.
+ * Copyright (c) 2014 NTT DOCOMO, INC. All Rights Reserved.
+ *
+ * @see <a href="http://d.hatena.ne.jp/eth0jp/20110415/1302808197">
+ * http://d.hatena.ne.jp/eth0jp/20110415/1302808197</a>
+ */
 
 #import "Multipart.h"
 #import "Hash.h"

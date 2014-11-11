@@ -6,16 +6,19 @@
  */
 package org.deviceconnect.android.deviceplugin.pebble.profile;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnSendCommandListener;
-import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.VibrationProfile;
-import org.deviceconnect.message.DConnectMessage;
 
 import android.content.Intent;
 
 import com.getpebble.android.kit.util.PebbleDictionary;
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.VibrationProfile;
+import org.deviceconnect.message.DConnectMessage;
 
 /**
  * Pebble用バイブレーションプロファイル.
@@ -26,10 +29,10 @@ public class PebbleVibrationProfile extends VibrationProfile {
     protected boolean onPutVibrate(final Intent request, final Intent response, final String deviceId,
             final long[] pattern) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else {
             // リクエスト作成
@@ -64,10 +67,10 @@ public class PebbleVibrationProfile extends VibrationProfile {
     @Override
     protected boolean onDeleteVibrate(final Intent request, final Intent response, final String deviceId) {
         if (deviceId == null) {
-            MessageUtils.setEmptyDeviceIdError(response);
+            createEmptyDeviceId(response);
             return true;
-        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
-            MessageUtils.setNotFoundDeviceError(response);
+        } else if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
             return true;
         } else {
             PebbleDictionary dic = new PebbleDictionary();
@@ -89,5 +92,36 @@ public class PebbleVibrationProfile extends VibrationProfile {
             });
             return false;
         }
+    }
+
+    /**
+     * デバイスIDをチェックする.
+     * 
+     * @param deviceId デバイスID
+     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
+     */
+    private boolean checkDeviceId(final String deviceId) {
+        String regex = PebbleNetworkServceDiscoveryProfile.DEVICE_ID;
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(deviceId);
+        return m.find();
+    }
+
+    /**
+     * デバイスIDが空の場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createEmptyDeviceId(final Intent response) {
+        MessageUtils.setEmptyDeviceIdError(response);
+    }
+
+    /**
+     * デバイスが発見できなかった場合のエラーを作成する.
+     * 
+     * @param response レスポンスを格納するIntent
+     */
+    private void createNotFoundDevice(final Intent response) {
+        MessageUtils.setNotFoundDeviceError(response);
     }
 }

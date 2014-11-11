@@ -1,15 +1,15 @@
 //
 //  SonyCameraDataViewController.m
-//  DConnectSDK
+//  pageview
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 小林伸郎 on 2014/08/07.
+//  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
 
 #import "SonyCameraDataViewController.h"
 
 @interface SonyCameraDataViewController ()
+- (void) calcBarHeight;
 @end
 
 @implementation SonyCameraDataViewController

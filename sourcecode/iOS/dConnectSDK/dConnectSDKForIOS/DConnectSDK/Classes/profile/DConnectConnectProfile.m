@@ -74,7 +74,7 @@ NSString *const DConnectConnectProfileInterfaceBluetooth = @"bluetooth";
                              response:response deviceId:deviceId];
         }
     } else if ([DConnectConnectProfileAttrBLE isEqualToString:attribute]) {
-        if ([self hasMethod:@selector(profile:didReceiveGetBLERequest:response:deviceId:) response:response])
+        if ([self hasMethod:@selector(profile:didReceivePutBLERequest:response:deviceId:) response:response])
         {
             send = [_delegate profile:self didReceiveGetBLERequest:request
                              response:response deviceId:deviceId];
@@ -132,7 +132,7 @@ NSString *const DConnectConnectProfileInterfaceBluetooth = @"bluetooth";
                                      response:response deviceId:deviceId];
                 }
             } else if ([attribute isEqualToString:DConnectConnectProfileAttrOnWifiChange]) {
-                if ([self hasMethod:@selector(profile:didReceivePutOnWifiChangeRequest:response:deviceId:sessionKey:)
+                if ([self hasMethod:@selector(profile:didReceivePutWiFiRequest:response:deviceId:)
                            response:response])
                 {
                     send = [_delegate profile:self didReceivePutOnWifiChangeRequest:request

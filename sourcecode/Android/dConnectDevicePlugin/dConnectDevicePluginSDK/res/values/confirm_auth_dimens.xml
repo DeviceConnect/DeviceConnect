@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <!-- アクセストークン発行承認確認画面 -->
+    <!-- アクセストークン発行承認確認が面 -->
     <dimen name="confirm_auth_outline_margin_lr">10dp</dimen>
     <dimen name="confirm_auth_outline_margin_tb">50dp</dimen>
     

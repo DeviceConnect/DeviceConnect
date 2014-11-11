@@ -237,7 +237,7 @@ public class HostFileProfile extends FileProfile {
             } else {
                 String mMineType = getMIMEType(getFileManager().getBasePath() + "/" + path);
 
-//                Log.i(TAG, "mMineType:" + mMineType);
+                Log.i(TAG, "mMineType:" + mMineType);
 
                 // MimeTypeが不明の場合はエラーを返す
                 if (mMineType == null) {

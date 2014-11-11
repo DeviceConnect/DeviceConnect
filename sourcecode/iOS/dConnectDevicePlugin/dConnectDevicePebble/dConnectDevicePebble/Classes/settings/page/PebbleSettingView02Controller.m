@@ -1,11 +1,3 @@
-//
-//  PebbleSettingView02Controller.m
-//  DConnectSDK
-//
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
-//
 #import "PebbleSettingView02Controller.h"
 #import "pebble_device_plugin_defines.h"
 

@@ -8,11 +8,8 @@
    	<string name="chromecast_settings_step_1_title">[1/3] Chromecastの接続</string>
    	<string name="chromecast_settings_step_1_description">Chromecast をテレビの HDMI 入力端子につなぎます。</string>
    	<string name="chromecast_settings_step_2_title">[2/3] 電源の接続</string>
-   	<string name="chromecast_settings_step_2_description1">電源ケーブルの一方の端を Chromecast に差し込み、もう一方の端を電源アダプターに差し込んでから、近くの電源コンセントにつなぎます。</string>
-   	<string name="chromecast_settings_step_2_description2">テレビにUSB ポートがある場合は直接差し込んで Chromecast に給電することもできます。</string>
+   	<string name="chromecast_settings_step_2_description">電源ケーブルの一方の端を Chromecast に差し込み、もう一方の端を電源アダプターに差し込んでから、近くの電源コンセントにつなぎます。\n\nテレビにUSB ポートがある場合は直接差し込んで Chromecast に給電することもできます。</string>
    	<string name="chromecast_settings_step_3_title">[3/3] Chromecastの設定</string>
    	<string name="chromecast_settings_step_3_description">Chromecast を初めて使用する際には以下のボタンをタップしてセットアップをしてください。</string>
    	<string name="chromecast_settings_step_3_button">"  Chromecast アプリを起動  "</string>
-   	<string name="chromecast_settings_step_3_wifi">Chromecast のセットアップが完了しましたら以下のボタンをタップしてWifi を再起動してください。</string>
-   	<string name="chromecast_settings_step_3_button_wifi">"  Wifi を再起動  "</string>
 </resources>
