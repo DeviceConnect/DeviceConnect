@@ -28,7 +28,6 @@
 		BE4B296019809B8900338159 /* pageindicator_off.png in Resources */ = {isa = PBXBuildFile; fileRef = BE4B295B19809B8900338159 /* pageindicator_off.png */; };
 		BE4B296119809B8900338159 /* pageindicator_on.png in Resources */ = {isa = PBXBuildFile; fileRef = BE4B295C19809B8900338159 /* pageindicator_on.png */; };
 		BE4FDFCC198765B5001A3C86 /* SonyCameraCameraProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4FDFCB198765B5001A3C86 /* SonyCameraCameraProfile.m */; };
-		BE4FDFCF19877D44001A3C86 /* SonyCameraFlashProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4FDFCE19877D44001A3C86 /* SonyCameraFlashProfile.m */; };
 		BE575B26199863C200C31076 /* settings_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BE575B25199863C200C31076 /* settings_ipad.png */; };
 		BE75D3041994884200F1BFC9 /* SonyCameraDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75D2FF1994884200F1BFC9 /* SonyCameraDataViewController.m */; };
 		BE75D3051994884200F1BFC9 /* SonyCameraModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75D3011994884200F1BFC9 /* SonyCameraModelController.m */; };
@@ -86,6 +85,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ABB1838F19F626930059E7F8 /* SonyCameraCameraProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SonyCameraCameraProfile.h; sourceTree = "<group>"; };
+		ABB1839019F626B30059E7F8 /* SonyCameraDevicePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SonyCameraDevicePlugin.h; sourceTree = "<group>"; };
 		BE24CF02197F7BC3007BBC69 /* SampleLiveviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleLiveviewManager.h; sourceTree = "<group>"; };
 		BE24CF03197F7BC3007BBC69 /* SampleLiveviewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleLiveviewManager.m; sourceTree = "<group>"; };
 		BE4B295819809B8900338159 /* sonycamera_img01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sonycamera_img01@2x.png"; sourceTree = "<group>"; };
@@ -93,10 +94,7 @@
 		BE4B295A19809B8900338159 /* sonycamera_img03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sonycamera_img03@2x.png"; sourceTree = "<group>"; };
 		BE4B295B19809B8900338159 /* pageindicator_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageindicator_off.png; sourceTree = "<group>"; };
 		BE4B295C19809B8900338159 /* pageindicator_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageindicator_on.png; sourceTree = "<group>"; };
-		BE4FDFCA198765B5001A3C86 /* SonyCameraCameraProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonyCameraCameraProfile.h; sourceTree = "<group>"; };
 		BE4FDFCB198765B5001A3C86 /* SonyCameraCameraProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonyCameraCameraProfile.m; sourceTree = "<group>"; };
-		BE4FDFCD19877D44001A3C86 /* SonyCameraFlashProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonyCameraFlashProfile.h; sourceTree = "<group>"; };
-		BE4FDFCE19877D44001A3C86 /* SonyCameraFlashProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonyCameraFlashProfile.m; sourceTree = "<group>"; };
 		BE575B25199863C200C31076 /* settings_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_ipad.png; sourceTree = "<group>"; };
 		BE75D2FE1994884200F1BFC9 /* SonyCameraDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonyCameraDataViewController.h; sourceTree = "<group>"; };
 		BE75D2FF1994884200F1BFC9 /* SonyCameraDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonyCameraDataViewController.m; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 		C2540BCB195A7FA000AE012C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2540BCD195A7FA100AE012C /* dConnectDeviceSonyCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dConnectDeviceSonyCameraTests.m; sourceTree = "<group>"; };
 		C2540C0F195A83D500AE012C /* SonyCameraDevicePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonyCameraDevicePlugin.m; sourceTree = "<group>"; };
-		C2540C32195A848200AE012C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2540C52195A853600AE012C /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
 		C2540C53195A853600AE012C /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
 		C2540C54195A853600AE012C /* DeviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceList.h; sourceTree = "<group>"; };
@@ -144,7 +141,6 @@
 		C2540C62195A853600AE012C /* SampleCameraEventObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleCameraEventObserver.m; sourceTree = "<group>"; };
 		C2540C63195A853600AE012C /* SampleRemoteApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRemoteApi.h; sourceTree = "<group>"; };
 		C2540C64195A853600AE012C /* SampleRemoteApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRemoteApi.m; sourceTree = "<group>"; };
-		C2540C6D195A85C700AE012C /* SonyCameraDevicePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonyCameraDevicePlugin.h; sourceTree = "<group>"; };
 		C2540C6E195A875800AE012C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2540C71195AAFB400AE012C /* SonyCameraRemoteApiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonyCameraRemoteApiUtil.h; sourceTree = "<group>"; };
 		C2540C72195AAFB400AE012C /* SonyCameraRemoteApiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonyCameraRemoteApiUtil.m; sourceTree = "<group>"; };
@@ -206,10 +202,7 @@
 		BE4FDFC9198765B5001A3C86 /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				BE4FDFCA198765B5001A3C86 /* SonyCameraCameraProfile.h */,
 				BE4FDFCB198765B5001A3C86 /* SonyCameraCameraProfile.m */,
-				BE4FDFCD19877D44001A3C86 /* SonyCameraFlashProfile.h */,
-				BE4FDFCE19877D44001A3C86 /* SonyCameraFlashProfile.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -290,6 +283,7 @@
 				C2540C50195A853600AE012C /* sony_camera_remote_sdk */,
 				BE4FDFC9198765B5001A3C86 /* profile */,
 				C2540C0F195A83D500AE012C /* SonyCameraDevicePlugin.m */,
+				ABB1839019F626B30059E7F8 /* SonyCameraDevicePlugin.h */,
 				C2540C71195AAFB400AE012C /* SonyCameraRemoteApiUtil.h */,
 				C2540C72195AAFB400AE012C /* SonyCameraRemoteApiUtil.m */,
 				BE75D3021994884200F1BFC9 /* SonyCameraViewController.h */,
@@ -313,7 +307,7 @@
 		C2540C10195A83D500AE012C /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				C2540C6D195A85C700AE012C /* SonyCameraDevicePlugin.h */,
+				ABB1838F19F626930059E7F8 /* SonyCameraCameraProfile.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -321,7 +315,6 @@
 		C2540C11195A83D500AE012C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2540C32195A848200AE012C /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -543,7 +536,6 @@
 				BE75D3041994884200F1BFC9 /* SonyCameraDataViewController.m in Sources */,
 				C2540C6B195A853600AE012C /* SampleCameraEventObserver.m in Sources */,
 				C2540C69195A853600AE012C /* HttpAsynchronousRequest.m in Sources */,
-				BE4FDFCF19877D44001A3C86 /* SonyCameraFlashProfile.m in Sources */,
 				BE75D310199497F600F1BFC9 /* SonyCameraSettingView01Controller.m in Sources */,
 				C2540C6A195A853600AE012C /* HttpSynchronousRequest.m in Sources */,
 				C2540C73195AAFB400AE012C /* SonyCameraRemoteApiUtil.m in Sources */,
@@ -676,7 +668,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
-					/Users/kobayashinobuo/Project/docomo/dconnect2/ios/workspace/dConnectSDK/dConnectSDKForIOS/bin,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dConnectDeviceSonyCamera/dConnectDeviceSonyCamera-Prefix.pch";
@@ -694,7 +685,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
-					/Users/kobayashinobuo/Project/docomo/dconnect2/ios/workspace/dConnectSDK/dConnectSDKForIOS/bin,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dConnectDeviceSonyCamera/dConnectDeviceSonyCamera-Prefix.pch";

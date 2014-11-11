@@ -432,7 +432,7 @@
         __block NSMutableArray* array = [[NSMutableArray alloc]init];
         
         //URLが違うのでモデルを探す
-        [self.histroyBack enumerateObjectsWithOptions:NSSortConcurrent usingBlock:^(Page* obj, NSUInteger idx, BOOL *stop) {
+        [self.histroyBack enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Page* obj, NSUInteger idx, BOOL *stop) {
             if ([obj.url isEqualToString:url]) {
                 [array addObject:@(idx)];
             }

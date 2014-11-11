@@ -1,9 +1,10 @@
 //
 //  DPIRKitRemoteControllerProfile.m
-//  dConnectDeviceIRKit
+//  DConnectSDK
 //
-//  Created by 安部 将史 on 2014/08/20.
-//  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPIRKitRemoteControllerProfile.h"
@@ -78,7 +79,6 @@ NSString *const DPIRKitRemoteControllerProfileParamMessage = @"message";
                 } else {
                     [response setErrorToUnknown];
                 }
-                
                 [[DConnectManager sharedManager] sendResponse:response];
             }];
         } else {

@@ -1,9 +1,10 @@
 //
 //  DPIRKitManager.m
-//  dConnectDeviceIRKit
+//  DConnectSDK
 //
-//  Created by 安部 将史 on 2014/08/19.
-//  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPIRKitManager.h"
@@ -26,12 +27,12 @@ const int DPIRKitMaxWiFiSSIDLength = 32;
 const int DPIRKitMaxWiFiPasswordLength = 63;
 const int DPIRKitMaxKeyLength = 32;
 
-NSString *const DPIRKitUDKeySSID = @"com.nttdocomo.ios.dconnect.DPIRKit.ssid";
-NSString *const DPIRKitUDKeySecType = @"com.nttdocomo.ios.dconnect.DPIRKit.security";
-NSString *const DPIRKitUDKeyPassword = @"com.nttdocomo.ios.dconnect.DPIRKit.password";
-NSString *const DPIRKitUDKeyClientKey = @"com.nttdocomo.ios.dconnect.DPIRKit.client_key";
-NSString *const DPIRKitUDKeyDeviceKey = @"com.nttdocomo.ios.dconnect.DPIRKit.device_key";
-NSString *const DPIRKitUDKeyDeviceId = @"com.nttdocomo.ios.dconnect.DPIRKit.device_id";
+NSString *const DPIRKitUDKeySSID = @"org.deviceconnect.ios.DPIRKit.ssid";
+NSString *const DPIRKitUDKeySecType = @"org.deviceconnect.ios.DPIRKit.security";
+NSString *const DPIRKitUDKeyPassword = @"org.deviceconnect.ios.DPIRKit.password";
+NSString *const DPIRKitUDKeyClientKey = @"org.deviceconnect.ios.DPIRKit.client_key";
+NSString *const DPIRKitUDKeyDeviceKey = @"org.deviceconnect.ios.DPIRKit.device_key";
+NSString *const DPIRKitUDKeyDeviceId = @"org.deviceconnect.ios.DPIRKit.device_id";
 
 struct DPIRKitCRCInfo
 {
@@ -229,6 +230,7 @@ struct DPIRKitCRCInfo
     if (!body) {
         DPIRLog(@"Get Message : no-body");
         completion(nil);
+		return;
     }
     
     completion([[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding]);

@@ -1,0 +1,16 @@
+//
+//  dConnectDeviceDicePlus-Prefix.pch
+//  DConnectSDK
+//
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
+//
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
+#define IPHONE4_H 480

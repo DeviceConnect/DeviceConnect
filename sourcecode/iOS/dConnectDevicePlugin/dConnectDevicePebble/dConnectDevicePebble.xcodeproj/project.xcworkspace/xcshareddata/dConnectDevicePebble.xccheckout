@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F9E35356-BB8C-438F-A520-D19815BDE32A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>dConnectDevicePebble</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>39B5C804BA7F80E4B77D5021C39D069563232F80</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDevicePebble</string>
+		<key>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectSDK/dConnectSDKForIOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>dConnectDevicePebble.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>39B5C804BA7F80E4B77D5021C39D069563232F80</key>
+		<string>../..</string>
+		<key>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</key>
+		<string>../../../dConnectSDK/dConnectSDKForIOS</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDevicePebble</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>39B5C804BA7F80E4B77D5021C39D069563232F80</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39B5C804BA7F80E4B77D5021C39D069563232F80</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dConnectDevicePebble</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dConnectSDKForIOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

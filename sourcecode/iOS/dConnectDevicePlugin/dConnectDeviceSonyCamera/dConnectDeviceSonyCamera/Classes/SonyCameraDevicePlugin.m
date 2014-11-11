@@ -1,9 +1,10 @@
 //
 //  SonyCameraDevicePlugin.m
-//  dConnectDeviceSonyCamera
+//  DConnectSDK
 //
-//  Created by 小林 伸郎 on 2014/06/25.
-//  Copyright (c) 2014年 小林 伸郎. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "SonyCameraDevicePlugin.h"
@@ -47,7 +48,7 @@ NSString *const SonyFilePrefix = @"sony";
 /*!
  @brief Sony Remote Camera用デバイスプラグイン。
  */
-@interface SonyCameraDevicePlugin () <SampleDiscoveryDelegate, DConnectNetworkServiceDiscoveryProfileDelegate, DConnectSystemProfileDelegate, DConnectSystemProfileDataSource, DConnectMediaStreamRecordingProfileDelegate, SonyCameraCameraProfileDelegate, DConnectFileProfileDelegate, SampleLiveviewDelegate, SonyCameraRemoteApiUtilDelegate, DConnectSettingsProfileDelegate>
+@interface SonyCameraDevicePlugin () <SampleDiscoveryDelegate, DConnectNetworkServiceDiscoveryProfileDelegate, DConnectSystemProfileDelegate, DConnectSystemProfileDataSource, DConnectMediaStreamRecordingProfileDelegate, SonyCameraCameraProfileDelegate, SampleLiveviewDelegate, SonyCameraRemoteApiUtilDelegate, DConnectSettingsProfileDelegate>
 
 /*!
  @brief SonyRemoteApi操作用.
@@ -174,10 +175,6 @@ NSString *const SonyFilePrefix = @"sony";
         DConnectMediaStreamRecordingProfile *mediaProfile = [DConnectMediaStreamRecordingProfile new];
         mediaProfile.delegate = self;
         
-        // File Profileの追加
-        DConnectFileProfile *fileProfile = [DConnectFileProfile new];
-        fileProfile.delegate = self;
-        
         // Settings Profileの追加
         DConnectSettingsProfile *settingsProfile = [DConnectSettingsProfile new];
         settingsProfile.delegate = self;
@@ -190,7 +187,6 @@ NSString *const SonyFilePrefix = @"sony";
         [self addProfile:networkProfile];
         [self addProfile:systemProfile];
         [self addProfile:mediaProfile];
-        [self addProfile:fileProfile];
         [self addProfile:cameraProfile];
         
         // Settingsプロファイルは、QX10のファームウェアを
@@ -298,6 +294,8 @@ NSString *const SonyFilePrefix = @"sony";
 
 - (BOOL) checkSSID {
     CFArrayRef interfaces = CNCopySupportedInterfaces();
+    if (!interfaces) return NO;
+    if (CFArrayGetCount(interfaces)==0) return NO;
     CFDictionaryRef dicRef = CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(interfaces, 0));
     if (dicRef) {
         NSString *ssid = CFDictionaryGetValue(dicRef, kCNNetworkInfoKeySSID);
@@ -606,6 +604,7 @@ didReceivePostTakePhotoRequest:(DConnectRequestMessage *)request
                 if (data) {
                     // ファイルを保存
                     NSString *uri = [_self saveFile:data];
+                    [self didReceivedImage:uri];
                     if (!uri) {
                         // ファイル保存に失敗
                         [response setErrorToUnknown];
@@ -957,76 +956,6 @@ didReceiveDeleteOnDataAvailableRequest:(DConnectRequestMessage *)request
             }
         }
     });
-}
-
-
-#pragma mark - DConnectFileProfileDelegate
-
-- (BOOL)            profile:(DConnectFileProfile *)profile
-didReceiveGetReceiveRequest:(DConnectRequestMessage *)request
-                   response:(DConnectResponseMessage *)response
-                   deviceId:(NSString *)deviceId
-                       path:(NSString *)path
-{
-    NSURL *uri = [[self.mFileManager URL] URLByAppendingPathComponent:path];
-    NSString *u = [uri absoluteString];
-    [DConnectFileProfile setURI:u target:response];
-    [response setResult:DConnectMessageResultTypeOk];
-    return YES;
-}
-
-- (BOOL)         profile:(DConnectFileProfile *)profile
-didReceiveGetListRequest:(DConnectRequestMessage *)request
-                response:(DConnectResponseMessage *)response
-                deviceId:(NSString *)deviceId
-                    path:(NSString *)path
-                mimeType:(NSString *)mimeType
-                   order:(NSArray *)order
-                  offset:(NSNumber *)offset
-                limit:(NSNumber *)limit
-{
-    NSDirectoryEnumerator *enumerator = [self.mFileManager enumeratorWithOptions:NSDirectoryEnumerationSkipsHiddenFiles dirPath:nil];
-    NSURL *fileURL;
-    
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSError *error;
-    
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
-    DConnectArray *files = [DConnectArray array];
-    while (fileURL = [enumerator nextObject]) {
-        NSString *path = [fileURL path];
-        NSString *fileName = [fileURL lastPathComponent];
-        
-        NSDictionary *cacheFileAttributes = [fm attributesOfItemAtPath:path error:&error];
-        unsigned long long fileSize = [cacheFileAttributes fileSize];
-        NSString *type = [cacheFileAttributes fileType];
-        NSDate *date = [cacheFileAttributes fileModificationDate];
-        
-        DConnectMessage *file = [DConnectMessage message];
-        
-        if ([type isEqualToString:NSFileTypeRegular]) {
-            [DConnectFileProfile setFileType:DConnectFileProfileFileTypeFile target:file];
-        } else if ([type isEqualToString:NSFileTypeDirectory]) {
-            [DConnectFileProfile setFileType:DConnectFileProfileFileTypeDir target:file];
-        } else {
-            continue;
-        }
-        
-        [DConnectFileProfile setFileName:fileName target:file];
-        [DConnectFileProfile setPath:path target:file];
-        [DConnectFileProfile setFileSize:fileSize target:file];
-        [DConnectFileProfile setMIMEType:@"image/png" target:file];
-        [DConnectFileProfile setUpdateDate:[dateFormatter stringFromDate:date] tareget:file];
-        
-        [files addMessage:file];
-    }
-    
-    [response setResult:DConnectMessageResultTypeOk];
-    [DConnectFileProfile setFiles:files target:response];
-    [DConnectFileProfile setCount:files.count target:response];
-    return YES;
 }
 
 #pragma mark - DConnectSettingsProfileDelegate

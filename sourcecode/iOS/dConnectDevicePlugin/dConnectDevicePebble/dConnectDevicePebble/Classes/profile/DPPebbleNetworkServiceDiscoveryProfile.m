@@ -1,72 +1,50 @@
 //
 //  DPPebbleNetworkServiceDiscoveryProfile.m
-//  dConnectDevicePebble
+//  DConnectSDK
 //
-//  Created by 小林伸郎 on 2014/08/24.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPPebbleNetworkServiceDiscoveryProfile.h"
 #import "DPPebbleManager.h"
 
-#import <CoreBluetooth/CoreBluetooth.h>
 @interface DPPebbleNetworkServiceDiscoveryProfile ()
-/*!
- @brief Pebble管理クラス。
- */
-@property (nonatomic) DPPebbleManager *mgr;
-
-
-@property (strong, nonatomic) CBCentralManager *centralManager;
-@property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
-@property (strong, nonatomic) NSMutableData *data;
 @end
 
 
 @implementation DPPebbleNetworkServiceDiscoveryProfile
 
-- (id) initWithPebbleManager:(DPPebbleManager *)mgr {
-    self = [super init];
-    if (self) {
-        self.mgr = mgr;
-        self.delegate = self;
-    }
-    return self;
-}
-
-#pragma mark - DConnectNetworkServiceDiscoveryProfileDelegate
-
-- (BOOL)                       profile:(DConnectNetworkServiceDiscoveryProfile *)profile
-didReceiveGetGetNetworkServicesRequest:(DConnectRequestMessage *)request
-                              response:(DConnectResponseMessage *)response
+// 初期化
+- (id)init
 {
-    
-    NSArray* withList = [self.mgr getWatchesList];
-    
-    
-    DConnectArray *services = [DConnectArray array];
-    for (PBWatch *with in withList) {
-        DConnectMessage *service = [DConnectMessage message];
-        
-        //DeviceIdの取得　　URL対応のため空白と：を除去
-        [DConnectNetworkServiceDiscoveryProfile setId:[self getWatcheName:with]
-         
-                                               target:service];
-        
-        [DConnectNetworkServiceDiscoveryProfile setName:with.name target:service];
-        [DConnectNetworkServiceDiscoveryProfile setType:DConnectNetworkServiceDiscoveryProfileNetworkTypeBluetooth
-                                                 target:service];
-        [DConnectNetworkServiceDiscoveryProfile setOnline:YES target:service];
-        [services addMessage:service];
-    }
-    
-    [DConnectNetworkServiceDiscoveryProfile setServices:services target:response];
-    [response setResult:DConnectMessageResultTypeOk];
-    return YES;
+	self = [super init];
+	if (self) {
+		self.delegate = self;
+	}
+	return self;
 }
--(NSString*)getWatcheName:(PBWatch*)Watche{
-    return  [[Watche.name
-              stringByReplacingOccurrencesOfString:@" " withString:@""]
-             stringByReplacingOccurrencesOfString:@":" withString:@""];
+
+//  dConnect Managerに接続されている、デバイスプラグイン対応デバイス一覧を取得する。
+- (BOOL) profile:(DConnectNetworkServiceDiscoveryProfile *)profile didReceiveGetGetNetworkServicesRequest:(DConnectRequestMessage *)request response:(DConnectResponseMessage *)response
+{
+	DConnectArray *services = [DConnectArray array];
+	
+	NSArray *deviceList = [DPPebbleManager sharedManager].deviceList;
+	for (NSDictionary *device in deviceList) {
+		DConnectMessage *service = [DConnectMessage new];
+		
+		[DConnectNetworkServiceDiscoveryProfile setId:device[@"id"] target:service];
+		[DConnectNetworkServiceDiscoveryProfile setName:device[@"name"] target:service];
+		[DConnectNetworkServiceDiscoveryProfile setType:DConnectNetworkServiceDiscoveryProfileNetworkTypeBluetooth
+												 target:service];
+		[DConnectNetworkServiceDiscoveryProfile setOnline:YES target:service];
+		[services addMessage:service];
+	}
+	[response setResult:DConnectMessageResultTypeOk];
+	[DConnectNetworkServiceDiscoveryProfile setServices:services target:response];
+	return YES;
 }
+
 @end

@@ -1,9 +1,10 @@
 //
-//  DConnectMagnetometerProfile.h
-//  dConnectDeviceDicePlus
+//  DPDiceProfile.h
+//  DConnectSDK
 //
-//  Created by 星　貴之 on 2014/07/15.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 /*! @file
  @brief Diceプロファイルを実装するための機能を提供する。
@@ -79,6 +80,7 @@ extern NSString *const DPDiceProfileParamZ;
  [対応するRESTful]
  PUT http://{dConnectドメイン}/dice/ondice?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -99,6 +101,7 @@ extern NSString *const DPDiceProfileParamZ;
  [対応するRESTful]
  DELETE http://{dConnectドメイン}/dice/magnetometer/onmagnetmeter?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -119,6 +122,7 @@ extern NSString *const DPDiceProfileParamZ;
  [対応するRESTful]
  PUT http://{dConnectドメイン}/dice/magnetometer/onmagnetmeter?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -139,6 +143,7 @@ didReceivePutOnMagnetometerRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  DELETE http://{dConnectドメイン}/dice/magnetometer/onmagnetmeter?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID

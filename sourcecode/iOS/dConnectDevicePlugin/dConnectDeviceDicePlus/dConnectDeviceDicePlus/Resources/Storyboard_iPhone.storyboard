@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="InN-06-Bu6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Dice Plus Setting View Controller - 設定-->
+        <scene sceneID="OKE-lP-8ZO">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0Cw-d5-6Dd" customClass="DPDicePlusSettingViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="設定" id="dN9-Ob-7vf"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="geD-oR-MPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56" y="45"/>
+        </scene>
+        <!--Dice Plus Guide View Controller-->
+        <scene sceneID="Ldg-JZ-21L">
+            <objects>
+                <viewController storyboardIdentifier="PowerGuide" id="X80-Zs-uoG" customClass="DPDicePlusGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vbB-EY-Ebt"/>
+                        <viewControllerLayoutGuide type="bottom" id="JHx-fh-0m3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MoL-Ek-EKt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1.DICE+の起動" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5V-g4-RZ9">
+                                <rect key="frame" x="26" y="91" width="181" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DicePlusSwitchOn.png" translatesAutoresizingMaskIntoConstraints="NO" id="vK7-i7-jJw">
+                                <rect key="frame" x="74" y="129" width="173" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="RmD-9i-g1C"/>
+                                    <constraint firstAttribute="height" constant="150" id="cUd-lk-ndo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DICE+をONにするには、DICE+を180度以上回転させます。DICE+がONになると、青色に各目が点滅し始めます。" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-XF-ndt">
+                                <rect key="frame" x="45" y="341" width="243" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h5V-g4-RZ9" firstAttribute="top" secondItem="MoL-Ek-EKt" secondAttribute="top" constant="91" id="184-Oe-854"/>
+                            <constraint firstItem="vK7-i7-jJw" firstAttribute="leading" secondItem="MoL-Ek-EKt" secondAttribute="leading" constant="74" id="EaX-6E-1ox"/>
+                            <constraint firstItem="h5V-g4-RZ9" firstAttribute="leading" secondItem="MoL-Ek-EKt" secondAttribute="leading" constant="26" id="KMk-Ak-jer"/>
+                            <constraint firstItem="vK7-i7-jJw" firstAttribute="top" secondItem="h5V-g4-RZ9" secondAttribute="bottom" constant="17" id="NRf-dN-jx7"/>
+                            <constraint firstItem="JHx-fh-0m3" firstAttribute="top" secondItem="ob5-XF-ndt" secondAttribute="bottom" constant="124" id="cuU-Yv-Nv8"/>
+                            <constraint firstAttribute="trailing" secondItem="ob5-XF-ndt" secondAttribute="trailing" constant="32" id="lAB-1R-3wN"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Dr-eU-yOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="45"/>
+        </scene>
+        <!--Dice Plus Guide View Controller-->
+        <scene sceneID="dvP-Vh-D2p">
+            <objects>
+                <viewController storyboardIdentifier="ConnectionGuide" id="0pD-4N-u0b" customClass="DPDicePlusGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0QT-1q-mhr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vz3-WL-nu5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tE0-cI-Fkc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DICE+とiOSはBluetooth Low Energy(BLE)を用いて接続します。BLEの利用には、BluetoothがONになっている必要があります。" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="8MC-Rf-1j9">
+                                <rect key="frame" x="40" y="315" width="251" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BLEでは機器とのペアリングの必要はありません。BluetoothがONになっていれば、接続可能になります。" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="uxG-bk-UeG">
+                                <rect key="frame" x="40" y="410" width="243" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.BluetoothをONにする" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-Sm-A9S">
+                                <rect key="frame" x="28" y="91" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="HqS-9L-xf0"/>
+                                    <constraint firstAttribute="width" constant="182" id="f8Y-kb-296"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DicePlusBluetoothSetting.png" translatesAutoresizingMaskIntoConstraints="NO" id="FlJ-go-v8f">
+                                <rect key="frame" x="44" y="139" width="232" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="SmJ-gb-rMq"/>
+                                    <constraint firstAttribute="height" constant="118" id="cWI-Dk-iVo"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8MC-Rf-1j9" secondAttribute="trailing" constant="29" id="1A3-fW-l06"/>
+                            <constraint firstAttribute="trailing" secondItem="uxG-bk-UeG" secondAttribute="trailing" constant="37" id="3Ul-uT-cPn"/>
+                            <constraint firstItem="Vz3-WL-nu5" firstAttribute="top" secondItem="8MC-Rf-1j9" secondAttribute="bottom" constant="150" id="5rv-z0-hnm"/>
+                            <constraint firstItem="gLb-Sm-A9S" firstAttribute="leading" secondItem="tE0-cI-Fkc" secondAttribute="leading" constant="28" id="7ku-kI-3nU"/>
+                            <constraint firstItem="FlJ-go-v8f" firstAttribute="top" secondItem="gLb-Sm-A9S" secondAttribute="bottom" constant="27" id="8u1-rh-DWU"/>
+                            <constraint firstItem="FlJ-go-v8f" firstAttribute="leading" secondItem="tE0-cI-Fkc" secondAttribute="leading" constant="44" id="btk-vF-kfz"/>
+                            <constraint firstItem="Vz3-WL-nu5" firstAttribute="top" secondItem="uxG-bk-UeG" secondAttribute="bottom" constant="55" id="fXQ-lB-pUz"/>
+                            <constraint firstItem="gLb-Sm-A9S" firstAttribute="top" secondItem="tE0-cI-Fkc" secondAttribute="top" constant="91" id="xkI-lC-8f0"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="bluetoothOnDescViewBottomConstraint" destination="5rv-z0-hnm" id="y0T-56-JgP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Akg-if-y9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="45"/>
+        </scene>
+        <!--Dice Plus Activate View Controller-->
+        <scene sceneID="Aet-4u-NlP">
+            <objects>
+                <viewController storyboardIdentifier="ActivateGuide" id="8au-RD-Xy2" customClass="DPDicePlusActivateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Idl-bm-hjH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Shh-Wy-eWA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g54-LI-eFU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hxl-xo-DkR">
+                                <rect key="frame" x="38" y="385" width="244" height="106"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7z-S3-VYf">
+                                <rect key="frame" x="137" y="499" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reloadButton:" destination="8au-RD-Xy2" eventType="touchUpInside" id="NeB-j9-PYD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DICE+との接続を行います。下記のボタンをONにすることで、DICE+とiOSの接続が開始されます。DICE+とiOSの接続が成功するとDICE+が緑色に点灯します。" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="5CF-50-uqr">
+                                <rect key="frame" x="50" y="289" width="232" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.DICE+の有効化" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5Q-Os-KGu">
+                                <rect key="frame" x="20" y="94" width="257" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1ca-Jy-vEm"/>
+                                    <constraint firstAttribute="width" constant="257" id="Zic-e5-oN8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DicePlusPair.png" translatesAutoresizingMaskIntoConstraints="NO" id="1oj-WH-CAU">
+                                <rect key="frame" x="86" y="123" width="149" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="4uo-Ov-vCO"/>
+                                    <constraint firstAttribute="height" constant="133" id="mXL-Cc-fmi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C7z-S3-VYf" firstAttribute="top" secondItem="hxl-xo-DkR" secondAttribute="bottom" constant="8" id="6Tj-nU-S3f"/>
+                            <constraint firstAttribute="bottom" secondItem="5CF-50-uqr" secondAttribute="bottom" constant="192" id="HGq-Xy-RsJ"/>
+                            <constraint firstItem="S5Q-Os-KGu" firstAttribute="leading" secondItem="g54-LI-eFU" secondAttribute="leading" constant="20" id="HNn-4d-v1O"/>
+                            <constraint firstItem="1oj-WH-CAU" firstAttribute="top" secondItem="S5Q-Os-KGu" secondAttribute="bottom" constant="8" id="R3L-ly-fLs"/>
+                            <constraint firstItem="hxl-xo-DkR" firstAttribute="top" secondItem="5CF-50-uqr" secondAttribute="bottom" constant="9" id="VJz-R8-XIj"/>
+                            <constraint firstItem="Shh-Wy-eWA" firstAttribute="top" secondItem="C7z-S3-VYf" secondAttribute="bottom" constant="39" id="Zga-7N-sVF"/>
+                            <constraint firstItem="S5Q-Os-KGu" firstAttribute="top" secondItem="g54-LI-eFU" secondAttribute="top" constant="94" id="en7-Bl-XTA"/>
+                            <constraint firstAttribute="trailing" secondItem="5CF-50-uqr" secondAttribute="trailing" constant="38" id="i93-f8-mwa"/>
+                            <constraint firstAttribute="trailing" secondItem="hxl-xo-DkR" secondAttribute="trailing" constant="38" id="iHK-CT-gCl"/>
+                            <constraint firstAttribute="trailing" secondItem="C7z-S3-VYf" secondAttribute="trailing" constant="137" id="rFa-al-Wy1"/>
+                            <constraint firstItem="1oj-WH-CAU" firstAttribute="leading" secondItem="g54-LI-eFU" secondAttribute="leading" constant="86" id="yYI-vg-8yk"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="descBottomConstraint" destination="HGq-Xy-RsJ" id="6zg-P2-yey"/>
+                        <outlet property="foundDieListView" destination="hxl-xo-DkR" id="YrV-t0-k9O"/>
+                        <outlet property="searchBtnBottomConstraint" destination="Zga-7N-sVF" id="Lal-Mm-AAB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jfe-w0-Wp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122" y="45"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ldM-dV-Qfa">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="InN-06-Bu6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xhc-N2-e3L">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Cw-d5-6Dd" kind="relationship" relationship="rootViewController" id="Rpj-zi-bx0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xD8-e7-adf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-376" y="45"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DicePlusBluetoothSetting.png" width="620" height="269"/>
+        <image name="DicePlusPair.png" width="560" height="500"/>
+        <image name="DicePlusSwitchOn.png" width="240" height="240"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

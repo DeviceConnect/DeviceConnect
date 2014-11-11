@@ -1,9 +1,10 @@
 //
 //  DPChromecastNotificationProfile.m
-//  dConnectChromecast
+//  DConnectSDK
 //
-//  Created by Ryuya Takahashi on 2014/09/08.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPChromecastDevicePlugin.h"
@@ -11,14 +12,11 @@
 #import "DPChromecastManager.h"
 
 
-
 @interface DPChromecastNotificationProfile ()
 @end
 
-
 @implementation DPChromecastNotificationProfile
 
-// 初期化
 - (id)init
 {
     self = [super init];
@@ -48,7 +46,6 @@
             [response setResult:DConnectMessageResultTypeOk];
         } else {
             // エラー
-            //NSLog(@"error:%@", error);
             [response setErrorToNotFoundDevice];
         }
         [[DConnectManager sharedManager] sendResponse:response];
@@ -73,14 +70,12 @@ didReceivePostNotifyRequest:(DConnectRequestMessage *)request
                        icon:(NSData *)icon
 {
     // パラメータチェック
-    if (!type || type<0 || 2<type) {
+    if (!type || type.intValue<0 || 2<type.intValue) {
         [response setErrorToInvalidRequestParameterWithMessage:@"type is null or invalid"];
-//        [response setString:@"DevicePlugin" forKey:@"debug"];
         return YES;
     }
     if (!body) {
         [response setErrorToInvalidRequestParameterWithMessage:@"body is null"];
-//        [response setString:@"DevicePlugin" forKey:@"debug"];
         return YES;
     }
     
@@ -92,7 +87,7 @@ didReceivePostNotifyRequest:(DConnectRequestMessage *)request
             ^{
                 // メッセージ送信
                 DPChromecastManager *mgr = [DPChromecastManager sharedManager];
-                [mgr sendMessage:body type:[type intValue]];
+                [mgr sendMessageWithID:deviceId message:body type:[type intValue]];
             }];
 }
 
@@ -114,7 +109,7 @@ didReceiveDeleteNotifyRequest:(DConnectRequestMessage *)request
             ^{
                 // メッセージクリア
                 DPChromecastManager *mgr = [DPChromecastManager sharedManager];
-                [mgr clearMessage];
+				[mgr clearMessageWithID:deviceId];
             }];
 }
 
