@@ -41,6 +41,6 @@
 	<key>CFPlugInUnloadFunction</key>
 	<string></string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014年 NTT DOCOMO, INC. All rights reserved.</string>
+	<string>Copyright (c) 2014 NTT DOCOMO, INC. Released under the MIT license.</string>
 </dict>
 </plist>

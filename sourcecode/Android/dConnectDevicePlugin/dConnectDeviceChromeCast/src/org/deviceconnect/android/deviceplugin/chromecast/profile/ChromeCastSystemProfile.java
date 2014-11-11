@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import org.deviceconnect.android.deviceplugin.chromecast.ChromeCastService;
 import org.deviceconnect.android.deviceplugin.chromecast.core.ChromeCastApplication;
 import org.deviceconnect.android.deviceplugin.chromecast.core.ChromeCastDiscovery;
-import org.deviceconnect.android.deviceplugin.chromecast.setting.ChromeCastSettingStepsActivity;
+import org.deviceconnect.android.deviceplugin.chromecast.setting.ChromeCastSettingFragmentActivity;
 import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.DConnectProfile;
@@ -47,7 +47,7 @@ public class ChromeCastSystemProfile extends SystemProfile {
 
     @Override
     protected Class<? extends Activity> getSettingPageActivity(final Intent request, final Bundle param) {
-        return ChromeCastSettingStepsActivity.class;
+        return ChromeCastSettingFragmentActivity.class;
     }
 
     /**
@@ -74,7 +74,7 @@ public class ChromeCastSystemProfile extends SystemProfile {
         ChromeCastApplication application = ((ChromeCastService) getContext()).getChromeCastApplication();
         if(discovery.getSelectedDevice() != null){
             if(discovery.getSelectedDevice().getFriendlyName().equals(deviceId)){
-                application.launchReceiver();
+                application.connect();
             }else{
                 discovery.setRouteName(deviceId);
             }

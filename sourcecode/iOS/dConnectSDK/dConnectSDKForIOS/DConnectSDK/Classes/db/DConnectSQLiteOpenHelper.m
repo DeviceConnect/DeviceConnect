@@ -11,7 +11,7 @@
 #import "DConnectSQLiteDatabase.h"
 #import "DConnectSQLiteCursor.h"
 
-#define DCONNECT_SQL_DOMAIN "com.nttdocomo.dconnect.sqlite3"
+#define DCONNECT_SQL_DOMAIN "org.deviceconnect.ios.sqlite3"
 
 @interface DConnectSQLiteOpenHelper() {
     DConnectSQLiteDatabase *_db;

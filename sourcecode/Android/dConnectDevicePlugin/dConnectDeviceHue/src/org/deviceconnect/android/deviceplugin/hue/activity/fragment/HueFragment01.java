@@ -9,8 +9,8 @@ package org.deviceconnect.android.deviceplugin.hue.activity.fragment;
 
 import java.util.List;
 
+import org.deviceconnect.android.deviceplugin.hue.HueConstants;
 import org.deviceconnect.android.deviceplugin.hue.R;
-import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
 
 import android.app.Activity;
 import android.content.Context;
@@ -88,7 +88,7 @@ public class HueFragment01 extends Fragment implements OnClickListener, OnItemCl
         mPhHueSDK = PHHueSDK.create();
 
         // アプリ名の登録.
-        mPhHueSDK.setDeviceName(HueControl.APNAME);
+        mPhHueSDK.setDeviceName(HueConstants.APNAME);
 
         // HueブリッジからのCallbackを受け取るためのリスナーを登録.
         mPhHueSDK.getNotificationManager().registerSDKListener(mListener);

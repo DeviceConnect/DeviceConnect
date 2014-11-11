@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">dConnect Manager Test</string>
+    <string name="app_name">Device Connect Manager Unit Test</string>
 
 </resources>

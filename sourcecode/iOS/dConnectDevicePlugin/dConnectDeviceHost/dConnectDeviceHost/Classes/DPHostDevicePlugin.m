@@ -24,6 +24,7 @@
 #import "DPHostSettingsProfile.h"
 #import "DPHostSystemProfile.h"
 #import "DPHostVibrationProfile.h"
+#import "DPHostConnectProfile.h"
 
 @implementation DPHostDevicePlugin
 
@@ -40,7 +41,7 @@
     if (self) {
         self.fileMgr = [DConnectFileManager fileManagerForPlugin:self];
         
-        self.pluginName = @"Host 1.0";
+        self.pluginName = @"Host 1.0.1";
         
         // プロファイルを追加
         [self addProfile:[DPHostBatteryProfile new]];
@@ -56,6 +57,8 @@
         [self addProfile:[DPHostSettingsProfile new]];
         [self addProfile:[DPHostSystemProfile new]];
         [self addProfile:[DPHostVibrationProfile new]];
+        [self addProfile:[DPHostConnectProfile new]];
+
     }
     return self;
 }

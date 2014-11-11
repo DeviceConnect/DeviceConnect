@@ -1,10 +1,11 @@
-/* 
-  Localizable.strings
-  DConnectSDK
-
-  Created by 安部 将史 on 2014/08/25.
-  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
-*/
+//
+//  Localizable.strings
+//  DConnectSDK
+//
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
+//
 
 // Profile Name
 "display_scope_authorization" = "認証";

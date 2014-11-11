@@ -13,16 +13,16 @@ package org.deviceconnect.android.localoauth;
 public class CheckAccessTokenResult {
 
     /** true: アクセストークンを発行したクライアントIDあり / false: アクセストークンを発行したクライアントIDなし. */
-    private boolean mIsExistClientId = false;
+    private boolean mIsExistClientId;
 
     /** true: アクセストークンあり / false: アクセストークンなし. */
-    private boolean mIsExistAccessToken = false;
+    private boolean mIsExistAccessToken;
 
     /** true: スコープあり / false: スコープなし. */
-    private boolean mIsExistScope = false;
+    private boolean mIsExistScope;
 
     /** true: 有効期限内 / false: 有効期限切れ. */
-    private boolean mIsNotExpired = false;
+    private boolean mIsNotExpired;
 
     /**
      * コンストラクタ.

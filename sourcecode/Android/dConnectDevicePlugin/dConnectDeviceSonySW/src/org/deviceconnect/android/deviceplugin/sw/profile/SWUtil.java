@@ -10,17 +10,12 @@ import java.util.Locale;
 import java.util.Set;
 
 import org.deviceconnect.android.deviceplugin.sw.SWConstants;
+import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
+import org.deviceconnect.profile.NetworkServiceDiscoveryProfileConstants.NetworkType;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.Context;
-import android.database.Cursor;
 import android.os.Bundle;
-
-import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
-import org.deviceconnect.profile.NetworkServiceDiscoveryProfileConstants.NetworkType;
-import com.sonyericsson.extras.liveware.aef.registration.Registration.Device;
-import com.sonyericsson.extras.liveware.aef.registration.Registration.DeviceColumns;
 
 /**
  * ユーティリティクラス.
@@ -30,15 +25,16 @@ public final class SWUtil {
 
     /**
      * プライベートコンストラクタ.
+     * ユーティリティクラスのため、インスタンスを生成させない.
      */
     private SWUtil() {
     }
 
     /**
-     * Bluetoothデバイスがペアリング中かどうか返却する.
+     * ペアリング済みのBluetoothデバイス一覧上で指定されたデバイスを検索する.
      * 
      * @param deviceId デバイスID
-     * @return BluetoothDevice
+     * @return BluetoothDevice 指定されたデバイスがペアリング中であれば対応する{@link BluetoothDevice}、そうでない場合はnull
      */
     public static BluetoothDevice findSmartWatch(final String deviceId) {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -49,7 +45,7 @@ public final class SWUtil {
         if (bondedDevices.size() > 0) {
             for (BluetoothDevice device : bondedDevices) {
                 String deviceName = device.getName();
-                if (deviceName.startsWith("SmartWatch")) {
+                if (deviceName.startsWith(SWConstants.DEVICE_NAME_PREFIX)) {
                     String otherDeviceId = device.getAddress().replace(":", "").toLowerCase(Locale.ENGLISH);
                     if (otherDeviceId.equals(deviceId)) {
                         return device;
@@ -61,10 +57,10 @@ public final class SWUtil {
     }
 
     /**
-     * ペアリング中SonyWatchのステータスをBundleに格納して返却する.
+     * ペアリング済みのSonyWatchのステータスを{@link Bundle}に格納して返却する.
      * 
-     * @param boundedDevice ペアリング中デバイス一覧
-     * @return Bundle
+     * @param boundedDevice ペアリング済みデバイス一覧
+     * @return {@link Bundle}インスタンス
      */
     public static Bundle toBundle(final BluetoothDevice boundedDevice) {
 
@@ -80,40 +76,16 @@ public final class SWUtil {
     }
 
     /**
-     * SonyWatchがオンラインかどうかの判定をする.
-     * 
-     * @param context コンテキスト
-     * @param hostAppId ホストアプリケーションネーム
-     * @return boolean
-     */
-    public static boolean checkDeviceConnecting(final Context context, final long hostAppId) {
-        Cursor cursor = null;
-        try {
-            String selection = DeviceColumns.HOST_APPLICATION_ID + " = " + hostAppId + " AND "
-                    + DeviceColumns.ACCESSORY_CONNECTED + " = 1";
-            cursor = context.getContentResolver().query(Device.URI, null, selection, null, null);
-            if (cursor != null) {
-                return (cursor.getCount() > 0);
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-        return false;
-    }
-
-    /**
      * ホストアプリケーションネームの返却.
      * 
      * @param deviceName デバイスネーム
      * @return ホストアプリケーションネーム
      */
     public static String toHostAppPackageName(final String deviceName) {
-        if ("SmartWatch".equals(deviceName)) {
+        if (SWConstants.DEVICE_NAME_SMART_WATCH.equals(deviceName)) {
             return SWConstants.PACKAGE_SMART_WATCH;
         }
-        if ("SmartWatch 2".equals(deviceName)) {
+        if (SWConstants.DEVICE_NAME_SMART_WATCH_2.equals(deviceName)) {
             return SWConstants.PACKAGE_SMART_WATCH_2;
         }
         return null;

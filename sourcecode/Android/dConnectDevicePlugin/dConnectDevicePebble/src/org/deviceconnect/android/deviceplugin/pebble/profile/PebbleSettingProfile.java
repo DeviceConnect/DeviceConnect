@@ -6,19 +6,16 @@
  */
 package org.deviceconnect.android.deviceplugin.pebble.profile;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnSendCommandListener;
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.SettingsProfile;
+import org.deviceconnect.message.DConnectMessage;
 
 import android.content.Intent;
 
 import com.getpebble.android.kit.util.PebbleDictionary;
-import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.SettingsProfile;
-import org.deviceconnect.message.DConnectMessage;
 
 /**
  * Pebble端末内時間情報取得プロファイル.
@@ -29,10 +26,10 @@ public class PebbleSettingProfile extends SettingsProfile {
     protected boolean onGetDate(final Intent request, final Intent response, 
             final String deviceId) {
         if (deviceId == null) {
-            createEmptyDeviceId(response);
+            MessageUtils.setEmptyDeviceIdError(response);
             return true;
-        } else if (!checkDeviceId(deviceId)) {
-            createNotFoundDevice(response);
+        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
+            MessageUtils.setNotFoundDeviceError(response);
             return true;
         } else {
             // Pebbleに送信
@@ -60,36 +57,5 @@ public class PebbleSettingProfile extends SettingsProfile {
             });
             return false;
         }
-    }
-
-    /**
-     * デバイスIDをチェックする.
-     * 
-     * @param deviceId デバイスID
-     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
-     */
-    private boolean checkDeviceId(final String deviceId) {
-        String regex = PebbleNetworkServceDiscoveryProfile.DEVICE_ID;
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(deviceId);
-        return m.find();
-    }
-
-    /**
-     * デバイスIDが空の場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createEmptyDeviceId(final Intent response) {
-        MessageUtils.setEmptyDeviceIdError(response);
-    }
-
-    /**
-     * デバイスが発見できなかった場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createNotFoundDevice(final Intent response) {
-        MessageUtils.setNotFoundDeviceError(response);
     }
 }

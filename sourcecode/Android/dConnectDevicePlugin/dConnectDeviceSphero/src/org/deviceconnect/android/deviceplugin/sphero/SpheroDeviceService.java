@@ -41,36 +41,35 @@ import org.deviceconnect.android.profile.SystemProfile;
 public class SpheroDeviceService extends DConnectMessageService implements DeviceDiscoveryListener {
 
     /** TAG. */
-    private static final String TAG = "PluginSphero";
+    private static final String TAG = SpheroDeviceService.class.getSimpleName();
+
+    private static final String ACTION_NAMESPACE = SpheroDeviceService.class.getPackage().getName() + ".action";
 
     /**
      * 検知開始アクション.
      */
-    public static final String ACTION_START_DISCOVERY 
-    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.START_DISCOVERY";
+    public static final String ACTION_START_DISCOVERY = ACTION_NAMESPACE + ".START_DISCOVERY";
 
     /**
      * 検知終了アクション.
      */
-    public static final String ACTION_STOP_DISCOVERY 
-    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.STOP_DISCOVERY";
+    public static final String ACTION_STOP_DISCOVERY = ACTION_NAMESPACE + ".STOP_DISCOVERY";
 
     /**
      * 接続アクション.
      */
-    public static final String ACTION_CONNECT = "com.nttdocomo.android.dconnect.deviceplugin.sphero.CONNECT";
+    public static final String ACTION_CONNECT = ACTION_NAMESPACE + ".CONNECT";
 
     /**
      * 接続解除アクション.
      */
-    public static final String ACTION_DISCONNECT = "com.nttdocomo.android.dconnect.deviceplugin.sphero.DISCONNECT";
+    public static final String ACTION_DISCONNECT = ACTION_NAMESPACE + ".DISCONNECT";
 
     /**
      * 接続済みデバイス取得アクション.
      */
-    public static final String ACTION_GET_CONNECTED 
-    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.GET_CONNECTED";
-    
+    public static final String ACTION_GET_CONNECTED = ACTION_NAMESPACE + ".GET_CONNECTED";
+
     /**
      * Extraキー : {@value} .
      */
@@ -144,7 +143,7 @@ public class SpheroDeviceService extends DConnectMessageService implements Devic
                             if (BuildConfig.DEBUG) {
                                 Log.d(TAG, "************ fialed to connect **********");
                             }
-                            sendDevice(SettingActivity.ACTION_CONNECTED, null);
+                            sendDevice(SettingActivity.ACTION_CONNECTED, null);                            
                         }
                     }
                 }).start();
@@ -195,6 +194,10 @@ public class SpheroDeviceService extends DConnectMessageService implements Devic
     @Override
     public void onDeviceLost(final Sphero sphero) {
         sendDevice(SettingActivity.ACTION_REMOVE_DEVICE, sphero);
+    }
+    @Override
+    public void onDeviceLostAll() {
+        sendDevice(SettingActivity.ACTION_REMOVE_DEVICE_ALL, null);
     }
 
     /**

@@ -112,6 +112,7 @@
                                selector:@selector(playbackStateChangedInIPod:)
                                    name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                  object:_musicPlayer];
+        
         // 通知開始
         [_musicPlayer beginGeneratingPlaybackNotifications];
         
@@ -140,9 +141,15 @@
     DConnectMessage *mediaPlayer = [DConnectMessage message];
     
     // 再生コンテンツ変更
-    [DConnectMediaPlayerProfile setStatus:DConnectMediaPlayerProfileStatusMedia target:mediaPlayer];
-    
+    NSString *status;
     MPMediaItem *mediaItem = _musicPlayer.nowPlayingItem;
+    if (_musicPlayer.playbackState == MPMusicPlaybackStateStopped
+        && mediaItem) {
+        status = DConnectMediaPlayerProfileStatusMedia;
+    } else {
+        status = DConnectMediaPlayerProfileStatusStop;
+    }
+    [DConnectMediaPlayerProfile setStatus:status target:mediaPlayer];
     if (mediaItem) {
         DPHostMediaContext *mediaCtx = [DPHostMediaContext contextWithMediaItem:mediaItem];
         if (mediaCtx.mediaId) {
@@ -175,9 +182,16 @@
     DConnectMessage *mediaPlayer = [DConnectMessage message];
     
     // 再生コンテンツ変更
-    [DConnectMediaPlayerProfile setStatus:DConnectMediaPlayerProfileStatusMedia target:mediaPlayer];
-    
+    NSString *status;
     NSURL *contentURL = [notification.object contentURL];
+    MPMoviePlaybackState playbackState = _viewController.moviePlayer.playbackState;
+    if (playbackState == MPMoviePlaybackStateStopped
+        && contentURL) {
+        status = DConnectMediaPlayerProfileStatusMedia;
+    } else {
+        status = DConnectMediaPlayerProfileStatusStop;
+    }
+    [DConnectMediaPlayerProfile setStatus:status target:mediaPlayer];
     if (contentURL) {
         DPHostMediaContext *mediaCtx = [DPHostMediaContext contextWithURL:contentURL];
         if (mediaCtx) {
@@ -258,13 +272,20 @@
     DConnectMessage *mediaPlayer = [DConnectMessage message];
     NSString *status;
     MPMoviePlaybackState playbackState = _viewController.moviePlayer.playbackState;
-    if (playbackState != MPMoviePlaybackStatePlaying) {
-        status = DConnectMediaPlayerProfileStatusPlay;
-    } else if (playbackState != MPMoviePlaybackStatePaused) {
-        status = DConnectMediaPlayerProfileStatusPause;
-    } else {
-        status = DConnectMediaPlayerProfileStatusStop;
+    switch (playbackState) {
+        case MPMoviePlaybackStateStopped:
+            status = DConnectMediaPlayerProfileStatusStop;
+            break;
+        case MPMoviePlaybackStatePlaying:
+            status = DConnectMediaPlayerProfileStatusPlay;
+            break;
+        case MPMoviePlaybackStatePaused:
+            status = DConnectMediaPlayerProfileStatusPause;
+            break;
+        default:
+            break;
     }
+
     [DConnectMediaPlayerProfile setStatus:status target:mediaPlayer];
     
     NSURL *contentURL = _viewController.moviePlayer.contentURL;
@@ -477,11 +498,13 @@
 
 - (void) videoFinished:(NSNotification*)notification
 {
+
     int value = [[notification.userInfo valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] intValue];
     if (value == MPMovieFinishReasonUserExited) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [_viewController.moviePlayer stop];
             [_viewController dismissMoviePlayerViewControllerAnimated];
+            [self nowPlayingItemChangedInMoviePlayer:notification];
             
             // 一度閉じたら次回動画再生時には別のMPMoviePlayerViewControllerインスタンスを使うので、オブザーバーを削除しておく。
             [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -716,7 +739,7 @@ didReceiveGetMediaListRequest:(DConnectRequestMessage *)request
                               MIN(ctxArr.count - offsetVal, limitVal))];
     }
     
-    [DConnectMediaPlayerProfile setCount:tmpArr.count target:response];
+    [DConnectMediaPlayerProfile setCount:(int)tmpArr.count target:response];
     DConnectArray *media = [DConnectArray array];
     for (DPHostMediaContext *ctx in tmpArr) {
         DConnectMessage *medium = [DConnectMessage message];

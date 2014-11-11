@@ -5,78 +5,74 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FFC993FA-989F-4BEF-AD46-03ED96605BD2</string>
+	<string>E5936758-C266-4B1A-B869-E1450D49E4A1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>dConnectBrowser</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1F379AB0-AFFD-40D0-AF60-85A5C27656AA</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceSphero</string>
-		<key>43131EA1-44DF-427A-A350-DDE12A78FDA8</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceChromeCast</string>
-		<key>4E47BDFC-4A6C-46D9-A51D-2BA4001DA362</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/DCMDevicePluginSDK</string>
-		<key>637685AD-B143-4305-B029-0CFA6B0DD30E</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceIRKit</string>
-		<key>81FFEFA8-CCBD-41CC-85CB-647EEF5DD24E</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceSonyCamera</string>
-		<key>91150919-4A47-45B8-BD82-A4DCFE0189F6</key>
+		<key>0F99B4105D7289D3D9D671EEF0E5DA54BCFDA27D</key>
 		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectSDK/dConnectBrowser</string>
-		<key>AED96D09-52D6-420A-9F5A-F118351B47B4</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectSDK/dConnectSDKForIOS</string>
-		<key>BFC1ED61-C235-4608-9CFA-4599BCBADA1D</key>
+		<key>12D2F6EE925FB1B39CD5443196F1BA716858B8DF</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceSphero</string>
+		<key>206F01C78233CE86D98E36E6B7216175545009C2</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceChromeCast</string>
+		<key>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</key>
 		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceDicePlus</string>
-		<key>C112CE32-6944-4C41-A3E8-5B83812160FA</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceHue</string>
-		<key>D4FCF6A0-85D0-42EA-89F1-0BD03FFAD79E</key>
-		<string>https://github.com/PhilipsHue/PhilipsHueSDK-iOS-OSX.git</string>
-		<key>D97C29A9-4C55-4201-B987-9447B13F9B87</key>
-		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceHost</string>
-		<key>ED240AD3-B8DB-4464-BE84-03E7FCBC5171</key>
+		<key>39B5C804BA7F80E4B77D5021C39D069563232F80</key>
 		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDevicePebble</string>
+		<key>8166AE78A8E0BFF61579F4C179A731598E963453</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceHost</string>
+		<key>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectSDK/dConnectSDKForIOS</string>
+		<key>BB8F78A8BEC2E5BE78B6A3889EB2452D40C3FB8E</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceIRKit</string>
+		<key>C884769013B54B2C65395C8EED3F248B46756C2F</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceHue</string>
+		<key>DA46D27ADF5063EBBC01A7A907A6062C47B92820</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceSonyCamera</string>
+		<key>EA149CCB3A6C1DF7E3D7DAE5B07CA5629295BB44</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/DCMDevicePluginSDK</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>dConnectBrowser.xcodeproj/project.xcworkspace</string>
+	<string>dConnectBrowser.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1F379AB0-AFFD-40D0-AF60-85A5C27656AA</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceSphero</string>
-		<key>43131EA1-44DF-427A-A350-DDE12A78FDA8</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceChromeCast</string>
-		<key>4E47BDFC-4A6C-46D9-A51D-2BA4001DA362</key>
-		<string>../../../../dConnectDevicePlugin/DCMDevicePluginSDK</string>
-		<key>637685AD-B143-4305-B029-0CFA6B0DD30E</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceIRKit</string>
-		<key>81FFEFA8-CCBD-41CC-85CB-647EEF5DD24E</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceSonyCamera</string>
-		<key>91150919-4A47-45B8-BD82-A4DCFE0189F6</key>
+		<key>0F99B4105D7289D3D9D671EEF0E5DA54BCFDA27D</key>
 		<string>../..</string>
-		<key>AED96D09-52D6-420A-9F5A-F118351B47B4</key>
+		<key>12D2F6EE925FB1B39CD5443196F1BA716858B8DF</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceSphero</string>
+		<key>206F01C78233CE86D98E36E6B7216175545009C2</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceChromeCast</string>
+		<key>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceDicePlus</string>
+		<key>39B5C804BA7F80E4B77D5021C39D069563232F80</key>
+		<string>../../../dConnectDevicePlugin/dConnectDevicePebble</string>
+		<key>8166AE78A8E0BFF61579F4C179A731598E963453</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceHost</string>
+		<key>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</key>
 		<string>../../../dConnectSDKForIOS</string>
-		<key>BFC1ED61-C235-4608-9CFA-4599BCBADA1D</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceDicePlus</string>
-		<key>C112CE32-6944-4C41-A3E8-5B83812160FA</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceHue</string>
-		<key>D4FCF6A0-85D0-42EA-89F1-0BD03FFAD79E</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceHue/deps/PhilipsHueSDK-iOS-OSX</string>
-		<key>D97C29A9-4C55-4201-B987-9447B13F9B87</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDeviceHost</string>
-		<key>ED240AD3-B8DB-4464-BE84-03E7FCBC5171</key>
-		<string>../../../../dConnectDevicePlugin/dConnectDevicePebble</string>
+		<key>BB8F78A8BEC2E5BE78B6A3889EB2452D40C3FB8E</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceIRKit</string>
+		<key>C884769013B54B2C65395C8EED3F248B46756C2F</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceHue</string>
+		<key>DA46D27ADF5063EBBC01A7A907A6062C47B92820</key>
+		<string>../../../dConnectDevicePlugin/dConnectDeviceSonyCamera</string>
+		<key>EA149CCB3A6C1DF7E3D7DAE5B07CA5629295BB44</key>
+		<string>../../../dConnectDevicePlugin/DCMDevicePluginSDK</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectSDK/dConnectBrowser</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>91150919-4A47-45B8-BD82-A4DCFE0189F6</string>
+	<string>0F99B4105D7289D3D9D671EEF0E5DA54BCFDA27D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4E47BDFC-4A6C-46D9-A51D-2BA4001DA362</string>
+			<string>EA149CCB3A6C1DF7E3D7DAE5B07CA5629295BB44</string>
 			<key>IDESourceControlWCCName</key>
 			<string>DCMDevicePluginSDK</string>
 		</dict>
@@ -84,7 +80,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>91150919-4A47-45B8-BD82-A4DCFE0189F6</string>
+			<string>0F99B4105D7289D3D9D671EEF0E5DA54BCFDA27D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectBrowser</string>
 		</dict>
@@ -92,7 +88,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>43131EA1-44DF-427A-A350-DDE12A78FDA8</string>
+			<string>206F01C78233CE86D98E36E6B7216175545009C2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceChromeCast</string>
 		</dict>
@@ -100,7 +96,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BFC1ED61-C235-4608-9CFA-4599BCBADA1D</string>
+			<string>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceDicePlus</string>
 		</dict>
@@ -108,7 +104,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D97C29A9-4C55-4201-B987-9447B13F9B87</string>
+			<string>8166AE78A8E0BFF61579F4C179A731598E963453</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceHost</string>
 		</dict>
@@ -116,7 +112,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C112CE32-6944-4C41-A3E8-5B83812160FA</string>
+			<string>C884769013B54B2C65395C8EED3F248B46756C2F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceHue</string>
 		</dict>
@@ -124,7 +120,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>637685AD-B143-4305-B029-0CFA6B0DD30E</string>
+			<string>BB8F78A8BEC2E5BE78B6A3889EB2452D40C3FB8E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceIRKit</string>
 		</dict>
@@ -132,7 +128,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>ED240AD3-B8DB-4464-BE84-03E7FCBC5171</string>
+			<string>39B5C804BA7F80E4B77D5021C39D069563232F80</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDevicePebble</string>
 		</dict>
@@ -140,7 +136,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>81FFEFA8-CCBD-41CC-85CB-647EEF5DD24E</string>
+			<string>DA46D27ADF5063EBBC01A7A907A6062C47B92820</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceSonyCamera</string>
 		</dict>
@@ -148,7 +144,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1F379AB0-AFFD-40D0-AF60-85A5C27656AA</string>
+			<string>12D2F6EE925FB1B39CD5443196F1BA716858B8DF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectDeviceSphero</string>
 		</dict>
@@ -156,17 +152,9 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AED96D09-52D6-420A-9F5A-F118351B47B4</string>
+			<string>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dConnectSDKForIOS</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D4FCF6A0-85D0-42EA-89F1-0BD03FFAD79E</string>
-			<key>IDESourceControlWCCName</key>
-			<string>PhilipsHueSDK-iOS-OSX</string>
 		</dict>
 	</array>
 </dict>

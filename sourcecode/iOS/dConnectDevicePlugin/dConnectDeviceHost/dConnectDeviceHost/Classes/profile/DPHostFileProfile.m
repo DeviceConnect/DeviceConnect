@@ -44,8 +44,10 @@ didReceiveGetReceiveRequest:(DConnectRequestMessage *)request
     }
     
     // pathが絶対であれ相対であれベースURLに追加する。
-    path = [SELF_PLUGIN pathByAppendingPathComponent:path];
-
+    NSString *dstPath = [SELF_PLUGIN pathByAppendingPathComponent:path];
+    if ([self checkPath:dstPath]) {
+        dstPath = path;
+    }
     NSFileManager *sysFileMgr = [NSFileManager defaultManager];
     BOOL isDirectory;
     if (![sysFileMgr fileExistsAtPath:path isDirectory:&isDirectory]) {
@@ -56,8 +58,8 @@ didReceiveGetReceiveRequest:(DConnectRequestMessage *)request
         return YES;
     }
     
-    [DConnectFileProfile setURI:[[NSURL fileURLWithPath:path] absoluteString] target:response];
-    NSString *mimeType = [DConnectFileManager searchMimeTypeForExtension:[path pathExtension]];
+    [DConnectFileProfile setURI:[[NSURL fileURLWithPath:dstPath] absoluteString] target:response];
+    NSString *mimeType = [DConnectFileManager searchMimeTypeForExtension:[dstPath pathExtension]];
     if (!mimeType) {
         mimeType = [DConnectFileManager mimeTypeForArbitraryData];
     }
@@ -81,7 +83,13 @@ didReceiveGetListRequest:(DConnectRequestMessage *)request
     NSFileManager *sysFileMgr = [NSFileManager defaultManager];
     if (path) {
         // pathが絶対であれ相対であれベースURLに追加する。
-        path = [SELF_PLUGIN pathByAppendingPathComponent:path];
+        if ([path isEqualToString:@".."]) {
+            path = @"/";
+        }
+        NSString *dstPath = [SELF_PLUGIN pathByAppendingPathComponent:path];
+        if (![self checkPath:dstPath]) {
+            path = dstPath;
+        }
         if (![sysFileMgr fileExistsAtPath:path]) {
             [response setErrorToInvalidRequestParameterWithMessage:@"path is invalid"];
             return YES;
@@ -89,7 +97,6 @@ didReceiveGetListRequest:(DConnectRequestMessage *)request
     } else {
         path = fileMgr.URL.path;
     }
-    
     NSString *sortTarget;
     NSString *sortOrder;
     if (order) {
@@ -181,13 +188,14 @@ didReceiveGetListRequest:(DConnectRequestMessage *)request
     // 「- enumeratorAtURL:includingPropertiesForKeys:options:errorHandler:」で返ってきたNSDirectoryEnumerator
     // の「- directoryAttributes」や「- fileAttributes」はnilを返す。
     // 代わりにNSURLの「- resourceValuesForKeys:error:」などで取得すること。
+    NSString *rootPath = [@"/private" stringByAppendingString:fileMgr.URL.path];
+    BOOL mkBackRoot = NO;
     NSDirectoryEnumerator *dirIter =
     [fileMgr enumeratorWithOptions:NSDirectoryEnumerationSkipsSubdirectoryDescendants dirPath:path];
     NSURL *url;
     while ((url = dirIter.nextObject))
     {
         NSString *pathItr = url.path;
-        
         // MIMEタイプ検索
         if (mimeType) {
             NSString *thisMimeType = [DConnectFileManager searchMimeTypeForExtension:url.pathExtension];
@@ -215,10 +223,24 @@ didReceiveGetListRequest:(DConnectRequestMessage *)request
         [url getResourceValue:&fileSize forKey:NSURLFileSizeKey error:nil];
         [DConnectFileProfile setFileSize:[fileSize longLongValue] target:file];
         
+        NSString *pluginRootPath = [pathItr stringByReplacingOccurrencesOfString:rootPath withString:@""];
+        NSArray *dirCount = [pluginRootPath componentsSeparatedByString:@"/"];
+        //rootディレクトリでなければ、一つ上のディレクトリに戻るためのディレクトリを追加する。
+        if (dirCount.count > 2 && !mkBackRoot) {
+            DConnectMessage *upDir = [DConnectMessage message];
+            [DConnectFileProfile setPath:rootPath target:upDir];
+            [DConnectFileProfile setFileName:@".." target:upDir];
+            [DConnectFileProfile setUpdateDate:[rfc3339DateFormatter stringFromDate:modifiedDate] tareget:upDir];
+            [DConnectFileProfile setMIMEType:@"dir/folder" target:upDir];
+            [DConnectFileProfile setFileType:1 target:upDir];
+            [DConnectFileProfile setFileSize:0 target:upDir];
+            [fileArr addObject:upDir];
+            mkBackRoot = YES;
+        }
         BOOL isDirectory;
         [sysFileMgr fileExistsAtPath:pathItr isDirectory:&isDirectory];
         if (isDirectory) {
-            // ディレクトリの場合はMIMEタイプを省略する。
+            [DConnectFileProfile setMIMEType:@"dir/folder" target:file];
             [DConnectFileProfile setFileType:1 target:file];
         } else {
             NSString *mimeType = [DConnectFileManager searchMimeTypeForExtension:url.pathExtension.lowercaseString];
@@ -251,7 +273,7 @@ didReceiveGetListRequest:(DConnectRequestMessage *)request
                               MIN(fileArr.count - offsetVal, limitVal))];
     }
     
-    [DConnectFileProfile setCount:tmpArr.count target:response];
+    [DConnectFileProfile setCount:(int)tmpArr.count target:response];
     [DConnectFileProfile setFiles:[DConnectArray initWithArray:tmpArr] target:response];
     [response setResult:DConnectMessageResultTypeOk];
     
@@ -282,7 +304,9 @@ didReceivePostSendRequest:(DConnectRequestMessage *)request
     
     // pathが絶対であれ相対であれベースURLに追加する。
     NSString *dstPath = [SELF_PLUGIN pathByAppendingPathComponent:path];
-    
+    if ([self checkPath:dstPath]) {
+        dstPath = path;
+    }
     if ([sysFileMgr fileExistsAtPath:dstPath]) {
         // ファイルが既に存在している
         [response setErrorToInvalidRequestParameterWithMessage:
@@ -315,7 +339,9 @@ didReceivePostMkdirRequest:(DConnectRequestMessage *)request
     
     // pathが絶対であれ相対であれベースURLに追加する。
     NSString *dstPath = [SELF_PLUGIN pathByAppendingPathComponent:path];
-    
+    if ([self checkPath:dstPath]) {
+        dstPath = path;
+    }
     if ([sysFileMgr fileExistsAtPath:dstPath]) {
         // ディレクトリが既に存在している
         [response setErrorToUnknownWithMessage:
@@ -350,7 +376,9 @@ didReceiveDeleteRemoveRequest:(DConnectRequestMessage *)request
 
     // pathが絶対であれ相対であれベースURLに追加する。
     NSString *dstPath = [SELF_PLUGIN pathByAppendingPathComponent:path];
-    
+    if ([self checkPath:dstPath]) {
+        dstPath = path;
+    }
     BOOL isDirectory;
     if (![sysFileMgr fileExistsAtPath:dstPath isDirectory:&isDirectory]) {
         [response setErrorToUnknownWithMessage:@"File does not exist."];
@@ -386,7 +414,9 @@ didReceiveDeleteRmdirRequest:(DConnectRequestMessage *)request
     
     // pathが絶対であれ相対であれベースURLに追加する。
     NSString *dstPath = [SELF_PLUGIN pathByAppendingPathComponent:path];
-    
+    if ([self checkPath:dstPath]) {
+        dstPath = path;
+    }
     BOOL isDirectory;
     if (![sysFileMgr fileExistsAtPath:dstPath isDirectory:&isDirectory]) {
         // ディレクトリが存在しない
@@ -416,4 +446,32 @@ didReceiveDeleteRmdirRequest:(DConnectRequestMessage *)request
     return YES;
 }
 
+//不正なパスかどうかを検査する
+-(BOOL)checkPath:(NSString*)dstPath {
+    NSMutableArray *results = [NSMutableArray array];
+    NSRange target = NSMakeRange(0, [dstPath length]);
+    NSString *word = @"/var/mobile/Applications";
+    
+    // 全件検索
+    while (target.location != NSNotFound) {
+        
+        // 検索
+        target = [dstPath rangeOfString:word options:0 range:target];
+        if (target.location != NSNotFound) {
+            
+            // 結果格納
+            [results addObject:[NSValue valueWithRange:target]];
+            
+            // 次の検索範囲を設定
+            int from = (int) (target.location + [word length]);
+            int end = (int) ([dstPath length] - from);
+            target = NSMakeRange(from, end);
+        }
+    }
+    if ([results count] >= 2) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 @end

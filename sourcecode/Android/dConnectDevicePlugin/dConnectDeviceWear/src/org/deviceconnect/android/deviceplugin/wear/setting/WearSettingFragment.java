@@ -8,45 +8,28 @@ package org.deviceconnect.android.deviceplugin.wear.setting;
 
 import org.deviceconnect.android.deviceplugin.wear.R;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 /**
- * 設定用Fragment.
+ * 設定画面用Fragment.
  * 
  * @author NTT DOCOMO, INC.
  */
 public class WearSettingFragment extends Fragment implements OnClickListener {
-
-    /** Debug Tag. */
-    private static final String TAG = "WEAR";
-
-    /** context. */
-    Activity mActivity;
-
-    /** PluginID. */
-    String mPluginId;
 
     /** ImageView. */
     private ImageView mImageView;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-
-        // Activityを取得
-        mActivity = this.getActivity();
-
         // Positionを取得
         Bundle mBundle = getArguments();
         int mPagePosition = mBundle.getInt("position", 0);
@@ -59,21 +42,9 @@ public class WearSettingFragment extends Fragment implements OnClickListener {
         if (mPagePosition == 0) {
             mImageView = (ImageView) mView.findViewById(R.id.dconnect_settings_googleplay);
             mImageView.setOnClickListener(this);
-
         }
 
         return mView;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
     }
 
     @Override

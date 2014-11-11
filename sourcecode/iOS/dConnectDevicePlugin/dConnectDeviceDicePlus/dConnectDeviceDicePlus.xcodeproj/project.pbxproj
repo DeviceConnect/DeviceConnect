@@ -1,0 +1,827 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		AB9170EF19628E3E0084DB70 /* dConnectDeviceDicePlus_framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AB9170F019628E3E0084DB70 /* Build configuration list for PBXAggregateTarget "dConnectDeviceDicePlus_framework" */;
+			buildPhases = (
+				AB9170F319628E5E0084DB70 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceDicePlus_framework;
+			productName = dConnectDeviceDicePlus_framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		AB00074419C84F05008CED6A /* DPDicePlusGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB00074319C84F05008CED6A /* DPDicePlusGuideViewController.m */; };
+		AB00074819C84F56008CED6A /* DPDicePlusSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB00074719C84F56008CED6A /* DPDicePlusSettingViewController.m */; };
+		AB00074A19C854FA008CED6A /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB00074919C84FA5008CED6A /* Storyboard_iPhone.storyboard */; };
+		AB00074F19C91FE4008CED6A /* DPDicePlusActivateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB00074E19C91FE4008CED6A /* DPDicePlusActivateViewController.m */; };
+		AB00075619C96A74008CED6A /* DicePlusBluetoothSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = AB00075519C96A74008CED6A /* DicePlusBluetoothSetting.png */; };
+		AB00075819C96BDB008CED6A /* DicePlusBluetoothSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = AB00075519C96A74008CED6A /* DicePlusBluetoothSetting.png */; };
+		AB00075A19C98AB4008CED6A /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB00075919C9873B008CED6A /* Storyboard_iPad.storyboard */; };
+		AB03426719C0272700B1967E /* DCMDevicePluginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB03426619C0272700B1967E /* DCMDevicePluginSDK.framework */; };
+		AB08A0D51991E3AC0024C996 /* DicePlusSwitchOn.png in Resources */ = {isa = PBXBuildFile; fileRef = AB08A0D11991E3AC0024C996 /* DicePlusSwitchOn.png */; };
+		AB08A0D91991E3BD0024C996 /* DicePlusSwitchOn.png in Resources */ = {isa = PBXBuildFile; fileRef = AB08A0D11991E3AC0024C996 /* DicePlusSwitchOn.png */; };
+		AB1061A6197E17140005BB3F /* DPDicePlusTemperatureProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1061A5197E17140005BB3F /* DPDicePlusTemperatureProfile.m */; };
+		AB7B2D1119B84AAB00FC65CA /* DicePlusSwitchOn_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1019B84AAB00FC65CA /* DicePlusSwitchOn_2x.png */; };
+		AB7B2D1419B84AF800FC65CA /* DicePlusNoPair.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1219B84AF800FC65CA /* DicePlusNoPair.png */; };
+		AB7B2D1519B84AF800FC65CA /* DicePlusPair.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1319B84AF800FC65CA /* DicePlusPair.png */; };
+		AB7B2D1819B84B1200FC65CA /* DicePlusNoPair_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1619B84B1200FC65CA /* DicePlusNoPair_2x.png */; };
+		AB7B2D1919B84B1200FC65CA /* DicePlusPair_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1719B84B1200FC65CA /* DicePlusPair_2x.png */; };
+		AB7B2D1A19B84B4700FC65CA /* DicePlusNoPair_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1619B84B1200FC65CA /* DicePlusNoPair_2x.png */; };
+		AB7B2D1B19B84B4700FC65CA /* DicePlusPair_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1719B84B1200FC65CA /* DicePlusPair_2x.png */; };
+		AB7B2D1C19B84B4700FC65CA /* DicePlusNoPair.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1219B84AF800FC65CA /* DicePlusNoPair.png */; };
+		AB7B2D1D19B84B4700FC65CA /* DicePlusPair.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1319B84AF800FC65CA /* DicePlusPair.png */; };
+		AB7B2D1E19B84B4700FC65CA /* DicePlusSwitchOn_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7B2D1019B84AAB00FC65CA /* DicePlusSwitchOn_2x.png */; };
+		AB8913961974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8913951974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.m */; };
+		AB8913BC1974F1CA0069CDA3 /* DPDiceProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8913BB1974F1CA0069CDA3 /* DPDiceProfile.m */; };
+		AB8913C01974FA200069CDA3 /* DPDicePlusDiceProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8913BF1974FA200069CDA3 /* DPDicePlusDiceProfile.m */; };
+		AB8E319E19BC30360023B81A /* DicePlusBluetoothOn.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8E319D19BC30360023B81A /* DicePlusBluetoothOn.png */; };
+		AB8E319F19BC33020023B81A /* DicePlusBluetoothOn.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8E319D19BC30360023B81A /* DicePlusBluetoothOn.png */; };
+		AB91709C196246C20084DB70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB91709B196246C20084DB70 /* Foundation.framework */; };
+		AB9170AA196246C20084DB70 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9170A9196246C20084DB70 /* XCTest.framework */; };
+		AB9170AB196246C20084DB70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB91709B196246C20084DB70 /* Foundation.framework */; };
+		AB9170AD196246C20084DB70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9170AC196246C20084DB70 /* UIKit.framework */; };
+		AB9170B0196246C20084DB70 /* libdConnectDeviceDicePlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB917098196246C20084DB70 /* libdConnectDeviceDicePlus.a */; };
+		AB9170B6196246C20084DB70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB9170B4196246C20084DB70 /* InfoPlist.strings */; };
+		AB9170B8196246C20084DB70 /* dConnectDeviceDicePlusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9170B7196246C20084DB70 /* dConnectDeviceDicePlusTests.m */; };
+		AB9170C4196248060084DB70 /* DPDicePlusDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9170C3196248060084DB70 /* DPDicePlusDevicePlugin.m */; };
+		AB9170C8196251FD0084DB70 /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9170C7196251FD0084DB70 /* DConnectSDK.framework */; };
+		AB9170CD196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9170CC196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.m */; };
+		AB9170D01962629F0084DB70 /* DPDicePlusSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9170CF1962629F0084DB70 /* DPDicePlusSystemProfile.m */; };
+		AB9170D5196283530084DB70 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB9170D4196283530084DB70 /* Info.plist */; };
+		AB9170E319628D420084DB70 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9170E219628D420084DB70 /* CoreFoundation.framework */; };
+		AB91715E1963A2B10084DB70 /* DPDicePlusProximityProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB91715D1963A2B10084DB70 /* DPDicePlusProximityProfile.m */; };
+		AB9171611963AC790084DB70 /* DPDicePlusBatteryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9171601963AC790084DB70 /* DPDicePlusBatteryProfile.m */; };
+		ABA531AA1993536A0031FF1F /* DPDicePlusLightProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA531A91993536A0031FF1F /* DPDicePlusLightProfile.m */; };
+		ABD662ED19ADA90E00F3242A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD662EB19ADA90E00F3242A /* Localizable.strings */; };
+		ABD662FA19ADA9CC00F3242A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD662EB19ADA90E00F3242A /* Localizable.strings */; };
+		ABF842B619DE931E00B8AC46 /* DicePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF842B519DE931E00B8AC46 /* DicePlus.framework */; };
+		BE17F57F19BAD800008DA432 /* DPDicePlusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE17F57E19BAD800008DA432 /* DPDicePlusManager.m */; };
+		BE17F58A19BD9C04008DA432 /* DPDicePlusData.m in Sources */ = {isa = PBXBuildFile; fileRef = BE17F58919BD9C04008DA432 /* DPDicePlusData.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB9170AE196246C20084DB70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB917090196246C20084DB70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB917097196246C20084DB70;
+			remoteInfo = dConnectDeviceDicePlus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB917096196246C20084DB70 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AB00074219C84F05008CED6A /* DPDicePlusGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusGuideViewController.h; sourceTree = "<group>"; };
+		AB00074319C84F05008CED6A /* DPDicePlusGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusGuideViewController.m; sourceTree = "<group>"; };
+		AB00074619C84F56008CED6A /* DPDicePlusSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusSettingViewController.h; sourceTree = "<group>"; };
+		AB00074719C84F56008CED6A /* DPDicePlusSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusSettingViewController.m; sourceTree = "<group>"; };
+		AB00074919C84FA5008CED6A /* Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
+		AB00074D19C91FE4008CED6A /* DPDicePlusActivateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusActivateViewController.h; sourceTree = "<group>"; };
+		AB00074E19C91FE4008CED6A /* DPDicePlusActivateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusActivateViewController.m; sourceTree = "<group>"; };
+		AB00075519C96A74008CED6A /* DicePlusBluetoothSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusBluetoothSetting.png; sourceTree = "<group>"; };
+		AB00075919C9873B008CED6A /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
+		AB03426619C0272700B1967E /* DCMDevicePluginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DCMDevicePluginSDK.framework; path = ../DCMDevicePluginSDK/bin/DCMDevicePluginSDK.framework; sourceTree = "<group>"; };
+		AB08A0D11991E3AC0024C996 /* DicePlusSwitchOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusSwitchOn.png; sourceTree = "<group>"; };
+		AB1061A4197E17140005BB3F /* DPDicePlusTemperatureProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusTemperatureProfile.h; sourceTree = "<group>"; };
+		AB1061A5197E17140005BB3F /* DPDicePlusTemperatureProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusTemperatureProfile.m; sourceTree = "<group>"; };
+		AB239A8219ADAD6900C0B580 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB7B2D1019B84AAB00FC65CA /* DicePlusSwitchOn_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusSwitchOn_2x.png; sourceTree = "<group>"; };
+		AB7B2D1219B84AF800FC65CA /* DicePlusNoPair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusNoPair.png; sourceTree = "<group>"; };
+		AB7B2D1319B84AF800FC65CA /* DicePlusPair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusPair.png; sourceTree = "<group>"; };
+		AB7B2D1619B84B1200FC65CA /* DicePlusNoPair_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusNoPair_2x.png; sourceTree = "<group>"; };
+		AB7B2D1719B84B1200FC65CA /* DicePlusPair_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusPair_2x.png; sourceTree = "<group>"; };
+		AB8913941974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusDeviceOrientationProfile.h; sourceTree = "<group>"; };
+		AB8913951974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusDeviceOrientationProfile.m; sourceTree = "<group>"; };
+		AB8913BB1974F1CA0069CDA3 /* DPDiceProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDiceProfile.m; sourceTree = "<group>"; };
+		AB8913BD1974F9BD0069CDA3 /* DPDiceProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPDiceProfile.h; sourceTree = "<group>"; };
+		AB8913BE1974FA200069CDA3 /* DPDicePlusDiceProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusDiceProfile.h; sourceTree = "<group>"; };
+		AB8913BF1974FA200069CDA3 /* DPDicePlusDiceProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusDiceProfile.m; sourceTree = "<group>"; };
+		AB8E319D19BC30360023B81A /* DicePlusBluetoothOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DicePlusBluetoothOn.png; sourceTree = "<group>"; };
+		AB917098196246C20084DB70 /* libdConnectDeviceDicePlus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdConnectDeviceDicePlus.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB91709B196246C20084DB70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AB91709F196246C20084DB70 /* dConnectDeviceDicePlus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectDeviceDicePlus-Prefix.pch"; sourceTree = "<group>"; };
+		AB9170A8196246C20084DB70 /* dConnectDeviceDicePlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDeviceDicePlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB9170A9196246C20084DB70 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AB9170AC196246C20084DB70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB9170B3196246C20084DB70 /* dConnectDeviceDicePlusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectDeviceDicePlusTests-Info.plist"; sourceTree = "<group>"; };
+		AB9170B5196246C20084DB70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB9170B7196246C20084DB70 /* dConnectDeviceDicePlusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dConnectDeviceDicePlusTests.m; sourceTree = "<group>"; };
+		AB9170C2196248060084DB70 /* DPDicePlusDevicePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusDevicePlugin.h; sourceTree = "<group>"; };
+		AB9170C3196248060084DB70 /* DPDicePlusDevicePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusDevicePlugin.m; sourceTree = "<group>"; };
+		AB9170C7196251FD0084DB70 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = ../../dConnectSDK/dConnectSDKForIOS/bin/DConnectSDK.framework; sourceTree = "<group>"; };
+		AB9170CB196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusNetworkServiceDiscoveryProfile.h; sourceTree = "<group>"; };
+		AB9170CC196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusNetworkServiceDiscoveryProfile.m; sourceTree = "<group>"; };
+		AB9170CE1962629F0084DB70 /* DPDicePlusSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusSystemProfile.h; sourceTree = "<group>"; };
+		AB9170CF1962629F0084DB70 /* DPDicePlusSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusSystemProfile.m; sourceTree = "<group>"; };
+		AB9170D4196283530084DB70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB9170E119628D410084DB70 /* dConnectDeviceDicePlus_resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDeviceDicePlus_resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB9170E219628D420084DB70 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		AB9170E619628D420084DB70 /* dConnectDeviceDicePlus_resources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectDeviceDicePlus_resources-Info.plist"; sourceTree = "<group>"; };
+		AB9170EA19628D420084DB70 /* dConnectDeviceDicePlus_resources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dConnectDeviceDicePlus_resources-Prefix.pch"; sourceTree = "<group>"; };
+		AB91715C1963A2B10084DB70 /* DPDicePlusProximityProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusProximityProfile.h; sourceTree = "<group>"; };
+		AB91715D1963A2B10084DB70 /* DPDicePlusProximityProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusProximityProfile.m; sourceTree = "<group>"; };
+		AB91715F1963AC790084DB70 /* DPDicePlusBatteryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusBatteryProfile.h; sourceTree = "<group>"; };
+		AB9171601963AC790084DB70 /* DPDicePlusBatteryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusBatteryProfile.m; sourceTree = "<group>"; };
+		ABA531A81993536A0031FF1F /* DPDicePlusLightProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusLightProfile.h; sourceTree = "<group>"; };
+		ABA531A91993536A0031FF1F /* DPDicePlusLightProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusLightProfile.m; sourceTree = "<group>"; };
+		ABD662EF19ADA92000F3242A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ABF842B519DE931E00B8AC46 /* DicePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DicePlus.framework; sourceTree = "<group>"; };
+		BE17F57D19BAD800008DA432 /* DPDicePlusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusManager.h; sourceTree = "<group>"; };
+		BE17F57E19BAD800008DA432 /* DPDicePlusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusManager.m; sourceTree = "<group>"; };
+		BE17F58819BD9C04008DA432 /* DPDicePlusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDicePlusData.h; sourceTree = "<group>"; };
+		BE17F58919BD9C04008DA432 /* DPDicePlusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDicePlusData.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB917095196246C20084DB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB03426719C0272700B1967E /* DCMDevicePluginSDK.framework in Frameworks */,
+				AB91709C196246C20084DB70 /* Foundation.framework in Frameworks */,
+				AB9170C8196251FD0084DB70 /* DConnectSDK.framework in Frameworks */,
+				ABF842B619DE931E00B8AC46 /* DicePlus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB9170A5196246C20084DB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB9170B0196246C20084DB70 /* libdConnectDeviceDicePlus.a in Frameworks */,
+				AB9170AA196246C20084DB70 /* XCTest.framework in Frameworks */,
+				AB9170AD196246C20084DB70 /* UIKit.framework in Frameworks */,
+				AB9170AB196246C20084DB70 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB9170DE19628D410084DB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB9170E319628D420084DB70 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB8913921974B8540069CDA3 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				ABA531A81993536A0031FF1F /* DPDicePlusLightProfile.h */,
+				ABA531A91993536A0031FF1F /* DPDicePlusLightProfile.m */,
+				AB9170CB196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.h */,
+				AB9170CC196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.m */,
+				AB9170CE1962629F0084DB70 /* DPDicePlusSystemProfile.h */,
+				AB9170CF1962629F0084DB70 /* DPDicePlusSystemProfile.m */,
+				AB91715C1963A2B10084DB70 /* DPDicePlusProximityProfile.h */,
+				AB91715D1963A2B10084DB70 /* DPDicePlusProximityProfile.m */,
+				AB91715F1963AC790084DB70 /* DPDicePlusBatteryProfile.h */,
+				AB9171601963AC790084DB70 /* DPDicePlusBatteryProfile.m */,
+				AB8913941974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.h */,
+				AB8913951974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.m */,
+				AB8913BE1974FA200069CDA3 /* DPDicePlusDiceProfile.h */,
+				AB8913BF1974FA200069CDA3 /* DPDicePlusDiceProfile.m */,
+				AB1061A4197E17140005BB3F /* DPDicePlusTemperatureProfile.h */,
+				AB1061A5197E17140005BB3F /* DPDicePlusTemperatureProfile.m */,
+			);
+			name = profile;
+			sourceTree = "<group>";
+		};
+		AB8913931974B8700069CDA3 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				AB00074219C84F05008CED6A /* DPDicePlusGuideViewController.h */,
+				AB00074319C84F05008CED6A /* DPDicePlusGuideViewController.m */,
+				AB00074619C84F56008CED6A /* DPDicePlusSettingViewController.h */,
+				AB00074719C84F56008CED6A /* DPDicePlusSettingViewController.m */,
+				AB00074D19C91FE4008CED6A /* DPDicePlusActivateViewController.h */,
+				AB00074E19C91FE4008CED6A /* DPDicePlusActivateViewController.m */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
+		AB8913B31974CFA20069CDA3 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB8913BB1974F1CA0069CDA3 /* DPDiceProfile.m */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
+		AB91708F196246C20084DB70 = {
+			isa = PBXGroup;
+			children = (
+				AB91709D196246C20084DB70 /* dConnectDeviceDicePlus */,
+				AB9170B1196246C20084DB70 /* dConnectDeviceDicePlusTests */,
+				AB9170E419628D420084DB70 /* dConnectDeviceDicePlus_resources */,
+				AB91709A196246C20084DB70 /* Frameworks */,
+				AB917099196246C20084DB70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB917099196246C20084DB70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB917098196246C20084DB70 /* libdConnectDeviceDicePlus.a */,
+				AB9170A8196246C20084DB70 /* dConnectDeviceDicePlusTests.xctest */,
+				AB9170E119628D410084DB70 /* dConnectDeviceDicePlus_resources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB91709A196246C20084DB70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABF842B519DE931E00B8AC46 /* DicePlus.framework */,
+				AB03426619C0272700B1967E /* DCMDevicePluginSDK.framework */,
+				AB9170C7196251FD0084DB70 /* DConnectSDK.framework */,
+				AB91709B196246C20084DB70 /* Foundation.framework */,
+				AB9170A9196246C20084DB70 /* XCTest.framework */,
+				AB9170AC196246C20084DB70 /* UIKit.framework */,
+				AB9170E219628D420084DB70 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB91709D196246C20084DB70 /* dConnectDeviceDicePlus */ = {
+			isa = PBXGroup;
+			children = (
+				AB9170C6196248360084DB70 /* Resources */,
+				AB9170C5196248260084DB70 /* Headers */,
+				AB9170C1196247D60084DB70 /* Classes */,
+				AB91709E196246C20084DB70 /* Supporting Files */,
+			);
+			path = dConnectDeviceDicePlus;
+			sourceTree = "<group>";
+		};
+		AB91709E196246C20084DB70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB91709F196246C20084DB70 /* dConnectDeviceDicePlus-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB9170B1196246C20084DB70 /* dConnectDeviceDicePlusTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB9170B7196246C20084DB70 /* dConnectDeviceDicePlusTests.m */,
+				AB9170B2196246C20084DB70 /* Supporting Files */,
+			);
+			path = dConnectDeviceDicePlusTests;
+			sourceTree = "<group>";
+		};
+		AB9170B2196246C20084DB70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB9170B3196246C20084DB70 /* dConnectDeviceDicePlusTests-Info.plist */,
+				AB9170B4196246C20084DB70 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB9170C1196247D60084DB70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AB8913B31974CFA20069CDA3 /* extension */,
+				AB8913931974B8700069CDA3 /* setting */,
+				AB8913921974B8540069CDA3 /* profile */,
+				AB9170C2196248060084DB70 /* DPDicePlusDevicePlugin.h */,
+				AB9170C3196248060084DB70 /* DPDicePlusDevicePlugin.m */,
+				BE17F57D19BAD800008DA432 /* DPDicePlusManager.h */,
+				BE17F57E19BAD800008DA432 /* DPDicePlusManager.m */,
+				BE17F58819BD9C04008DA432 /* DPDicePlusData.h */,
+				BE17F58919BD9C04008DA432 /* DPDicePlusData.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AB9170C5196248260084DB70 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				AB8913BD1974F9BD0069CDA3 /* DPDiceProfile.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		AB9170C6196248360084DB70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB00075519C96A74008CED6A /* DicePlusBluetoothSetting.png */,
+				AB8E319D19BC30360023B81A /* DicePlusBluetoothOn.png */,
+				AB7B2D1619B84B1200FC65CA /* DicePlusNoPair_2x.png */,
+				AB7B2D1719B84B1200FC65CA /* DicePlusPair_2x.png */,
+				AB7B2D1219B84AF800FC65CA /* DicePlusNoPair.png */,
+				AB7B2D1319B84AF800FC65CA /* DicePlusPair.png */,
+				ABD662EB19ADA90E00F3242A /* Localizable.strings */,
+				AB08A0D11991E3AC0024C996 /* DicePlusSwitchOn.png */,
+				AB7B2D1019B84AAB00FC65CA /* DicePlusSwitchOn_2x.png */,
+				AB9170D4196283530084DB70 /* Info.plist */,
+				AB00074919C84FA5008CED6A /* Storyboard_iPhone.storyboard */,
+				AB00075919C9873B008CED6A /* Storyboard_iPad.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB9170E419628D420084DB70 /* dConnectDeviceDicePlus_resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB9170E519628D420084DB70 /* Supporting Files */,
+			);
+			path = dConnectDeviceDicePlus_resources;
+			sourceTree = "<group>";
+		};
+		AB9170E519628D420084DB70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB9170E619628D420084DB70 /* dConnectDeviceDicePlus_resources-Info.plist */,
+				AB9170EA19628D420084DB70 /* dConnectDeviceDicePlus_resources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB917097196246C20084DB70 /* dConnectDeviceDicePlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB9170BB196246C20084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceDicePlus" */;
+			buildPhases = (
+				AB917094196246C20084DB70 /* Sources */,
+				AB917095196246C20084DB70 /* Frameworks */,
+				AB917096196246C20084DB70 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceDicePlus;
+			productName = dConnectDeviceDicePlus;
+			productReference = AB917098196246C20084DB70 /* libdConnectDeviceDicePlus.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AB9170A7196246C20084DB70 /* dConnectDeviceDicePlusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB9170BE196246C20084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceDicePlusTests" */;
+			buildPhases = (
+				AB9170A4196246C20084DB70 /* Sources */,
+				AB9170A5196246C20084DB70 /* Frameworks */,
+				AB9170A6196246C20084DB70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB9170AF196246C20084DB70 /* PBXTargetDependency */,
+			);
+			name = dConnectDeviceDicePlusTests;
+			productName = dConnectDeviceDicePlusTests;
+			productReference = AB9170A8196246C20084DB70 /* dConnectDeviceDicePlusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AB9170E019628D410084DB70 /* dConnectDeviceDicePlus_resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB9170ED19628D420084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceDicePlus_resources" */;
+			buildPhases = (
+				AB9170DD19628D410084DB70 /* Sources */,
+				AB9170DE19628D410084DB70 /* Frameworks */,
+				AB9170DF19628D410084DB70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dConnectDeviceDicePlus_resources;
+			productName = dConnectDeviceDicePlusResources;
+			productReference = AB9170E119628D410084DB70 /* dConnectDeviceDicePlus_resources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB917090196246C20084DB70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "NTT DOCOMO, INC.";
+			};
+			buildConfigurationList = AB917093196246C20084DB70 /* Build configuration list for PBXProject "dConnectDeviceDicePlus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = AB91708F196246C20084DB70;
+			productRefGroup = AB917099196246C20084DB70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB917097196246C20084DB70 /* dConnectDeviceDicePlus */,
+				AB9170A7196246C20084DB70 /* dConnectDeviceDicePlusTests */,
+				AB9170EF19628E3E0084DB70 /* dConnectDeviceDicePlus_framework */,
+				AB9170E019628D410084DB70 /* dConnectDeviceDicePlus_resources */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB9170A6196246C20084DB70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB8E319E19BC30360023B81A /* DicePlusBluetoothOn.png in Resources */,
+				AB9170D5196283530084DB70 /* Info.plist in Resources */,
+				AB7B2D1919B84B1200FC65CA /* DicePlusPair_2x.png in Resources */,
+				AB7B2D1519B84AF800FC65CA /* DicePlusPair.png in Resources */,
+				AB7B2D1119B84AAB00FC65CA /* DicePlusSwitchOn_2x.png in Resources */,
+				ABD662ED19ADA90E00F3242A /* Localizable.strings in Resources */,
+				AB9170B6196246C20084DB70 /* InfoPlist.strings in Resources */,
+				AB7B2D1819B84B1200FC65CA /* DicePlusNoPair_2x.png in Resources */,
+				AB08A0D51991E3AC0024C996 /* DicePlusSwitchOn.png in Resources */,
+				AB7B2D1419B84AF800FC65CA /* DicePlusNoPair.png in Resources */,
+				AB00075619C96A74008CED6A /* DicePlusBluetoothSetting.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB9170DF19628D410084DB70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB00075A19C98AB4008CED6A /* Storyboard_iPad.storyboard in Resources */,
+				AB00075819C96BDB008CED6A /* DicePlusBluetoothSetting.png in Resources */,
+				AB00074A19C854FA008CED6A /* Storyboard_iPhone.storyboard in Resources */,
+				AB8E319F19BC33020023B81A /* DicePlusBluetoothOn.png in Resources */,
+				AB7B2D1A19B84B4700FC65CA /* DicePlusNoPair_2x.png in Resources */,
+				AB7B2D1B19B84B4700FC65CA /* DicePlusPair_2x.png in Resources */,
+				AB7B2D1C19B84B4700FC65CA /* DicePlusNoPair.png in Resources */,
+				AB7B2D1D19B84B4700FC65CA /* DicePlusPair.png in Resources */,
+				AB7B2D1E19B84B4700FC65CA /* DicePlusSwitchOn_2x.png in Resources */,
+				ABD662FA19ADA9CC00F3242A /* Localizable.strings in Resources */,
+				AB08A0D91991E3BD0024C996 /* DicePlusSwitchOn.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB9170F319628E5E0084DB70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Environment Variables\nFRAMEWORK_NAME=${PROJECT_NAME}\nFRAMEWORK_VERSION=A\nFRAMEWORK_VERSION_NUMBER=1.0\nCONFIGURATION=\"Release\"\nFRAMEWORK_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nSTATICLIB_BUILD_PATH=\"${SRCROOT}/build/${CONFIGURATION}-universal\"\n\n# Clean directories\nrm -rf \"${FRAMEWORK_BUILD_PATH}\"\n\n# Build simulator and device binaries.\n# A target to build a static library *must* have the name ${PROJECT_NAME}.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\n# A target to build a bundle *must* have the name ${PROJECT_NAME}_resources. This target is optional.\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME}_resources -configuration ${CONFIGURATION} clean build || true\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME}_resources -configuration ${CONFIGURATION} clean build || true\n\n# create directories.\nmkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\nmkdir -p ${STATICLIB_BUILD_PATH}\n# create symlinks\ncd ${FRAMEWORK_DIR}\nln -s ../Versions/${FRAMEWORK_VERSION} Versions/Current\nln -s Versions/Current/Headers Headers\n#ln -s Versions/Current/Resources Resources\nln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_NAME}\ncd ${SRCROOT}\n\n# create the universal library, and strip internal symbols from it\nlipo ${SRCROOT}/build/${CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a ${SRCROOT}/build/${CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a -create -output \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\n#strip -x \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\"\ncp \"${STATICLIB_BUILD_PATH}/lib${FRAMEWORK_NAME}.a\" \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\n# copy files\ncp -r ${SRCROOT}/${PROJECT_NAME}/Headers/ ${FRAMEWORK_DIR}/Headers/";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB917094196246C20084DB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB9171611963AC790084DB70 /* DPDicePlusBatteryProfile.m in Sources */,
+				AB00074819C84F56008CED6A /* DPDicePlusSettingViewController.m in Sources */,
+				AB9170D01962629F0084DB70 /* DPDicePlusSystemProfile.m in Sources */,
+				AB9170CD196259BE0084DB70 /* DPDicePlusNetworkServiceDiscoveryProfile.m in Sources */,
+				AB9170C4196248060084DB70 /* DPDicePlusDevicePlugin.m in Sources */,
+				AB8913961974BA620069CDA3 /* DPDicePlusDeviceOrientationProfile.m in Sources */,
+				AB8913C01974FA200069CDA3 /* DPDicePlusDiceProfile.m in Sources */,
+				AB91715E1963A2B10084DB70 /* DPDicePlusProximityProfile.m in Sources */,
+				BE17F58A19BD9C04008DA432 /* DPDicePlusData.m in Sources */,
+				AB8913BC1974F1CA0069CDA3 /* DPDiceProfile.m in Sources */,
+				ABA531AA1993536A0031FF1F /* DPDicePlusLightProfile.m in Sources */,
+				AB1061A6197E17140005BB3F /* DPDicePlusTemperatureProfile.m in Sources */,
+				AB00074419C84F05008CED6A /* DPDicePlusGuideViewController.m in Sources */,
+				AB00074F19C91FE4008CED6A /* DPDicePlusActivateViewController.m in Sources */,
+				BE17F57F19BAD800008DA432 /* DPDicePlusManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB9170A4196246C20084DB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB9170B8196246C20084DB70 /* dConnectDeviceDicePlusTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB9170DD19628D410084DB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB9170AF196246C20084DB70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB917097196246C20084DB70 /* dConnectDeviceDicePlus */;
+			targetProxy = AB9170AE196246C20084DB70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB9170B4196246C20084DB70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB9170B5196246C20084DB70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABD662EB19ADA90E00F3242A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABD662EF19ADA92000F3242A /* ja */,
+				AB239A8219ADAD6900C0B580 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB9170B9196246C20084DB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AB9170BA196246C20084DB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB9170BC196246C20084DB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/dConnectDeviceDicePlus.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
+					"$(PROJECT_DIR)/../DCMDevicePluginSDK/bin",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceDicePlus/dConnectDeviceDicePlus-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AB9170BD196246C20084DB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/dConnectDeviceDicePlus.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
+					"$(PROJECT_DIR)/../DCMDevicePluginSDK/bin",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceDicePlus/dConnectDeviceDicePlus-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AB9170BF196246C20084DB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceDicePlus/dConnectDeviceDicePlus-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dConnectDeviceDicePlusTests/dConnectDeviceDicePlusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AB9170C0196246C20084DB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceDicePlus/dConnectDeviceDicePlus-Prefix.pch";
+				INFOPLIST_FILE = "dConnectDeviceDicePlusTests/dConnectDeviceDicePlusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		AB9170EB19628D420084DB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "build/$(CONFIGURATION)-resources";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceDicePlus_resources/dConnectDeviceDicePlus_resources-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dConnectDeviceDicePlus_resources/dConnectDeviceDicePlus_resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		AB9170EC19628D420084DB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "build/$(CONFIGURATION)-resources";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dConnectDeviceDicePlus_resources/dConnectDeviceDicePlus_resources-Prefix.pch";
+				INFOPLIST_FILE = "dConnectDeviceDicePlus_resources/dConnectDeviceDicePlus_resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		AB9170F119628E3E0084DB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AB9170F219628E3E0084DB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB917093196246C20084DB70 /* Build configuration list for PBXProject "dConnectDeviceDicePlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB9170B9196246C20084DB70 /* Debug */,
+				AB9170BA196246C20084DB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB9170BB196246C20084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceDicePlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB9170BC196246C20084DB70 /* Debug */,
+				AB9170BD196246C20084DB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB9170BE196246C20084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceDicePlusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB9170BF196246C20084DB70 /* Debug */,
+				AB9170C0196246C20084DB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB9170ED19628D420084DB70 /* Build configuration list for PBXNativeTarget "dConnectDeviceDicePlus_resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB9170EB19628D420084DB70 /* Debug */,
+				AB9170EC19628D420084DB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB9170F019628E3E0084DB70 /* Build configuration list for PBXAggregateTarget "dConnectDeviceDicePlus_framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB9170F119628E3E0084DB70 /* Debug */,
+				AB9170F219628E3E0084DB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB917090196246C20084DB70 /* Project object */;
+}

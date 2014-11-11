@@ -11,11 +11,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import android.content.Context;
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
+import org.deviceconnect.message.DConnectMessage;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -24,9 +26,6 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
-import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
-import org.deviceconnect.message.DConnectMessage;
 
 /**
  * NetworkServiceDiscoveryプロファイル.
@@ -69,27 +68,9 @@ public class WearNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
      */
     public static Intent mResponse;
 
-    /**
-     * StaticなContext.
-     */
-    public static Context mContext;
-
-    private static final String TAG = "WEAR";
-
-    /**
-     * セッションキーが空の場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createEmptySessionKey(final Intent response) {
-        MessageUtils.setInvalidRequestParameterError(response);
-    }
-
     @Override
     protected boolean onGetGetNetworkServices(final Intent request, final Intent response) {
-        mContext = this.getContext();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this.getContext()).addApi(Wearable.API)
+        mGoogleApiClient = new GoogleApiClient.Builder(getContext()).addApi(Wearable.API)
                 .addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
         mGoogleApiClient.connect();
 
@@ -102,7 +83,7 @@ public class WearNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
     protected boolean onPutOnServiceChange(final Intent request, Intent response, String deviceId, String sessionKey) {
 
         if (sessionKey == null) {
-            createEmptySessionKey(response);
+            MessageUtils.setInvalidRequestParameterError(response);
             return true;
         } else {
             setResult(response, DConnectMessage.RESULT_OK);
@@ -130,7 +111,7 @@ public class WearNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
     protected boolean onDeleteOnServiceChange(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
         if (sessionKey == null) {
-            createEmptySessionKey(response);
+            MessageUtils.setInvalidRequestParameterError(response);
         } else {
             setResult(response, DConnectMessage.RESULT_OK);
         }
@@ -162,7 +143,7 @@ public class WearNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
 
                 setResult(mResponse, DConnectMessage.RESULT_OK);
                 setServices(mResponse, services);
-                mContext.sendBroadcast(mResponse);
+                getContext().sendBroadcast(mResponse);
 
                 return null;
             }
@@ -180,7 +161,6 @@ public class WearNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
         NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
 
         for (Node node : nodes.getNodes()) {
-
             results.add(node.getId());
         }
 
@@ -190,13 +170,12 @@ public class WearNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
     @Override
     public void onConnectionSuspended(final int cause) {
         setResult(mResponse, DConnectMessage.RESULT_ERROR);
-        mContext.sendBroadcast(mResponse);
-
+        getContext().sendBroadcast(mResponse);
     }
 
     @Override
     public void onConnectionFailed(final ConnectionResult result) {
         setResult(mResponse, DConnectMessage.RESULT_ERROR);
-        mContext.sendBroadcast(mResponse);
+        getContext().sendBroadcast(mResponse);
     }
 }

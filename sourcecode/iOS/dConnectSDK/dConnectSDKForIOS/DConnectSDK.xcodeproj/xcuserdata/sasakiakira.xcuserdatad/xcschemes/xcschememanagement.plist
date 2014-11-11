@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>DConnectSDK.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>DConnectSDK_framework.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>DConnectSDK_resources.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C29D32E7191B202A001015CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C29D32F7191B202A001015CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C29D3311191B2307001015CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6ECC6D019A4B78900FE3161</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

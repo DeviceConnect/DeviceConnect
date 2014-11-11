@@ -1,100 +1,242 @@
 //
-//  DPSpheroManager.h
-//  dConnectDeviceSphero
 //
-//  Created by Takashi Tsuchiya on 2014/09/10.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  DPSpheroManager.h
+//  DConnectSDK
+//
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import <UIKit/UIKit.h>
 
-// 3次元構造体
+/*!
+ @brief 3次元構造体
+ */
 typedef struct DPPoint3D_ {
     float x, y, z;
 } DPPoint3D;
 
-// クオータニオン構造体
+/*!
+ @brief クオータニオン構造体
+ */
 typedef struct DPQuaternion_ {
     float q0, q1, q2, q3;
 } DPQuaternion;
 
-// 姿勢構造体
+/*!
+ @brief 姿勢構造体
+ */
 typedef struct DPAttitude_ {
     float pitch, roll, yaw;
 } DPAttitude;
 
-// Spheroのセンサー処理用デリゲート
+/*!
+ @brief Spheroのセンサー処理用デリゲート。
+ */
 @protocol DPSpheroManagerSensorDelegate <NSObject>
-- (void)spheroManagerStreamingQuaternion:(DPQuaternion)q interval:(int)interval;
-- (void)spheroManagerStreamingLocatorPos:(CGPoint)pos velocity:(CGPoint)velocity interval:(int)interval;
-- (void)spheroManagerStreamingCollisionImpactAcceleration:(DPPoint3D)accel axis:(CGPoint)axis power:(CGPoint)power speed:(float)speed time:(NSTimeInterval)time;
+
+/*!
+ @brief SpheroのQuaternionを通知する。
+ 
+ @param[in] q Quaternion
+ @param[in] interval Quaternionを通知する間隔
+ */
+- (void)spheroManagerStreamingQuaternion:(DPQuaternion)q
+                                interval:(int)interval;
+
+/*!
+ @brief SpheroのLocatorを通知する。
+ 
+ @param[in] pos Locatorの位置
+ @param[in] velocity Locatorの速度座標
+ @param[in] interval Locatorを通知する間隔
+ */
+- (void)spheroManagerStreamingLocatorPos:(CGPoint)pos
+                                velocity:(CGPoint)velocity
+                                interval:(int)interval;
+/*!
+ @brief SpheroのCollisionを通知する。
+ 
+ @param[in] accel Collisionの加速度
+ @param[in] axis Collisionの軸
+ @param[in] power Collisionの力
+ @param[in] speed Collisionの速度
+ @param[in] time Collisionを通知する間隔
+ */
+- (void)spheroManagerStreamingCollisionImpactAcceleration:(DPPoint3D)accel
+                                                     axis:(CGPoint)axis
+                                                    power:(CGPoint)power
+                                                    speed:(float)speed
+                                                     time:(NSTimeInterval)time;
 @end
 
+/*!
+ @brief Spheroの加速度・傾きセンサー処理用デリゲート。
+ */
 @protocol DPSpheroManagerOrientationDelegate <NSObject>
-- (void)spheroManagerStreamingOrientation:(DPAttitude)attitude accel:(DPPoint3D)accel interval:(int)interval;
+
+/*!
+ @brief Spheroの加速度・傾きセンサーを通知する。
+ @param[in] attitude 姿勢構造体
+ @param[in] accel 加速度
+ @param[in] interval このセンサー値を通知する間隔
+ */
+- (void)spheroManagerStreamingOrientation:(DPAttitude)attitude
+                                    accel:(DPPoint3D)accel
+                                 interval:(int)interval;
 @end
 
 
-// Spheroの制御クラス
+
+/*!
+ @brief Spheroの制御クラス
+ */
 @interface DPSpheroManager : NSObject
 
+/*!
+ @brief Spheroのセンサー処理用デリゲート。
+ */
 @property (nonatomic, weak) id<DPSpheroManagerSensorDelegate> sensorDelegate;
+/*!
+ @brief Spheroの加速度・傾きセンサー処理用デリゲート。
+ */
 @property (nonatomic, weak) id<DPSpheroManagerOrientationDelegate> orientationDelegate;
 
-// キャリブレーションライトの明るさ
+/*!
+ @brief キャリブレーションライトの明るさ。
+ */
 @property (nonatomic) float calibrationLightBright;
-// LEDの色
+
+/*!
+ @brief LEDの色。
+ */
 @property (nonatomic) UIColor* LEDLightColor;
-// LEDが付いているか
+
+/*!
+ @brief LEDが付いているか。
+ */
 @property (nonatomic, readonly) BOOL isLEDOn;
-// 接続中のデバイスID取得
+
+/*!
+ @brief 接続中のデバイスID取得。
+ */
 @property (nonatomic, readonly) NSString *currentDeviceID;
-// 接続可能なデバイスリスト取得
+
+/*!
+ @brief 接続可能なデバイスリスト取得。
+ */
 @property (nonatomic, readonly) NSArray *deviceList;
-// アクティベート済みか
+
+/*!
+ @brief アクティベート済みか。
+ */
 @property (nonatomic, readonly) BOOL isActivated;
 
 
-// 共有インスタンス
+/*!
+ @brief DPSpheroManagerの共有インスタンスを返す。
+ @return DPSpheroManagerの共有インスタンス。
+ */
 + (instancetype)sharedManager;
 
-// アプリがバックグラウンドに入った
+
+/*!
+ @brief アプリがバックグラウンドに入った。
+ */
 - (void)applicationDidEnterBackground ;
-// アプリがフォアグラウンドに入った
+
+/*!
+ @brief アプリがフォアグラウンドに入った
+ */
 - (void)applicationWillEnterForeground;
 
-// 有効化
+/*!
+ @brief 有効化。
+ */
 - (BOOL)activate;
-// 無効化
+
+/*!
+ @brief 無効化。
+ */
 - (void)deactivate;
 
-// デバイスに接続
+/*!
+ @brief デバイスに接続。
+ */
 - (BOOL)connectDeviceWithID:(NSString*)deviceID;
-// 移動
-- (void)move:(float)angle velocity:(float)velocity;
-// 回転
+
+/*!
+ @brief 移動。
+ */
+- (void)move:(float)angle
+    velocity:(float)velocity;
+
+/*!
+ @brief 回転。
+ */
 - (void)rotate:(float)angle;
-// 停止
+
+/*!
+ @brief 停止。
+ */
 - (void)stop;
 
-// LEDを点滅
-- (void)flashLightWithColor:(UIColor*)color flashData:(NSArray*)flashData;
-// キャリブレーションライトの点滅
-- (void)flashLightWithBrightness:(float)brightness flashData:(NSArray*)flashData;
+/*!
+ @brief LEDを点滅。
+ */
+- (void)flashLightWithColor:(UIColor*)color
+                  flashData:(NSArray*)flashData;
 
-// 姿勢センサー
+/*!
+ @brief キャリブレーションライトの点滅。
+ */
+- (void)flashLightWithBrightness:(float)brightness
+                       flashData:(NSArray*)flashData;
+
+/*!
+ @brief 姿勢センサーのスタート。
+ */
 - (void)startSensorOrientation;
+
+/*!
+ @brief 姿勢センサーのストップ。
+ */
 - (void)stopSensorOrientation;
-// クォータニオンセンサー
+
+/*!
+ @brief Quaternionセンサーのスタート。
+ */
 - (void)startSensorQuaternion;
+
+/*!
+ @brief Quaternionセンサーのストップ。
+ */
 - (void)stopSensorQuaternion;
-// 位置センサー
+
+/*!
+ @brief Locatorセンサーのスタート。
+ */
 - (void)startSensorLocator;
+
+/*!
+ @brief Locatorセンサーのストップ。
+ */
 - (void)stopSensorLocator;
-// 衝突センサー
+
+/*!
+ @brief Collisionセンサーのスタート。
+ */
 - (void)startSensorCollision;
+
+/*!
+ @brief Collisionセンサーのストップ。
+ */
 - (void)stopSensorCollision;
-// 全センサー停止
+
+/*!
+ @brief 全センサー停止。
+ */
 - (void)stopAllSensor;
 
 @end

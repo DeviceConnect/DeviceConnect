@@ -1,9 +1,10 @@
 //
 //  RESTfulFailAuthorizationProfileTest.m
-//  dConnectDeviceTest
+//  DConnectSDK
 //
-//  Created by Masaru Takano on 2014/09/04.
-//  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "RESTfulTestCase.h"

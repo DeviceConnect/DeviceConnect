@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>794C8C28-C383-481B-A2B8-402388066B0D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>dConnectDeviceDicePlus</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceDicePlus</string>
+		<key>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectSDK/dConnectSDKForIOS</string>
+		<key>EA149CCB3A6C1DF7E3D7DAE5B07CA5629295BB44</key>
+		<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/DCMDevicePluginSDK</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>dConnectDeviceDicePlus.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</key>
+		<string>../..</string>
+		<key>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</key>
+		<string>../../../dConnectSDK/dConnectSDKForIOS</string>
+		<key>EA149CCB3A6C1DF7E3D7DAE5B07CA5629295BB44</key>
+		<string>../../../DCMDevicePluginSDK</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>git://192.168.0.11/docomo/dConnect/iOS/dConnectDevicePlugin/dConnectDeviceDicePlus</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EA149CCB3A6C1DF7E3D7DAE5B07CA5629295BB44</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DCMDevicePluginSDK</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2D6818A2F6E9A6D99072B42D0F5FD183D4580175</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dConnectDeviceDicePlus</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>90EE8DC4AB791D9D31EBDADB144707E53ACE319A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dConnectSDKForIOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

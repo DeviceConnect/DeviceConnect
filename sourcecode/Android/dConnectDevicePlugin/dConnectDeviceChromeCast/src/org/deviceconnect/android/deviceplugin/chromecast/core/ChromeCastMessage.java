@@ -7,7 +7,11 @@
 package org.deviceconnect.android.deviceplugin.chromecast.core;
 
 import java.io.IOException;
+
+import org.deviceconnect.android.deviceplugin.chromecast.BuildConfig;
+
 import android.content.Intent;
+
 import com.google.android.gms.cast.Cast;
 import com.google.android.gms.cast.CastDevice;
 import com.google.android.gms.cast.Cast.MessageReceivedCallback;
@@ -114,7 +118,9 @@ public class ChromeCastMessage implements ChromeCastApplication.Callbacks {
             Cast.CastApi.setMessageReceivedCallbacks(application.getGoogleApiClient(),
                     mMessageChannel.getNamespace(), mMessageChannel);
         } catch (IOException e) {
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -125,7 +131,9 @@ public class ChromeCastMessage implements ChromeCastApplication.Callbacks {
                 Cast.CastApi.removeMessageReceivedCallbacks(application.getGoogleApiClient(),
                         mMessageChannel.getNamespace());
             } catch (IOException e) {
-                e.printStackTrace();
+                if(BuildConfig.DEBUG){
+                    e.printStackTrace();
+                }
             }
             mMessageChannel = null;
         }
@@ -151,7 +159,9 @@ public class ChromeCastMessage implements ChromeCastApplication.Callbacks {
                         });
             } catch (Exception e) {
                 callbacks.onChromeCastMessageResult(response, null, e.getMessage());
-                e.printStackTrace();
+                if(BuildConfig.DEBUG){
+                    e.printStackTrace();
+                }
             }
         }
     }
