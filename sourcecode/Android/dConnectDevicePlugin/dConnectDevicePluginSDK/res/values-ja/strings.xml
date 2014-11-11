@@ -21,14 +21,12 @@
     <string name="display_scope_deviceorientation">加速度</string>
     <string name="display_scope_file_descriptor">ファイルディスクリプタ</string>
     <string name="display_scope_file">ファイル</string>
-    <string name="display_scope_vcr">操作イベント受信</string>
     <string name="display_scope_mediastreams_play">メディア再生</string>
     <string name="display_scope_mediastream_recording">写真動画撮影／音声録音</string>
     <string name="display_scope_network_service_discovery">デバイス検索</string>
     <string name="display_scope_notification">通知</string>
     <string name="display_scope_phone">電話</string>
     <string name="display_scope_proximity">近接</string>
-    <string name="display_scope_rssi">電界強度</string>
     <string name="display_scope_settings">設定</string>
     <string name="display_scope_system">システム</string>
     <string name="display_scope_vibration">バイブレーション</string>
@@ -48,4 +46,5 @@
     <string name="no_application_name">(アプリ名無し)</string>
     <string name="expire_period_date_format">有効期限 %1$s</string>
 
+    <string name="image_description"></string>
 </resources>

@@ -425,7 +425,7 @@ public abstract class DConnectTestCase extends InstrumentationTestCase {
      * @param pluginName プラグイン名
      * @return プラグインID
      */
-    protected String getPluginIdByName(final String pluginName) {
+    private String getPluginIdByName(final String pluginName) {
         for (int i = 0; i < mPlugins.size(); i++) {
             PluginInfo obj = mPlugins.get(i);
             if (pluginName.equals(obj.getName())) {
@@ -433,6 +433,14 @@ public abstract class DConnectTestCase extends InstrumentationTestCase {
             }
         }
         return null;
+    }
+
+    /**
+     * テスト用プラグインIDを取得する.
+     * @return テスト用プラグインID
+     */
+    protected String getTestPluginId() {
+        return getPluginIdByName("Device Connect Device Plugin for Test");
     }
 
     /**

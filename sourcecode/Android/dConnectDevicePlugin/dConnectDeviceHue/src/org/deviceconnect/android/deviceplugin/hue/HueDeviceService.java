@@ -9,7 +9,6 @@ package org.deviceconnect.android.deviceplugin.hue;
 
 import java.util.List;
 
-import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
 import org.deviceconnect.android.deviceplugin.hue.profile.HueLightProfile;
 import org.deviceconnect.android.deviceplugin.hue.profile.HueNetworkServceDiscoveryProfile;
 import org.deviceconnect.android.deviceplugin.hue.profile.HueSystemProfile;
@@ -37,7 +36,7 @@ public class HueDeviceService extends DConnectMessageService {
 
         //hue SDKの初期化
         PHHueSDK hueSDK = PHHueSDK.getInstance();
-        hueSDK.setAppName(HueControl.APNAME);
+        hueSDK.setAppName(HueConstants.APNAME);
         hueSDK.getNotificationManager().registerSDKListener(mPhListener);
 
         //前もってキャッシュをupdateしておく

@@ -18,9 +18,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
+import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -56,6 +58,9 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
      * 検索ダイアログの表示状態.
      */
     private int mSearchingVisibility = -1;
+    
+    private boolean isThreadRunning;
+    private Handler threadHandler = new Handler();
 
     @Override
     public void onAttach(final Activity activity) {
@@ -86,6 +91,8 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
         
         View progressZone = root.findViewById(R.id.progress_zone);
         progressZone.setVisibility(mSearchingVisibility);
+        
+        startDiscovery();
 
         return root;
     }
@@ -95,17 +102,53 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
         super.onSaveInstanceState(outState);
         
         View root = getView();
-        
         if (root != null) {
             View progressZone = root.findViewById(R.id.progress_zone);
             outState.putInt(KEY_PROGRESS_VISIBILITY, progressZone.getVisibility());
         }
     }
-
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        isThreadRunning = true;
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                if(mBluetoothAdapter == null){
+                    return;
+                }
+                int prevState = mBluetoothAdapter.getState();
+                while(isThreadRunning){
+                    if(prevState != mBluetoothAdapter.getState()){
+                        if((mBluetoothAdapter.getState() == BluetoothAdapter.STATE_ON) &&
+                           (prevState == BluetoothAdapter.STATE_TURNING_ON || prevState == BluetoothAdapter.STATE_OFF)){
+                            threadHandler.post(new Runnable(){
+                                @Override
+                                public void run() {
+                                    stopDiscovery();
+                                    startDiscovery();
+                                }
+                            });
+                        }
+                        prevState = mBluetoothAdapter.getState();
+                    }
+                    
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+    
     @Override
     public void onConnectedDevices(final List<Parcelable> devices) {
-
         if (devices.size() == 0) {
+            stopDiscovery();
             startDiscovery();
         } else {
             for (Parcelable device : devices) {
@@ -125,12 +168,37 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
             progressZone.setVisibility(View.GONE);
         }
         
-        mAdapter.add(device);
+        boolean isExist = false;
+        for(int i=0; i<mAdapter.getCount(); i++){
+            Sphero s = mAdapter.getItem(i);
+            if(s.getDevice().getAddress().equals(device.getDevice().getAddress())){
+                isExist = true;
+            }
+        }
+        if(!isExist){
+            mAdapter.add(device);
+        }
     }
 
     @Override
     public void onDeviceLost(final Sphero device) {
         mAdapter.remove(device);
+        stopDiscovery();
+        startDiscovery();
+        
+        if(mIndView != null && mIndView.isShowing()){
+            mIndView.dismiss();
+        }
+    }
+    
+    @Override
+    public void onDeviceLostAll() {
+        mAdapter.clear();
+        View root = getView();
+        if (root != null) {
+            View progressZone = root.findViewById(R.id.progress_zone);
+            progressZone.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -148,6 +216,8 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
                 @Override
                 public void onClick(final DialogInterface dialog, final int which) {
                     dialog.dismiss();
+                    stopDiscovery();
+                    startDiscovery();
                 }
             });
             AlertDialog dialog = builder.create();
@@ -173,6 +243,7 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
     @Override
     public void onDestroy() {
         super.onDestroy();
+        isThreadRunning = false;
         stopDiscovery();
     }
 
@@ -186,20 +257,18 @@ public class DeviceSelectionPageFragment extends Fragment implements DeviceContr
 
         if (device.isConnected()) {
             ((SettingActivity) activity).sendDisonnectBroadcast(device.getUniqueId());
-            mAdapter.remove(device);
-
             if (mAdapter.getCount() == 0) {
                 // 現在検知している場合は一旦検知をやめ、新たに検知を開始する.
                 stopDiscovery();
                 startDiscovery();
             }
         } else {
-            ((SettingActivity) activity).sendConnectBroadcast(device.getUniqueId());
             mIndView = new ProgressDialog(activity);
             mIndView.setMessage(activity.getString(R.string.connecting));
             mIndView.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             mIndView.setCancelable(false);
             mIndView.show();
+            ((SettingActivity) activity).sendConnectBroadcast(device.getUniqueId());
         }
     }
 

@@ -11,7 +11,7 @@ package org.deviceconnect.android.deviceplugin.wear.profile;
  * 
  * @author NTT DOCOMO, INC.
  */
-public class WearConst {
+public final class WearConst {
 
     /** Vibrarionを起動. */
     public static final String DEVICE_TO_WEAR_VIBRATION_RUN = "org.deviceconnect.wear.vibration.run";
@@ -36,4 +36,10 @@ public class WearConst {
 
     /** NotificationId. */
     public static final String PARAM_NOTIFICATIONID = "norificationId";
+
+    /**
+     * コンストラクタ.
+     */
+    private WearConst() {
+    }
 }

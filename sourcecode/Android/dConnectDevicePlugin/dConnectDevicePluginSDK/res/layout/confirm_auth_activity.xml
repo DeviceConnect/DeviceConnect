@@ -3,19 +3,14 @@
     android:id="@+id/linearLayoutFrame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/confirm_auth_outline_margin_tb"
-    android:paddingLeft="@dimen/confirm_auth_outline_margin_lr"
-    android:paddingRight="@dimen/confirm_auth_outline_margin_lr"
-    android:paddingTop="@dimen/confirm_auth_outline_margin_tb" >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/guidance_background"
         android:orientation="vertical"
-        android:padding="@dimen/confirm_auth_expireperiod_margin" >
+        android:padding="4dp" >
 
         <TextView
             android:id="@+id/textViewExpirePeriod"
@@ -23,33 +18,27 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@android:color/white" />
-
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
-        android:orientation="vertical"
-        android:padding="@dimen/confirm_auth_inner_margin" >
+        android:background="@color/background" >
 
         <LinearLayout
+            android:id="@+id/topApplicationInfo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="8dp" >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <ImageView
-                    android:id="@+id/imageViewApplicationIcon"
-                    android:layout_width="@dimen/confirm_auth_application_marksize"
-                    android:layout_height="@dimen/confirm_auth_application_marksize"
-                    android:layout_marginRight="@dimen/confirm_auth_application_item_margin"
-                    android:src="@android:drawable/ic_menu_share" />
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imageViewApplicationIcon"
+                android:layout_width="@dimen/confirm_auth_application_marksize"
+                android:layout_height="@dimen/confirm_auth_application_marksize"
+                android:layout_marginRight="@dimen/confirm_auth_application_item_margin"
+                android:contentDescription="@string/image_description"
+                android:src="@android:drawable/ic_menu_share" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +49,6 @@
                     android:id="@+id/textViewAccessToken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Medium Text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_color" />
 
@@ -71,48 +59,48 @@
                     android:text="@string/guidance_comfirm"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <ListView
-                    android:id="@+id/listViewScopes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/confirm_auth_inner_margin" 
-                    android:divider="@null" >
-                </ListView>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/bottomButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right" >
+            android:layout_alignParentBottom="true"
+            android:padding="8dp"
+            android:splitMotionEvents="false" >
+
+            <Button
+                android:id="@+id/buttonReject"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/confirm_auth_approval_button"
+                android:text="@string/notapproval"
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/buttonApproval"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
                 android:background="@drawable/confirm_auth_approval_button"
-                android:drawableRight="@drawable/confirm_auth_approval_button"
                 android:text="@string/approval"
                 android:textColor="@android:color/white" />
-
         </LinearLayout>
 
-    </LinearLayout>
+        <ListView
+            android:id="@+id/listViewScopes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomButton"
+            android:layout_below="@id/topApplicationInfo"
+            android:layout_margin="@dimen/confirm_auth_inner_margin"
+            android:divider="@null" >
+        </ListView>
+    </RelativeLayout>
 
 </LinearLayout>

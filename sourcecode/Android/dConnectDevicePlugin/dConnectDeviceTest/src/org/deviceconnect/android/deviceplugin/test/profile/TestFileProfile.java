@@ -11,12 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.FileProfile;
 import org.deviceconnect.android.provider.FileManager;
 import org.deviceconnect.message.DConnectMessage;
-import org.deviceconnect.profile.FileProfileConstants.FileType;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -88,10 +88,7 @@ public class TestFileProfile extends FileProfile {
     @Override
     protected boolean onGetReceive(final Intent request, final Intent response, final String deviceId, 
             final String path) {
-        
-        if (deviceId == null) {
-            createEmptyDeviceId(response);
-        } else if (!checkDeviceId(deviceId)) {
+        if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else if (path == null) {
             MessageUtils.setInvalidRequestParameterError(response);
@@ -101,17 +98,13 @@ public class TestFileProfile extends FileProfile {
             setURI(response, uri);
             setMIMEType(response, MIME_TYPE);
         }
-        
         return true;
     }
 
     @Override
     protected boolean onGetList(final Intent request, final Intent response, final String deviceId, final String path,
             final String mimeType, final String order, final Integer offset, final Integer limit) {
-        
-        if (deviceId == null) {
-            createEmptyDeviceId(response);
-        } else if (!checkDeviceId(deviceId)) {
+        if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
             setResult(response, DConnectMessage.RESULT_OK);
@@ -120,31 +113,27 @@ public class TestFileProfile extends FileProfile {
             setFileName(file, FILE_NAME);
             setPath(file, PATH);
             setMIMEType(file, MIME_TYPE);
-            setUpdateDate(file, new SimpleDateFormat("yyyy-MM-dd'T'h:m:ssZ").format(new Date()));
+            setUpdateDate(file, new SimpleDateFormat("yyyy-MM-dd'T'h:m:ssZ", Locale.getDefault()).format(new Date()));
             setFileSize(file, BYTE);
             setFileType(response, FileType.FILE);
             files.add(file);
             setFiles(response, files);
             setCount(response, files.size());
         }
-        
         return true;
     }
 
     @Override
     protected boolean onPostSend(final Intent request, final Intent response, final String deviceId, 
             final String path, final String mimeType, final byte[] data) {
-        
-        if (deviceId == null) {
-            createEmptyDeviceId(response);
-        } else if (!checkDeviceId(deviceId)) {
+        if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else if (path == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
             String u = null;
             try {
-                // MEMO テスト簡素化のため、テストプラグイン内ではディレクトリツリーを持たせない.
+                // MEMO: テスト簡素化のため、テストプラグイン内ではディレクトリツリーを持たせない.
                 String filename = getFilenameFromPath(path);
                 u = getFileManager().saveFile(filename, data);
             } catch (IOException e) {
@@ -156,7 +145,30 @@ public class TestFileProfile extends FileProfile {
                 setResult(response, DConnectMessage.RESULT_OK);
             }
         }
-        
+        return true;
+    }
+
+    @Override
+    protected boolean onPostMkdir(Intent request, Intent response, String deviceId, String path) {
+        if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
+        } else if (path == null) {
+            MessageUtils.setInvalidRequestParameterError(response);
+        } else {
+            setResult(response, DConnectMessage.RESULT_OK);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean onDeleteRmdir(Intent request, Intent response, String deviceId, String path, boolean force) {
+        if (!checkDeviceId(deviceId)) {
+            createNotFoundDevice(response);
+        } else if (path == null) {
+            MessageUtils.setInvalidRequestParameterError(response);
+        } else {
+            setResult(response, DConnectMessage.RESULT_OK);
+        }
         return true;
     }
 

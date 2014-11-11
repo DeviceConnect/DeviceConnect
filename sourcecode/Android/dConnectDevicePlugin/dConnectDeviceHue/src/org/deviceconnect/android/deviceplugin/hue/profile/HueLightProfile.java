@@ -368,7 +368,7 @@ public class HueLightProfile extends LightProfile {
             return true;
         }
         String name = getName(request);
-        if (name.length() == 0) {
+        if (name == null || name.length() == 0) {
             MessageUtils.setInvalidRequestParameterError(response, "name is not specified.");
             return true;
         }

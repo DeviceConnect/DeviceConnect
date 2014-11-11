@@ -6,67 +6,30 @@ http://opensource.org/licenses/mit-license.php
  */
 package org.deviceconnect.android.deviceplugin.wear.profile;
 
-import java.util.Collection;
-import java.util.HashSet;
-
-import android.util.Log;
-
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.wearable.MessageApi;
-import com.google.android.gms.wearable.Node;
-import com.google.android.gms.wearable.NodeApi;
-import com.google.android.gms.wearable.Wearable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Wear Utils.
  * 
  * @author NTT DOCOMO, INC.
  */
-public class WearUtils {
-
+public final class WearUtils {
     /**
-     * Google Play Service.
+     * コンストラクタ.
      */
-    private static GoogleApiClient mGoogleApiClient;
-
-    /**
-     * Google Play Serviceを設定.
-     * 
-     * @param mGoogleApiClient
-     */
-    public void setGooglePlay(final GoogleApiClient mGoogleApiClient) {
-        this.mGoogleApiClient = mGoogleApiClient;
+    private WearUtils() {
     }
-
     /**
-     * Wear nodeを取得.
+     * デバイスIDをチェックする.
      * 
-     * @return WearNode
+     * @param deviceId デバイスID
+     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
      */
-    private Collection<String> getNodes() {
-        HashSet<String> results = new HashSet<String>();
-        NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
-        for (Node node : nodes.getNodes()) {
-            Log.i("WEAR", "node.getId():" + node.getId());
-            results.add(node.getId());
-        }
-        return results;
-    }
-
-    /**
-     * Wearにメッセージを送信.
-     */
-    public void sendMessageToStartActivity(final String mId, final String action, final String message) {
-        Collection<String> nodes = getNodes();
-        for (String node : nodes) {
-
-            MessageApi.SendMessageResult result = Wearable.MessageApi.sendMessage(mGoogleApiClient, node, action,
-                    message.getBytes()).await();
-            if (!result.getStatus().isSuccess()) {
-
-            } else {
-
-            }
-        }
+    public static boolean checkDeviceId(final String deviceId) {
+        String regex = WearNetworkServiceDiscoveryProfile.DEVICE_ID;
+        Pattern mPattern = Pattern.compile(regex);
+        Matcher match = mPattern.matcher(deviceId);
+        return match.find();
     }
 }

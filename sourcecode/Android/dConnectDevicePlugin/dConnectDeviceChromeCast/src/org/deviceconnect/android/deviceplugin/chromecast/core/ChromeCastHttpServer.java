@@ -15,6 +15,8 @@ import java.net.UnknownHostException;
 import java.util.Collections;
 import java.util.Map;
 
+import org.deviceconnect.android.deviceplugin.chromecast.BuildConfig;
+
 import fi.iki.elonen.NanoHTTPD;
 
 /**
@@ -84,7 +86,9 @@ public class ChromeCastHttpServer extends NanoHTTPD {
                 return true;
             }
         } catch (UnknownHostException e) {
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
         return false;
     }
@@ -97,8 +101,7 @@ public class ChromeCastHttpServer extends NanoHTTPD {
      * @param   uri         ファイルのURI
      * @return  response    レスポンス
      */
-    private Response respond(Map<String, String> headers, IHTTPSession session,
-            String uri) {
+    private Response respond(Map<String, String> headers, IHTTPSession session, String uri) {
 
         if(!checkRemote(headers)){
             return createResponse(Response.Status.FORBIDDEN, NanoHTTPD.MIME_PLAINTEXT, "");
@@ -131,8 +134,7 @@ public class ChromeCastHttpServer extends NanoHTTPD {
      * @param   message     メッセージ (InputStream)
      * @return  response    レスポンス
      */
-    private Response createResponse(Response.Status status, String mimeType,
-            InputStream message) {
+    private Response createResponse(Response.Status status, String mimeType, InputStream message) {
         Response res = new Response(status, mimeType, message);
         res.addHeader("Accept-Ranges", "bytes");
         return res;
@@ -146,8 +148,7 @@ public class ChromeCastHttpServer extends NanoHTTPD {
      * @param   message     メッセージ (String)
      * @return  response    レスポンス
      */
-    private Response createResponse(Response.Status status, String mimeType,
-            String message) {
+    private Response createResponse(Response.Status status, String mimeType, String message) {
         Response res = new Response(status, mimeType, message);
         res.addHeader("Accept-Ranges", "bytes");
         return res;

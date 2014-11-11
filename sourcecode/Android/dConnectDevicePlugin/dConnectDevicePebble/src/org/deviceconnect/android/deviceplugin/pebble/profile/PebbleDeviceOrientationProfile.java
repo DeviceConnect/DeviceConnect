@@ -7,18 +7,11 @@
 package org.deviceconnect.android.deviceplugin.pebble.profile;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnReceivedEventListener;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnSendCommandListener;
-
-import android.content.Intent;
-import android.os.Bundle;
-
-import com.getpebble.android.kit.util.PebbleDictionary;
 import org.deviceconnect.android.event.Event;
 import org.deviceconnect.android.event.EventError;
 import org.deviceconnect.android.event.EventManager;
@@ -26,13 +19,20 @@ import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.DeviceOrientationProfile;
 import org.deviceconnect.message.DConnectMessage;
 
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.getpebble.android.kit.util.PebbleDictionary;
+
 /**
  * Pebble用 Device Orientationプロファイル.
  * @author NTT DOCOMO, INC.
  */
 public class PebbleDeviceOrientationProfile extends DeviceOrientationProfile {
     /** milli G を m/s^2 の値にする係数. */
-    static final double G_TO_MS2_COEFFICIENT =  9.81 / 1000.0 ;
+    private static final double G_TO_MS2_COEFFICIENT =  9.81 / 1000.0 ;
+    /** sessionKeyが設定されていないときのエラーメッセージ. */
+    private static final String ERROR_MESSAGE = "sessionKey must be specified.";
     /**
      * コンストラクタ.
      * @param service Pebble デバイスサービス
@@ -74,13 +74,13 @@ public class PebbleDeviceOrientationProfile extends DeviceOrientationProfile {
     protected boolean onPutOnDeviceOrientation(final Intent request, final Intent response
             , final String deviceId, final String sessionKey) {
         if (deviceId == null) {
-            createEmptyDeviceId(response);
+            MessageUtils.setEmptyDeviceIdError(response);
             return true;
-        } else if (!checkDeviceId(deviceId)) {
-            createNotFoundDevice(response);
+        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
+            MessageUtils.setNotFoundDeviceError(response);
             return true;
         } else if (sessionKey == null) {
-            createEmptySessionKey(response);
+            MessageUtils.setInvalidRequestParameterError(response, ERROR_MESSAGE);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -118,13 +118,13 @@ public class PebbleDeviceOrientationProfile extends DeviceOrientationProfile {
     protected boolean onDeleteOnDeviceOrientation(final Intent request, final Intent response
             , final String deviceId, final String sessionKey) {
         if (deviceId == null) {
-            createEmptyDeviceId(response);
+            MessageUtils.setEmptyDeviceIdError(response);
             return true;
-        } else if (!checkDeviceId(deviceId)) {
-            createNotFoundDevice(response);
+        } else if (!PebbleUtil.checkDeviceId(deviceId)) {
+            MessageUtils.setNotFoundDeviceError(response);
             return true;
         } else if (sessionKey == null) {
-            createEmptySessionKey(response);
+            MessageUtils.setInvalidRequestParameterError(response, ERROR_MESSAGE);
             return true;
         } else {
             PebbleManager mgr = ((PebbleDeviceService) getContext()).getPebbleManager();
@@ -151,46 +151,5 @@ public class PebbleDeviceOrientationProfile extends DeviceOrientationProfile {
             }
             return true;
         }
-    }
-
-    /**
-     * デバイスIDをチェックする.
-     * 
-     * @param deviceId デバイスID
-     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
-     */
-    private boolean checkDeviceId(final String deviceId) {
-        String regex = PebbleNetworkServceDiscoveryProfile.DEVICE_ID;
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(deviceId);
-        return m.find();
-    }
-
-    /**
-     * デバイスIDが空の場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createEmptyDeviceId(final Intent response) {
-        MessageUtils.setEmptyDeviceIdError(response);
-    }
-
-    /**
-     * セッションキーが空の場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createEmptySessionKey(final Intent response) {
-        final int errorCode = 10;
-        MessageUtils.setError(response, errorCode, "sessionKey must be specified.");
-    }
-
-    /**
-     * デバイスが発見できなかった場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createNotFoundDevice(final Intent response) {
-        MessageUtils.setNotFoundDeviceError(response);
     }
 }

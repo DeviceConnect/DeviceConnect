@@ -18,6 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.deviceconnect.message.DConnectMessage;
+import org.deviceconnect.profile.BatteryProfileConstants;
+import org.deviceconnect.profile.DeviceOrientationProfileConstants;
+import org.deviceconnect.profile.SettingsProfileConstants;
+import org.deviceconnect.profile.VibrationProfileConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -31,11 +36,6 @@ import android.graphics.BitmapFactory;
 
 import com.getpebble.android.kit.PebbleKit;
 import com.getpebble.android.kit.util.PebbleDictionary;
-import org.deviceconnect.message.DConnectMessage;
-import org.deviceconnect.profile.BatteryProfileConstants;
-import org.deviceconnect.profile.DeviceOrientationProfileConstants;
-import org.deviceconnect.profile.SettingsProfileConstants;
-import org.deviceconnect.profile.VibrationProfileConstants;
 
 /**
  * Pebbleとのやり取りを管理するクラス.
@@ -243,7 +243,7 @@ public final class PebbleManager {
                 }
             } else {
                 // リクエストコードを取得
-                Long requestCode = data.getUnsignedInteger(KEY_PARAM_REQUEST_CODE);
+                Long requestCode = data.getInteger(KEY_PARAM_REQUEST_CODE);
                 if (requestCode != null) {
                     // 結果をマップに保持しておく
                     mResponseDataMap.put(requestCode.intValue(), data);
@@ -360,6 +360,7 @@ public final class PebbleManager {
         getContext().unregisterReceiver(mAckHandler);
         getContext().unregisterReceiver(mNackHandler);
         PebbleKit.closeAppOnPebble(getContext(), MY_UUID);
+        mExecutor.shutdown();
     }
 
     /**
@@ -457,7 +458,7 @@ public final class PebbleManager {
         mExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                final int retryCountMax = 5;
+                final int retryCountMax = 3;
                 PebbleDictionary result  = null;
                 // リクエストコードを割り振る
                 final int requestCode = UUID.randomUUID().hashCode();
@@ -482,8 +483,6 @@ public final class PebbleManager {
                         if (mBinarySendState == BinarySendState.STATE_ACK) {
                             break;
                         }
-                    }
-                    else {
                     }
                 }
                 if (listener != null) {

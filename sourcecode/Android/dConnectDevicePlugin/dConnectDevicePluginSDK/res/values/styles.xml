@@ -16,5 +16,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    <style name="access_token_delete_btn">
+        <item name="android:background">@drawable/access_token_delete_button</item>
+    </style>
 </resources>

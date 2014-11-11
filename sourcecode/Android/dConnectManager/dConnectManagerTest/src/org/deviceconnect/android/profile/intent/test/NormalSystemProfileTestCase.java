@@ -66,7 +66,7 @@ public class NormalSystemProfileTestCase extends IntentDConnectTestCase
         Bundle testPlugin = null;
         for (int i = 0; i < plugins.length; i++) {
             Bundle plugin = (Bundle) plugins[i];
-            if ("dConnectDeviceTest".equals(plugin.getString(SystemProfileConstants.PARAM_NAME))) {
+            if ("Device Connect Device Plugin for Test".equals(plugin.getString(SystemProfileConstants.PARAM_NAME))) {
                 testPlugin = plugin;
                 break;
             }
