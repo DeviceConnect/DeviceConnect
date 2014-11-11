@@ -27,8 +27,7 @@ _お手数ですが以前のAPKがインストールされている場合、以�
 
 ## Android端末でのChromeブラウザからの動作確認
 
-１．Androidの内部ストレージにデモコンテンツをフォルダを作成し（[例]"dConnect"）、
-　　そこにサンプルのdemoWebSiteフォルダ以下のすべてのファイルをコピーしてください。
+１．Androidの内部ストレージにデモコンテンツをフォルダを作成し（[例]"dConnect"）、そこにサンプルのdemoWebSiteフォルダ以下のすべてのファイルをコピーしてください。
 ```
 Android root
    └── mnt
@@ -38,15 +37,14 @@ Android root
 ```
 
 ２．Chromeブラウザのアドレス欄に内部ストレージのURIを記入し、
-　　内部ストレージにあるWebコンテンツにアクセスしてください。
+    内部ストレージにあるWebコンテンツにアクセスしてください。
 ```
-　　　[例]　file:///storage/emulated/0/dConnect/demoWebSite/index.html
+    [例] file:///storage/emulated/0/dConnect/demoWebSite/index.html
 ```
 
-３．"Download APK"のリンクから、Device Connect本体の"DeviceConnectManager"、
-　　デバイスプラグインの"Android Host"をダウンロードし、インストールしてください。
+３．"Download APK"のリンクから、Device Connect本体の"DeviceConnectManager"、デバイスプラグインの"Android Host"をダウンロードし、インストールしてください。
 
-　　_※設定のセキュリティから、提供元不明のアプリのインストールの許可が必要です。_
+  _※設定のセキュリティから、提供元不明のアプリのインストールの許可が必要です。_
 
 ４．トップページに戻ってください。
 
@@ -84,7 +82,7 @@ Android root
 
 ４．操作する側（PC等）のdemoWebSiteからHTMLを開き、操作対象のIPアドレスのパラメータを付加してください。
 ```
-　　　[例]　file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3
+    [例] file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3
 ```
    _※遠隔で意図しない端末の操作およびデータ参照をされるリスクが伴います。信頼が出来ないローカルネットワーク環境に接続される可能性がある場合はDeviceConnectManagerのAllow External IPのチェックを無効化してください_
 
@@ -104,280 +102,280 @@ Android root
     <td>SONY</td>
     <td>SmartWatchMN2</td>
     <td>腕時計型デバイス</td>
-    <td>ＭＮ２／ＳＷ２ プラグイン</td>
+    <td>MN2/SW2 プラグイン</td>
     <td>通知以外の機能を利用するには、スマートウォッチ側でミニアプリの起動が必要</td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>SmartWatchSW2</td>
     <td>腕時計型デバイス</td>
-    <td>ＭＮ２／ＳＷ２ プラグイン</td>
+    <td>MN2/SW2 プラグイン</td>
     <td>通知以外の機能を利用するには、スマートウォッチ側でミニアプリの起動が必要</td>
   </tr>
   <tr>
     <td>Orbotix</td>
     <td>Sphero 2.0</td>
     <td>ボール型スマートトイ</td>
-    <td>Ｓｐｈｅｒｏ プラグイン</td>
+    <td>Sphero プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>Game Technologies</td>
     <td>DICE+</td>
     <td>サイコロ型スマートトイ</td>
-    <td>ＤＩＣＥ＋ プラグイン</td>
+    <td>DICE+ プラグイン</td>
     <td>ソースコード開示なし、開発者向けファームウェアへのアップデートが必要</td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>hue</td>
     <td>スマートライト</td>
-    <td>ｈｕｅ プラグイン</td>
+    <td>hue プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>Bloom Lamp</td>
     <td>スマートライト</td>
-    <td>ｈｕｅ プラグイン</td>
+    <td>hue プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>LightStrips</td>
     <td>スマートライト</td>
-    <td>ｈｕｅ プラグイン</td>
+    <td>hue プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>IRKit</td>
     <td>IRKit</td>
     <td>赤外線リモコン</td>
-    <td>Ｉｒｋｉｔ プラグイン</td>
+    <td>Irkit プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>Epson</td>
     <td>Moverio BT-200</td>
     <td>メガネ型デバイス</td>
-    <td>ＡｎｄｒｏｉｄＨｏｓｔ プラグイン</td>
+    <td>AndroidHost プラグイン</td>
     <td>個別の拡張機能にも対応予定</td>
   </tr>
   <tr>
     <td>Vuzix</td>
     <td>M100 Smart Glass</td>
     <td>メガネ型デバイス</td>
-    <td>ＡｎｄｒｏｉｄＨｏｓｔ プラグイン</td>
+    <td>AndroidHost プラグイン</td>
     <td>個別の拡張機能にも対応予定</td>
   </tr>
   <tr>
     <td>ウエストユニティス</td>
     <td>Inforod</td>
     <td>メガネ型デバイス</td>
-    <td>ＡｎｄｒｏｉｄＨｏｓｔ プラグイン</td>
+    <td>AndroidHost プラグイン</td>
     <td>個別の拡張機能にも対応予定</td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>DSC-QX100</td>
     <td>レンズスタイルカメラ</td>
-    <td>ＳｏｎｙＣａｍｅｒａ プラグイン</td>
+    <td>SonyCamera プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>SONY</td>
     <td>DSC-QX10</td>
     <td>レンズスタイルカメラ</td>
-    <td>ＳｏｎｙＣａｍｅｒａ プラグイン</td>
+    <td>SonyCamera プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>Pebble</td>
     <td>Pebble</td>
     <td>腕時計型デバイス</td>
-    <td>Ｐｅｂｂｌｅ プラグイン</td>
+    <td>Pebble プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>-</td>
     <td>Android端末 Ver4.0以降</td>
     <td>Android端末</td>
-    <td>ＡｎｄｒｏｉｄＨｏｓｔ プラグイン</td>
+    <td>AndroidHost プラグイン</td>
     <td></td>
   </tr>
   <tr>
     <td>LG</td>
     <td>G Watch</td>
     <td>Android  Wear端末</td>
-    <td>Ｗｅａｒ プラグイン</td>
+    <td>Wear プラグイン</td>
     <td>仮対応のため、ADBでのAPKのインストールが必要</td>
   </tr>
   <tr>
     <td>Samsung</td>
     <td>Gear Live</td>
     <td>Android  Wear端末</td>
-    <td>Ｗｅａｒ プラグイン</td>
+    <td>Wear プラグイン</td>
     <td>仮対応のため、ADBでのAPKのインストールが必要</td>
   </tr>
   <tr>
     <td>Google</td>
     <td>ChromeCast</td>
     <td>HDMIドングル</td>
-    <td>ＣｈｒｏｍｅＣａｓｔ プラグイン</td>
+    <td>ChromeCast プラグイン</td>
     <td>Google Cast SDK Developer ConsoleのページでデバイスとReceiverアプリの登録が必要</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UA-767PBT-C</td>
     <td>血圧計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UA-851PBT-C</td>
     <td>血圧計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>TM-2656VPM</td>
     <td>血圧計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UC-321PBT-C</td>
     <td>体重計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HBF-206IT</td>
     <td>体重体組成計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HHX-IT1</td>
     <td>活動量計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UA-772</td>
     <td>血圧計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>エー・アンド・ディー</td>
     <td>UW201</td>
     <td>活動量計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HEM-7250IT</td>
     <td>血圧計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HBF-208IT</td>
     <td>体重体組成計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>オムロンヘルスケア</td>
     <td>HBF-215IT</td>
     <td>体重体組成計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>ESTERA</td>
     <td>FS-500</td>
     <td>歩数計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>ESTERA</td>
     <td>FS-700</td>
     <td>活動量計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>YAMASA</td>
     <td>EX-950</td>
     <td>歩数計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MS-FRV01</td>
     <td>血糖計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>MT-KT02DZ</td>
     <td>歩行強度計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>C215</td>
     <td>体温計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ES-H700D</td>
     <td>血圧計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
-    <td>ソースコード開示なし　※対応予定</td>
+    <td>mHealth プラグイン</td>
+    <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>ZS-NS05</td>
     <td>パルスオキシメータ</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>TERUMO</td>
     <td>WT-B100DZ</td>
     <td>体組成計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし ※対応予定</td>
   </tr>
   <tr>
     <td>Polar</td>
     <td>H7</td>
     <td>心拍計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
   <tr>
     <td>Mio Global</td>
     <td>Mio Alpha</td>
     <td>心拍計</td>
-    <td>ｍＨｅａｌｔｈ プラグイン</td>
+    <td>mHealth プラグイン</td>
     <td>ソースコード開示なし</td>
   </tr>
 </table>
