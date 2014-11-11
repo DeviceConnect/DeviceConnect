@@ -1,10 +1,9 @@
 //
 //  DPChromecastSystemProfile.m
-//  DConnectSDK
+//  dConnectChromecast
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Ryuya Takahashi on 2014/09/03.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import "DPChromecastSystemProfile.h"
@@ -12,6 +11,7 @@
 
 @implementation DPChromecastSystemProfile
 
+// 初期化
 - (id)init
 {
     self = [super init];
@@ -39,12 +39,11 @@
     UIStoryboard *sb;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         sb = [UIStoryboard storyboardWithName:@"Chromecast_iPhone" bundle:bundle];
-    } else {
+    } else{
         sb = [UIStoryboard storyboardWithName:@"Chromecast_iPad" bundle:bundle];
     }
     return [sb instantiateInitialViewController];
 }
-
 - (BOOL)              profile:(DConnectSystemProfile *)profile
 didReceiveDeleteEventsRequest:(DConnectRequestMessage *)request
                      response:(DConnectResponseMessage *)response

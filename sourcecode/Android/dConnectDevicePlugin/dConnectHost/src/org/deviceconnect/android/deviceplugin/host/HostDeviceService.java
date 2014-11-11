@@ -77,7 +77,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -85,6 +84,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 /**
@@ -593,14 +593,11 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                 mFileOpenFlag = true;
                 File mBaseDir = mFileMgr.getBasePath();
                 mFileDescriptorPath = path;
-                if (!mFileDescriptorPath.startsWith("/")) {
-                    mFileDescriptorPath = "/" + path;
-                }
-
-                mFos = new FileOutputStream(new File(mBaseDir + mFileDescriptorPath), true);
-                mFis = new FileInputStream(new File(mBaseDir + mFileDescriptorPath));
+                mFos = new FileOutputStream(new File(mBaseDir + "/" + path), true);
+                mFis = new FileInputStream(new File(mBaseDir + "/" + path));
                 
                 mFlag = flag;
+                
                 response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_OK);
                 response.putExtra(DConnectMessage.EXTRA_VALUE, "Open file:" + Environment.getExternalStorageDirectory()
                         + path);
@@ -609,30 +606,19 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                 mFileName = path;
             } catch (FileNotFoundException e) {
                 mFileOpenFlag = false;
-                MessageUtils.setUnknownError(response, "Can not open file:" + path + ":" + e);
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+    
+                response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
+                response.putExtra(DConnectMessage.EXTRA_VALUE, "Can not open file:" + path + ":" + e);
                 sendBroadcast(response);
     
                 mFileName = "";
             }
         } else {
+            response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
             MessageUtils.setError(response, 101, "Opening another file");
             sendBroadcast(response);
-            if (mFos != null) {
-                try {
-                    mFos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                mFos = null;
-            }
-            if (mFis != null) {
-                try {
-                    mFis.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                mFis = null;
-            }
         }
     }
 
@@ -647,15 +633,7 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
      */
     public void writeDataToFile(final Intent response, final String deviceId, final String path, final byte[] data,
             final Long position) {
-        int pos = 0;
-        if (position != null) {
-           pos = (int) position.longValue();
-        }
-        if (pos < 0 || data.length < pos) {
-            MessageUtils.setInvalidRequestParameterError(response, "invalid position");
-            sendBroadcast(response);
-            return;
-        }
+
         if (mFileOpenFlag && mFileName.equals(path)) {
             try {
                 if (mFlag.equals(Flag.RW)) {
@@ -664,18 +642,21 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                     Date date = new Date();
                     SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyy'-'MM'-'dd' 'kk':'mm':'ss'+0900'");
                     mFileDescriptorCurrentTime = mDateFormat.format(date);
-                    mFos.write(data, pos, data.length - pos);
+                    // mFos.write(data, (int)position, data.length);
+                    mFos.write(data);
                     response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_OK);
                     response.putExtra(DConnectMessage.EXTRA_VALUE, "Write data:" + path);
                     sendBroadcast(response);
                     sendFileDescriptorOnWatchfileEvent();
                 } else {
-                    MessageUtils.setIllegalDeviceStateError(response, "Read mode only");
+                    response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
+                    response.putExtra(DConnectMessage.EXTRA_VALUE, "Read mode only");
                     sendBroadcast(response);
                 }
                 
             } catch (Exception e) {
-                MessageUtils.setUnknownError(response, "Can not write data:" + path + e);
+                response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
+                response.putExtra(DConnectMessage.EXTRA_VALUE, "Can not write data:" + path + e);
                 sendBroadcast(response);
             }
         } else {
@@ -697,12 +678,7 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
      */
     public void readFile(final Intent response, final String deviceId, final String path, final long position,
             final long length) {
-        if (position < 0) {
-            MessageUtils.setInvalidRequestParameterError(response, "invalid position");
-            sendBroadcast(response);
-            return;
-        }
-
+       
         File mBaseDir = mFileMgr.getBasePath();
         if (mFileOpenFlag && mFileName.equals(path)) {
             try {
@@ -710,11 +686,7 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                 StringBuffer fileContent = new StringBuffer("");
                 byte[] buffer = new byte[1024];
                 int count = 0;
-                String paths = path;
-                if (!path.startsWith("/")) {
-                    paths = "/" + path;
-                }
-                mFis = new FileInputStream(mBaseDir + paths);
+                mFis = new FileInputStream(mBaseDir + path);
                 while (((mFis.read(buffer, 0, 1)) != -1) && count < position + length) {
                     if (count >= position) {
                         fileContent.append(new String(buffer, 0, 1));
@@ -732,7 +704,8 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
 
             }
         } else {
-            MessageUtils.setUnknownError(response, "Can not read data:" + path);
+            response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
+            response.putExtra(DConnectMessage.EXTRA_VALUE, "Can not read data:" + path);
             sendBroadcast(response);
         }
     }
@@ -759,13 +732,17 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                 mFileName = "";
 
             } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
                 mFileOpenFlag = false;
-                MessageUtils.setUnknownError(response, "Can not close file:" + path + e);
+                response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
+                response.putExtra(DConnectMessage.EXTRA_VALUE, "Can not close file:" + path + e);
                 sendBroadcast(response);
             }
         } else {
             mFileOpenFlag = false;
-            MessageUtils.setUnknownError(response, "Can not close file:" + path);
+            response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_ERROR);
+            response.putExtra(DConnectMessage.EXTRA_VALUE, "Can not close file:" + path);
             sendBroadcast(response);
         }
     }
@@ -1038,13 +1015,6 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
                 myCurrentFileMIMEType = mMineType;
                 mMediaStatus = MEDIA_PLAYER_SET;
                 mMediaPlayer.setDataSource(filePath);
-                mMediaPlayer.setOnCompletionListener(new OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer arg0) {
-                        mMediaStatus = MEDIA_PLAYER_STOP;
-                        sendOnStatusChangeEvent("stop");
-                    }
-                });
                 response.putExtra(DConnectMessage.EXTRA_RESULT, DConnectMessage.RESULT_OK);
                 response.putExtra(DConnectMessage.EXTRA_VALUE, "regist:" + filePath);
                 sendOnStatusChangeEvent("media");
@@ -1206,12 +1176,9 @@ public class HostDeviceService extends DConnectMessageService implements SensorE
     public int playMedia() {
         if (mSetMediaType == MEDIA_TYPE_MUSIC) {
             try {
-                mMediaPlayer.prepare();
-                if (mMediaStatus == MEDIA_PLAYER_STOP) {
-                    mMediaPlayer.seekTo(0);
-                }
-                mMediaPlayer.start();
                 mMediaStatus = MEDIA_PLAYER_PLAY;
+                mMediaPlayer.prepare();
+                mMediaPlayer.start();
             } catch (Exception e) {
                 
             }

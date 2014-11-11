@@ -1,70 +1,63 @@
 //
 //  DPChromecastManager.h
-//  DConnectSDK
+//  dConnectChromecast
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Ryuya Takahashi on 2014/09/08.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <DConnectSDK/DConnectSDK.h>
 
 @interface DPChromecastManager : NSObject
 
 // 接続可能なデバイスリスト取得
 @property (nonatomic, readonly) NSArray *deviceList;
+// 接続チェック
+@property (nonatomic, readonly) BOOL isConnected;
+// メディアプレイヤーの状態取得
+@property (nonatomic, readonly) NSString *mediaPlayerState;
+// 再生位置
+@property (nonatomic) NSTimeInterval streamPosition;
+// 音量
+@property (nonatomic) float volume;
+// ミュート状態
+@property (nonatomic) BOOL isMuted;
 
+
+typedef void (^DPChromecastBlock)(DConnectMessage *eventMsg);
+@property (nonatomic) id chromecastBlock;
 // 共有インスタンス
 + (instancetype)sharedManager;
 
+//イベント登録
+- (void)addEvent:(NSString *)deviceId block:(DPChromecastBlock)block;
+- (void)removeEvent;
 // スキャン開始
 - (void)startScan;
 // スキャン停止
 - (void)stopScan;
 // デバイスに接続
 - (void)connectToDeviceWithID:(NSString*)deviceid
-				   completion:(void (^)(BOOL success, NSString *error))completion;
+                   completion:(void (^)(BOOL success, NSString *error))completion;
 // 接続中のデバイスから切断
-- (void)disconnectDeviceWithID:(NSString*)deviceID;
-
-// イベントコールバックを設定
-- (void)setEventCallbackWithID:(NSString*)deviceID callback:(void (^)(NSString *mediaID))callback;
-
-// 接続チェック
-- (BOOL)isConnectedWithID:(NSString*)deviceID;
+- (void)disconnectDevice;
 
 // テキストの送信
-- (void)sendMessageWithID:(NSString*)deviceID message:(NSString*)message type:(int)type;
+- (void)sendMessage:(NSString*)message type:(int)type;
 // テキストのクリア
-- (void)clearMessageWithID:(NSString*)deviceID;
-
-// メディアプレイヤーの状態取得
-- (NSString*)mediaPlayerStateWithID:(NSString*)deviceID;
-
-// 再生位置を取得
-- (NSTimeInterval)streamPositionWithID:(NSString*)deviceID;
-// 再生位置を変更
-- (void)setStreamPositionWithID:(NSString*)deviceID position:(NSTimeInterval)streamPosition;
-// 音量を取得
-- (float)volumeWithID:(NSString*)deviceID;
-// 音量を設定
-- (void)setVolumeWithID:(NSString*)deviceID volume:(float)volume;
-// ミュート状態取得
-- (BOOL)isMutedWithID:(NSString*)deviceID;
-// ミュート状態設定
-- (void)setIsMutedWithID:(NSString*)deviceID muted:(BOOL)isMuted;
-
+- (void)clearMessage;
 
 // メディア読み込み
-- (NSInteger)loadMediaWithID:(NSString*)deviceID mediaID:(NSString*)mediaID;
+- (NSInteger)loadMediaWithID:(NSString*)mediaID;
 // 再生
-- (NSInteger)playWithID:(NSString*)deviceID;
+- (NSInteger)play;
 // 停止
-- (NSInteger)stopWithID:(NSString*)deviceID;
+- (NSInteger)stop;
 // 一時停止
-- (NSInteger)pauseWithID:(NSString*)deviceID;
+- (NSInteger)pause;
 
 //長さ取得
-- (NSTimeInterval)durationWithID:(NSString*)deviceID;
+- (NSTimeInterval)duration;
 
 @end

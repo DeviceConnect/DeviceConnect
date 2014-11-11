@@ -1,10 +1,9 @@
 //
 //  DPSpheroDevicePlugin.h
-//  DConnectSDK
+//  DPSpheroDevicePlugin
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 星貴之 on 2014/06/23.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 /*! @file
  @brief Spheroデバイスプラグインのプロファイルのやりとりを行うためのクラス。

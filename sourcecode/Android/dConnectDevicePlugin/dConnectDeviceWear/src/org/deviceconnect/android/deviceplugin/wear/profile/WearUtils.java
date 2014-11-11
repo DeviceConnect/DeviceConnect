@@ -6,30 +6,67 @@ http://opensource.org/licenses/mit-license.php
  */
 package org.deviceconnect.android.deviceplugin.wear.profile;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Collection;
+import java.util.HashSet;
+
+import android.util.Log;
+
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.wearable.MessageApi;
+import com.google.android.gms.wearable.Node;
+import com.google.android.gms.wearable.NodeApi;
+import com.google.android.gms.wearable.Wearable;
 
 /**
  * Wear Utils.
  * 
  * @author NTT DOCOMO, INC.
  */
-public final class WearUtils {
+public class WearUtils {
+
     /**
-     * コンストラクタ.
+     * Google Play Service.
      */
-    private WearUtils() {
-    }
+    private static GoogleApiClient mGoogleApiClient;
+
     /**
-     * デバイスIDをチェックする.
+     * Google Play Serviceを設定.
      * 
-     * @param deviceId デバイスID
-     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
+     * @param mGoogleApiClient
      */
-    public static boolean checkDeviceId(final String deviceId) {
-        String regex = WearNetworkServiceDiscoveryProfile.DEVICE_ID;
-        Pattern mPattern = Pattern.compile(regex);
-        Matcher match = mPattern.matcher(deviceId);
-        return match.find();
+    public void setGooglePlay(final GoogleApiClient mGoogleApiClient) {
+        this.mGoogleApiClient = mGoogleApiClient;
+    }
+
+    /**
+     * Wear nodeを取得.
+     * 
+     * @return WearNode
+     */
+    private Collection<String> getNodes() {
+        HashSet<String> results = new HashSet<String>();
+        NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
+        for (Node node : nodes.getNodes()) {
+            Log.i("WEAR", "node.getId():" + node.getId());
+            results.add(node.getId());
+        }
+        return results;
+    }
+
+    /**
+     * Wearにメッセージを送信.
+     */
+    public void sendMessageToStartActivity(final String mId, final String action, final String message) {
+        Collection<String> nodes = getNodes();
+        for (String node : nodes) {
+
+            MessageApi.SendMessageResult result = Wearable.MessageApi.sendMessage(mGoogleApiClient, node, action,
+                    message.getBytes()).await();
+            if (!result.getStatus().isSuccess()) {
+
+            } else {
+
+            }
+        }
     }
 }

@@ -6724,8 +6724,6 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 	});
 }
 
--(void)doNothingAtAll{}
-
 + (void)cfstreamThread { @autoreleasepool
 {
 	[[NSThread currentThread] setName:GCDAsyncSocketThreadName];
@@ -6736,7 +6734,7 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 	// So we'll just create a timer that will never fire - unless the server runs for decades.
 	[NSTimer scheduledTimerWithTimeInterval:[[NSDate distantFuture] timeIntervalSinceNow]
 	                                 target:self
-	                               selector:@selector(doNothingAtAll)
+	                               selector:@selector(doNothingAtAll:)
 	                               userInfo:nil
 	                                repeats:YES];
 	

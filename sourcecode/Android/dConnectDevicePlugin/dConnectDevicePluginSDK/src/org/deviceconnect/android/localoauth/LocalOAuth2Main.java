@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2005-2014 Restlet
  * 
  * The contents of this file are subject to the terms of one of the following
@@ -35,13 +35,13 @@ package org.deviceconnect.android.localoauth;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.deviceconnect.android.BuildConfig;
 import org.deviceconnect.android.cipher.signature.AuthSignature;
 import org.deviceconnect.android.localoauth.activity.AccessTokenListActivity;
 import org.deviceconnect.android.localoauth.activity.ConfirmAuthActivity;
@@ -95,17 +95,113 @@ import android.util.Base64;
  * Local OAuth API.
  */
 public final class LocalOAuth2Main {
+
+    /** LoginPageActivityでOKボタンが押された後のBroadcast通知. */
+    public static final String ACTION_LOGIN = "com.gclue.localoauth.LOGIN";
+
+    /** AuthPageActivityでOKボタンが押された後のBroadcast通知. */
+    public static final String ACTION_AUTHPAGE = "com.gclue.localoauth.AUTHPAGE";
+
+    /** Service向けACTION:ログイン時に通知される. */
+    public static final String SERVICE_LOGIN = "service_login";
+
+    /** Service向けACTION:認証画面で承認されたときに通知される. */
+    public static final String SERVICE_AUTHPAGE = "service_authpage";
+
+    /** EXTRAキー:セッションID. */
+    public static final String EXTRA_SESSIONID = "sessionid";
+
+    /** EXTRAキー:ユーザーID. */
+    public static final String EXTRA_USERID = "userid";
+
+    /** EXTRAキー:パスワード. */
+    public static final String EXTRA_PASSWORD = "password";
+
+    /** EXTRAキー:スコープ. */
+    public static final String EXTRA_SCOPES = "scopes";
+
+    /** EXTRAキー:認証コード. */
+    public static final String EXTRA_AUTHCODE = "authcode";
+
+    /** EXTRAキー:クライアントID. */
+    public static final String EXTRA_CLIENTID = "clientId";
+
+    /** EXTRAキー:グラントタイプ. */
+    public static final String EXTRA_GRANTTYPE = "grantType";
+
+    /** EXTRAキー:デバイスID. */
+    public static final String EXTRA_DEVICEID = "deviceId";
+
     /** authorization_code. */
     public static final String AUTHORIZATION_CODE = "authorization_code";
 
-    /** プロセス間通信用メッセージID(threadIdがキューに残っているか確認通知). */
-    public static final int MSG_CHECK_THREADID_RESULT = 1002;
+    
+    
+    /** メッセージID(アクセストークン発行成功通知). */
+    public static final int MESSAGE_PUBLISH_ACCESSTOKEN_SUCCESS = 1000;
+    
+    /** メッセージID(アクセストークン発行中の例外発生通知). */
+    public static final int MESSAGE_PUBLISH_ACCESSTOKEN_EXCEPTION = 1001;
+    
+    /** メッセージID(threadIdがキューに残っているか確認通知). */
+    public static final int MESSAGE_CHECK_THREADID_RESULT = 1002;
+    
+    /** UserManager. */
+    private static SampleUserManager userManager;
 
-    /** プロセス間通信用メッセージID : 承認確認画面で許可／拒否されたかをMessageでDevice ConnectのServiceに送る. */
-    public static final int MSG_CONFIRM_APPROVAL = 1000;
+    /** ClientManager. */
+    private static ClientManager clientManager;
 
-    /** プロセス間通信用メッセージID : threadIdが有効かをMessageでDevice ConnectのServiceに送る. */
-    public static final int MSG_CONFIRM_CHECK_THREADID = 1001;
+    /** TokenManager. */
+    private static TokenManager tokenManager;
+
+    /** DBHelper. */
+    private static LocalOAuthOpenHelper mDbHelper = null;
+    
+    /** ロガー. */
+    private static Logger sLogger = Logger.getLogger("org.deviceconnect.localoauth");
+
+    /** 自動テストモードフラグ. */
+    private static boolean mAutoTestMode = false;
+    
+    /** DBアクセス用Lockオブジェクト. */
+    private static Object mLockForDbAccess = new Object();
+    
+    
+    /**
+     * コンストラクタ.
+     */
+    private LocalOAuth2Main() {
+        
+    }
+    
+    
+    /**
+     * UserManagerを返す.
+     * 
+     * @return UserManagerのポインタ
+     */
+    public static SampleUserManager getSampleUserManager() {
+        return userManager;
+    }
+
+    /**
+     * ClientManagerを返す.
+     * 
+     * @return ClientManagerのポインタ
+     */
+    public static ClientManager getClientManager() {
+        return clientManager;
+    }
+
+    /**
+     * TokenManagerを返す.
+     * 
+     * @return TokenManagerのポインタ
+     */
+    public static TokenManager getTokenManager() {
+        return tokenManager;
+    }
 
     /** ダミー値(RedirectURI). */
     public static final String DUMMY_REDIRECTURI = "dummyRedirectURI";
@@ -117,79 +213,18 @@ public final class LocalOAuth2Main {
     private static final String DUMMY_REFERENCE = "dummyReference";
 
     /** ダミー値(Scope). */
-    private static final String DUMMY_SCOPE1 = "scope1";
+    private static final String SCOPE1 = "scope1";
 
-    /** UserManager. */
-    private static SampleUserManager userManager;
-
-    /** ClientManager. */
-    private static ClientManager clientManager;
-
-    /** TokenManager. */
-    private static TokenManager tokenManager;
-
-    /** DBHelper. */
-    private static LocalOAuthOpenHelper mDbHelper;
-    
-    /** ロガー. */
-    private static Logger sLogger = Logger.getLogger("org.deviceconnect.localoauth");
-
-    /** 自動テストモードフラグ. */
-    private static boolean mAutoTestMode = false;
-
-    /** DBアクセス用Lockオブジェクト. */
-    private static Object mLockForDbAccess = new Object();
 
     /**
-     * Bindフラグ.
-     * <p>
-     * ConfirmAuthActivityがLocalOAuth2ServiceにBind状態を持つ。<br>
-     * 基本的にConfirmAuthActivityは、１つだけ起動するようにするので、Bindされる数も1つになる。
-     * </p>
-     */
-    private static boolean mBound;
-
-    /**
-     * コンストラクタ.
-     */
-    private LocalOAuth2Main() {
-    }
-
-    /**
-     * SampleUserManagerを返す.
-     * @return SampleUserManagerのインスタンス
-     */
-    public static SampleUserManager getSampleUserManager() {
-        return userManager;
-    }
-
-    /**
-     * ClientManagerを返す.
+     * (0)LocalOAuth2Serviceで使用されるBinderを返す.<br>
+     * ※LocalOAuthのユーザーは利用する必要はない.<br>
      * 
-     * @return ClientManagerのインスタンス
-     */
-    public static ClientManager getClientManager() {
-        return clientManager;
-    }
-
-    /**
-     * (0)LocalOAuth2Serviceで使用されるBinderを返す.
-     * <p>
-     * ※LocalOAuthのユーザーは利用する必要はない.
-     * </p>
      * @param intent Intent
      * @return Binder
      */
-    static IBinder onBind(final Intent intent) {
-        mBound = true;
+    public static IBinder onBind(final Intent intent) {
         return mMessenger.getBinder();
-    }
-
-    /**
-     * LocalOAuth2Serviceでbinderがunbindされた場合の処理を行う.
-     */
-    static void onUnbind() {
-        mBound = false;
     }
 
     /**
@@ -209,14 +244,13 @@ public final class LocalOAuth2Main {
     }
 
     /**
-     * (1)Local OAuthを初期化する.
-     * <p>
+     * (1)Local OAuthを初期化する.<br>
      * - 変数を初期化する。<br>
      * - ユーザーを1件追加する。
-     * </p>
-     * @param context コンテキスト
+     * @param context   コンテキスト
      */
     public static void initialize(final android.content.Context context) {
+
         /* DB初期化処理 */
         mDbHelper = new LocalOAuthOpenHelper(context);
         
@@ -228,7 +262,7 @@ public final class LocalOAuth2Main {
         /* ユーザー追加 */
         addUserData(SampleUser.LOCALOAUTH_USER, SampleUser.LOCALOAUTH_PASS);
     }
-
+    
     /**
      * (1)-2.LocalOAuth終了処理.
      */
@@ -247,10 +281,8 @@ public final class LocalOAuth2Main {
     
 
     /**
-     * (2)クライアントを登録する.
-     * <p>
-     * アプリやデバイスプラグインがインストールされるときに実行する.
-     * </p>
+     * (2)クライアントを登録する。アプリやデバイスプラグインがインストールされるときに実行する.
+     * 
      * @param packageInfo アプリ(Android)の場合は、パッケージ名を入れる。<br>
      *            アプリ(Web)の場合は、パッケージ名にURLを入れる。<br>
      *            デバイスプラグインの場合は、パッケージ名とデバイスIDを入れる。<br>
@@ -282,7 +314,7 @@ public final class LocalOAuth2Main {
         SQLiteDatabase db = null;
         SQLiteTokenManager sqliteTokenManager = null;
         SQLiteClientManager sqliteClientManager = null;
-        
+                
         /* DBを同時アクセスさせない */
         synchronized (mLockForDbAccess) {
             try {
@@ -302,8 +334,11 @@ public final class LocalOAuth2Main {
                 Client client = getClientManager().findByPackageInfo(packageInfo);
                 if (client != null) {
                     String clientId = client.getClientId();
-                    removeTokenData(clientId);
+                    
+                    /* クライアントデータ削除 */
                     removeClientData(clientId);
+                    
+                    client = null;
                 }
                 
                 /* クライアントデータを新規生成して返す */
@@ -373,7 +408,7 @@ public final class LocalOAuth2Main {
                 
                 /* コミット */
                 db.setTransactionSuccessful();
-                
+    
             } catch (SQLiteException e) {
                 throw new RuntimeException(e);
             } finally {
@@ -426,7 +461,6 @@ public final class LocalOAuth2Main {
         boolean result = false;
         
         SQLiteDatabase db = null;
-        SQLiteClientManager sqliteClientManager = null;
         
         /* DBを同時アクセスさせない */
         synchronized (mLockForDbAccess) {
@@ -435,7 +469,7 @@ public final class LocalOAuth2Main {
                 db = mDbHelper.getReadableDatabase();
                 
                 /* ClientManagerにDBオブジェクトを設定 */
-                sqliteClientManager = (SQLiteClientManager) clientManager;
+                SQLiteClientManager sqliteClientManager = (SQLiteClientManager) clientManager;
                 sqliteClientManager.setDb(db);
                 
                 /* LocalOAuthが保持しているクライアントシークレットを取得 */
@@ -473,15 +507,15 @@ public final class LocalOAuth2Main {
                 } else {
                     sLogger.fine("client not found.  clientId: " + clientId);
                 }
+                
+                /* TokenManagerのDBオブジェクトをクリア設定 */
+                sqliteClientManager.setDb(null);
+                
             } catch (SQLiteException e) {
                 throw new RuntimeException(e);
             } finally {
                 if (db != null) {
                     db.close();
-                }
-                /* TokenManagerのDBオブジェクトをクリア設定 */
-                if (sqliteClientManager != null) {
-                    sqliteClientManager.setDb(null);
                 }
             }
         }
@@ -524,8 +558,8 @@ public final class LocalOAuth2Main {
     }
 
     /**
-     * (5)アクセストークン発行承認確認画面表示.
-     * <p>
+     * (5)アクセストークン発行承認確認画面表示.<br>
+     * 
      * - Activityはprocess指定を行わないのでDevice Connect Managerのスレッドとは別プロセスとなる。<br>
      * - Device Connect Managerのサービスととプロセス間通信が行えるように(0)onBind()でBindする。<br>
      * - Messenger, Handler はLocalOAuth内部に持つ。<br>
@@ -539,7 +573,7 @@ public final class LocalOAuth2Main {
      * 承認確認画面を表示する。承認/拒否はBindされたServiceへMessageで通知される。<br>
      * 
      * - (c)アクセストークンは存在しスコープも満たされている。 => 承認確認画面は表示しない。(Message通知されない)<br>
-     * </p>
+     * 
      * @param params パラメータ
      * @param listener アクセストークン発行リスナー(承認確認画面で承認／拒否ボタンが押されたら実行される)
      * @throws AuthorizatonException Authorization例外.
@@ -640,12 +674,12 @@ public final class LocalOAuth2Main {
             final long threadId = thread.getId();
 
             /* ロケール取得(アンダーバーがついている場合("ja_JP"等)は、アンダーバーから後の文字列は削除する) */
-            String locale = Locale.getDefault().getLanguage();
+            String locale = Locale.getDefault().toString();
             String[] splitlocales = locale.split("_");
             if (splitlocales != null && splitlocales.length > 1) {
                 locale = splitlocales[0];
             }
-
+            
             /* デバイスプラグインの場合はdevicePlugin.xmlからロケールが一致する表示スコープ名を取得する */
             Map<String, DevicePluginXmlProfile> supportProfiles = null;
             if (params.isForDevicePlugin()) {
@@ -656,28 +690,30 @@ public final class LocalOAuth2Main {
             }
             String[] scopes = params.getScopes();
             String[] displayScopes = new String[scopes.length];
-            for (int i = 0; i < scopes.length; i++) {
+            int storePos = 0;
+            for (String scope : scopes) {
+                
                 /* ローカライズされたプロファイル名取得する */
-                displayScopes[i] = ScopeUtil.getDisplayScope(params.getContext(),
-                        scopes[i], locale, supportProfiles);
+                displayScopes[storePos++] = ScopeUtil.getDisplayScope(params.getContext(), scope, locale,
+                        supportProfiles);
             }
-
+            
             /* リクエストデータを作成する */
-            ConfirmAuthRequest request = new ConfirmAuthRequest(threadId, params,
-                    listener, displayScopes);
-
-            // キューにリクエストを追加
-            enqueueRequest(request);
-
-            // ActivityがサービスがBindされていない場合には、
-            // Activityを起動する。
-            if (!mBound) {
-                startConfirmAuthActivity(pickupRequest());
+            final Date currentTime = new Date();
+            ConfirmAuthRequest request = new ConfirmAuthRequest(threadId, params, listener,
+                    currentTime, displayScopes);
+            
+            /* キューが空なら、リクエストをキューに追加した後すぐにActivityを起動する */
+            if (countRequest() <= 0) {
+                enqueueRequest(request);
+                startConfirmAuthActivity(request);
+            /* 空で無ければ、リクエストをキューに追加して先の処理が完了した後に処理する */
+            } else {
+                enqueueRequest(request);
             }
         }
     }
 
-    
     /**
      * (6)OAuthクライアント情報からアクセストークンを取得する.
      * 
@@ -715,6 +751,7 @@ public final class LocalOAuth2Main {
                 /* パッケージ情報からクライアントデータを取得 */
                 Client client = sqliteClientManager.findByPackageInfo(packageInfo);
                 if (client != null) {
+                    
                     /* クライアントからトークンを取得する */
                     Token token = sqliteTokenManager.findToken(client, SampleUser.USERNAME);
                     if (token != null) {
@@ -723,6 +760,7 @@ public final class LocalOAuth2Main {
                         acccessTokenData = new AccessTokenData(accessToken, accessTokenScopes);
                     }
                 }
+                
             } catch (SQLiteException e) {
                 throw new RuntimeException(e);
             } finally {
@@ -774,7 +812,7 @@ public final class LocalOAuth2Main {
         if (specialScopes != null && Arrays.asList(specialScopes).contains(scope)) {
             return new CheckAccessTokenResult(true, true, true, true);
         }
-        
+
         SQLiteDatabase db = null;
         SQLiteClientManager sqliteClientManager = null;
         SQLiteTokenManager sqliteTokenManager = null;
@@ -801,7 +839,7 @@ public final class LocalOAuth2Main {
                     Scope[] scopes = token.getScope();
                     for (Scope s : scopes) {
                         /* token.scopeに"*"が含まれていたら、どんなスコープにもアクセスできる */
-                        if (BuildConfig.DEBUG && s.getScope().equals("*")) {
+                        if (s.getScope().equals("*")) {
                             isExistScope = true; /* スコープあり */
                             isNotExpired = true; /* 有効期限 */
                             break;
@@ -1135,50 +1173,11 @@ public final class LocalOAuth2Main {
                 if (sqliteTokenManager != null) {
                     sqliteTokenManager.setDb(null);
                 }
+                
             }
         }
         
         return tokens;
-    }
-
-    /**
-     * クライアントに対応するトークンデータを取得する.
-     * <p>
-     * トークンが存在しない場合にはnullを返却する。
-     * </p>
-     * @param client クライアントデータ
-     * @return トークンデータ
-     */
-    public static SQLiteToken getAccessToken(final Client client) {
-        SQLiteDatabase db = null;
-        SQLiteTokenManager sqliteTokenManager = null;
-        
-        /* DBを同時アクセスさせない */
-        synchronized (mLockForDbAccess) {
-            try {
-                /* DBオープン */
-                db = mDbHelper.getReadableDatabase();
-                
-                /* ClientManagerにDBオブジェクトを設定 */
-                sqliteTokenManager = (SQLiteTokenManager) tokenManager;
-                sqliteTokenManager.setDb(db);
-                
-                /* LocalOAuthが保持しているクライアントシークレットを取得 */
-                return (SQLiteToken) sqliteTokenManager.findToken(client, SampleUser.USERNAME);
-                
-            } catch (SQLiteException e) {
-                throw new RuntimeException(e);
-            } finally {
-                if (db != null) {
-                    db.close();
-                }
-                
-                /* TokenManagerのDBオブジェクトをクリア設定 */
-                if (sqliteTokenManager != null) {
-                    sqliteTokenManager.setDb(null);
-                }
-            }
-        }
     }
     
     /**
@@ -1297,6 +1296,7 @@ public final class LocalOAuth2Main {
                 if (sqliteClientManager != null) {
                     sqliteClientManager.setDb(null);
                 }
+                
             }
         }
         
@@ -1311,8 +1311,7 @@ public final class LocalOAuth2Main {
         int clientCount = 0;
         
         SQLiteDatabase db = null;
-        SQLiteClientManager sqliteClientManager = null;
-
+        
         /* DBを同時アクセスさせない */
         synchronized (mLockForDbAccess) {
             try {
@@ -1321,7 +1320,7 @@ public final class LocalOAuth2Main {
                 db.beginTransaction();
                 
                 /* ClientManagerにDBオブジェクトを設定 */
-                sqliteClientManager = (SQLiteClientManager) clientManager;
+                SQLiteClientManager sqliteClientManager = (SQLiteClientManager) clientManager;
                 sqliteClientManager.setDb(db);
                 
                 sqliteClientManager.cleanupClient(LocalOAuth2Settings.CLIENT_CLEANUP_TIME);
@@ -1329,8 +1328,12 @@ public final class LocalOAuth2Main {
                 /* 有効クライアント数を取得する */
                 clientCount = sqliteClientManager.countClients();
                 
+                /* ClientManagerのDBオブジェクトをクリア設定 */
+                sqliteClientManager.setDb(null);
+                
                 /* コミット */
                 db.setTransactionSuccessful();
+                
             } catch (SQLiteException e) {
                 throw new RuntimeException(e);
             } finally {
@@ -1338,16 +1341,20 @@ public final class LocalOAuth2Main {
                     db.endTransaction();
                     db.close();
                 }
-                /* ClientManagerのDBオブジェクトをクリア設定 */
-                if (sqliteClientManager != null) {
-                    sqliteClientManager.setDb(null);
-                }
             }
         }
         
         return clientCount;
     }
+    
+    
+    /** プロセス間通信用メッセージID : 承認確認画面で許可／拒否されたかをMessageでDevice ConnectのServiceに送る. */
+    private static final int MSG_CONFIRM_APPROVAL = 1000;
 
+    /** プロセス間通信用メッセージID : threadIdが有効かをMessageでDevice ConnectのServiceに送る. */
+    private static final int MSG_CONFIRM_CHECK_THREADID = 1001;
+    
+    
     /** Handler of incoming messages from clients. */
     private static class ApprovalHandler extends Handler {
         @Override
@@ -1359,7 +1366,7 @@ public final class LocalOAuth2Main {
                 /* Messageからデータ取得 */
                 long threadId = (long) msg.arg1;
                 boolean isApproval = false; /* true: 承認 / false: 拒否 */
-                if (msg.arg2 == ConfirmAuthActivity.APPROVAL) {
+                if (msg.arg2 > 0) {
                     isApproval = true;
                 }
 
@@ -1371,6 +1378,7 @@ public final class LocalOAuth2Main {
 
                     /* 許可された */
                     if (isApproval) {
+                        
                         AccessTokenData accessTokenData = null;
                         AuthorizatonException exception = null;
                         
@@ -1401,9 +1409,12 @@ public final class LocalOAuth2Main {
                                 
                                 /* コミット */
                                 db.setTransactionSuccessful();
+    
                             } catch (AuthorizatonException e) {
+                                e.printStackTrace();
                                 exception = e;
                             } catch (SQLiteException e) {
+                                e.printStackTrace();
                                 exception = new AuthorizatonException(AuthorizatonException.SQLITE_ERROR);
                             } finally {
                                 if (db != null) {
@@ -1426,19 +1437,37 @@ public final class LocalOAuth2Main {
                         if (exception == null) {
                             /* リスナーを通じてアクセストークンを返す */
                             callPublishAccessTokenListener(params, accessTokenData, publishAccessTokenListener);
+                            /* Activityに発行成功を通知する(Activityを閉じる) */
+                            sendMessageId(msg.replyTo, MESSAGE_PUBLISH_ACCESSTOKEN_SUCCESS, null, null);
+                            
+                            /* キューにリクエストが残っていれば、次のキューを取得してActivityを起動する */
+                            ConfirmAuthRequest nextRequest = pickupRequest();
+                            if (nextRequest != null) {
+                                startConfirmAuthActivity(nextRequest);
+                            } 
                         } else {
                             /* リスナーを通じて発生した例外を返す */
                             callExceptionListener(params, exception, publishAccessTokenListener);
+                            /* Activityに例外発生を通知する(Activityを閉じる) */
+                            sendMessageId(msg.replyTo, MESSAGE_PUBLISH_ACCESSTOKEN_EXCEPTION, null, null);
+                            
+                            /* キューにリクエストが残っていれば、次のキューを取得してActivityを起動する */
+                            ConfirmAuthRequest nextRequest = pickupRequest();
+                            if (nextRequest != null) {
+                                startConfirmAuthActivity(nextRequest);
+                            }
                         }
+
                     } else { /* 拒否された */
+
                         /* リスナーを通じて拒否通知を返す */
                         callPublishAccessTokenListener(params, null, publishAccessTokenListener);
-                    }
-
-                    /* キューにリクエストが残っていれば、次のキューを取得してActivityを起動する */
-                    ConfirmAuthRequest nextRequest = pickupRequest();
-                    if (nextRequest != null) {
-                        startConfirmAuthActivity(nextRequest);
+                        
+                        /* キューにリクエストが残っていれば、次のキューを取得してActivityを起動する */
+                        ConfirmAuthRequest nextRequest = pickupRequest();
+                        if (nextRequest != null) {
+                            startConfirmAuthActivity(nextRequest);
+                        }
                     }
                 }
                 break;
@@ -1451,8 +1480,10 @@ public final class LocalOAuth2Main {
                 if (dequeueRequest(checkThreadId, false) != null) {
                     result = 1;
                 }
+                
                 /* Activityに例外発生を通知する(Activityを閉じる) */
-                sendMessageId(msg.replyTo, MSG_CHECK_THREADID_RESULT, result, null);
+                sendMessageId(msg.replyTo, MESSAGE_CHECK_THREADID_RESULT, result, null);
+                
                 break;
                 
             default:
@@ -1465,10 +1496,10 @@ public final class LocalOAuth2Main {
     private static Messenger mMessenger = new Messenger(new ApprovalHandler());
 
     /**
-     * アクセストークンデータを返却する.
+     * アクセストークンをリスナー経由で返す処理.
      * 
      * @param params 承認確認画面のパラメータ
-     * @return アクセストークンデータ(アクセストークン, 有効期間(アクセストークン発行時間から使用可能な時間。単位:ミリ秒) を返す。
+     * @return アクセストークンデータ(アクセストークン, 有効期間(アクセストークン発行時間から使用可能な時間。単位:ミリ秒) を返す。<br>
      * @throws AuthorizatonException Authorization例外.
      */
     private static AccessTokenData publishAccessToken(final ConfirmAuthParams params) throws AuthorizatonException {
@@ -1579,9 +1610,12 @@ public final class LocalOAuth2Main {
      */
     private static void callExceptionListener(final ConfirmAuthParams params, final Exception exception,
             final PublishAccessTokenListener publishAccessTokenListener) {
+
         if (publishAccessTokenListener != null) {
+
             /* リスナーを実行して例外データを返す */
             publishAccessTokenListener.onReceiveException(exception);
+            
         } else {
             /* リスナーが登録されていないので通知できない */
             throw new RuntimeException("publishAccessTokenListener is null.");
@@ -1626,7 +1660,7 @@ public final class LocalOAuth2Main {
         paramsA.add(AuthorizationServerResource.CLIENT_ID, client.getClientId());
         paramsA.add(AuthorizationServerResource.REDIR_URI, DUMMY_REDIRECTURI);
         paramsA.add(AuthorizationServerResource.RESPONSE_TYPE, "code");
-        paramsA.add(AuthorizationServerResource.SCOPE, DUMMY_SCOPE1);
+        paramsA.add(AuthorizationServerResource.SCOPE, SCOPE1);
 
         /* requestAuthorizationを実行する */
         Representation representationA = null;
@@ -1688,6 +1722,9 @@ public final class LocalOAuth2Main {
         try {
             resultRepresentation = (ResultRepresentation) LoginPageServerResource.getPage();
         } catch (OAuthException e) {
+            // e.getMessage();
+            // e.getErrorDescription();
+            // e.printStackTrace();
             resultRepresentation = new ResultRepresentation();
             resultRepresentation.setResult(false);
             resultRepresentation.setError(e.getMessage(), e.getErrorDescription());
@@ -1738,6 +1775,8 @@ public final class LocalOAuth2Main {
                 }
             }
         } catch (OAuthException e) {
+            // e.getMessage();
+            // e.getErrorDescription();
             e.printStackTrace();
         }
 
@@ -1779,9 +1818,12 @@ public final class LocalOAuth2Main {
                 String accessToken = resultRepresentation.getText();
                 return accessToken;
             }
+
         } catch (JSONException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (OAuthException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -1805,8 +1847,10 @@ public final class LocalOAuth2Main {
      * @return クライアントデータ
      */
     private static Client addClientData(final PackageInfoOAuth packageInfo) {
+        
         String[] redirectURIs = {DUMMY_REDIRECTURI};
         Map<String, Object> params = new HashMap<String, Object>();
+
         Client client = clientManager.createClient(packageInfo, ClientType.CONFIDENTIAL, redirectURIs, params);
         return client;
     }
@@ -1817,20 +1861,12 @@ public final class LocalOAuth2Main {
      * @param clientId クライアントID
      */
     private static void removeClientData(final String clientId) {
-        Client client = clientManager.findById(clientId);
-        if (client != null) {
-            clientManager.deleteClient(clientId);
-        }
-    }
 
-    /**
-     * 指定したクライアントに紐づくトークンデータを削除する.
-     * @param clientId トークンデータ
-     */
-    private static void removeTokenData(final String clientId) {
         Client client = clientManager.findById(clientId);
         if (client != null) {
-            tokenManager.revokeToken(client);
+            
+            /* クライアントデータ削除 */
+            clientManager.deleteClient(clientId);
         }
     }
 
@@ -1841,7 +1877,23 @@ public final class LocalOAuth2Main {
     private static Object mLockForRequstQueue = new Object();
 
     /**
-     * 承認確認画面リクエストをキューに追加する.
+     * 承認確認画面リクエスト数を取得.
+     * 
+     * @return リクエスト数
+     */
+    private static int countRequest() {
+        int count = 0;
+        synchronized (mLockForRequstQueue) {
+            if (mRequestQueue != null) {
+                count = mRequestQueue.size();
+            }
+        }
+        
+        return count;
+    }
+    
+    /**
+     * 承認確認画面リクエストをキューに追加.
      * 
      * @param request リクエスト
      */
@@ -1850,23 +1902,29 @@ public final class LocalOAuth2Main {
             mRequestQueue.add(request);
         }
     }
-
+    
     /**
      * キュー先頭の承認確認画面リクエストをキューから取得する.
      * 
      * @return not null: 取得したリクエスト / null: キューにデータなし
      */
     private static ConfirmAuthRequest pickupRequest() {
+        
         ConfirmAuthRequest request = null;
+        
         synchronized (mLockForRequstQueue) {
+
             int requestCount = mRequestQueue.size();
+            
+            /* 先頭キューを返す */
             if (requestCount > 0) {
                 request = mRequestQueue.get(0);
             }
         }
+        
         return request;
     }
-
+    
     /**
      * threadIdが一致する承認確認画面リクエストをキューから取得する。(キューから削除することも可能).
      * 
@@ -1875,24 +1933,33 @@ public final class LocalOAuth2Main {
      * @return not null: 取り出されたリクエスト / null: 該当するデータなし(存在しないthreadIdが渡された、またはキューにデータ無し)
      */
     private static ConfirmAuthRequest dequeueRequest(final long threadId, final boolean isDeleteRequest) {
+        
         ConfirmAuthRequest request = null;
+        
         synchronized (mLockForRequstQueue) {
+            
             /* スレッドIDが一致するリクエストデータを検索する */
+            int dequeueIndex = -1;
             int requestCount = mRequestQueue.size();
             for (int i = 0; i < requestCount; i++) {
                 ConfirmAuthRequest req = mRequestQueue.get(i);
                 if (req.getThreadId() == threadId) {
-                    if (isDeleteRequest) {
-                        /* スレッドIDに対応するリクエストデータを取得し、キューから削除する */
-                        request = mRequestQueue.remove(i);
-                    } else {
-                        /* スレッドIDに対応するリクエストデータを取得 */
-                        request = mRequestQueue.get(i);
-                    }
+                    dequeueIndex = i;
                     break;
                 }
             }
+            
+            if (dequeueIndex >= 0) {
+                if (isDeleteRequest) {
+                    /* スレッドIDに対応するリクエストデータを取得し、キューから削除する */
+                    request = mRequestQueue.remove(dequeueIndex);
+                } else {
+                    /* スレッドIDに対応するリクエストデータを取得 */
+                    request = mRequestQueue.get(dequeueIndex);
+                }
+            }
         }
+
         return request;
     }
 
@@ -1936,19 +2003,25 @@ public final class LocalOAuth2Main {
      * @param arg1 arg1(nullなら指定なし)
      * @param arg2 arg2(nullなら指定なし)
      */
-    private static void sendMessageId(final Messenger replyTo, final int messageId, 
-            final Integer arg1, final Integer arg2) {
+    private static void sendMessageId(final Messenger replyTo, final int messageId, final Integer arg1, final Integer arg2) {
         if (replyTo != null) {
-            int iArg1 = (arg1 != null) ? arg1 : 0;
-            int iArg2 = (arg2 != null) ? arg2 : 0;
+            int iArg1 = 0;
+            int iArg2 = 0;
+            if (arg1 != null) {
+                iArg1 = arg1;
+            }
+            if (arg2 != null) {
+                iArg2 = arg2;
+            }
             Message sendMsg = Message.obtain(null, messageId, iArg1, iArg2);
             sendMsg.replyTo = mMessenger;
+            
             try {
-                replyTo.send(sendMsg);
+                replyTo.send(sendMsg); // send response.
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-        }
+        }        
     }
 
     /**
@@ -1956,13 +2029,14 @@ public final class LocalOAuth2Main {
      * @param request リクエストデータ
      */
     private static void startConfirmAuthActivity(final ConfirmAuthRequest request) {
+        
         android.content.Context context = request.getConfirmAuthParams().getContext();
         long threadId = request.getThreadId();
         ConfirmAuthParams params = request.getConfirmAuthParams();
         String[] displayScopes = request.getDisplayScopes();
         
         /* Activity起動(許可・拒否の結果は、ApprovalHandlerへ送られる) */
-        Intent intent = new Intent();
+        final Intent intent = new Intent();
         intent.setClass(params.getContext(), ConfirmAuthActivity.class);
         intent.putExtra(ConfirmAuthActivity.EXTRA_THREADID, threadId);
         if (params.getDeviceId() != null) {
@@ -1971,8 +2045,11 @@ public final class LocalOAuth2Main {
         intent.putExtra(ConfirmAuthActivity.EXTRA_APPLICATIONNAME, params.getApplicationName());
         intent.putExtra(ConfirmAuthActivity.EXTRA_SCOPES, params.getScopes());
         intent.putExtra(ConfirmAuthActivity.EXTRA_DISPLAY_SCOPES, displayScopes);
+        intent.putExtra(ConfirmAuthActivity.EXTRA_APPROVAL_MESSAGEID, MSG_CONFIRM_APPROVAL);
+        intent.putExtra(ConfirmAuthActivity.EXTRA_CHECK_THREADID_MESSAGEID, MSG_CONFIRM_CHECK_THREADID);
         intent.putExtra(ConfirmAuthActivity.EXTRA_IS_FOR_DEVICEPLUGIN, params.isForDevicePlugin());
-        intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+                | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 }

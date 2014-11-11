@@ -1,10 +1,9 @@
 //
 //  DPSpheroSettingViewController.m
-//  DConnectSDK
+//  dConnectDeviceSphero
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Takashi Tsuchiya on 2014/09/11.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import "DPSpheroSettingViewController.h"

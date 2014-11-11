@@ -53,7 +53,35 @@
 //--------------------------------------------------------------//
 #pragma mark - ボタン制御
 //--------------------------------------------------------------//
-
+//- (IBAction)btnAction:(UIBarButtonItem*)sender
+//{
+//    if ([sender isEqual:self.nextbtn]) {
+//        [self.webview goForward];
+//    }
+//    
+//    if ([sender isEqual:self.backbtn]) {
+//        [self.webview goBack];
+//    }
+//    
+//    if ([sender isEqual:self.addbtn]) {
+//        if ([self.delegate respondsToSelector:@selector(showActivityView)]) {
+//            [self.delegate performSelector:@selector(showActivityView) withObject:nil];
+//        }
+//    }
+//    
+//    if ([sender isEqual:self.settingbtn]) {
+//        if ([self.delegate respondsToSelector:@selector(showSetting)]) {
+//            [self.delegate performSelector:@selector(showSetting) withObject:nil];
+//        }
+//    }
+//    
+//    
+//    if ([sender isEqual:self.bookmarkbtn]) {
+//        if ([self.delegate respondsToSelector:@selector(showBookmark)]) {
+//            [self.delegate performSelector:@selector(showBookmark) withObject:nil];
+//        }
+//    }
+//}
 
 
 - (void)setBtnEnabled:(BOOL)isEnabled

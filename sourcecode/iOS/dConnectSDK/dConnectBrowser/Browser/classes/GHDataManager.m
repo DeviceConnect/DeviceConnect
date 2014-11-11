@@ -460,7 +460,7 @@ static GHDataManager* mgr = nil;
 {
     [self deleteAll];
     
-    //2度削除しないと完全に消えない
+    //2度削除しないと完全に消えない！？
     [self performSelector:@selector(deleteAll) withObject:nil afterDelay:0.2];
     
     //ApplicationCashのあるフォルダ毎削除する

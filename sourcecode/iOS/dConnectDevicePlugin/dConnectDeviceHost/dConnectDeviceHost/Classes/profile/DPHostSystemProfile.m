@@ -7,6 +7,7 @@
 //  http://opensource.org/licenses/mit-license.php
 //
 
+#import <CoreBluetooth/CoreBluetooth.h>
 #import <DConnectSDK/DConnectSDK.h>
 
 #import "DPHostDevicePlugin.h"

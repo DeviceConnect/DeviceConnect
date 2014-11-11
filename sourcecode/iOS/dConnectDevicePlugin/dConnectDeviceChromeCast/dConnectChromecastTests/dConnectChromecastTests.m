@@ -1,10 +1,9 @@
 //
 //  dConnectChromecastTests.m
-//  DConnectSDK
+//  dConnectChromecastTests
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Ryuya Takahashi on 2014/09/03.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

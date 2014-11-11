@@ -1,10 +1,9 @@
 //
-//  DPIRKitDevicePlugin.m
-//  DConnectSDK
+//  DPIRkitDevicePlugin.m
+//  dConnectDeviceIRKit
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 安部 将史 on 2014/08/19.
+//  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
 //
 
 #import "DPIRKitDevicePlugin.h"
@@ -15,7 +14,7 @@
 NSString *const DPIRKitInfoVersion = @"DPIRKitVersion";
 NSString *const DPIRKitInfoAPIKey = @"DPIRKitAPIKey";
 NSString *const DPIRKitStoryBoardName = @"Storyboard_";
-NSString *const DPIRKitPluginName = @"IRKit 1.0.1";
+NSString *const DPIRKitPluginName = @"IRKit 1.0";
 
 // Const.h
 NSString *const DPIRKitBundleName = @"dConnectDeviceIRKit_resources";

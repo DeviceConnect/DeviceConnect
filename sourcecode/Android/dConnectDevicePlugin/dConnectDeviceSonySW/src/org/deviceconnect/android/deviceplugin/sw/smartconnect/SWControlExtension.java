@@ -39,19 +39,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import org.deviceconnect.android.deviceplugin.sw.R;
-import org.deviceconnect.android.deviceplugin.sw.SWConstants;
-import org.deviceconnect.android.event.Event;
-import org.deviceconnect.android.event.EventManager;
-import org.deviceconnect.android.localoauth.CheckAccessTokenResult;
-import org.deviceconnect.android.localoauth.LocalOAuth2Main;
-import org.deviceconnect.android.profile.DeviceOrientationProfile;
-import org.deviceconnect.message.DConnectMessage;
-import org.deviceconnect.profile.AuthorizationProfileConstants;
-import org.deviceconnect.profile.DeviceOrientationProfileConstants;
-import org.deviceconnect.profile.NetworkServiceDiscoveryProfileConstants;
-import org.deviceconnect.profile.SystemProfileConstants;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -66,6 +53,19 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import org.deviceconnect.android.deviceplugin.sw.R;
+import org.deviceconnect.android.deviceplugin.sw.SWConstants;
+import org.deviceconnect.android.deviceplugin.util.DcLoggerSW;
+
+import org.deviceconnect.android.event.Event;
+import org.deviceconnect.android.event.EventManager;
+import org.deviceconnect.android.localoauth.CheckAccessTokenResult;
+import org.deviceconnect.android.localoauth.LocalOAuth2Main;
+import org.deviceconnect.android.profile.DeviceOrientationProfile;
+import org.deviceconnect.message.DConnectMessage;
+import org.deviceconnect.profile.AuthorizationProfileConstants;
+import org.deviceconnect.profile.NetworkServiceDiscoveryProfileConstants;
+import org.deviceconnect.profile.SystemProfileConstants;
 import com.sonyericsson.extras.liveware.aef.control.Control;
 import com.sonyericsson.extras.liveware.aef.registration.Registration.SensorTypeValue;
 import com.sonyericsson.extras.liveware.aef.sensor.Sensor;
@@ -83,18 +83,95 @@ class SWControlExtension extends ControlExtension {
      * デバイスセンサー.
      */
     private AccessorySensor mSensor;
+
     /**
      * 画面サイズ(横).
      */
-    private final int mWidth;
+    private int mWidth = SWConstants.DEFAULT_DISPLAY_WIDTH;
     /**
      * 画面サイズ(縦).
      */
-    private final int mHeight;
+    private int mHeight = SWConstants.DEFAULT_DISPLAY_HEIGHT;
     /**
      * 加速度取得インターバル.
      */
-    private final long mInterval = SWConstants.DEFAULT_SENSOR_INTERVAL;
+    private int mInterval = SWConstants.DEFAULT_SENSOR_INTERVAL;
+
+    /** Logger. */
+    private DcLoggerSW mLogger = new DcLoggerSW();
+    /**
+    * 加速度センサーイベントリスナー.
+    */
+    private final AccessorySensorEventListener mListener = new AccessorySensorEventListener() {
+
+        long start = 0;
+
+        @Override
+        public void onSensorEvent(final AccessorySensorEvent sensorEvent) {
+
+            if (start == 0 || System.currentTimeMillis() - start > mInterval) {
+
+                float[] values = sensorEvent.getSensorValues();
+                Bundle orientation = new Bundle();
+                Bundle acceleration = new Bundle();
+                orientation.putBundle(DeviceOrientationProfile.PARAM_ACCELERATION_INCLUDING_GRAVITY, acceleration);
+                orientation.putInt(DeviceOrientationProfile.PARAM_INTERVAL, mInterval);
+                acceleration.putDouble(DeviceOrientationProfile.PARAM_X, values[0]);
+                acceleration.putDouble(DeviceOrientationProfile.PARAM_Y, values[1]);
+                acceleration.putDouble(DeviceOrientationProfile.PARAM_Z, values[2]);
+
+                DeviceOrientationProfile orientationProf = new DeviceOrientationProfile();
+
+                String deviceId = makeDeviceId();
+
+                try {
+                    List<Event> events = EventManager.INSTANCE.getEventList(deviceId, orientationProf.getProfileName(),
+                            null, DeviceOrientationProfile.ATTRIBUTE_ON_DEVICE_ORIENTATION);
+
+                    for (Event event : events) {
+                        mLogger.fine(this, "onSensorEvent:events", events);
+                        Intent message = EventManager.createEventMessage(event);
+                        message.putExtra(DeviceOrientationProfile.PARAM_ORIENTATION, orientation);
+                        sendEvent(message, event.getAccessToken());
+                    }
+                } catch (Exception e) {
+                    mLogger.fine(this, "onSensorEvent:", "Event is null");
+                }
+
+                start = System.currentTimeMillis();
+            }
+        }
+    };
+
+    /**
+     * ペアリングしているSonyWatchからdeviceIdの作成.
+     * 
+     * @return deviceId
+     */
+    public String makeDeviceId() {
+        String deviceId = "";
+
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        Set<BluetoothDevice> bondedDevices = adapter.getBondedDevices();
+        if (bondedDevices.size() > 0) {
+
+            try {
+                for (BluetoothDevice device : bondedDevices) {
+                    String deviceName = device.getName();
+                    if (deviceName.startsWith("SmartWatch")) {
+                        String address = device.getAddress();
+                        deviceId = address.replace(":", "").toLowerCase(Locale.ENGLISH);
+                    }
+                }
+            } catch (Exception e) {
+                return deviceId;
+            }
+
+            return deviceId;
+        }
+        return deviceId;
+
+    }
 
     /**
      * イベントの送信処理.
@@ -104,14 +181,17 @@ class SWControlExtension extends ControlExtension {
      * @return event
      */
     public final boolean sendEvent(final Intent event, final String accessToken) {
+
         if (event == null) {
-            return false;
+            throw new IllegalArgumentException("Event is null.");
         }
+
         CheckAccessTokenResult result = LocalOAuth2Main.checkAccessToken(accessToken,
                 event.getStringExtra(DConnectMessage.EXTRA_PROFILE), IGNORE_PROFILES);
         if (!checkAccessTokenResult(result)) {
             return false;
         }
+
         mContext.sendBroadcast(event);
         return true;
     }
@@ -152,23 +232,18 @@ class SWControlExtension extends ControlExtension {
      */
     SWControlExtension(final Context context, final String hostAppPackageName) {
         super(context, hostAppPackageName);
-
-        // Determine host application screen size.
-        if (DeviceInfoHelper.isSmartWatch2ApiAndScreenDetected(context, hostAppPackageName)) {
-            mWidth = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_width);
-            mHeight = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_height);
-        } else {
-            mWidth = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_width);
-            mHeight = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_height);
-        }
-
         AccessorySensorManager manager = new AccessorySensorManager(context, hostAppPackageName);
 
         // Add accelerometer, if supported by the host application.
         if (DeviceInfoHelper.isSensorSupported(context, hostAppPackageName, SensorTypeValue.ACCELEROMETER)) {
             mSensor = manager.getSensor(SensorTypeValue.ACCELEROMETER);
+
+            showDisplay();
         }
-        showDisplay();
+
+        // Determine host application screen size.
+        determineSize(context, hostAppPackageName);
+
     }
 
     /**
@@ -206,15 +281,18 @@ class SWControlExtension extends ControlExtension {
 
         // Start listening for sensor updates.
         register();
+
     }
 
     @Override
     public void onPause() {
+        // Stop sensor.
         unregister();
     }
 
     @Override
     public void onDestroy() {
+        // Stop sensor.
         unregisterAndDestroy();
     }
 
@@ -248,6 +326,23 @@ class SWControlExtension extends ControlExtension {
     }
 
     /**
+     * Determines the width and height in pixels of a given host application.
+     * 
+     * @param context The context.
+     * @param hostAppPackageName The host application.
+     */
+    private void determineSize(final Context context, final String hostAppPackageName) {
+        boolean smartWatch2Supported = DeviceInfoHelper.isSmartWatch2ApiAndScreenDetected(context, hostAppPackageName);
+        if (smartWatch2Supported) {
+            mWidth = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_width);
+            mHeight = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_height);
+        } else {
+            mWidth = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_width);
+            mHeight = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_height);
+        }
+    }
+
+    /**
      * Returns the sensor currently being used.
      * 
      * @return The sensor.
@@ -265,11 +360,10 @@ class SWControlExtension extends ControlExtension {
         AccessorySensor sensor = getCurrentSensor();
         if (sensor != null) {
             try {
-                AccelerometerEventListener listener = new AccelerometerEventListener();
                 if (sensor.isInterruptModeSupported()) {
-                    sensor.registerInterruptListener(listener);
+                    sensor.registerInterruptListener(mListener);
                 } else {
-                    sensor.registerFixedRateListener(listener, Sensor.SensorRates.SENSOR_DELAY_UI);
+                    sensor.registerFixedRateListener(mListener, Sensor.SensorRates.SENSOR_DELAY_UI);
                 }
             } catch (AccessorySensorException e) {
                 Log.e(SWConstants.LOG_TAG, "Failed to register listener", e);
@@ -297,65 +391,4 @@ class SWControlExtension extends ControlExtension {
         mSensor = null;
     }
 
-    /**
-     * 加速度センサーイベントリスナー.
-     */
-     private class AccelerometerEventListener implements AccessorySensorEventListener {
-
-         long start = 0;
-         final String deviceName;
-
-         AccelerometerEventListener() {
-             if (SWConstants.PACKAGE_SMART_WATCH_2.equals(mHostAppPackageName)) {
-                 deviceName = SWConstants.DEVICE_NAME_SMART_WATCH_2;
-             } else {
-                 deviceName = SWConstants.DEVICE_NAME_SMART_WATCH;
-             }
-         }
-
-         @Override
-         public void onSensorEvent(final AccessorySensorEvent sensorEvent) {
-             if (start == 0 || System.currentTimeMillis() - start > mInterval) {
-                 float[] values = sensorEvent.getSensorValues();
-                 Bundle orientation = new Bundle();
-                 Bundle acceleration = new Bundle();
-                 orientation.putBundle(DeviceOrientationProfile.PARAM_ACCELERATION_INCLUDING_GRAVITY, acceleration);
-                 orientation.putLong(DeviceOrientationProfile.PARAM_INTERVAL, mInterval);
-                 acceleration.putDouble(DeviceOrientationProfile.PARAM_X, values[0]);
-                 acceleration.putDouble(DeviceOrientationProfile.PARAM_Y, values[1]);
-                 acceleration.putDouble(DeviceOrientationProfile.PARAM_Z, values[2]);
-
-                 String deviceId = findDeviceId();
-                 if (deviceId == null) {
-                     return;
-                 }
-                 List<Event> events = EventManager.INSTANCE.getEventList(deviceId, DeviceOrientationProfileConstants.PROFILE_NAME,
-                         null, DeviceOrientationProfile.ATTRIBUTE_ON_DEVICE_ORIENTATION);
-
-                 for (Event event : events) {
-                     Intent message = EventManager.createEventMessage(event);
-                     message.putExtra(DeviceOrientationProfile.PARAM_ORIENTATION, orientation);
-                     sendEvent(message, event.getAccessToken());
-                 }
-
-                 start = System.currentTimeMillis();
-             }
-         }
-
-         private String findDeviceId() {
-             BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-             if (adapter != null) {
-                 Set<BluetoothDevice> bondedDevices = adapter.getBondedDevices();
-                 if (bondedDevices != null) {
-                     for (BluetoothDevice device : bondedDevices) {
-                         if (deviceName.equals(device.getName())) {
-                             String address = device.getAddress();
-                             return address.replace(":", "").toLowerCase(Locale.ENGLISH);
-                         }
-                     }
-                 }
-             }
-             return null;
-         }
-     }
 }

@@ -9,8 +9,8 @@ package org.deviceconnect.android.deviceplugin.hue.activity.fragment;
 
 import java.util.List;
 
-import org.deviceconnect.android.deviceplugin.hue.HueConstants;
 import org.deviceconnect.android.deviceplugin.hue.R;
+import org.deviceconnect.android.deviceplugin.hue.control.HueControl;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -148,7 +148,7 @@ public class HueFragment02 extends Fragment implements OnClickListener {
         mPhHueSDK.getNotificationManager().registerSDKListener(mListener);
 
         // User名を追加.
-        mAccessPoint.setUsername(HueConstants.USERNAME);
+        mAccessPoint.setUsername(HueControl.USERNAME);
         
         // アクセスポイントに接続.
         if (!mPhHueSDK.isAccessPointConnected(mAccessPoint)) {
@@ -244,7 +244,7 @@ public class HueFragment02 extends Fragment implements OnClickListener {
                     R.anim.fragment_slide_left_enter, 
                     R.anim.fragment_slide_right_exit);
             
-            transaction.replace(R.id.fragment_frame, new HueFragment03());
+            transaction.replace(R.id.fragment_frame, HueFragment03.newInstance());
 
             transaction.commit();
 

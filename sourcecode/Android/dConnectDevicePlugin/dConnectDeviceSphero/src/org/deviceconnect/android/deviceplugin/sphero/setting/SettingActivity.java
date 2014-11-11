@@ -32,33 +32,30 @@ import org.deviceconnect.android.ui.activity.DConnectSettingPageFragmentActivity
  * @author NTT DOCOMO, INC.
  */
 public class SettingActivity extends DConnectSettingPageFragmentActivity {
-
-    private static final String ACTION_NAMESPACE = SettingActivity.class.getPackage().getName() + ".action";
-
+    
     /** 
      * 新規に検知したデバイスを追加するアクション.
      */
-    public static final String ACTION_ADD_DEVICE = ACTION_NAMESPACE + ".ADD_DEVICE";
-
+    public static final String ACTION_ADD_DEVICE 
+    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.setting.ADD_DEVICE";
+    
     /** 
      * 接続済みのデバイスを追加するアクション.
      */
-    public static final String ACTION_ADD_CONNECTED_DEVICE = ACTION_NAMESPACE + ".ADD_CONNECTED_DEVICE";
+    public static final String ACTION_ADD_CONNECTED_DEVICE 
+    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.setting.ADD_CONNECTED_DEVICE";
     
     /** 
      * デバイスを削除するアクション.
      */
-    public static final String ACTION_REMOVE_DEVICE = ACTION_NAMESPACE + ".REMOVE_DEVICE";
-    
-    /** 
-     * すべてのデバイスを削除するアクション.
-     */
-    public static final String ACTION_REMOVE_DEVICE_ALL = ACTION_NAMESPACE + ".REMOVE_DEVICE_ALL";
+    public static final String ACTION_REMOVE_DEVICE 
+    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.setting.REMOVE_DEVICE";
     
     /** 
      * デバイスを削除するアクション.
      */
-    public static final String ACTION_CONNECTED = ACTION_NAMESPACE + ".ACTION_CONNECTED";
+    public static final String ACTION_CONNECTED
+    = "com.nttdocomo.android.dconnect.deviceplugin.sphero.setting.ACTION_CONNECTED";
     
     /**
      * Extraキー : {@value} .
@@ -99,7 +96,6 @@ public class SettingActivity extends DConnectSettingPageFragmentActivity {
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_ADD_DEVICE);
         filter.addAction(ACTION_REMOVE_DEVICE);
-        filter.addAction(ACTION_REMOVE_DEVICE_ALL);
         filter.addAction(ACTION_ADD_CONNECTED_DEVICE);
         filter.addAction(ACTION_CONNECTED);
         
@@ -212,8 +208,6 @@ public class SettingActivity extends DConnectSettingPageFragmentActivity {
             } else if (action.equals(ACTION_REMOVE_DEVICE)) {
                 Sphero sd = (Sphero) intent.getParcelableExtra(EXTRA_DEVICE);
                 mListener.get().onDeviceLost(sd);
-            } else if (action.equals(ACTION_REMOVE_DEVICE_ALL)) {
-                mListener.get().onDeviceLostAll();
             } else if (action.equals(ACTION_ADD_CONNECTED_DEVICE)) {
                 List<Parcelable> devices = intent.getParcelableArrayListExtra(EXTRA_DEVICES);
                 mListener.get().onConnectedDevices(devices);
@@ -256,11 +250,6 @@ public class SettingActivity extends DConnectSettingPageFragmentActivity {
          * @param device デバイス
          */
         void onDeviceLost(Sphero device);
-        
-        /**
-         * すべてのデバイスの消失を通知します。
-         */
-        void onDeviceLostAll();
         
         /**
          * デバイスが接続された場合に呼び出される.

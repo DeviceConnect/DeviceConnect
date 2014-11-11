@@ -1,10 +1,9 @@
 //
-//  DCMLightProfileName.m
-//  DConnectSDK
+//  DCMLightProfile.m
+//  DeviceSphero
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 星　貴之 on 2014/07/22.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import "DCMLightProfile.h"

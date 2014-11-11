@@ -27,6 +27,8 @@ import org.json.JSONObject;
  */
 public class FailSystemProfileTestCase extends RESTfulDConnectTestCase {
 
+    private static final String TEST_DEVICE_PLUGIN_ID = "dConnectDeviceTest";
+
     /**
      * コンストラクタ.
      * 
@@ -528,7 +530,7 @@ public class FailSystemProfileTestCase extends RESTfulDConnectTestCase {
         builder.setProfile(SystemProfileConstants.PROFILE_NAME);
         builder.setInterface(SystemProfileConstants.INTERFACE_DEVICE);
         builder.setAttribute(SystemProfileConstants.ATTRIBUTE_WAKEUP);
-        builder.addParameter(SystemProfileConstants.PARAM_PLUGIN_ID, getTestPluginId());
+        builder.addParameter(SystemProfileConstants.PARAM_PLUGIN_ID, getPluginIdByName(TEST_DEVICE_PLUGIN_ID));
         try {
             HttpUriRequest request = new HttpGet(builder.toString());
             JSONObject root = sendRequest(request);
@@ -555,7 +557,7 @@ public class FailSystemProfileTestCase extends RESTfulDConnectTestCase {
         builder.setProfile(SystemProfileConstants.PROFILE_NAME);
         builder.setInterface(SystemProfileConstants.INTERFACE_DEVICE);
         builder.setAttribute(SystemProfileConstants.ATTRIBUTE_WAKEUP);
-        builder.addParameter(SystemProfileConstants.PARAM_PLUGIN_ID, getTestPluginId());
+        builder.addParameter(SystemProfileConstants.PARAM_PLUGIN_ID, getPluginIdByName(TEST_DEVICE_PLUGIN_ID));
         try {
             HttpUriRequest request = new HttpPost(builder.toString());
             JSONObject root = sendRequest(request);
@@ -582,7 +584,7 @@ public class FailSystemProfileTestCase extends RESTfulDConnectTestCase {
         builder.setProfile(SystemProfileConstants.PROFILE_NAME);
         builder.setInterface(SystemProfileConstants.INTERFACE_DEVICE);
         builder.setAttribute(SystemProfileConstants.ATTRIBUTE_WAKEUP);
-        builder.addParameter(SystemProfileConstants.PARAM_PLUGIN_ID, getTestPluginId());
+        builder.addParameter(SystemProfileConstants.PARAM_PLUGIN_ID, getPluginIdByName(TEST_DEVICE_PLUGIN_ID));
         try {
             HttpUriRequest request = new HttpDelete(builder.toString());
             JSONObject root = sendRequest(request);

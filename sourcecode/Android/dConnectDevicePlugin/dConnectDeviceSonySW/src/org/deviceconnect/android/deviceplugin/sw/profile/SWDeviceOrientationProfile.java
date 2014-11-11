@@ -6,20 +6,25 @@
  */
 package org.deviceconnect.android.deviceplugin.sw.profile;
 
+import org.deviceconnect.android.deviceplugin.util.DcLoggerSW;
+
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
+
 import org.deviceconnect.android.event.EventError;
 import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.DeviceOrientationProfile;
 import org.deviceconnect.message.DConnectMessage;
 
-import android.bluetooth.BluetoothDevice;
-import android.content.Intent;
-
 /**
  * SonySWデバイスプラグインの{@link DeviceOrientationProfile}実装.
  * @author NTT DOCOMO, INC.
  */
 public class SWDeviceOrientationProfile extends DeviceOrientationProfile {
+
+    /** ロガー. */
+    private DcLoggerSW mLogger = new DcLoggerSW();
 
     @Override
     protected boolean onPutOnDeviceOrientation(final Intent request, final Intent response, final String deviceId,
@@ -29,6 +34,9 @@ public class SWDeviceOrientationProfile extends DeviceOrientationProfile {
             MessageUtils.setNotFoundDeviceError(response, "No device is found: " + deviceId);
             return true;
         }
+
+        mLogger.info(this, "onPutOnDeviceOrientation", sessionKey);
+
         EventError error = EventManager.INSTANCE.addEvent(request);
         if (error == EventError.NONE) {
             setResult(response, DConnectMessage.RESULT_OK);

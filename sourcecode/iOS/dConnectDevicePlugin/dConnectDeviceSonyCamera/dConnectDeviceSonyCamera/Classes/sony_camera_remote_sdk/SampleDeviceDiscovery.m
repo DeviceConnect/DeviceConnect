@@ -74,8 +74,8 @@
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
 {
     
-//    NSString *errorString = [NSString stringWithFormat:@"Error code %li", (long)[parseError code]];
-//    NSLog(@"SampleDeviceDiscovery Error parsing XML: %@", errorString);
+    NSString *errorString = [NSString stringWithFormat:@"Error code %li", (long)[parseError code]];
+    NSLog(@"SampleDeviceDiscovery Error parsing XML: %@", errorString);
     _isErrorParsing=YES;
 }
 

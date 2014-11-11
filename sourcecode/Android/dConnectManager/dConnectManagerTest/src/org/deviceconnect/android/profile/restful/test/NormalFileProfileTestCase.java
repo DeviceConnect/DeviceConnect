@@ -222,8 +222,23 @@ public class NormalFileProfileTestCase extends RESTfulDConnectTestCase {
         }
     }
 
+    // MEMO: ディレクトリ作成のテストは削除のテストの中で実行する.
+//    /**
+//     * ディレクトリの作成を行う.
+//     * <pre>
+//     * Method: POST
+//     * Path: /file/mkdir?deviceid=xxxx&path=xxxx
+//     * </pre>
+//     * <pre>
+//     * 【期待する動作】
+//     * ・resultに0が返ってくること。
+//     * </pre>
+//     */
+//    public void testMkdir() {
+//    }
+
     /**
-     * ディレクトリの作成および削除を行う.
+     * ディレクトリの削除を行う.
      * <pre>
      * Method: DELETE
      * Path: /file/rmdir?deviceid=xxxx&path=xxxx
@@ -233,7 +248,7 @@ public class NormalFileProfileTestCase extends RESTfulDConnectTestCase {
      * ・resultに0が返ってくること。
      * </pre>
      */
-    public void testMkdirRmdir01() {
+    public void testRmdir01() {
         final String name = "test";
         URIBuilder builder = TestURIBuilder.createURIBuilder();
         builder.setProfile(FileProfileConstants.PROFILE_NAME);
@@ -267,7 +282,7 @@ public class NormalFileProfileTestCase extends RESTfulDConnectTestCase {
     }
 
     /**
-     * ディレクトリの作成および削除を行う.
+     * ディレクトリの削除を行う.
      * <pre>
      * Method: DELETE
      * Path: /file/rmdir?deviceid=xxxx&path=xxxx&force=xxxx
@@ -277,7 +292,7 @@ public class NormalFileProfileTestCase extends RESTfulDConnectTestCase {
      * ・resultに0が返ってくること。
      * </pre>
      */
-    public void testMkdirRmdir02() {
+    public void testRmdir02() {
         final String name = "test";
         URIBuilder builder = TestURIBuilder.createURIBuilder();
         builder.setProfile(FileProfileConstants.PROFILE_NAME);

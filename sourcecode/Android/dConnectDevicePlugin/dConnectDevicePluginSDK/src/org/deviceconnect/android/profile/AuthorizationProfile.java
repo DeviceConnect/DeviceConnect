@@ -130,12 +130,11 @@ public class AuthorizationProfile extends DConnectProfile implements Authorizati
      */
     private void createClient(final Intent request, final Intent response) {
         String packageName = request.getStringExtra(AuthorizationProfile.PARAM_PACKAGE);
-        String deviceId = request.getStringExtra(DConnectProfile.PARAM_DEVICE_ID);
         if (packageName == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
             // Local OAuthでクライアント作成
-            PackageInfoOAuth packageInfo = new PackageInfoOAuth(packageName, deviceId);
+            PackageInfoOAuth packageInfo = new PackageInfoOAuth(packageName);
             try {
                 ClientData client = LocalOAuth2Main.createClient(packageInfo);
                 if (client != null) {

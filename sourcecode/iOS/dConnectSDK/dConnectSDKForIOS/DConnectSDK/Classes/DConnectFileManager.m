@@ -28,7 +28,7 @@ static dispatch_queue_t ext2mimeDictLoadQueue;
 + (void)initialize
 {
     if (self == [DConnectFileManager self]) {
-        ext2mimeDictLoadQueue = dispatch_queue_create("org.deviceconnect.ios.ext2mime", DISPATCH_QUEUE_SERIAL);
+        ext2mimeDictLoadQueue = dispatch_queue_create("com.nttdocomo.dconnect.ext2mime", DISPATCH_QUEUE_SERIAL);
         dispatch_async(ext2mimeDictLoadQueue, ^{
             // 2014/06/20に http://www.stdicon.com/mimetypes より取得し、整形。
             NSError *error;

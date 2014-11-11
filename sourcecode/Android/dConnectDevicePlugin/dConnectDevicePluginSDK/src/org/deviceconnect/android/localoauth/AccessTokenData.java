@@ -13,10 +13,10 @@ package org.deviceconnect.android.localoauth;
 public class AccessTokenData {
 
     /** アクセストークン. */
-    private String mAccessToken;
+    private String mAccessToken = null;
 
     /** スコープ配列. */
-    private AccessTokenScope[] mScopes;
+    private AccessTokenScope[] mScopes = null;
 
 
     /**

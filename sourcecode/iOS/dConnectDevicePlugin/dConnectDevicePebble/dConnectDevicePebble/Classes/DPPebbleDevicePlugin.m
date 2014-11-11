@@ -1,10 +1,9 @@
 //
 //  DPPebbleDevicePlugin.m
-//  DConnectSDK
+//  dConnectDevicePebble
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 小林伸郎 on 2014/08/23.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import "DPPebbleDevicePlugin.h"
@@ -17,7 +16,6 @@
 #import "DPPebbleDeviceOrientationProfile.h"
 #import "DPPebbleNotificationProfile.h"
 #import "PebbleViewController.h"
-#import "DPPebbleManager.h"
 
 
 @interface DPPebbleDevicePlugin ()
@@ -26,60 +24,56 @@
 
 @implementation DPPebbleDevicePlugin
 
-- (instancetype) init
-{
-	self = [super init];
-	if (self) {
-		// プラグイン名を設定
-		self.pluginName = [NSString stringWithFormat:@"Pebble 1.0"];
-		
-		// EventManagerの初期化
-		Class key = [self class];
-		[[DConnectEventManager sharedManagerForClass:key] setController:[DConnectDBCacheController controllerWithClass:key]];
-		
-		// 各プロファイルの追加
-		[self addProfile:[DPPebbleNetworkServiceDiscoveryProfile new]];
-		[self addProfile:[DPPebbleNotificationProfile new]];
-		[self addProfile:[DPPebbleSystemProfile new]];
-		[self addProfile:[DPPebbleBatteryProfile new]];
-		[self addProfile:[DPPebbleFileProfile new]];
-		[self addProfile:[DPPebbleSettingsProfile new]];
-		[self addProfile:[DPPebbleVibrationProfile new]];
-		[self addProfile:[DPPebbleDeviceOrientationProfile new]];
-		
-		dispatch_async(dispatch_get_main_queue(), ^{
-			NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-			UIApplication *application = [UIApplication sharedApplication];
-			
-			[nc addObserver:self selector:@selector(enterForeground)
-					   name:UIApplicationWillEnterForegroundNotification
-					 object:application];
-			
-			[nc addObserver:self selector:@selector(enterBackground)
-					   name:UIApplicationDidEnterBackgroundNotification
-					 object:application];
-		});
-
-	}
-	return self;
-}
-
-- (void) dealloc
-{
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-	UIApplication *application = [UIApplication sharedApplication];
-	[nc removeObserver:self name:UIApplicationDidBecomeActiveNotification object:application];
-	[nc removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:application];
-}
-
-- (void)enterBackground
-{
-	[[DPPebbleManager sharedManager] applicationDidEnterBackground];
-}
-
-- (void)enterForeground
-{
-	[[DPPebbleManager sharedManager] applicationWillEnterForeground];
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        // プラグイン名を設定
+        self.pluginName = [NSString stringWithFormat:@"Pebble 1.0"];
+        
+        // EventManagerの初期化
+        Class key = [self class];
+        [[DConnectEventManager sharedManagerForClass:key] setController:[DConnectDBCacheController controllerWithClass:key]];
+        
+        // Pebble管理クラスの初期化
+        self.mgr = [DPPebbleManager new];
+        
+        // 各プロファイルの初期化
+        DPPebbleNetworkServiceDiscoveryProfile *networkProfile =
+        [[DPPebbleNetworkServiceDiscoveryProfile alloc] initWithPebbleManager:self.mgr];
+        
+        DPPebbleSystemProfile *systemProfile =
+        [[DPPebbleSystemProfile alloc] initWithPebbleManager:self.mgr];
+        
+        
+        DPPebbleBatteryProfile *batteryProfile =
+        [[DPPebbleBatteryProfile alloc] initWithDevicePlugin:self];
+        
+        DPPebbleFileProfile *fileProfile =
+        [[DPPebbleFileProfile alloc] initWithPebbleManager:self.mgr];
+        
+        DPPebbleSettingsProfile *settingsProfile =
+        [[DPPebbleSettingsProfile alloc] initWithPebbleManager:self.mgr];
+        
+        DPPebbleVibrationProfile *vibrationProfile =
+        [[DPPebbleVibrationProfile alloc] initWithPebbleManager:self.mgr];
+        
+        DPPebbleDeviceOrientationProfile *orientationProfile =
+        [[DPPebbleDeviceOrientationProfile alloc] initWithDevicePlugin:self];
+        
+        DPPebbleNotificationProfile *notificationProfile =
+        [[DPPebbleNotificationProfile alloc] initWithPebbleManager:self.mgr];
+        
+        // 各プロファイルの追加
+        [self addProfile:networkProfile];
+        [self addProfile:systemProfile];
+        [self addProfile:batteryProfile];
+        [self addProfile:fileProfile];
+        [self addProfile:settingsProfile];
+        [self addProfile:vibrationProfile];
+        [self addProfile:orientationProfile];
+        [self addProfile:notificationProfile];
+    }
+    return self;
 }
 
 @end

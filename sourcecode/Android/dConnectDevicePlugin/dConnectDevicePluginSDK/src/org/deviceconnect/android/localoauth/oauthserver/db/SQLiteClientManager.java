@@ -250,67 +250,63 @@ public class SQLiteClientManager extends AbstractClientManager {
         String tables = LocalOAuthOpenHelper.CLIENTS_TABLE;
         String[] columns = SQLiteClient.CLIENT_ALL_FIELIDS;
         String selection = getSelection(where);
-        Cursor c = null;
-        try {
-            c = db.query(tables, columns, selection, null, null, null, null);
-            if (c.moveToFirst()) {
-                int count = c.getCount();
-                if (count > 0) {
-                    result = new SQLiteClient[count];
-                    for (int i = 0; i < count; i++) {
-                        SQLiteClient client = new SQLiteClient();
+        Cursor c = db.query(tables, columns, selection, null, null, null, null);
+        if (c.moveToFirst()) {
+            int count = c.getCount();
+            if (count > 0) {
+                result = new SQLiteClient[count];
+                for (int i = 0; i < count; i++) {
 
-                        final int idColumnIndex = c.getColumnIndex(SQLiteClient.ID_FIELD);
-                        if (!c.isNull(idColumnIndex)) {
-                            client.setId(c.getLong(idColumnIndex));
-                        }
+                    SQLiteClient client = new SQLiteClient();
 
-                        final int clientIdColumnIndex = c.getColumnIndex(SQLiteClient.CLIENTID_FIELD);
-                        if (!c.isNull(clientIdColumnIndex)) {
-                            client.setClientId(c.getString(clientIdColumnIndex));
-                        }
-
-                        String packageName = null;
-                        final int packageNameColumnIndex = c.getColumnIndex(SQLiteClient.PACKAGENAME_FIELD);
-                        if (!c.isNull(packageNameColumnIndex)) {
-                            packageName = c.getString(packageNameColumnIndex);
-                        }
-
-                        String deviceId = null;
-                        final int deviceIdColumnIndex = c.getColumnIndex(SQLiteClient.DEVICEID_FIELD);
-                        if (!c.isNull(deviceIdColumnIndex)) {
-                            deviceId = c.getString(deviceIdColumnIndex);
-                        }
-
-                        PackageInfoOAuth packageInfo = new PackageInfoOAuth(packageName, deviceId);
-                        client.setPackageInfo(packageInfo);
-
-                        final int clientSecretColumnIndex = c.getColumnIndex(SQLiteClient.CLIENTSECRET_FIELD);
-                        if (!c.isNull(clientSecretColumnIndex)) {
-                            client.setClientSecret(c.getString(clientSecretColumnIndex).toCharArray());
-                        }
-
-                        final int clientTypeColumnIndex = c.getColumnIndex(SQLiteClient.CLIENTTYPE_FIELD);
-                        if (!c.isNull(clientTypeColumnIndex)) {
-                            client.setClientType(ClientType.values()[c.getInt(clientTypeColumnIndex)]);
-                        }
-
-                        final int registrationDateColumnIndex = c.getColumnIndex(SQLiteClient.REGISTRATION_DATE_FIELD);
-                        if (!c.isNull(registrationDateColumnIndex)) {
-                            client.setRegistrationDate(c.getLong(registrationDateColumnIndex));
-                        }
-
-                        result[i] = client;
-
-                        c.moveToNext();
+                    final int idColumnIndex = c.getColumnIndex(SQLiteClient.ID_FIELD);
+                    if (!c.isNull(idColumnIndex)) {
+                        client.setId(c.getLong(idColumnIndex));
                     }
+
+                    final int clientIdColumnIndex = c.getColumnIndex(SQLiteClient.CLIENTID_FIELD);
+                    if (!c.isNull(clientIdColumnIndex)) {
+                        client.setClientId(c.getString(clientIdColumnIndex));
+                    }
+
+                    String packageName = null;
+                    final int packageNameColumnIndex = c.getColumnIndex(SQLiteClient.PACKAGENAME_FIELD);
+                    if (!c.isNull(packageNameColumnIndex)) {
+                        packageName = c.getString(packageNameColumnIndex);
+                    }
+
+                    String deviceId = null;
+                    final int deviceIdColumnIndex = c.getColumnIndex(SQLiteClient.DEVICEID_FIELD);
+                    if (!c.isNull(deviceIdColumnIndex)) {
+                        deviceId = c.getString(deviceIdColumnIndex);
+                    }
+
+                    PackageInfoOAuth packageInfo = new PackageInfoOAuth(packageName, deviceId);
+                    client.setPackageInfo(packageInfo);
+
+                    final int clientSecretColumnIndex = c.getColumnIndex(SQLiteClient.CLIENTSECRET_FIELD);
+                    if (!c.isNull(clientSecretColumnIndex)) {
+                        client.setClientSecret(c.getString(clientSecretColumnIndex).toCharArray());
+                    }
+
+                    final int clientTypeColumnIndex = c.getColumnIndex(SQLiteClient.CLIENTTYPE_FIELD);
+                    if (!c.isNull(clientTypeColumnIndex)) {
+                        client.setClientType(ClientType.values()[c.getInt(clientTypeColumnIndex)]);
+                    }
+
+                    final int registrationDateColumnIndex = c.getColumnIndex(SQLiteClient.REGISTRATION_DATE_FIELD);
+                    if (!c.isNull(registrationDateColumnIndex)) {
+                        client.setRegistrationDate(c.getLong(registrationDateColumnIndex));
+                    }
+
+                    result[i] = client;
+
+                    c.moveToNext();
                 }
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
+
         }
+
         return result;
     }
 
@@ -333,18 +329,11 @@ public class SQLiteClientManager extends AbstractClientManager {
     private int dbCountClients() {
         if (mDb != null) {
             String sql = "select count(*) from " + LocalOAuthOpenHelper.CLIENTS_TABLE;
-            Cursor c = null;
-            try {
-                c = mDb.rawQuery(sql, null);
-                if (c.moveToLast()) {
-                    return c.getInt(0);
-                }
-                return 0;
-            } finally {
-                if (c != null) {
-                    c.close();
-                }
-            }
+            Cursor c = mDb.rawQuery(sql, null);
+            c.moveToLast();
+            int count = c.getInt(0);
+            c.close();
+            return count;
         } else {
             throw new SQLiteException("DBがオープンされていません。");
         }

@@ -17,7 +17,11 @@
  */
 static NSString *const  DPPebbleUUID = @"ecfbe3b5-65f4-4532-be4e-3d013058d1f5";
 static NSTimer *reTryTimer ;
-static int reTryCounter=0;
+static int reTryCounter = 0;
+
+/*! 送信リトライまでの間隔（秒） */
+#define RE_SEND_TIME 2.0
+
 /*!
  @define タイムアウト時間
  */
@@ -157,7 +161,7 @@ static int reTryCounter=0;
     //DeviceIdの取得　　URL対応のため空白と：を除去
     return [[self.connectedWatch.name
              stringByReplacingOccurrencesOfString:@" " withString:@""]
-            stringByReplacingOccurrencesOfString:@":" withString:@""];;
+            stringByReplacingOccurrencesOfString:@":" withString:@""];
 }
 
 #pragma mark - Public Method -
@@ -203,20 +207,20 @@ static int reTryCounter=0;
                     
                     // 自動でタイマーはスタートします。
                     reTryTimer = [NSTimer
-                                      // タイマーイベントを発生させる感覚。「2.0」は 2秒 型は float
-                                      scheduledTimerWithTimeInterval:2.0
-                                      // 呼び出すメソッドの呼び出し先(selector) self はこのファイル(.m)
-                                      target:self
-                                      // 呼び出すメソッド名。「:」で自分自身(タイマーインスタンス)を渡す。
-                                      // インスタンスを渡さない場合は、「timerInfo」
-                                      selector:@selector(reSend:)
-                                      // 呼び出すメソッド内で利用するデータが存在する場合は設定する。ない場合は「nil」
-                                      userInfo:request//(NSMutableDictionary *)request
-                                      // 上記で設定した秒ごとにメソッドを呼び出す場合は、「YES」呼び出さない場合は「NO」
-                                      repeats:YES
-                                      ];
- 
-                    reTryCounter=0;
+                                  // タイマーイベントを発生させる感覚。単位は秒 型は float
+                                  scheduledTimerWithTimeInterval:RE_SEND_TIME 
+                                  // 呼び出すメソッドの呼び出し先(selector) self はこのファイル(.m)
+                                  target:self
+                                  // 呼び出すメソッド名。「:」で自分自身(タイマーインスタンス)を渡す。
+                                  // インスタンスを渡さない場合は、「timerInfo」
+                                  selector:@selector(reSend:)
+                                  // 呼び出すメソッド内で利用するデータが存在する場合は設定する。ない場合は「nil」
+                                  userInfo:request//(NSMutableDictionary *)request
+                                  // 上記で設定した秒ごとにメソッドを呼び出す場合は、「YES」呼び出さない場合は「NO」
+                                  repeats:YES
+                                  ];
+                    
+                    reTryCounter = 0;
                     [reTryTimer isValid];
                 }
             }
@@ -264,13 +268,12 @@ static int reTryCounter=0;
                 if (!error) {
                     //
                     [mReTryTimer invalidate];
-//                    PBErrorCode //エラー参照用
-                     reTryCounter=0;
+                    reTryCounter = 0;
                 }else{
-                    if([error code]==9){
+                    if([error code] == PBErrorCodeAppMessageRejected){
                         [self initSender];
-                                           }
-                     reTryCounter++;
+                    }
+                    reTryCounter++;
                 }
             }];
         }
@@ -287,7 +290,7 @@ static int reTryCounter=0;
         return;
     }
     
-    data=[DPPebbleManager convertImage:data];
+    data = [DPPebbleManager convertImage:data];
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -483,7 +486,7 @@ static int reTryCounter=0;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [_self.connectedWatch appMessagesPushUpdate:request onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
-            if([error code]==9){
+            if([error code] == PBErrorCodeAppMessageRejected){
                 [self initSender];
             }
             send = (error == nil);

@@ -1,10 +1,9 @@
 //
 //  SonyCameraRemoteApiUtil.h
-//  DConnectSDK
+//  dConnectDeviceSonyCamera
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 小林 伸郎 on 2014/06/25.
+//  Copyright (c) 2014年 小林 伸郎. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -145,12 +144,6 @@ extern NSString *const SonyCameraShootModePicture;
  */
 - (NSDictionary *) getStillSize;
 
-/*!
- @brief 日付データを設定する。
- @param[in] date 日付データ
- @retval YES 成功
- @retval NO 失敗
- */
 - (BOOL) setDate:(NSString *)date;
 
 @end

@@ -30,11 +30,13 @@ public class SWService extends DConnectMessageService {
         super.onCreate();
 
         EventManager.INSTANCE.setController(new DBCacheController(this));
+        // ファイル管理クラスの作成
+        FileManager fileMgr = new FileManager(this);
 
         addProfile(new SWDeviceOrientationProfile());
         addProfile(new SWNotificationProfile());
         addProfile(new SWVibrationProfile());
-        addProfile(new SWFileProfile(new FileManager(this)));
+        addProfile(new SWFileProfile(fileMgr));
     }
 
     @Override

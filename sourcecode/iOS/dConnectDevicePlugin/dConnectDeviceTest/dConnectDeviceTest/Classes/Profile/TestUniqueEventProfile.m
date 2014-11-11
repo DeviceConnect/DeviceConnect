@@ -1,10 +1,9 @@
 //
 //  TestUniqueEventProfile.m
-//  DConnectSDK
+//  dConnectDeviceTest
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Masaru Takano on 2014/09/08.
+//  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
 //
 
 #import "TestUniqueEventProfile.h"

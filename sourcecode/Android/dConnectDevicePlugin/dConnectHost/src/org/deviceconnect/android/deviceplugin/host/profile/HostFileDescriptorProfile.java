@@ -12,6 +12,7 @@ import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.FileDescriptorProfile;
 import org.deviceconnect.message.DConnectMessage;
+import org.deviceconnect.profile.FileDescriptorProfileConstants.Flag;
 
 import android.content.Intent;
 
@@ -36,8 +37,6 @@ public class HostFileDescriptorProfile extends FileDescriptorProfile {
             createNotFoundDevice(response);
         } else if (path == null || flag == Flag.UNKNOWN) {
             MessageUtils.setInvalidRequestParameterError(response);
-        } else if (path.trim().equals("") || path.trim().equals("/")) {
-            MessageUtils.setUnknownError(response, "not found:" + path);
         } else {
             ((HostDeviceService) getContext()).openFile(response, deviceId, path, flag);
             return false;
@@ -55,11 +54,7 @@ public class HostFileDescriptorProfile extends FileDescriptorProfile {
         } else if (path == null || length == null || length < 0 || (position != null && position < 0)) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
-            long pos = 0;
-            if (position != null) {
-               pos = position.longValue();
-            }
-            ((HostDeviceService) getContext()).readFile(response, deviceId, path, pos, length);
+            ((HostDeviceService) getContext()).readFile(response, deviceId, path, position, length);
             return false;
         }
         return true;

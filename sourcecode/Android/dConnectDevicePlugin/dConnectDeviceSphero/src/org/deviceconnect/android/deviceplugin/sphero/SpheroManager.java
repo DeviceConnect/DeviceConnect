@@ -58,16 +58,6 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
      * 接続のタイムアウト.
      */
     private static final int CONNECTION_TIMEOUT = 30000;
-    
-    /**
-     * 切断のリトライ回数.
-     */
-    private static final int DISCONNECTION_RETRY_NUM = 10;
-    
-    /**
-     * 切断のリトライ遅延.
-     */
-    private static final int DISCONNECTION_RETRY_DELAY = 1000;
 
     /**
      * 1G = {@value} .
@@ -116,7 +106,6 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
         mDevices = new ConcurrentHashMap<String, DeviceInfo>();
         mRobotProvider = RobotProvider.getDefaultProvider();
         mRobotProvider.addConnectionListener(new ConnectionListenerImpl());
-        mRobotProvider.addDiscoveryListener(new DiscoveryListenerImpl());
         mConnLock = new Object();
     }
 
@@ -134,7 +123,8 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
         if (BuildConfig.DEBUG) {
             Log.d("", "start discovery");
         }
-        
+
+        mRobotProvider.addDiscoveryListener(new DiscoveryListenerImpl());
         mIsDiscovering = mRobotProvider.startDiscovery(context);
     }
 
@@ -160,6 +150,7 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
             Log.d("", "stop discovery");
         }
 
+        mRobotProvider.removeDiscoveryListeners();
         mRobotProvider.endDiscovery();
         mIsDiscovering = false;
         if (mFoundDevices != null) {
@@ -174,7 +165,6 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
         stopDiscovery();
         mRobotProvider.removeAllControls();
         mRobotProvider.removeConnectionListeners();
-        mRobotProvider.removeDiscoveryListeners();
         mRobotProvider.disconnectControlledRobots();
         mRobotProvider.shutdown();
         mService = null;
@@ -239,18 +229,7 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
         }
         DeviceInfo removed = mDevices.remove(id);
         if (removed != null) {
-            final Sphero sphero = removed.getDevice();
-            for(int i=0; i<DISCONNECTION_RETRY_NUM; i++){
-                if(!sphero.isConnected()){
-                    break;
-                }
-                sphero.disconnect();
-                try {
-                    Thread.sleep(DISCONNECTION_RETRY_DELAY);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+            removed.getDevice().disconnect();
         }
     }
 
@@ -279,18 +258,17 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
                 }
             }
         }
-        
-        if(connected != null){
-            synchronized (mConnLock) {
-                mRobotProvider.connect(connected);
-                try {
-                    mConnLock.wait(CONNECTION_TIMEOUT);
-                } catch (InterruptedException e) {
-                    if (BuildConfig.DEBUG) {
-                        e.printStackTrace();
-                    }
-                    connected = null;
+
+        synchronized (mConnLock) {
+
+            mRobotProvider.connect(connected);
+            try {
+                mConnLock.wait(CONNECTION_TIMEOUT);
+            } catch (InterruptedException e) {
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
                 }
+                connected = null;
             }
         }
 
@@ -476,10 +454,6 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
         @Override
         public void onBluetoothDisabled() {
             stopDiscovery();
-            
-            mFounds.clear();
-            mLosts.clear();
-            mDiscoveryListener.onDeviceLostAll();
         }
 
         @Override
@@ -580,9 +554,6 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
             if (BuildConfig.DEBUG) {
                 Log.d("", "onDisconnected!");
             }
-            if(mDiscoveryListener != null){
-                mDiscoveryListener.onDeviceLost((Sphero)robot);
-            }
         }
     }
 
@@ -604,11 +575,6 @@ public final class SpheroManager implements DeviceSensorListener, DeviceCollisio
          * @param sphero 消失したデバイス
          */
         void onDeviceLost(Sphero sphero);
-        
-        /**
-         * すべてのデバイスの消失を通知します。
-         */
-        void onDeviceLostAll();
     }
 
     @Override

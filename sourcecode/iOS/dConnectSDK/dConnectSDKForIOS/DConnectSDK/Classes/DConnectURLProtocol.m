@@ -132,6 +132,7 @@ static NSString *scheme = @"http";
              // レスポンス無し；失敗
              
              // エラーを設定する
+             // TODO: もっと色々な、詳細なエラー設定ができないだろうか？
              [[weakSelf client] URLProtocol:weakSelf didFailWithError:
               [NSError errorWithDomain:NSCocoaErrorDomain code:NSURLErrorUnknown userInfo:nil]];
          }
@@ -284,7 +285,7 @@ static NSString *scheme = @"http";
         // dConnectのホスト&ポートへのリクエストであれば、d-ConnectのRESTful APIへのアクセス有り。
         //
         // [android]リクエストとレスポンスの1対1対応を取る為のユニークなリクエストIDを生成
-        // [ios]リクエストとレスポンスの1対1対応を取る、レスポンス返却用コールバックの用意
+        // [ios]リクエストとレスポンスの1対1対応を取る、レスポンス返却用コールバックの用意？
         
         @try {
             // HTTPリクエストを解析して、dconnectのリクエストに変換
@@ -471,7 +472,9 @@ static NSString *scheme = @"http";
              @"Access-Control-Allow-Origin" : @"*",
              @"Access-Control-Allow-Headers" : allowHeaders,
              @"Connection": @"close",
+             // TODO: dConnectのバージョンを付与する？.plistの方からバンドルバージョンを持ってくる感じ？
              @"Server" : @"dConnectServer",
+             // TODO: [2014/05/26 福井] もっとマシなLast-Modifiedを。現行バージョン配布日にするとか？.plistの方からバンドルバージョンを持ってくる感じ？ビルドしたときの時間とか？__BUILD_***とかのマクロでビルド時間とれる？
              @"Last-Modified" : @"Fri, 26 May 2014 00:00:00 +0900",
              @"Cache-Control" : @"private, max-age=0, no-cache"
              };
@@ -484,6 +487,9 @@ static NSString *scheme = @"http";
 }
 
 + (NSString *) stringByURLDecodingWithString:(NSString *)string {
+    // application/x-www-form-urlencoded (formから)の場合半角スペースは"+"に変換されるためデコード前に"+"を
+    // 半角スペースに変換しておく。( http://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0 )
+    // XMLHttpRequestからの場合はパーセントエンコーディング(%20に変換)される。
     string = [string stringByReplacingOccurrencesOfString:@"+" withString:@" "];
     string = [string stringByRemovingPercentEncoding];
     
@@ -525,7 +531,7 @@ int getDConnectMethod(NSString *httpMethod) {
     {
         // MIME Multipartかどうかの判定を行い、MultipartならMultipart解析する。
         // ファイルアップロード用HTMLフォームから送られてくるMultipartなリクエストを解析できる様な感じで
-        // やっている。
+        // やってる。あと、ボディの中には多分mediaIdとdeviceIdだけしか入らない？
         //
         // Content-Dispositionヘッダは「name」や「filename」といったパラメータを用いるので留意。
         // http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2

@@ -215,7 +215,6 @@ typedef enum{
     self.webview.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.webview.scalesPageToFit = YES;
     self.webview.scrollView.delegate = self;
-    self.webview.dataDetectorTypes = UIDataDetectorTypeNone;
     [self.view insertSubview:self.webview atIndex:0];
     
     if (![GHUtils isiPad]) {
@@ -1270,6 +1269,7 @@ typedef enum{
     [mgr start];
     [mgr startWebsocket];
 }
+
 
 
 - (void)viewWillAppear:(BOOL)animated

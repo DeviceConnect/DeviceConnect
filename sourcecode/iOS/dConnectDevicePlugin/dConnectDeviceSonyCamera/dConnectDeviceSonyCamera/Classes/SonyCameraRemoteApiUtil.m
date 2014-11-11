@@ -1,10 +1,9 @@
 //
 //  SonyCameraRemoteApiUtil.m
-//  DConnectSDK
+//  dConnectDeviceSonyCamera
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 小林 伸郎 on 2014/06/25.
+//  Copyright (c) 2014年 小林 伸郎. All rights reserved.
 //
 
 #import "SonyCameraRemoteApiUtil.h"
@@ -318,7 +317,7 @@ NSString *const SonyCameraShootModePicture = @"still";
 #pragma mark - HttpAsynchronousRequestParserDelegate Methods -
 
 - (void) parseMessage:(NSData *)response apiName:(NSString *)apiName {
-//	NSString *responseText = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+	NSString *responseText = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	
 	NSError *error;
 	NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response

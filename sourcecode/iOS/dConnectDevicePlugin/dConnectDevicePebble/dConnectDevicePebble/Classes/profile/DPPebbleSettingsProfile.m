@@ -1,33 +1,33 @@
 //
 //  DPPebbleSettingsProfile.m
-//  DConnectSDK
+//  dConnectDevicePebble
 //
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
+//  Created by 小林伸郎 on 2014/08/24.
+//  Copyright (c) 2014年 Docomo. All rights reserved.
 //
 
 #import "DPPebbleSettingsProfile.h"
-#import "DPPebbleManager.h"
-#import "DPPebbleProfileUtil.h"
 
 @interface DPPebbleSettingsProfile ()
+
+/*!
+ @brief Pebble管理クラス。
+ */
+@property (nonatomic) DPPebbleManager *mgr;
+
 @end
 
 
 @implementation DPPebbleSettingsProfile
 
-// 初期化
-- (id)init
-{
-	self = [super init];
-	if (self) {
-		self.delegate = self;
-	}
-	return self;
-	
+- (id) initWithPebbleManager:(DPPebbleManager *)mgr {
+    self = [super init];
+    if (self) {
+        self.mgr = mgr;
+        self.delegate = self;
+    }
+    return self;
 }
-
 
 #pragma mark - DConnectSettingsProfileDelegate
 
@@ -36,22 +36,38 @@ didReceiveGetDateRequest:(DConnectRequestMessage *)request
                 response:(DConnectResponseMessage *)response
                 deviceId:(NSString *)deviceId
 {
-	[[DPPebbleManager sharedManager] fetchDate:deviceId callback:^(NSString *date, NSError *error) {
-		
-		// エラーチェック
-		if ([DPPebbleProfileUtil handleError:error response:response]) {
-			if (date) {
-				[DConnectSettingsProfile setDate:date target:response];
-				[response setResult:DConnectMessageResultTypeOk];
-			} else {
-				[response setErrorToUnknown];
-			}
-		}
-		
-		// レスポンスを返却
-		[[DConnectManager sharedManager] sendResponse:response];
-	}];
-	return NO;
+    NSString* mDeviceId=[self.mgr getConnectWatcheName];
+    if (deviceId == nil) {
+        [response setErrorToEmptyDeviceId];
+        return YES;
+    }else if(![deviceId isEqualToString:mDeviceId]) {
+        [response setErrorToNotFoundDevice];
+        return YES;
+        
+    } else {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        dic[@(KEY_PROFILE)] = @(PROFILE_SETTING);
+        dic[@(KEY_ATTRIBUTE)] = @(SETTING_ATTRIBUTE_DATE);
+        dic[@(KEY_ACTION)] = @(ACTION_GET);
+        [self.mgr sendCommandToPebble:dic callback:^(NSDictionary *dic) {
+            if (dic) {
+                NSNumber *data = dic[@(KEY_PARAM_SETTING_DATE)];
+                if(data == nil){
+                    [response setErrorToTimeout];
+                }else{
+                    [response setResult:DConnectMessageResultTypeOk];
+                    [DConnectSettingsProfile setDate:(NSString*)data target:response];
+                }
+            } else {
+                [response setErrorToUnknown];
+            }
+            // レスポンスを返却
+            [[DConnectManager sharedManager] sendResponse:response];
+        }];
+        // 非同期で返却するのでNO
+        return NO;
+    }
+    
 }
 
 @end

@@ -1,11 +1,5 @@
 //
-//  dConnectDeviceIRKit-Prefix.pch
-//  DConnectSDK
-//
-//  Copyright (c) 2014 NTT DOCOMO, INC.
-//  Released under the MIT license
-//  http://opensource.org/licenses/mit-license.php
-//
+//  Prefix header
 //
 //  The contents of this file are implicitly included at the beginning of every source file.
 //
@@ -21,5 +15,4 @@
 #endif
 
 #define DPIR_ASYNC_S dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-#define DPIR_ASYNC_E sleep(0.5); \
-});
+#define DPIR_ASYNC_E });

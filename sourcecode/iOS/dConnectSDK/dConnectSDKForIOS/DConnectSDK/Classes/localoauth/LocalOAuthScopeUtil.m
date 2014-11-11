@@ -18,7 +18,7 @@ static NSString *const displayScopeKey = @"display_scope_%@";
 + (NSString *) displayScope: (NSString *)scope
                devicePlugin: (DConnectDevicePlugin *)devicePlugin {
     
-    /* 標準プロファイル名が取得できる */
+    /* 標準プロファイル名が取得できる？ */
     NSString *key = [NSString stringWithFormat: displayScopeKey, scope];
     NSBundle *bundle = DCBundle();
     NSString *localizedName = DCLocalizedString(bundle, key);
@@ -26,7 +26,7 @@ static NSString *const displayScopeKey = @"display_scope_%@";
         return localizedName;
     }
     
-    /* デバイスプラグインから名称が取得できる */
+    /* デバイスプラグインから名称が取得できる？ */
     if (devicePlugin != nil) {
         DConnectProfile *profile = [(devicePlugin) profileWithName: scope];
         if (profile && profile.displayName != nil) {

@@ -37,9 +37,10 @@ public class SWSystemProfile extends SystemProfile {
     protected Class<? extends Activity> getSettingPageActivity(final Intent request, final Bundle param) {
         return SWSettingMainActivity.class;
     }
-
+    
     @Override
     protected boolean onDeleteEvents(final Intent request, final Intent response, final String sessionKey) {
+        
         if (sessionKey == null || sessionKey.length() == 0) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else if (EventManager.INSTANCE.removeEvents(sessionKey)) {
@@ -47,6 +48,7 @@ public class SWSystemProfile extends SystemProfile {
         } else {
             MessageUtils.setUnknownError(response);
         }
+        
         return true;
     }
 

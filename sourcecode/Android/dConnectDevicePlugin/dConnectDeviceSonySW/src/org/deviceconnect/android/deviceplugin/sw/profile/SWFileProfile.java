@@ -8,13 +8,6 @@ package org.deviceconnect.android.deviceplugin.sw.profile;
 
 import java.io.ByteArrayOutputStream;
 
-import org.deviceconnect.android.deviceplugin.sw.R;
-import org.deviceconnect.android.deviceplugin.sw.SWConstants;
-import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.FileProfile;
-import org.deviceconnect.android.provider.FileManager;
-import org.deviceconnect.message.DConnectMessage;
-
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +16,14 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
+import org.deviceconnect.android.deviceplugin.sw.R;
+import org.deviceconnect.android.deviceplugin.sw.SWConstants;
+import org.deviceconnect.android.deviceplugin.util.DcLoggerSW;
+
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.FileProfile;
+import org.deviceconnect.android.provider.FileManager;
+import org.deviceconnect.message.DConnectMessage;
 import com.sonyericsson.extras.liveware.aef.control.Control;
 import com.sonyericsson.extras.liveware.aef.registration.Registration;
 import com.sonyericsson.extras.liveware.extension.util.registration.DeviceInfoHelper;
@@ -33,10 +34,20 @@ import com.sonyericsson.extras.liveware.extension.util.registration.DeviceInfoHe
  */
 public class SWFileProfile extends FileProfile {
 
+    /** ロガー. */
+    private DcLoggerSW mLogger = new DcLoggerSW();
     /**
-     * コンストラクタ.
+     * 画面サイズ(横).
+     */
+    private int mWidth = SWConstants.DEFAULT_DISPLAY_WIDTH;
+    /**
+     * 画面サイズ(縦).
+     */
+    private int mHeight = SWConstants.DEFAULT_DISPLAY_HEIGHT;
+
+    /**
      * 
-     * @param fileMgr fileMgr {@link FileManager}のインスタンス
+     * @param fileMgr fileMgr
      */
     public SWFileProfile(final FileManager fileMgr) {
         super(fileMgr);
@@ -45,32 +56,62 @@ public class SWFileProfile extends FileProfile {
     @Override
     protected boolean onPostSend(final Intent request, final Intent response, final String deviceId, 
             final String path, final String mimeType, final byte[] data) {
-        BluetoothDevice device = SWUtil.findSmartWatch(deviceId);
-        if (device == null) {
-            MessageUtils.setNotFoundDeviceError(response, "No device is found: " + deviceId);
-            return true;
-        }
-        if (data == null || path == null || path.equals("") || deviceId == null) {
-            MessageUtils.setInvalidRequestParameterError(response);
-            return true;
-        }
-        DisplaySize size = determineDisplaySize(getContext(), SWUtil.toHostAppPackageName(device.getName()));
 
-        showDisplay(data, size, deviceId, response);
+        if (!checkSendFile(response, deviceId, data, path)) {
+            return true;
+        }
+
+        mLogger.info(this, "onPostSend", path);
+        mLogger.info(this, "onPostSend", data);
+        BluetoothDevice device = SWUtil.findSmartWatch(deviceId);
+        determineSize(getContext(), SWUtil.toHostAppPackageName(device.getName()));
+
+        showDisplay(data, deviceId, response);
 
         setResult(response, DConnectMessage.RESULT_OK);
         return true;
     }
 
     /**
-     * SWの画面に画像を表示する.
+     * エラーチェック.
+     * 
+     * @param response レスポンス
+     * @param deviceId デバイスID
+     * @param data バイナリデータ
+     * @param path バイナリ名
+     * @return boolean
+     */
+    private boolean checkSendFile(final Intent response, final String deviceId, final byte[] data, final String path) {
+
+        BluetoothDevice device = SWUtil.findSmartWatch(deviceId);
+        if (device == null) {
+            MessageUtils.setNotFoundDeviceError(response, "No device is found: " + deviceId);
+            return false;
+        }
+
+        if (data == null || path == null || path.equals("") || deviceId == null) {
+            MessageUtils.setInvalidRequestParameterError(response);
+            mLogger.info(this, "onPostSend:path", path);
+            mLogger.info(this, "onPostSend:data", data);
+            mLogger.info(this, "onPostSend:data", deviceId);
+            return false;
+        }
+
+        return true;
+
+    }
+
+    /**
+     * SonyWatchDisplayへの表示.
      * 
      * @param data バイナリデータ
-     * @param size 画面サイズ
      * @param deviceId デバイスID
-     * @param response レスポンス
+     * @param response 
      */
-    private void showDisplay(final byte[] data, final DisplaySize size, final String deviceId, final Intent response) {
+    private void showDisplay(final byte[] data, final String deviceId, final Intent response) {
+
+        mLogger.entering(this, "showDisplay");
+
         Bitmap bitmap;
         Bitmap viewBitmap;
         Bitmap resizedBitmap;
@@ -89,12 +130,10 @@ public class SWFileProfile extends FileProfile {
 
         // 拡大率:縦横で長い方が画面ピッタリになるように
         float scale;
-        final int width = size.width;
-        final int height = size.height;
         if (getSizeW > getSizeH) {
-            scale = width / getSizeW;
+            scale = mWidth / getSizeW;
         } else {
-            scale = height / getSizeH;
+            scale = mHeight / getSizeH;
         }
         // 目標の大きさ
         int targetW = (int) Math.ceil(scale * getSizeW);
@@ -104,13 +143,17 @@ public class SWFileProfile extends FileProfile {
 
         // 画像描写開始位置の修正
         if (getSizeW > getSizeH) {
-            startGridY = (height / 2 - targetH / 2);
+            startGridY = (mHeight / 2 - targetH / 2);
         } else {
-            startGridX = (width / 2 - targetW / 2);
+            startGridX = (mWidth / 2 - targetW / 2);
         }
+        mLogger.info(this, "showDisplay:startGridX", startGridX);
+        mLogger.info(this, "showDisplay:startGridY", startGridY);
+        mLogger.info(this, "showDisplay:targetW", targetW);
+        mLogger.info(this, "showDisplay:targetH", targetH);
 
         // 最終的にSWに表示するBitmapの作成(大きさはSWの画面サイズ)
-        viewBitmap = Bitmap.createBitmap(width, height, SWConstants.DEFAULT_BITMAP_CONFIG);
+        viewBitmap = Bitmap.createBitmap(mWidth, mHeight, SWConstants.DEFAULT_BITMAP_CONFIG);
 
         //canvasに表示用Bitmapをセット
         Canvas canvas = new Canvas(viewBitmap);
@@ -124,31 +167,28 @@ public class SWFileProfile extends FileProfile {
         Intent intent = new Intent(Control.Intents.CONTROL_DISPLAY_DATA_INTENT);
         intent.putExtra(Control.Intents.EXTRA_DATA, outputStream.toByteArray());
         sendToHostApp(intent, deviceId);
+        mLogger.exiting(this, "showDisplay");
     }
 
     /**
-     * 指定されたホストアプリケーションに対応するSWの画面サイズを返す.
+     * DiplaySize返却.
      * 
-     * @param context コンテキスト
+     * @param context 
      * @param hostAppPackageName ホストアプリケーション名(SW1orSW2)
-     * @return 画面サイズ
      */
-    private static DisplaySize determineDisplaySize(final Context context, final String hostAppPackageName) {
+    private void determineSize(final Context context, final String hostAppPackageName) {
         boolean smartWatch2Supported = DeviceInfoHelper.isSmartWatch2ApiAndScreenDetected(context, hostAppPackageName);
-        int width;
-        int height;
         if (smartWatch2Supported) {
-            width = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_width);
-            height = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_height);
+            mWidth = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_width);
+            mHeight = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_2_control_height);
         } else {
-            width = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_width);
-            height = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_height);
+            mWidth = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_width);
+            mHeight = context.getResources().getDimensionPixelSize(R.dimen.smart_watch_control_height);
         }
-        return new DisplaySize(width, height);
     }
 
+    // ホストアプリケーションに命令送信
     /**
-     * ホストアプリケーションに対してインテントを送信する.
      * 
      * @param intent インテント
      * @param deviceId デバイスID
@@ -160,4 +200,5 @@ public class SWFileProfile extends FileProfile {
         intent.setPackage(SWUtil.toHostAppPackageName(deviceName));
         getContext().sendBroadcast(intent, Registration.HOSTAPP_PERMISSION);
     }
+
 }
