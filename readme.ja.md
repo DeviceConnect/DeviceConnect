@@ -50,7 +50,7 @@ Android root
 
 5. "Launch UI-App"のリンクからDeviceConnectWebAPIの動作をご確認ください。
   * CheckボタンでDeviceConnectWebAPIの動作状況の確認が行えます。
-  * 未起動の場合、"Device Connect was not foud."と表示されます。
+  * 未起動の場合、"Device Connect was not found."と表示されます。
   * DeviceConnectManagerがインストールされていれば、設定画面が表示されます。
   * DeviceConnectManagerをONにしてWeb画面に戻り、もう一度Checkボタンを押すとDevice Connect API version:1.0と表示されます。
   * accessTokenボタンでコンテンツからのデバイス機能アクセスを許可します。
