@@ -3,8 +3,7 @@
 
 Device Connect WebAPIはスマートフォン上で仮想サーバとして動作するWebAPIで、様々なウェアラブルデバイスやIoTデバイスをWebブラウザやアプリから統一的な記述で簡単に利用することができます。
 
-* 動作環境として、Android、iOSに対応しています。WebブラウザとしてはChrome、Safari(擬似的な仕組み)、Firefoxで動作を確認しています。
- 
+* 動作環境として、Android、iOSに対応しています。WebブラウザとしてはChrome、Safari(擬似的な仕組み)、Firefoxで動作を確認しています。  
   _※それぞれの動作環境で利用できる対応デバイスは異なります。_
 * 仮想サーバによるREST/WebSocketのWebAPIにより、任意の開発環境がご利用いただけます。
 * コンテンツ開発を容易にするために、Javascript用SDK、Android用SDK、iOS用SDKを用意しています。
@@ -18,16 +17,16 @@ Device Connect WebAPIはスマートフォン上で仮想サーバとして動�
 
 _2014/10/15にAndroid用動作サンプルのAPKファイルのパッケージ名を一部更新しました。_
 _お手数ですが以前のAPKがインストールされている場合、以下の手順で旧データを削除してからご確認ください。_
-```
- １．内部ストレージのdemoWebSite.zipから展開したファイルを削除
- ２．DeviceConnect ManagerおよびPlug-inのAPKをアンインストール
- ３．（Chromeブラウザの場合）メニューの”履歴”から”閲覧履歴データの消去...”を選択
- ４．”キャッシュの消去”のチェックを有効化し、”クリア”ボタンを選択
-```
+
+1. 内部ストレージのdemoWebSite.zipから展開したファイルを削除
+2. DeviceConnect ManagerおよびPlug-inのAPKをアンインストール
+3. （Chromeブラウザの場合）メニューの”履歴”から”閲覧履歴データの消去...”を選択
+4. ”キャッシュの消去”のチェックを有効化し、”クリア”ボタンを選択
 
 ## Android端末でのChromeブラウザからの動作確認
 
-１．Androidの内部ストレージにデモコンテンツをフォルダを作成し（[例]"dConnect"）、そこにサンプルのdemoWebSiteフォルダ以下のすべてのファイルをコピーしてください。
+1. Androidの内部ストレージにデモコンテンツをフォルダを作成し（[例]"dConnect"）、  
+  そこにサンプルのdemoWebSiteフォルダ以下のすべてのファイルをコピーしてください。
 ```
 Android root
    └── mnt
@@ -36,35 +35,28 @@ Android root
                 └── demoWebSite #ここにjavaScriptのサンプルをコピー
 ```
 
-２．Chromeブラウザのアドレス欄に内部ストレージのURIを記入し、
-    内部ストレージにあるWebコンテンツにアクセスしてください。
+2. Chromeブラウザのアドレス欄に内部ストレージのURIを記入し、  
+  内部ストレージにあるWebコンテンツにアクセスしてください。
 ```
     [例] file:///storage/emulated/0/dConnect/demoWebSite/index.html
 ```
 
-３．"Download APK"のリンクから、Device Connect本体の"DeviceConnectManager"、デバイスプラグインの"Android Host"をダウンロードし、インストールしてください。
+3. "Download APK"のリンクから、Device Connect本体の"DeviceConnectManager"、  
+  デバイスプラグインの"Android Host"をダウンロードし、インストールしてください。
 
   _※設定のセキュリティから、提供元不明のアプリのインストールの許可が必要です。_
 
-４．トップページに戻ってください。
+4. トップページに戻ってください。
 
-５．"Launch UI-App"のリンクからDeviceConnectWebAPIの動作をご確認ください。
-
-  ・CheckボタンでDeviceConnectWebAPIの動作状況の確認が行えます。
-
-  ・未起動の場合、"Device Connect was not foud."と表示されます。
-
-  ・DeviceConnectManagerがインストールされていれば、設定画面が表示されます。
-
-  ・DeviceConnectManagerをONにしてWeb画面に戻り、もう一度Checkボタンを押すとDevice Connect API version:1.0と表示されます。
-
-  ・accessTokenボタンでコンテンツからのデバイス機能アクセスを許可します。
-
-  ・Search Deviceボタンを押すとインストールされているプラグインのリストが表示されます。
-
-  ・HOSTを選ぶと利用できる機能の一覧（Profile List）が表示されます。
-
-  ・そこから、vibrationを選び、Vibrateを選ぶと端末が振動します（最初の利用時にプラグイン利用の許可が必要です）。
+5. "Launch UI-App"のリンクからDeviceConnectWebAPIの動作をご確認ください。
+  * CheckボタンでDeviceConnectWebAPIの動作状況の確認が行えます。
+  * 未起動の場合、"Device Connect was not foud."と表示されます。
+  * DeviceConnectManagerがインストールされていれば、設定画面が表示されます。
+  * DeviceConnectManagerをONにしてWeb画面に戻り、もう一度Checkボタンを押すとDevice Connect API version:1.0と表示されます。
+  * accessTokenボタンでコンテンツからのデバイス機能アクセスを許可します。
+  * Search Deviceボタンを押すとインストールされているプラグインのリストが表示されます。
+  * HOSTを選ぶと利用できる機能の一覧（Profile List）が表示されます。
+  * そこから、vibrationを選び、Vibrateを選ぶと端末が振動します（最初の利用時にプラグイン利用の許可が必要です）。
 
 
 
@@ -74,13 +66,13 @@ Android root
 
  _※遠隔で意図しない端末の操作およびデータ参照をされるリスクが伴います。信頼が出来ないローカルネットワーク環境では利用しないでください。_
 
-１．上記の動作確認と同様の手順で、操作対象の端末にDeviceConnect WebAPIをセットアップしてください。
+1. 上記の動作確認と同様の手順で、操作対象の端末にDeviceConnect WebAPIをセットアップしてください。
 
-２．DeviceConnectManagerをAndroidのランチャーから起動し、DeviceConnectManagerを一旦OFFにしてください。
+2. DeviceConnectManagerをAndroidのランチャーから起動し、DeviceConnectManagerを一旦OFFにしてください。
 
-３．Allow External IPのチェックを有効化し、DeviceConnectManagerをONにしてください。
+3. Allow External IPのチェックを有効化し、DeviceConnectManagerをONにしてください。
 
-４．操作する側（PC等）のdemoWebSiteからHTMLを開き、操作対象のIPアドレスのパラメータを付加してください。
+4. 操作する側（PC等）のdemoWebSiteからHTMLを開き、操作対象のIPアドレスのパラメータを付加してください。
 ```
     [例] file:///C:/demoWebSite/demo/index.html?ip=192.168.13.3
 ```
