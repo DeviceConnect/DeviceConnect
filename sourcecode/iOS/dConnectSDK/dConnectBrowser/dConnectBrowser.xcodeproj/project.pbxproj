@@ -109,6 +109,7 @@
 		8EE935C3197E36FF000F9DA2 /* GHSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE935C2197E36FF000F9DA2 /* GHSettingController.m */; };
 		8EEC171C1985E43C004EB5DC /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EEC171A1985E43C004EB5DC /* cancel@2x.png */; };
 		8EEC171D1985E43C004EB5DC /* reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EEC171B1985E43C004EB5DC /* reload@2x.png */; };
+		9044F33F1A1A21DA0072F241 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9044F33E1A1A21DA0072F241 /* HueSDK_iOS.framework */; };
 		9700DDE71998E0DD00209D1A /* dConnectDeviceHost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700DDE61998E0DD00209D1A /* dConnectDeviceHost.framework */; };
 		AB08A05E19908B410024C996 /* DCMDevicePluginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB08A05D19908B410024C996 /* DCMDevicePluginSDK.framework */; };
 		ABBD5F0019861CFA00B81007 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD5EFD19861CFA00B81007 /* CoreFoundation.framework */; };
@@ -278,6 +279,7 @@
 		8EE935C2197E36FF000F9DA2 /* GHSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHSettingController.m; path = classes/GHSettingController.m; sourceTree = "<group>"; };
 		8EEC171A1985E43C004EB5DC /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		8EEC171B1985E43C004EB5DC /* reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload@2x.png"; sourceTree = "<group>"; };
+		9044F33E1A1A21DA0072F241 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = ../../dConnectDevicePlugin/dConnectDeviceHue/HueSDK_iOS.framework; sourceTree = "<group>"; };
 		9700DDE61998E0DD00209D1A /* dConnectDeviceHost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dConnectDeviceHost.framework; path = ../../dConnectDevicePlugin/dConnectDeviceHost/bin/dConnectDeviceHost.framework; sourceTree = "<group>"; };
 		AB08A05D19908B410024C996 /* DCMDevicePluginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DCMDevicePluginSDK.framework; path = ../../dConnectDevicePlugin/DCMDevicePluginSDK/bin/DCMDevicePluginSDK.framework; sourceTree = "<group>"; };
 		ABBD5EFD19861CFA00B81007 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -316,6 +318,7 @@
 				8E9A145F196257680004DDB3 /* CoreData.framework in Frameworks */,
 				8E2C5B3B1960FF36005DFCDC /* CoreGraphics.framework in Frameworks */,
 				2562A2B919C3E2AC0032EF17 /* PebbleVendor.framework in Frameworks */,
+				9044F33F1A1A21DA0072F241 /* HueSDK_iOS.framework in Frameworks */,
 				8E2C5B3D1960FF36005DFCDC /* UIKit.framework in Frameworks */,
 				8E2C5B391960FF36005DFCDC /* Foundation.framework in Frameworks */,
 			);
@@ -482,6 +485,7 @@
 		8E2C5B371960FF36005DFCDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9044F33E1A1A21DA0072F241 /* HueSDK_iOS.framework */,
 				AB08A05D19908B410024C996 /* DCMDevicePluginSDK.framework */,
 				259F7CE719C343CE00F66D93 /* dConnectDeviceHost_resources.bundle */,
 				9700DDE61998E0DD00209D1A /* dConnectDeviceHost.framework */,
@@ -1056,8 +1060,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../dConnectSDKForIOS/bin",
-					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceDicePlus/bin",
-					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceDicePlus",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceHost/bin",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceHue/bin",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceHue/",
@@ -1070,6 +1072,7 @@
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceChromeCast/GoogleCastFramework-2.3.0-Release",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDevicePebble/bin",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDevicePebble",
+					/Users/sasakiakira/Documents/workspace_dconnect_release/ForkDeviceConnect20141117/sourcecode/iOS/dConnectDevicePlugin/dConnectDeviceHue,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Browser/Browser-Prefix.pch";
@@ -1093,8 +1096,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../dConnectSDKForIOS/bin",
-					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceDicePlus/bin",
-					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceDicePlus",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceHost/bin",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceHue/bin",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceHue/",
@@ -1107,6 +1108,7 @@
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDeviceChromeCast/GoogleCastFramework-2.3.0-Release",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDevicePebble/bin",
 					"$(PROJECT_DIR)/../../dConnectDevicePlugin/dConnectDevicePebble",
+					/Users/sasakiakira/Documents/workspace_dconnect_release/ForkDeviceConnect20141117/sourcecode/iOS/dConnectDevicePlugin/dConnectDeviceHue,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Browser/Browser-Prefix.pch";
