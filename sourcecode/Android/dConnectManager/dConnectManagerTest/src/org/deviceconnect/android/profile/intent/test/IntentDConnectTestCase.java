@@ -39,7 +39,7 @@ import android.os.Parcelable;
 public class IntentDConnectTestCase extends DConnectTestCase {
     /** d-ConnectManagerのレシーバーへのCompomentName. */
     public static final String DCCONNECT_MANAGER_RECEIVER
-            = "org.deviceconnect.android/.DConnectBroadcastReceiver";
+            = "org.deviceconnect.android.manager/.DConnectBroadcastReceiver";
 
     /** ポーリング時間(ms). */
     private static final int POLLING_WAIT_TIME = 100;

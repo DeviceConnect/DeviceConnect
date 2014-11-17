@@ -19,18 +19,20 @@ import android.os.Bundle;
 
 /**
  * ホストデバイスプラグイン, System プロファイル.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostSystemProfile extends SystemProfile {
 
     /**
      * System Profile.
+     * 
      * @param provider プロバイダ
      */
     public HostSystemProfile(final DConnectProfileProvider provider) {
         super(provider);
     }
-    
+
     /**
      * 設定画面を設定.
      * 
@@ -42,7 +44,7 @@ public class HostSystemProfile extends SystemProfile {
     protected Class<? extends Activity> getSettingPageActivity(final Intent request, final Bundle bundle) {
         return HostSettingActivity.class;
     }
-    
+
     @Override
     protected boolean onDeleteEvents(final Intent request, final Intent response, final String sessionKey) {
 
@@ -57,4 +59,3 @@ public class HostSystemProfile extends SystemProfile {
         return true;
     }
 }
-

@@ -9,3 +9,4 @@
  * ホストデバイスプラグインカメラ関連.
  */
 package org.deviceconnect.android.deviceplugin.host.camera;
+

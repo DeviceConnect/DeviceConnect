@@ -17,6 +17,7 @@
 @interface DPHostFileDescriptorProfile ()
 
 @property NSMutableDictionary *fileHandleDict;
+@property NSString *openFileFlag;
 
 @end
 
@@ -27,6 +28,7 @@
     self = [super init];
     if (self) {
         self.delegate = self;
+        _openFileFlag = @"";
         
         _fileHandleDict = [NSMutableDictionary dictionary];
     }
@@ -54,6 +56,7 @@ didReceiveGetOpenRequest:(DConnectRequestMessage *)request
         [response setErrorToInvalidRequestParameterWithMessage:@"flag must be specified."];
         return YES;
     }
+    _openFileFlag = flag;
     
     NSFileHandle *fileHandle;
     if ([flag isEqualToString:@"r"]) {
@@ -144,7 +147,6 @@ didReceiveGetReadRequest:(DConnectRequestMessage *)request
             [response setErrorToUnknownWithMessage:@"Failed to read data."];
             return YES;
         }
-        //        DConnectFileManager *fileMgr = [SELF_PLUGIN fileMgr];
         NSString *mimeType = [DConnectFileManager searchMimeTypeForExtension:path.pathExtension];
         
         [DConnectFileDescriptorProfile setSize:data.length target:response];
@@ -169,6 +171,7 @@ didReceivePutCloseRequest:(DConnectRequestMessage *)request
                  deviceId:(NSString *)deviceId
                      path:(NSString *)path
 {
+    _openFileFlag = @"";
     if (!path || path.length == 0) {
         [response setErrorToInvalidRequestParameterWithMessage:@"path must be specified."];
         return YES;
@@ -213,31 +216,38 @@ didReceivePutWriteRequest:(DConnectRequestMessage *)request
         [response setErrorToInvalidRequestParameterWithMessage:@"position must be a non-negative value."];
         return YES;
     }
-    
-    NSFileHandle *fileHandle;
-    if ((fileHandle = _fileHandleDict[path])) {
-        unsigned long long oldOffset = [fileHandle offsetInFile];
-        @try {
-            if (position) {
-                [fileHandle seekToFileOffset:[position unsignedLongLongValue]];
-                [fileHandle writeData:media];
-                [fileHandle seekToFileOffset:[position unsignedLongLongValue]+[media length]];
+    if (_openFileFlag) {
+        NSRange range = [_openFileFlag rangeOfString:@"rw"];
+        if (range.location != NSNotFound) {
+            NSFileHandle *fileHandle;
+            if ((fileHandle = _fileHandleDict[path])) {
+                unsigned long long oldOffset = [fileHandle offsetInFile];
+                @try {
+                    if (position) {
+                        [fileHandle seekToFileOffset:[position unsignedLongLongValue]];
+                        [fileHandle writeData:media];
+                        [fileHandle seekToFileOffset:[position unsignedLongLongValue]+[media length]];
+                    } else {
+                        [fileHandle writeData:media];
+                        [fileHandle seekToFileOffset:[media length]];
+                    }
+                }
+                @catch (NSException *exception) {
+                    [fileHandle seekToFileOffset:oldOffset];
+                    [response setErrorToUnknownWithMessage:@"Failed to write data."];
+                    return YES;
+                }
+                [response setResult:DConnectMessageResultTypeOk];
             } else {
-                [fileHandle writeData:media];
-                [fileHandle seekToFileOffset:[media length]];
+                [response setErrorToIllegalDeviceStateWithMessage:
+                 @"The file specified by path is not opened; use File Descriptor Open API first to open it."];
             }
+        } else {
+            [response setErrorToIllegalDeviceStateWithMessage:@"Read mode only"];
         }
-        @catch (NSException *exception) {
-            [fileHandle seekToFileOffset:oldOffset];
-            [response setErrorToUnknownWithMessage:@"Failed to write data."];
-            return YES;
-        }
-        [response setResult:DConnectMessageResultTypeOk];
     } else {
-        [response setErrorToIllegalDeviceStateWithMessage:
-         @"The file specified by path is not opened; use File Descriptor Open API first to open it."];
+        [response setErrorToIllegalDeviceStateWithMessage:@"Invalid Flag state"];
     }
-    
     return YES;
 }
 

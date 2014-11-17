@@ -1,9 +1,10 @@
 //
 //  DPIRKitWiFiUtil.m
-//  dConnectDeviceIRKit
+//  DConnectSDK
 //
-//  Created by 安部 将史 on 2014/08/21.
-//  Copyright (c) 2014年 NTT DOCOMO, INC. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPIRKitWiFiUtil.h"

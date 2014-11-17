@@ -41,6 +41,15 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
  iOSデバイスによっては背面カメラが無かったりと差異があるので、ランタイム時にデフォルトのレコーダーを決定する処理を行う。
  */
 @property (nonatomic) NSNumber *defaultVideoRecorderId;
+/*!
+ デフォルトの音声レコーダーのID
+ */
+@property (nonatomic) NSNumber *defaultAudioRecorderId;
+/*!
+ カレントのレコーダーのID
+ */
+@property (nonatomic) NSNumber *currentRecorderId;
+
 
 /// レコーダーで使用できる静止画入力データ
 @property (nonatomic) NSMutableArray *photoDataSourceArr;
@@ -75,6 +84,12 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
 @property CMTime totalPauseDuration;
 /// ポーズの累計期間を再計算する必要が有るかどうか
 @property BOOL needRecalculationOfTotalPauseDuration;
+/**
+ @brief 現在のプレビュー画像の連番。
+ Data Available Event APIで送るプレビュー画像は0-99までの連番を組み込んだ固定名を与えるの
+ で、現在0-99までのどの連番を使ったかを管理する。
+ */
+@property int curPreviewImageEnumerator;
 
 /*!
  オーディオAssetWriterInputを準備し、指定されたアセットライターに追加する。
@@ -142,6 +157,9 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
                                    name:UIDeviceOrientationDidChangeNotification object:nil];
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         
+        // プレビュー画像名に付加する連番は0から発番する。
+        self.curPreviewImageEnumerator = 0;
+        self.currentRecorderId = nil;
         // Data Available Event APIでおおよそ、1秒毎に5フレームのプレビューを送る様に設定。
         self.secPerFrame = CMTimeMake(2, 1000);
         // 未だプレビューを送った事は無いので、無効値を設定しておく。
@@ -153,7 +171,7 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
         self.needRecalculationOfTotalPauseDuration = NO;
         
         //
-        // レコーダーへの入力データを初期化する。
+        // 各種レコーダーが保持することになる入力データソースを初期化する。
         //
         DPHostRecorderDataSource *recCtx;
         AVCaptureSession *session;
@@ -230,7 +248,7 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
         }
         
         //
-        // 入力データの組み合わせでレコーダー（写真用 or 動画用）を定義する。
+        // 入力データソースの組み合わせでレコーダー（写真用 or 動画用）を定義する。
         //
         // RecorderDataSourceType ⇒ RecorderType
         // Photo                  ⇒ Photo
@@ -348,6 +366,7 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
             
             [self.recorderArr addObject:recorder];
         }
+        self.defaultAudioRecorderId = [NSNumber numberWithUnsignedInteger:self.recorderArr.count - 1];
     }
     return self;
 }
@@ -356,8 +375,8 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
 {
     // iOSデバイスの向き変更の監視をやめる
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-	[notificationCenter removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
-	[[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    [notificationCenter removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
 }
 
 - (BOOL) setupAssetWriterAudioInputForRecorderContext:(DPHostRecorderContext *)recorderCtx
@@ -368,19 +387,19 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
         return NO;
     }
     
-	const AudioStreamBasicDescription *currentASBD = CMAudioFormatDescriptionGetStreamBasicDescription(currentFormatDescription);
+    const AudioStreamBasicDescription *currentASBD = CMAudioFormatDescriptionGetStreamBasicDescription(currentFormatDescription);
     
-	size_t aclSize = 0;
-	const AudioChannelLayout *currentChannelLayout = CMAudioFormatDescriptionGetChannelLayout(currentFormatDescription, &aclSize);
-	NSData *currentChannelLayoutData = nil;
-	
-	// AVChannelLayoutKey must be specified, but if we don't know any better give an empty data and let AVAssetWriter decide.
-	if ( currentChannelLayout && aclSize > 0 )
-		currentChannelLayoutData = [NSData dataWithBytes:currentChannelLayout length:aclSize];
-	else
-		currentChannelLayoutData = [NSData data];
-	
-	NSDictionary *audioCompressionSettings =
+    size_t aclSize = 0;
+    const AudioChannelLayout *currentChannelLayout = CMAudioFormatDescriptionGetChannelLayout(currentFormatDescription, &aclSize);
+    NSData *currentChannelLayoutData = nil;
+    
+    // AVChannelLayoutKey must be specified, but if we don't know any better give an empty data and let AVAssetWriter decide.
+    if ( currentChannelLayout && aclSize > 0 )
+        currentChannelLayoutData = [NSData dataWithBytes:currentChannelLayout length:aclSize];
+    else
+        currentChannelLayoutData = [NSData data];
+    
+    NSDictionary *audioCompressionSettings =
     @{
       AVFormatIDKey : @(kAudioFormatMPEG4AAC),
       AVSampleRateKey : @(currentASBD->mSampleRate),
@@ -388,24 +407,24 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
       AVNumberOfChannelsKey : @(currentASBD->mChannelsPerFrame),
       AVChannelLayoutKey : currentChannelLayoutData
       };
-	if ([recorderCtx.writer canApplyOutputSettings:audioCompressionSettings forMediaType:AVMediaTypeAudio]) {
-		AVAssetWriterInput *assetWriterAudioIn = recorderCtx.audioWriterInput
+    if ([recorderCtx.writer canApplyOutputSettings:audioCompressionSettings forMediaType:AVMediaTypeAudio]) {
+        AVAssetWriterInput *assetWriterAudioIn = recorderCtx.audioWriterInput
         = [[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeAudio outputSettings:audioCompressionSettings];
-		assetWriterAudioIn.expectsMediaDataInRealTime = YES;
+        assetWriterAudioIn.expectsMediaDataInRealTime = YES;
         
-		if ([recorderCtx.writer canAddInput:assetWriterAudioIn]) {
-			[recorderCtx.writer addInput:assetWriterAudioIn];
+        if ([recorderCtx.writer canAddInput:assetWriterAudioIn]) {
+            [recorderCtx.writer addInput:assetWriterAudioIn];
             recorderCtx.audioReady = YES;
         }
-		else {
-			NSLog(@"Could not add asset writer audio input.");
+        else {
+            NSLog(@"Could not add asset writer audio input.");
             return NO;
-		}
-	}
-	else {
-		NSLog(@"Could not apply audio output settings.");
+        }
+    }
+    else {
+        NSLog(@"Could not apply audio output settings.");
         return NO;
-	}
+    }
     
     return YES;
 }
@@ -418,20 +437,20 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
         return NO;
     }
     
-	float bitsPerPixel;
-	CMVideoDimensions dimensions = CMVideoFormatDescriptionGetDimensions(currentFormatDescription);
-	int numPixels = dimensions.width * dimensions.height;
-	int bitsPerSecond;
-	
-	// Assume that lower-than-SD resolutions are intended for streaming, and use a lower bitrate
-	if ( numPixels < (640 * 480) )
-		bitsPerPixel = 4.05; // This bitrate matches the quality produced by AVCaptureSessionPresetMedium or Low.
-	else
-		bitsPerPixel = 11.4; // This bitrate matches the quality produced by AVCaptureSessionPresetHigh.
-	
-	bitsPerSecond = numPixels * bitsPerPixel;
-	
-	NSDictionary *videoCompressionSettings =
+    float bitsPerPixel;
+    CMVideoDimensions dimensions = CMVideoFormatDescriptionGetDimensions(currentFormatDescription);
+    int numPixels = dimensions.width * dimensions.height;
+    int bitsPerSecond;
+    
+    // Assume that lower-than-SD resolutions are intended for streaming, and use a lower bitrate
+    if ( numPixels < (640 * 480) )
+        bitsPerPixel = 4.05; // This bitrate matches the quality produced by AVCaptureSessionPresetMedium or Low.
+    else
+        bitsPerPixel = 11.4; // This bitrate matches the quality produced by AVCaptureSessionPresetHigh.
+    
+    bitsPerSecond = numPixels * bitsPerPixel;
+    
+    NSDictionary *videoCompressionSettings =
     @{
       AVVideoCodecKey : AVVideoCodecH264,
       AVVideoWidthKey : @(dimensions.width),
@@ -441,26 +460,26 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
               AVVideoMaxKeyFrameIntervalKey : @30,
               },
       };
-	if ([recorderCtx.writer canApplyOutputSettings:videoCompressionSettings forMediaType:AVMediaTypeVideo]) {
-		AVAssetWriterInput *assetWriterVideoIn = recorderCtx.videoWriterInput
+    if ([recorderCtx.writer canApplyOutputSettings:videoCompressionSettings forMediaType:AVMediaTypeVideo]) {
+        AVAssetWriterInput *assetWriterVideoIn = recorderCtx.videoWriterInput
         = [[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo outputSettings:videoCompressionSettings];
-		assetWriterVideoIn.expectsMediaDataInRealTime = YES;
+        assetWriterVideoIn.expectsMediaDataInRealTime = YES;
         
-		assetWriterVideoIn.transform =
+        assetWriterVideoIn.transform =
         [self transformVideoOrientation:recorderCtx.videoOrientation position:recorderCtx.videoDevice.position];
-		if ([recorderCtx.writer canAddInput:assetWriterVideoIn]) {
-			[recorderCtx.writer addInput:assetWriterVideoIn];
+        if ([recorderCtx.writer canAddInput:assetWriterVideoIn]) {
+            [recorderCtx.writer addInput:assetWriterVideoIn];
             recorderCtx.videoReady = YES;
         }
-		else {
-			NSLog(@"Couldn't add asset writer video input.");
+        else {
+            NSLog(@"Couldn't add asset writer video input.");
             return NO;
-		}
-	}
-	else {
-		NSLog(@"Couldn't apply video output settings.");
+        }
+    }
+    else {
+        NSLog(@"Couldn't apply video output settings.");
         return NO;
-	}
+    }
     
     return YES;
 }
@@ -468,51 +487,50 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
 - (CGFloat)angleOffsetFromPortraitOrientationToOrientation:(UIDeviceOrientation)orientation
                                                   position:(AVCaptureDevicePosition)position
 {
-	CGFloat angle = 0.0;
-	
-	switch (orientation) {
-		case UIDeviceOrientationPortrait:
-			angle = 0.0;
-			break;
-		case UIDeviceOrientationPortraitUpsideDown:
-			angle = M_PI;
-			break;
-		case UIDeviceOrientationLandscapeLeft:
-			angle = position == AVCaptureDevicePositionBack ? -M_PI_2 : M_PI_2;
-			break;
-		case UIDeviceOrientationLandscapeRight:
-			angle = position == AVCaptureDevicePositionBack ? M_PI_2 : -M_PI_2;
-			break;
-		default:
-			break;
-	}
+    CGFloat angle = 0.0;
     
-	return angle;
+    switch (orientation) {
+        case UIDeviceOrientationPortrait:
+            angle = 0.0;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            angle = M_PI;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            angle = position == AVCaptureDevicePositionBack ? -M_PI_2 : M_PI_2;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            angle = position == AVCaptureDevicePositionBack ? M_PI_2 : -M_PI_2;
+            break;
+        default:
+            break;
+    }
+    
+    return angle;
 }
 
 - (CGAffineTransform)transformVideoOrientation:(AVCaptureVideoOrientation)orientation
                                       position:(AVCaptureDevicePosition)position
 {
-	CGAffineTransform transform = CGAffineTransformIdentity;
+    CGAffineTransform transform = CGAffineTransformIdentity;
     
-	// iOSデバイスの向きが、ポートレート状態から角度的に何度の差があるか算出。
-	CGFloat orientationAngleOffset =
+    // iOSデバイスの向きが、ポートレート状態から角度的に何度の差があるか算出。
+    CGFloat orientationAngleOffset =
     [self angleOffsetFromPortraitOrientationToOrientation:_referenceOrientation
                                                  position:position];
-	CGFloat videoOrientationAngleOffset =
+    CGFloat videoOrientationAngleOffset =
     [self angleOffsetFromPortraitOrientationToOrientation:(UIDeviceOrientation)orientation
                                                  position:position];
-	
-	// Find the difference in angle between the passed in orientation and the current video orientation
-	CGFloat angleOffset = orientationAngleOffset - videoOrientationAngleOffset;
-	transform = CGAffineTransformMakeRotation(angleOffset);
-	
-	return transform;
+    
+    // Find the difference in angle between the passed in orientation and the current video orientation
+    CGFloat angleOffset = orientationAngleOffset - videoOrientationAngleOffset;
+    transform = CGAffineTransformMakeRotation(angleOffset);
+    
+    return transform;
 }
 
 - (void) sendOnPhotoEventWithPath:(NSString *)path mimeType:(NSString*)mimeType
 {
-    static dispatch_queue_t queue;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         ;
@@ -643,8 +661,7 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
             UIGraphicsEndImageContext();
             NSData *jpegData = UIImageJPEGRepresentation(image, 1.0);
             
-            NSString *fileName = [NSString stringWithFormat:@"%@_%@",
-                                  [[NSProcessInfo processInfo] globallyUniqueString], @"preview.jpg"];
+            NSString *fileName = [NSString stringWithFormat:@"preview_%02d", _curPreviewImageEnumerator];
             fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
             if (!fileURL || ![jpegData writeToURL:fileURL atomically:NO]) {
                 return;
@@ -653,6 +670,7 @@ typedef NS_ENUM(NSUInteger, OptionIndex) {
             return;
         }
     }
+    _curPreviewImageEnumerator = (_curPreviewImageEnumerator + 1) % 100;
     
     DConnectURIBuilder *builder = [DConnectURIBuilder new];
     builder.profile = @"files";
@@ -824,9 +842,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                 // なので音声サンプルは依然として受け取る様にして、その時間的位置を利用しながらも音量だけは0にする対応を採っている。
                 //
                 // TODO: 内蔵マイク以外からの音声入力、特にチャンネル数が2つ以上な物にも対応しているか要検証。
-                // 例えばBluetooth接続の高性能マイクとか？大抵のマイクは1チャンネルだけれども。
-                // 多チャンネル音声ファイルからCMSampleBufferRefを取得して、どうやってデータを弄るべきか調べるとか。
-                // http://stackoverflow.com/questions/4972677/reading-audio-samples-via-avassetreader
+                // 多チャンネル音声ファイルからCMSampleBufferRefを取得して、どうやってデータを弄るべきか調べるなど。
                 CMBlockBufferRef buffer = CMSampleBufferGetDataBuffer(sampleBuffer);
                 size_t length;
                 size_t totalLength;
@@ -933,8 +949,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             }
             
             if (recorderCtx.writer.status == AVAssetWriterStatusFailed) {
-                NSLog(@"Writer error:\n%@", recorderCtx.writer.error.localizedDescription);
-                
                 recorderCtx.state = RecorderStateInactive;
                 recorderCtx.audioReady = recorderCtx.videoReady = NO;
                 recorderCtx.writer = nil;
@@ -995,26 +1009,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         _referenceOrientation = orientation;
     }
 }
-
-#pragma mark - Key-value Observing
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    //    if ([keyPath isEqualToString:KeyPathAdjustingExposure]) {
-    //        NSLog(@"# date: %@, exposure, old: %@, new: %@",
-    //              [[NSDate date] descriptionWithLocale:nil], change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey]); // DEBUG
-    //    } else if ([keyPath isEqualToString:KeyPathAdjustingFocus]) {
-    //        NSLog(@"# date: %@, focus, old: %@, new: %@",
-    //              [[NSDate date] descriptionWithLocale:nil], change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey]); // DEBUG
-    //    } else if ([keyPath isEqualToString:KeyPathAdjustingWhiteBalance]) {
-    //        NSLog(@"# date: %@, whitebalance, old: %@, new: %@",
-    //              [[NSDate date] descriptionWithLocale:nil], change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey]); // DEBUG
-    //    }
-}
-
 #pragma mark - Get Methods
 
 - (BOOL)                  profile:(DConnectMediaStreamRecordingProfile *)profile
@@ -1069,39 +1063,6 @@ didReceiveGetMediaRecorderRequest:(DConnectRequestMessage *)request
     
     return YES;
 }
-
-//- (BOOL)            profile:(DConnectMediaStreamRecordingProfile *)profile
-//didReceiveGetOptionsRequest:(DConnectRequestMessage *)request
-//                   response:(DConnectResponseMessage *)response
-//                   deviceId:(NSString *)deviceId
-//                     target:(NSString *)target
-//{
-//    if (!target) {
-//        [response setErrorToInvalidRequestParameterWithMessage:@"target must be non-null."];
-//    }
-//
-//    unsigned long long recorderId;
-//    BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&recorderId];
-//    if (!success) {
-//        [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-//    }
-//
-//    DPHostRecorderContext *recorder = _recorderArr[recorderId];
-//    if (recorder.videoDevice) {
-//        DPHostRecorderDataSource *videoDevice = recorder.videoDevice;
-//        DConnectMessage *imageWidth = [DConnectMessage message];
-//        [DConnectMediaStreamRecordingProfile setMin:[videoDevice.minImageWidth intValue] target:imageWidth];
-//        [DConnectMediaStreamRecordingProfile setMax:[videoDevice.maxImageWidth intValue] target:imageWidth];
-////        [DConnectMediaStreamRecordingProfile ]
-//        DConnectMessage *imageHeight = [DConnectMessage message];
-//        [DConnectMediaStreamRecordingProfile setMin:[videoDevice.minImageHeight intValue] target:imageHeight];
-//        [DConnectMediaStreamRecordingProfile setMax:[videoDevice.maxImageHeight intValue] target:imageHeight];
-//    }
-//    [DConnectMediaStreamRecordingProfile setMIMEType:recorder.mimeType target:response];
-//    [response setResult:DConnectMessageResultTypeOk];
-//
-//    return YES;
-//}
 
 #pragma mark - Post Methods
 
@@ -1183,12 +1144,6 @@ didReceivePostTakePhotoRequest:(DConnectRequestMessage *)request
          if (error) {
              NSLog(@"Failed to acquire a configuration lock for %@.", captureDevice.uniqueID);
          } else {
-             [captureDevice addObserver:weakSelf forKeyPath:KeyPathAdjustingFocus
-                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-             [captureDevice addObserver:weakSelf forKeyPath:KeyPathAdjustingExposure
-                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-             [captureDevice addObserver:weakSelf forKeyPath:KeyPathAdjustingWhiteBalance
-                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
              
              if (captureDevice.focusMode != AVCaptureFocusModeContinuousAutoFocus &&
                  [captureDevice isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
@@ -1284,10 +1239,6 @@ didReceivePostTakePhotoRequest:(DConnectRequestMessage *)request
                    NSString *mimeType = [DConnectFileManager searchMimeTypeForExtension:assetURL.path.pathExtension];
                    [weakSelf sendOnPhotoEventWithPath:[assetURL absoluteString] mimeType:mimeType];
                    
-                   [captureDevice removeObserver:weakSelf forKeyPath:KeyPathAdjustingFocus];
-                   [captureDevice removeObserver:weakSelf forKeyPath:KeyPathAdjustingExposure];
-                   [captureDevice removeObserver:weakSelf forKeyPath:KeyPathAdjustingWhiteBalance];
-                   
                    return;
                }];
           }];
@@ -1316,11 +1267,19 @@ didReceivePostRecordRequest:(DConnectRequestMessage *)request
     
     unsigned long long idx;
     if (target) {
-        BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
-        if (!success) {
-            [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-            return YES;
+        if ([target isEqualToString:@"video"]) {
+            idx = [_defaultVideoRecorderId unsignedLongLongValue];
+        } else if ([target isEqualToString:@"audio"]) {
+            idx = [_defaultAudioRecorderId unsignedLongLongValue];
+        } else {
+            BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
+            if (!success) {
+                [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
+                return YES;
+            }
         }
+    } else if (_currentRecorderId) {
+        idx = [_currentRecorderId unsignedLongLongValue];
     } else if (_defaultVideoRecorderId) {
         // target省略時はデフォルトのレコーダーを指定する。
         idx = [_defaultVideoRecorderId unsignedLongLongValue];
@@ -1329,7 +1288,7 @@ didReceivePostRecordRequest:(DConnectRequestMessage *)request
          @"target was not specified, and no default target was set; please specify an existing target."];
         return YES;
     }
-    
+    _currentRecorderId = [NSNumber numberWithUnsignedLongLong:idx];
     DPHostRecorderContext *recorder;
     @try {
         recorder = _recorderArr[(NSUInteger)idx];
@@ -1391,12 +1350,6 @@ didReceivePostRecordRequest:(DConnectRequestMessage *)request
          if (error) {
              NSLog(@"Failed to acquire a configuration lock for %@.", captureDevice.uniqueID);
          } else {
-             [captureDevice addObserver:self forKeyPath:KeyPathAdjustingFocus
-                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-             [captureDevice addObserver:self forKeyPath:KeyPathAdjustingExposure
-                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-             [captureDevice addObserver:self forKeyPath:KeyPathAdjustingWhiteBalance
-                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
              
              // 画面中央に露光やフォーカスが調整される様にする。
              CGPoint pointOfInterest = CGPointMake(.5, .5);
@@ -1414,8 +1367,6 @@ didReceivePostRecordRequest:(DConnectRequestMessage *)request
              [captureDevice unlockForConfiguration];
              
              // 露光の為に少し待つ
-             // TODO: 「待ち」が必要かどうか要検証；adjusting*系統をKVOで監視して巧い事できないだろうか？
-             // http://cocoadays.blogspot.jp/2011/12/avfoundation.html
              [NSThread sleepForTimeInterval:0.5];
          }
          
@@ -1447,11 +1398,19 @@ didReceivePutPauseRequest:(DConnectRequestMessage *)request
 {
     unsigned long long idx;
     if (target) {
-        BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
-        if (!success) {
-            [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-            return YES;
+        if ([target isEqualToString:@"video"]) {
+            idx = [_defaultVideoRecorderId unsignedLongLongValue];
+        } else if ([target isEqualToString:@"audio"]) {
+            idx = [_defaultAudioRecorderId unsignedLongLongValue];
+        } else {
+            BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
+            if (!success) {
+                [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
+                return YES;
+            }
         }
+    } else if (_currentRecorderId) {
+        idx = [_currentRecorderId unsignedLongLongValue];
     } else if (_defaultVideoRecorderId) {
         // target省略時はデフォルトのレコーダーを指定する。
         idx = [_defaultVideoRecorderId unsignedLongLongValue];
@@ -1460,7 +1419,7 @@ didReceivePutPauseRequest:(DConnectRequestMessage *)request
          @"target was not specified, and no default target was set; please specify an existing target."];
         return YES;
     }
-    
+    _currentRecorderId = [NSNumber numberWithUnsignedLongLong:idx];
     DPHostRecorderContext *recorder;
     @try {
         recorder = _recorderArr[(NSUInteger)idx];
@@ -1516,11 +1475,20 @@ didReceivePutResumeRequest:(DConnectRequestMessage *)request
 {
     unsigned long long idx;
     if (target) {
-        BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
-        if (!success) {
-            [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-            return YES;
+        if ([target isEqualToString:@"video"]) {
+            idx = [_defaultVideoRecorderId unsignedLongLongValue];
+        } else if ([target isEqualToString:@"audio"]) {
+            idx = [_defaultAudioRecorderId unsignedLongLongValue];
+        } else {
+            BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
+            if (!success) {
+                [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
+                return YES;
+            }
         }
+    } else if (_currentRecorderId) {
+        idx = [_currentRecorderId unsignedLongLongValue];
+        
     } else if (_defaultVideoRecorderId) {
         // target省略時はデフォルトのレコーダーを指定する。
         idx = [_defaultVideoRecorderId unsignedLongLongValue];
@@ -1529,7 +1497,7 @@ didReceivePutResumeRequest:(DConnectRequestMessage *)request
          @"target was not specified, and no default target was set; please specify an existing target."];
         return YES;
     }
-    
+    _currentRecorderId = [NSNumber numberWithUnsignedLongLong:idx];
     DPHostRecorderContext *recorder;
     @try {
         recorder = _recorderArr[(NSUInteger)idx];
@@ -1582,11 +1550,19 @@ didReceivePutStopRequest:(DConnectRequestMessage *)request
 {
     unsigned long long idx;
     if (target) {
-        BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
-        if (!success) {
-            [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-            return YES;
+        if ([target isEqualToString:@"video"]) {
+            idx = [_defaultVideoRecorderId unsignedLongLongValue];
+        } else if ([target isEqualToString:@"audio"]) {
+            idx = [_defaultAudioRecorderId unsignedLongLongValue];
+        } else {
+            BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
+            if (!success) {
+                [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
+                return YES;
+            }
         }
+    } else if (_currentRecorderId) {
+        idx = [_currentRecorderId unsignedLongLongValue];
     } else if (_defaultVideoRecorderId) {
         // target省略時はデフォルトのレコーダーを指定する。
         idx = [_defaultVideoRecorderId unsignedLongLongValue];
@@ -1595,7 +1571,7 @@ didReceivePutStopRequest:(DConnectRequestMessage *)request
          @"target was not specified, and no default target was set; please specify an existing target."];
         return YES;
     }
-    
+    _currentRecorderId = [NSNumber numberWithUnsignedLongLong:idx];
     DPHostRecorderContext *recorder;
     @try {
         recorder = _recorderArr[(NSUInteger)idx];
@@ -1622,8 +1598,12 @@ didReceivePutStopRequest:(DConnectRequestMessage *)request
          // レコーディングサンプルの配信を停止する。
          [recorder.session stopRunning];
          
-         [recorder.audioWriterInput markAsFinished];
-         [recorder.videoWriterInput markAsFinished];
+         if (recorder.audioWriterInput) {
+             [recorder.audioWriterInput markAsFinished];
+         }
+         if (recorder.videoWriterInput) {
+             [recorder.videoWriterInput markAsFinished];
+         }
          
          recorder.state = RecorderStateInactive;
          recorder.audioReady = recorder.videoReady = NO;
@@ -1648,7 +1628,12 @@ didReceivePutStopRequest:(DConnectRequestMessage *)request
                                      completionBlock:
           ^(NSURL *assetURL, NSError *error) {
               if (error) {
-                  [response setErrorToUnknownWithMessage:@"Failed to save a movie to camera roll."];
+                  [response setErrorToUnknownWithMessage:@"Failed to save a movie to camera roll (1)."];
+                  [[DConnectManager sharedManager] sendResponse:response];
+                  return;
+              }
+              else if (!assetURL) {
+                  [response setErrorToUnknownWithMessage:@"Failed to save a movie to camera roll (2)."];
                   [[DConnectManager sharedManager] sendResponse:response];
                   return;
               }
@@ -1656,7 +1641,7 @@ didReceivePutStopRequest:(DConnectRequestMessage *)request
                   NSFileManager *fileMgr = [NSFileManager defaultManager];
                   if ([fileMgr fileExistsAtPath:[fileUrl path]]) {
                       if (![fileMgr removeItemAtURL:fileUrl error:nil]) {
-                          NSLog(@"Failed to remove a movie file");
+                          NSLog(@"Failed to remove a movie file.");
                       }
                   }
               }
@@ -1669,6 +1654,7 @@ didReceivePutStopRequest:(DConnectRequestMessage *)request
                                             errorMessage:nil];
               
               [[DConnectManager sharedManager] sendResponse:response];
+              _currentRecorderId = nil;
           }];
      }];
     
@@ -1684,11 +1670,20 @@ didReceivePutMuteTrackRequest:(DConnectRequestMessage *)request
 {
     unsigned long long idx;
     if (target) {
-        BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
-        if (!success) {
-            [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-            return YES;
+        if ([target isEqualToString:@"video"]) {
+            idx = [_defaultVideoRecorderId unsignedLongLongValue];
+        } else if ([target isEqualToString:@"audio"]) {
+            idx = [_defaultAudioRecorderId unsignedLongLongValue];
+        } else {
+            BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
+            if (!success) {
+                [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
+                return YES;
+            }
         }
+    } else if (_currentRecorderId) {
+        idx = [_currentRecorderId unsignedLongLongValue];
+        
     } else if (_defaultVideoRecorderId) {
         // target省略時はデフォルトのレコーダーを指定する。
         idx = [_defaultVideoRecorderId unsignedLongLongValue];
@@ -1697,7 +1692,7 @@ didReceivePutMuteTrackRequest:(DConnectRequestMessage *)request
          @"target was not specified, and no default target was set; please specify an existing target."];
         return YES;
     }
-    
+    _currentRecorderId = [NSNumber numberWithUnsignedLongLong:idx];
     DPHostRecorderContext *recorder;
     @try {
         recorder = _recorderArr[(NSUInteger)idx];
@@ -1741,11 +1736,20 @@ didReceivePutUnmuteTrackRequest:(DConnectRequestMessage *)request
 {
     unsigned long long idx;
     if (target) {
-        BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
-        if (!success) {
-            [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
-            return YES;
+        if ([target isEqualToString:@"video"]) {
+            idx = [_defaultVideoRecorderId unsignedLongLongValue];
+        } else if ([target isEqualToString:@"audio"]) {
+            idx = [_defaultAudioRecorderId unsignedLongLongValue];
+        } else {
+            BOOL success = [[NSScanner scannerWithString:target] scanUnsignedLongLong:&idx];
+            if (!success) {
+                [response setErrorToInvalidRequestParameterWithMessage:@"target is invalid."];
+                return YES;
+            }
         }
+    } else if (_currentRecorderId) {
+        idx = [_currentRecorderId unsignedLongLongValue];
+        
     } else if (_defaultVideoRecorderId) {
         // target省略時はデフォルトのレコーダーを指定する。
         idx = [_defaultVideoRecorderId unsignedLongLongValue];
@@ -1754,7 +1758,7 @@ didReceivePutUnmuteTrackRequest:(DConnectRequestMessage *)request
          @"target was not specified, and no default target was set; please specify an existing target."];
         return YES;
     }
-    
+    _currentRecorderId = [NSNumber numberWithUnsignedLongLong:idx];
     DPHostRecorderContext *recorder;
     @try {
         recorder = _recorderArr[(NSUInteger)idx];
@@ -1790,32 +1794,6 @@ didReceivePutUnmuteTrackRequest:(DConnectRequestMessage *)request
     return YES;
 }
 
-//- (BOOL)            profile:(DConnectMediaStreamRecordingProfile *)profile
-//didReceivePutOptionsRequest:(DConnectRequestMessage *)request
-//                   response:(DConnectResponseMessage *)response
-//                   deviceId:(NSString *)deviceId
-//                     target:(NSString *)target
-//                 imageWidth:(int)imageWidth
-//                imageHeight:(int)imageHeight
-//                   mimeType:(NSString *)mimeType
-//{
-//    //    NSString *cameraId = [DConnectMediaStreamRecordingProfile targetFromRequest:request];
-//    //    if (!cameraId) {
-//    //        cameraId = _defaultCameraId;
-//    //    }
-//    //
-//    //    NSMutableArray *targetOptionArr = _cameraInfoDict[cameraId][RecorderIdOption];
-//    //    targetOptionArr[OptionIndexImageWidth] =
-//    //    [NSNumber numberWithInt:[DConnectMediaStreamRecordingProfile imageWidthFromRequest:request]];
-//    //    targetOptionArr[OptionIndexImageHeight] =
-//    //    [NSNumber numberWithInt:[DConnectMediaStreamRecordingProfile imageHeightFromRequest:request]];
-//    //    targetOptionArr[OptionIndexMimeType] = [DConnectMediaStreamRecordingProfile mimeTypeFromRequest:request];
-//
-//    [response setResult:DConnectMessageResultTypeOk];
-//
-//    return YES;
-//}
-
 #pragma mark Event Registration
 
 - (BOOL)            profile:(DConnectMediaStreamRecordingProfile *)profile
@@ -1846,12 +1824,6 @@ didReceivePutOnRecordingChangeRequest:(DConnectRequestMessage *)request
                              deviceId:(NSString *)deviceId
                            sessionKey:(NSString *)sessionKey
 {
-    // FIXME: AVCaptureSessionDidStartRunningNotification: recording/resume
-    // AVCaptureSessionDidStopRunningNotification: stop/pause
-    // AVCaptureSessionRuntimeErrorNotification: error
-    // AVCaptureSessionが開始・停止しただけじゃレコーダーの状態の判定はできない；DPHostRecorderContextのstateを
-    // 判断材料にする必要あり。
-    
     switch ([_eventMgr addEventForRequest:request]) {
         case DConnectEventErrorNone:             // エラー無し.
             [response setResult:DConnectMessageResultTypeOk];
@@ -1877,10 +1849,17 @@ didReceivePutOnDataAvailableRequest:(DConnectRequestMessage *)request
     NSArray *evts = [_eventMgr eventListForDeviceId:deviceId
                                             profile:DConnectMediaStreamRecordingProfileName
                                           attribute:DConnectMediaStreamRecordingProfileAttrOnDataAvailable];
-    //    if (evts.count == 0) {
-    // プレビュー画像URIの配送処理が開始されていないのなら、開始する。
-    _sendPreview = YES;
-    //    }
+    if (evts.count == 0) {
+        // デフォルトカメラでのレコーディングを開始する。
+        // TODO: 録画や録音を開始せずとも動画プレビューができる様にする。
+        //（恐らく動画や音声等の入力ソースであるDPHostRecorderDataSourceを排他的に管理することをやめなければならない
+        // 事を暗示している）
+        [self profile:profile didReceivePostRecordRequest:nil response:[response copy]
+             deviceId:deviceId target:nil timeslice:nil];
+        
+        // プレビュー画像URIの配送処理が開始されていないのなら、開始する。
+        _sendPreview = YES;
+    }
     
     switch ([_eventMgr addEventForRequest:request]) {
         case DConnectEventErrorNone:             // エラー無し.
@@ -1968,6 +1947,13 @@ didReceiveDeleteOnDataAvailableRequest:(DConnectRequestMessage *)request
                                             profile:DConnectDeviceOrientationProfileName
                                           attribute:DConnectDeviceOrientationProfileAttrOnDeviceOrientation];
     if (evts.count == 0) {
+        // デフォルトカメラでのレコーディングを停止する。
+        // TODO: 録画や録音を開始せずとも動画プレビューができる様にする。
+        //（恐らく動画や音声等の入力ソースであるDPHostRecorderDataSourceを排他的に管理することをやめなければならない
+        // 事を暗示している）
+        [self profile:profile didReceivePutStopRequest:nil response:[response copy]
+             deviceId:deviceId target:nil];
+        
         // イベント受領先が存在しないなら、プレビュー画像URIの配送処理を停止する。
         _sendPreview = NO;
         // 次回プレビュー開始時に影響を与えない為に、初期値（無効値）を設定する。

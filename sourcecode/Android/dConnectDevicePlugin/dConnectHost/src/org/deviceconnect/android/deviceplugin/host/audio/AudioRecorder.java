@@ -10,6 +10,7 @@ package org.deviceconnect.android.deviceplugin.host.audio;
 import java.io.File;
 import java.util.Date;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.R;
 
 import android.app.Activity;
@@ -34,9 +35,6 @@ import android.view.Window;
  */
 public class AudioRecorder extends Activity {
 
-    /** Debug Tag. */
-    private static final String TAG = "HOST";
-
     /** MediaRecoder. */
     private MediaRecorder mMediaRecorder;
 
@@ -47,7 +45,7 @@ public class AudioRecorder extends Activity {
     private File mFile;
 
     /** フォーマット名. */
-    private final static String FORMAT_TYPE = ".3gp";
+    private static final String FORMAT_TYPE = ".3gp";
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -70,7 +68,9 @@ public class AudioRecorder extends Activity {
         try {
             mMediaRecorder.prepare();
         } catch (Exception e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
         mMediaRecorder.start();
     }
@@ -129,16 +129,7 @@ public class AudioRecorder extends Activity {
 
             if (intent.getAction().equals((AudioConst.SEND_HOSTDP_TO_AUDIO))) {
                 String videoAction = intent.getStringExtra(AudioConst.EXTRA_NAME);
-                if (videoAction.equals(AudioConst.EXTRA_NAME_AUDIO_RECORD_START)) {
-
-                    // finish();
-                } else if (videoAction.equals(AudioConst.EXTRA_NAME_AUDIO_RECORD_PAUSE)) {
-
-                    // finish();
-                } else if (videoAction.equals(AudioConst.EXTRA_NAME_AUDIO_RECORD_RESUME)) {
-
-                    // finish();
-                } else if (videoAction.equals(AudioConst.EXTRA_NAME_AUDIO_RECORD_STOP)) {
+                if (videoAction.equals(AudioConst.EXTRA_NAME_AUDIO_RECORD_STOP)) {
                     mMediaRecorder.stop();
                     mMediaRecorder.reset();
                     mMediaRecorder.release();

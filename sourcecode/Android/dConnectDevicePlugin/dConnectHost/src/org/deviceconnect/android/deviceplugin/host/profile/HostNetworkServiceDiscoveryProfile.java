@@ -18,12 +18,10 @@ import android.os.Bundle;
 
 /**
  * ホストデバイスプラグイン, Network Service Discovery プロファイル.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryProfile {
-    /** Debug Tag. */
-    private static final String TAG = "HOST";
-    
     /**
      * デバイスプラグインID.
      */
@@ -63,7 +61,7 @@ public class HostNetworkServiceDiscoveryProfile extends NetworkServiceDiscoveryP
         services.add(service);
 
         setResult(response, DConnectMessage.RESULT_OK);
-        response.putExtra(IntentDConnectMessage.EXTRA_REQUEST_CODE, 
+        response.putExtra(IntentDConnectMessage.EXTRA_REQUEST_CODE,
                 request.getIntExtra(IntentDConnectMessage.EXTRA_REQUEST_CODE, -1));
         response.putExtra(PARAM_SERVICES, services.toArray(new Bundle[services.size()]));
 

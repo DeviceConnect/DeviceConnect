@@ -1,9 +1,10 @@
 //
 //  DPSpheroDevicePlugin.m
-//  DPSpheroDevicePlugin
+//  DConnectSDK
 //
-//  Created by 星貴之 on 2014/06/23.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPSpheroDevicePlugin.h"
@@ -27,8 +28,6 @@
     
     if (self) {
         self.pluginName = @"Sphero 1.0";
-        //@ToDo リリース時はコメントアウトすること
-//        self.useLocalOAuth = NO;
 
         Class key = [self class];
         [[DConnectEventManager sharedManagerForClass:key] setController:[DConnectDBCacheController controllerWithClass:key]];

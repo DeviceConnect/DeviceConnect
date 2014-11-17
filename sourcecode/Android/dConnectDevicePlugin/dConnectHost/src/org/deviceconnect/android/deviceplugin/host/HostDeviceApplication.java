@@ -15,6 +15,7 @@ import android.content.Intent;
 
 /**
  * Host Device Plugin Application.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostDeviceApplication extends Application {

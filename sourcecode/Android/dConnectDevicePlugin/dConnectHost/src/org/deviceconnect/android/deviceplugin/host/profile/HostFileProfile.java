@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.FileProfile;
 import org.deviceconnect.android.provider.FileManager;
@@ -34,6 +35,7 @@ import android.webkit.MimeTypeMap;
 
 /**
  * File Profile.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostFileProfile extends FileProfile {
@@ -55,7 +57,7 @@ public class HostFileProfile extends FileProfile {
     }
 
     @Override
-    protected boolean onGetReceive(final Intent request, final Intent response, 
+    protected boolean onGetReceive(final Intent request, final Intent response,
                         final String deviceId, final String path) {
 
         if (deviceId == null) {
@@ -76,7 +78,7 @@ public class HostFileProfile extends FileProfile {
                 mFile = new File(getFileManager().getBasePath() + "/" + path);
                 filePath = getFileManager().getContentUri() + path;
             }
-            
+
             if (mFile.isFile()) {
                 setResult(response, IntentDConnectMessage.RESULT_OK);
                 response.putExtra(FileProfile.PARAM_MIME_TYPE, getMIMEType(path));
@@ -237,7 +239,9 @@ public class HostFileProfile extends FileProfile {
             } else {
                 String mMineType = getMIMEType(getFileManager().getBasePath() + "/" + path);
 
-                Log.i(TAG, "mMineType:" + mMineType);
+                if (BuildConfig.DEBUG) {
+                    Log.i(TAG, "mMineType:" + mMineType);
+                }
 
                 // MimeTypeが不明の場合はエラーを返す
                 if (mMineType == null) {
@@ -246,9 +250,9 @@ public class HostFileProfile extends FileProfile {
                     return true;
                 }
                 // 音楽データに関してはContents Providerに登録
-                if (mMineType.endsWith("audio/mpeg") 
+                if (mMineType.endsWith("audio/mpeg")
                         || mMineType.endsWith("audio/x-wav")
-                        || mMineType.endsWith("audio/mp4") 
+                        || mMineType.endsWith("audio/mp4")
                         || mMineType.endsWith("audio/ogg")
                         || mMineType.endsWith("audio/mp3")
                         || mMineType.endsWith("audio/x-ms-wma")
@@ -260,7 +264,6 @@ public class HostFileProfile extends FileProfile {
                     String mComposer = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_COMPOSER);
                     String mArtist = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
                     String mDuration = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
-                    String mAuthor = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_AUTHOR);
                     ContentResolver mContentResolver = this.getContext().getApplicationContext().getContentResolver();
                     ContentValues mValues = new ContentValues();
 
@@ -273,7 +276,6 @@ public class HostFileProfile extends FileProfile {
                     mValues.put(Audio.Media.COMPOSER, mComposer);
                     mValues.put(Audio.Media.ARTIST, mArtist);
                     mValues.put(Audio.Media.DURATION, mDuration);
-                    // mValues.put(Audio.Media.DATE_TAKEN, dateTaken);
                     mValues.put(Audio.Media.MIME_TYPE, mMineType);
                     mValues.put(Audio.Media.DATA, getFileManager().getBasePath() + "/" + path);
                     mContentResolver.insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mValues);
@@ -284,7 +286,6 @@ public class HostFileProfile extends FileProfile {
                     MediaMetadataRetriever mMediaMeta = new MediaMetadataRetriever();
                     mMediaMeta.setDataSource(getFileManager().getBasePath() + "/" + path);
                     String mTitle = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-                    String mComposer = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_COMPOSER);
                     String mArtist = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
                     String mDuration = mMediaMeta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
                     ContentResolver mContentResolver = this.getContext().getApplicationContext().getContentResolver();
@@ -328,11 +329,11 @@ public class HostFileProfile extends FileProfile {
         }
         return true;
     }
-    
+
     @Override
-    protected boolean onPostMkdir(final Intent request, final Intent response, final String deviceId, 
+    protected boolean onPostMkdir(final Intent request, final Intent response, final String deviceId,
             final String path) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -342,7 +343,7 @@ public class HostFileProfile extends FileProfile {
         } else {
             File mBaseDir = mFileManager.getBasePath();
             File mMakeDir = new File(mBaseDir, path);
-            
+
             if (mMakeDir.isDirectory()) {
                 setResult(response, DConnectMessage.RESULT_ERROR);
                 MessageUtils.setUnknownError(response, "can not make dir :" + mMakeDir);
@@ -356,14 +357,14 @@ public class HostFileProfile extends FileProfile {
                 }
             }
         }
-        
+
         return true;
     }
-    
+
     @Override
-    protected boolean onDeleteRmdir(final Intent request, final Intent response, final String deviceId, 
+    protected boolean onDeleteRmdir(final Intent request, final Intent response, final String deviceId,
             final String path, final boolean force) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -373,11 +374,11 @@ public class HostFileProfile extends FileProfile {
         } else {
             File mBaseDir = mFileManager.getBasePath();
             File mMakeDir = new File(mBaseDir, path);
-            
-           if (mMakeDir.isFile()) {
+
+            if (mMakeDir.isFile()) {
                 setResult(response, DConnectMessage.RESULT_ERROR);
                 MessageUtils.setUnknownError(response, mMakeDir + "is file");
-           } else {
+            } else {
                 try {
                     mMakeDir.delete();
                     setResult(response, DConnectMessage.RESULT_OK);
@@ -385,12 +386,12 @@ public class HostFileProfile extends FileProfile {
                     setResult(response, DConnectMessage.RESULT_ERROR);
                     MessageUtils.setUnknownError(response, "can not make dir :" + mMakeDir);
                 }
-           }
+            }
         }
-        
+
         return true;
     }
-    
+
     /**
      * ファイルパラメータ格納用メソッド.
      * 

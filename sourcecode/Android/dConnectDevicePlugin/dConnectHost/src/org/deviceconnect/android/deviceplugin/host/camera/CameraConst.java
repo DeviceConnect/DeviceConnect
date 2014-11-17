@@ -50,30 +50,39 @@ package org.deviceconnect.android.deviceplugin.host.camera;
  *
  * @author NTT DOCOMO, INC.
  */
-public class CameraConst {
+public final class CameraConst {
+    
+    /**
+     * Constructor.
+     */
+    private CameraConst() {
+       // No operation.
+    }
 
     /** カメラへのアクション. */
-	public static final String SEND_HOSTDP_TO_CAMERA = "org.deviceconnect.android.intent.action.SEND_HOSTDP_TO_CAMERA";
-	
-	/** カメラからのアクション. */
-	public static final String SEND_CAMERA_TO_HOSTDP = "org.deviceconnect.android.intent.action.SEND_CAMERA_TO_HOSTDP";
+    public static final String SEND_HOSTDP_TO_CAMERA =
+            "org.deviceconnect.android.intent.action.SEND_HOSTDP_TO_CAMERA";
 
-	/** コマンド名. */
-	public static final String EXTRA_NAME = "command";
-	
-	/** シャッター処理. */
-	public static final String EXTRA_NAME_SHUTTER = "shutter";
-	
-	/** Zoom in. */
-	public static final String EXTRA_NAME_ZOOMIN = "zoomin";
-	
-	/** Zoom out. */
-	public static final String EXTRA_NAME_ZOOMOUT = "zoomout";
-	
-	/** 写真のURI. */
-	public static final String EXTRA_PICTURE_URI = "picture_uri";
-	
-	/** リクエストID. */
-	public static final String EXTRA_REQUESTID = "request_id";
-	
+    /** カメラからのアクション. */
+    public static final String SEND_CAMERA_TO_HOSTDP =
+            "org.deviceconnect.android.intent.action.SEND_CAMERA_TO_HOSTDP";
+
+    /** コマンド名. */
+    public static final String EXTRA_NAME = "command";
+
+    /** シャッター処理. */
+    public static final String EXTRA_NAME_SHUTTER = "shutter";
+
+    /** Zoom in. */
+    public static final String EXTRA_NAME_ZOOMIN = "zoomin";
+
+    /** Zoom out. */
+    public static final String EXTRA_NAME_ZOOMOUT = "zoomout";
+
+    /** 写真のURI. */
+    public static final String EXTRA_PICTURE_URI = "picture_uri";
+
+    /** リクエストID. */
+    public static final String EXTRA_REQUESTID = "request_id";
+
 }

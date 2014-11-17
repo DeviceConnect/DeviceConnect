@@ -17,7 +17,7 @@
  @param[in] iter レスポンスを格納するイテレータ
 
  */
-static void in_received_delete_event_handler(DictionaryIterator *received, DictionaryIterator *iter) {
+static void in_received_delete_event_handler(DictionaryIterator *received) {
     DBG_LOG(APP_LOG_LEVEL_DEBUG, "in_received_delete_event_handler");
 
     Tuple *attributeTuple = dict_find(received, KEY_ATTRIBUTE);
@@ -30,17 +30,17 @@ static void in_received_delete_event_handler(DictionaryIterator *received, Dicti
         return ;
     default:
         entry_log( "error", "system/events?");
-        pebble_set_error_code(iter, ERROR_NOT_SUPPORT_ATTRIBUTE);
+        pebble_set_error_code(ERROR_NOT_SUPPORT_ATTRIBUTE);
         break;
     }
 }
-int in_received_system_handler(DictionaryIterator *received, DictionaryIterator *iter) {
+int in_received_system_handler(DictionaryIterator *received) {
     DBG_LOG(APP_LOG_LEVEL_DEBUG, "in_received_system_handler");
 
     Tuple *actionTuple = dict_find(received, KEY_ACTION);
     switch (actionTuple->value->uint8) {
     case ACTION_DELETE:
-        in_received_delete_event_handler(received, iter);
+        in_received_delete_event_handler(received);
         break;
     case ACTION_GET:
     case ACTION_POST:
@@ -48,7 +48,7 @@ int in_received_system_handler(DictionaryIterator *received, DictionaryIterator 
     default:
         entry_log( "error", "system/events");
         // not support.
-        pebble_set_error_code(iter, ERROR_NOT_SUPPORT_ACTION);
+        pebble_set_error_code(ERROR_NOT_SUPPORT_ACTION);
         break;
     }
     return RETURN_SYNC;

@@ -1,9 +1,10 @@
 //
 //  dConnectDeviceSonyCameraTests.m
-//  dConnectDeviceSonyCameraTests
+//  DConnectSDK
 //
-//  Created by 小林 伸郎 on 2014/06/25.
-//  Copyright (c) 2014年 小林 伸郎. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import <XCTest/XCTest.h>

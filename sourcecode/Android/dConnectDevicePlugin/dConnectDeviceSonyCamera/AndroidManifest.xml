@@ -29,7 +29,7 @@
 
         <provider
             android:name="org.deviceconnect.android.provider.FileProvider"
-            android:authorities="org.deviceconnect.android.deviceplugin.sonycamera.receiver.WiFiStateReceivercamera.provider"
+            android:authorities="org.deviceconnect.android.deviceplugin.sonycamera.provider"
             android:exported="true" />
 
         <receiver android:name="org.deviceconnect.android.deviceplugin.sonycamera.receiver.WiFiStateReceiver" >

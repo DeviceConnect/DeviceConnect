@@ -24,34 +24,32 @@ import android.widget.VideoView;
 
 /**
  * Video Player.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class VideoPlayer extends Activity implements OnCompletionListener {
-    
-    /** Debug Tag. */
-    private static final String TAG = "HOST";
-    
+
     /** VideoView. */
     private VideoView mVideoView;
-    
+
     /** URI. */
     private Uri mUri;
-    
+
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         // タイトルを非表示
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        
+
         setContentView(R.layout.video_player);
         mVideoView = (VideoView) findViewById(R.id.videoView);
-        
+
         // 再生するVideoのURI
         Intent mIntent = this.getIntent();
         mUri = mIntent.getData();
     }
-    
+
     @Override
     public void onResume() {
         super.onResume();
@@ -59,19 +57,18 @@ public class VideoPlayer extends Activity implements OnCompletionListener {
         IntentFilter mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(VideoConst.SEND_HOSTDP_TO_VIDEOPLAYER);
         registerReceiver(mReceiver, mIntentFilter);
-        
+
         MediaController mMediaController = new MediaController(this);
         mMediaController.setAnchorView(mVideoView);
-        
+
         mVideoView.setMediaController(mMediaController);
         mVideoView.setKeepScreenOn(true);
         mVideoView.setVideoURI(mUri);
         mVideoView.requestFocus();
         mVideoView.setOnCompletionListener(this);
-        
+
         mVideoView.start();
     }
-
 
     @Override
     protected void onPause() {
@@ -82,18 +79,16 @@ public class VideoPlayer extends Activity implements OnCompletionListener {
     }
 
     /**
-     * 受信.
-     * 受信用のReceiver
+     * 受信. 受信用のReceiver
      */
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        
+
         @Override
         public void onReceive(final Context context, final Intent intent) {
 
             if (intent.getAction().equals(VideoConst.SEND_HOSTDP_TO_VIDEOPLAYER)) {
                 String mVideoAction = intent.getStringExtra(VideoConst.EXTRA_NAME);
-              
-                
+
                 if (mVideoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_PLAYER_PLAY)) {
 
                     mVideoView.start();
@@ -104,13 +99,13 @@ public class VideoPlayer extends Activity implements OnCompletionListener {
 
                     mVideoView.pause();
                 } else if (mVideoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_PLAYER_RESUME)) {
-   
+
                     mVideoView.resume();
                     mVideoView.start();
                 } else if (mVideoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_PLAYER_SEEK)) {
                     int pos = intent.getIntExtra("pos", -1);
                     mVideoView.seekTo(pos);
-                }               
+                }
             }
         }
     };
@@ -120,4 +115,3 @@ public class VideoPlayer extends Activity implements OnCompletionListener {
         finish();
     }
 }
-

@@ -8,10 +8,17 @@ package org.deviceconnect.android.deviceplugin.pebble.profile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import org.deviceconnect.android.deviceplugin.pebble.PebbleDeviceService;
 import org.deviceconnect.android.deviceplugin.pebble.util.PebbleManager.OnConnectionStatusListener;
+import org.deviceconnect.android.event.Event;
+import org.deviceconnect.android.event.EventError;
+import org.deviceconnect.android.event.EventManager;
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
+import org.deviceconnect.message.DConnectMessage;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -19,12 +26,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.getpebble.android.kit.PebbleKit;
-import org.deviceconnect.android.event.Event;
-import org.deviceconnect.android.event.EventError;
-import org.deviceconnect.android.event.EventManager;
-import org.deviceconnect.android.message.MessageUtils;
-import org.deviceconnect.android.profile.NetworkServiceDiscoveryProfile;
-import org.deviceconnect.message.DConnectMessage;
 
 /**
  * Pebble用 Network Service Discoveryプロファイル.
@@ -91,7 +92,8 @@ public class PebbleNetworkServceDiscoveryProfile extends NetworkServiceDiscovery
                     String deviceName = device.getName();
                     String deviceAddress = device.getAddress();
                     // URIに使えるように、Macアドレスの":"を取り除いて小文字に変換する 
-                    String deviceid = deviceAddress.replace(":", "").toLowerCase();
+                    String deviceid = deviceAddress.replace(":", "")
+                            .toLowerCase(Locale.getDefault());
                     if (deviceName.indexOf("Pebble") != -1) {
                         Bundle service = new Bundle();
                         setId(service, DEVICE_ID + deviceid);

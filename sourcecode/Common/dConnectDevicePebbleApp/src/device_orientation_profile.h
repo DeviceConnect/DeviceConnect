@@ -10,8 +10,14 @@
  @retval RETURN_SYNC 同期
  @retval RETURN_ASYNC 非同期
  */
-int in_received_device_orientation_handler(DictionaryIterator *received, DictionaryIterator *iter);
+int in_received_device_orientation_handler(DictionaryIterator *received);
 
+/*!
+ @brief DeviceOrientationのイベントを一時的に送信をやめる。
+ 一定時間経過後に送信を再開する。
+ DeviceOrientationのイベントが開始されていない場合には、特に何も起こりません。
+ */
+void orientation_service_pause(void);
 
 /*!
  @brief DeviceOrientation のイベントを強制終了

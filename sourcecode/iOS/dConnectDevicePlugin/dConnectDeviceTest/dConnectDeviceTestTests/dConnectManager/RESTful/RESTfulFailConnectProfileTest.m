@@ -1,9 +1,10 @@
 //
 //  RESTfulFailConnectProfileTest.m
-//  DConnectDeviceTest
+//  DConnectSDK
 //
-//  Created by Masaru Takano on 2014/08/21.
-//  Copyright (c) 2014 NTT DOCOMO, INC. All Rights Reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "RESTfulTestCase.h"

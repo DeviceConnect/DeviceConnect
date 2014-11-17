@@ -13,10 +13,11 @@ import android.content.Intent;
 
 /**
  * 変化を通知するBroadcast Receiver.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostDeviceReceiver extends BroadcastReceiver {
-    
+
     @Override
     public void onReceive(final Context context, final Intent intent) {
         intent.setClass(context, HostDeviceService.class);

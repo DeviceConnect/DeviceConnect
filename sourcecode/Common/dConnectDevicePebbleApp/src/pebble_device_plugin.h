@@ -3,6 +3,8 @@
 
 #include "pebble.h"
 #include "pebble_device_plugin_defines.h"
+#include "message_queue.h"
+#include "send_message.h"
 
 
 //デバッグログ出力に関する定義
@@ -20,7 +22,8 @@
  @param[in] iter エラーコードを設定するイテレータ
  @param[in] error_code エラーコード
  */
-void pebble_set_error_code(DictionaryIterator *iter, int error_code);
+//void pebble_set_error_code(DictionaryIterator *iter, int error_code);
+void pebble_set_error_code(int error_code);
 
 /*!
  @brief 画面に指定された画像を表示する。

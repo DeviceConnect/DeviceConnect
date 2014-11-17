@@ -6,10 +6,10 @@
  */
 package org.deviceconnect.android.deviceplugin.host.profile;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.HostDeviceService;
 import org.deviceconnect.android.event.EventError;
 import org.deviceconnect.android.event.EventManager;
@@ -33,6 +33,7 @@ import android.webkit.MimeTypeMap;
 
 /**
  * Media Player Profile.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostMediaPlayerProfile extends MediaPlayerProfile {
@@ -125,12 +126,12 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
             if (checkInteger(mediaId)) {
                 ((HostDeviceService) getContext()).putMediaId(response, mediaId);
             } else {
-               FileManager mFileManager = new FileManager(this.getContext());
-               
+                FileManager mFileManager = new FileManager(this.getContext());
+
                 long newMediaId = mediaIdFromPath(this.getContext(), mFileManager.getBasePath() + mediaId);
                 ((HostDeviceService) getContext()).putMediaId(response, "" + newMediaId);
             }
-                
+
             return false;
 
         }
@@ -151,7 +152,7 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
             MessageUtils.setInvalidRequestParameterError(response);
             return true;
         } else {
-        
+
             ((HostDeviceService) getContext()).getMedia(response);
             return false;
         }
@@ -166,7 +167,9 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
         } else if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
-            Log.i(TAG, "onGetMediaList");
+            if (BuildConfig.DEBUG) {
+                Log.i(TAG, "onGetMediaList");
+            }
             int counter = 0;
             int tmpLimit = 0;
             int tmpOffset = 0;
@@ -193,6 +196,10 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
             // Orderの処理
             String mOrderBy = "";
 
+            // 検索用Cursor.
+            Cursor cursorMusic = null;
+            Cursor cursorVideo = null;
+
             if (mimeType != null) {
                 mVideoFilter = "" + MediaStore.Video.Media.MIME_TYPE + "='" + mimeType + "'";
                 mMusicFilter = "" + MediaStore.Audio.Media.MIME_TYPE + "='" + mimeType + "'";
@@ -209,7 +216,9 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
                 mMusicFilter += "(" + MediaStore.Audio.Media.TITLE + " LIKE '%" + query + "%'";
                 mMusicFilter += " OR " + MediaStore.Audio.Media.COMPOSER + " LIKE '%" + query + "%')";
             }
-            Log.i(TAG, "orders" + orders);
+            if (BuildConfig.DEBUG) {
+                Log.i(TAG, "orders" + orders);
+            }
             if (orders != null) {
                 mOrderBy = orders[0] + " " + orders[1];
             } else {
@@ -231,8 +240,16 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
 
             ContentResolver mContentResolver = this.getContext().getApplicationContext().getContentResolver();
 
-            Cursor cursorMusic = mContentResolver.query(mMusicUriType, mMusicParam, mMusicFilter, null, mOrderBy);
-            cursorMusic.moveToFirst();
+            try {
+                cursorMusic = mContentResolver.query(mMusicUriType, mMusicParam, mMusicFilter, null, mOrderBy);
+                cursorMusic.moveToFirst();
+            } catch (Exception e) {
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
+                MessageUtils.setInvalidRequestParameterError(response);
+                return true;
+            }
 
             List<Bundle> list = new ArrayList<Bundle>();
 
@@ -259,7 +276,7 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
                     setCreator(creator, mArtist);
                     setRole(creator, mComp);
 
-                    setCreators(medium, new Bundle[] {creator });
+                    setCreators(medium, new Bundle[] { creator });
 
                     if (limit == null || (limit != null && limitCounter > counter)) {
                         if (offset == null || (offset != null && counter >= offset)) {
@@ -270,8 +287,17 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
                 } while (cursorMusic.moveToNext());
             }
 
-            Cursor cursorVideo = mContentResolver.query(mVideoUriType, mVideoParam, mVideoFilter, null, mOrderBy);
-            cursorVideo.moveToFirst();
+            try {
+                cursorVideo = mContentResolver.query(mVideoUriType, mVideoParam, mVideoFilter, null, mOrderBy);
+                cursorVideo.moveToFirst();
+            } catch (Exception e) {
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
+                MessageUtils.setInvalidRequestParameterError(response);
+                return true;
+            }
+
             if (cursorVideo.getCount() > 0) {
                 do {
 
@@ -295,7 +321,7 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
                     Bundle creatorVideo = new Bundle();
                     setCreator(creatorVideo, mArtist);
 
-                    setCreators(medium, new Bundle[] {creatorVideo });
+                    setCreators(medium, new Bundle[] { creatorVideo });
 
                     if (limit == null || (limit != null && limitCounter > counter)) {
                         if (offset == null || (offset != null && counter >= offset)) {
@@ -309,6 +335,8 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
             setCount(response, cursorMusic.getCount() + cursorVideo.getCount());
             setMedia(response, list.toArray(new Bundle[list.size()]));
             setResult(response, DConnectMessage.RESULT_OK);
+            cursorMusic.close();
+            cursorVideo.close();
         }
 
         return true;
@@ -371,6 +399,7 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
         } else if (0 > pos) {
             // MEMO 本テストプラグインでは pos の最大値チェックは行わないが、実際には行うべき.
             MessageUtils.setInvalidRequestParameterError(response);
+            return true;
         }
         ((HostDeviceService) getContext()).setMediaPos(response, pos);
         return false;
@@ -496,8 +525,9 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
      * @return MIME-TYPE
      */
     public String getMIMEType(final String path) {
-        File tmpDir;
-        Log.i(TAG, path);
+        if (BuildConfig.DEBUG) {
+            Log.i(TAG, path);
+        }
         // 拡張子を取得
         String ext = MimeTypeMap.getFileExtensionFromUrl(path);
         // 小文字に変換
@@ -548,22 +578,23 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
     private void createNotFoundDevice(final Intent response) {
         setResult(response, DConnectMessage.RESULT_ERROR);
     }
-    
+
     /**
      * ファイルパスからメディアIDを取得する.
+     * 
      * @param context コンテキスト
      * @param path パス
      * @return MediaID
      */
     public static long mediaIdFromPath(final Context context, final String path) {
         long id = 0;
-        String[] mParam = {BaseColumns._ID };
-        String[] mArgs = new String[] {path};
-        
+        String[] mParam = { BaseColumns._ID };
+        String[] mArgs = new String[] { path };
+
         // Audio
         Uri mAudioUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         String mFilter = MediaStore.Audio.AudioColumns.DATA + " LIKE ?";
-        
+
         // Search Contents Provider
         ContentResolver mAudioContentsProvider = context.getContentResolver();
         try {
@@ -573,31 +604,36 @@ public class HostMediaPlayerProfile extends MediaPlayerProfile {
             id = mAudioCursor.getLong(mIdField);
             mAudioCursor.close();
 
-        } catch (Exception e) {}
-       
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
+        }
+
         // Search video
         if (id == 0) {
-            
+
             Uri mViodeUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             mFilter = MediaStore.Video.VideoColumns.DATA + " LIKE ?";
-            
+
             // Search Contents Provider
             ContentResolver mVideoContentsProvider = context.getContentResolver();
             try {
                 Cursor mVideoCursor = mVideoContentsProvider.query(mViodeUri, mParam, mFilter, mArgs, null);
-               
+
                 mVideoCursor.moveToFirst();
                 int mIdField = mVideoCursor.getColumnIndex(mParam[0]);
                 id = mVideoCursor.getLong(mIdField);
                 mVideoCursor.close();
-               
 
             } catch (Exception e) {
-               
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
             }
-            
+
         }
-        
+
         return id;
     }
 }

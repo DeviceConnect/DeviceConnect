@@ -49,6 +49,8 @@
 		97FE1A07192B2FB500808FA5 /* dConnectDeviceHostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FE1A06192B2FB500808FA5 /* dConnectDeviceHostTests.m */; };
 		97FE1A1E192B5ACD00808FA5 /* DPHostNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FE1A1D192B5ACD00808FA5 /* DPHostNetworkServiceDiscoveryProfile.m */; };
 		97FE1A21192B6DA400808FA5 /* DPHostSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FE1A20192B6DA400808FA5 /* DPHostSystemProfile.m */; };
+		ABDA3C6D1A0C58F3001F30A0 /* DPHostConnectProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA3C6C1A0C58F3001F30A0 /* DPHostConnectProfile.m */; };
+		ABDA3C701A0C743A001F30A0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDA3C6F1A0C743A001F30A0 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +77,6 @@
 		25B42C6419865F1000B65E83 /* DPHostRecorderContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHostRecorderContext.m; sourceTree = "<group>"; };
 		25C710E91981E578004C6484 /* DPHostMediaStreamRecordingProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DPHostMediaStreamRecordingProfile.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		25C710EA1981E578004C6484 /* DPHostMediaStreamRecordingProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DPHostMediaStreamRecordingProfile.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		25DAFD0F196A54300002734B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		25DAFD16196A61E50002734B /* dConnectDeviceHost_resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDeviceHost_resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DAFD17196A61E50002734B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		25DAFD1B196A61E50002734B /* dConnectDeviceHost_resources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectDeviceHost_resources-Info.plist"; sourceTree = "<group>"; };
@@ -114,6 +115,9 @@
 		97FE1A1D192B5ACD00808FA5 /* DPHostNetworkServiceDiscoveryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHostNetworkServiceDiscoveryProfile.m; sourceTree = "<group>"; };
 		97FE1A1F192B6DA400808FA5 /* DPHostSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHostSystemProfile.h; sourceTree = "<group>"; };
 		97FE1A20192B6DA400808FA5 /* DPHostSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHostSystemProfile.m; sourceTree = "<group>"; };
+		ABDA3C6B1A0C58F3001F30A0 /* DPHostConnectProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHostConnectProfile.h; sourceTree = "<group>"; };
+		ABDA3C6C1A0C58F3001F30A0 /* DPHostConnectProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHostConnectProfile.m; sourceTree = "<group>"; };
+		ABDA3C6F1A0C743A001F30A0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDA3C701A0C743A001F30A0 /* CoreBluetooth.framework in Frameworks */,
 				25063A99196BF8FA007242B6 /* CoreMotion.framework in Frameworks */,
 				97FE19EB192B2FB400808FA5 /* Foundation.framework in Frameworks */,
 			);
@@ -212,8 +217,8 @@
 		97FE19E9192B2FB400808FA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABDA3C6F1A0C743A001F30A0 /* CoreBluetooth.framework */,
 				25063A98196BF8FA007242B6 /* CoreMotion.framework */,
-				25DAFD0F196A54300002734B /* CoreBluetooth.framework */,
 				97FE19EA192B2FB400808FA5 /* Foundation.framework */,
 				97FE19F8192B2FB400808FA5 /* XCTest.framework */,
 				97FE19FB192B2FB400808FA5 /* UIKit.framework */,
@@ -282,6 +287,8 @@
 		97FE1A1B192B5A5600808FA5 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				ABDA3C6B1A0C58F3001F30A0 /* DPHostConnectProfile.h */,
+				ABDA3C6C1A0C58F3001F30A0 /* DPHostConnectProfile.m */,
 				25DF80D4196CCD7D003F6FF3 /* DPHostBatteryProfile.h */,
 				25DF80D5196CCD7D003F6FF3 /* DPHostBatteryProfile.m */,
 				25FF1DB8196AA53400EA7F72 /* DPHostDeviceOrientationProfile.h */,
@@ -473,6 +480,7 @@
 				25DF80D9196CE622003F6FF3 /* DPHostVibrationProfile.m in Sources */,
 				257FC23719BAAF5200358536 /* DPHostReachability.m in Sources */,
 				2585BB941980D89F00AAE43C /* DPHostSettingsProfile.m in Sources */,
+				ABDA3C6D1A0C58F3001F30A0 /* DPHostConnectProfile.m in Sources */,
 				25C710EB1981E578004C6484 /* DPHostMediaStreamRecordingProfile.m in Sources */,
 				97FE1A21192B6DA400808FA5 /* DPHostSystemProfile.m in Sources */,
 			);

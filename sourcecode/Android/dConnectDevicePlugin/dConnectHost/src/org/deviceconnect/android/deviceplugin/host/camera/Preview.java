@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.R;
 import org.deviceconnect.android.provider.FileManager;
 
@@ -29,7 +30,7 @@ import android.widget.Toast;
 
 /**
  * カメラのプレビューを表示するクラス.
- *
+ * 
  * @author NTT DOCOMO, INC.
  */
 class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallback {
@@ -86,7 +87,6 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
         // underlying surface is created and destroyed.
         mHolder = mSurfaceView.getHolder();
         mHolder.addCallback(this);
-        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
     /**
@@ -112,7 +112,9 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
         try {
             camera.setPreviewDisplay(mHolder);
         } catch (IOException exception) {
-            Log.e(LOG_TAG, "IOException caused by setPreviewDisplay()", exception);
+            if (BuildConfig.DEBUG) {
+                Log.e(LOG_TAG, "IOException caused by setPreviewDisplay()", exception);
+            }
         }
         Camera.Parameters parameters = camera.getParameters();
         parameters.setPreviewSize(mPreviewSize.width, mPreviewSize.height);
@@ -170,7 +172,9 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
                 mCamera.setPreviewDisplay(holder);
             }
         } catch (IOException exception) {
-            Log.e(LOG_TAG, "IOException caused by setPreviewDisplay()", exception);
+            if (BuildConfig.DEBUG) {
+                Log.e(LOG_TAG, "IOException caused by setPreviewDisplay()", exception);
+            }
         }
     }
 
@@ -244,27 +248,21 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
      */
     @Override
     public void onPictureTaken(final byte[] data, final Camera c) {
-        Log.d(LOG_TAG, "onPictureTaken() - mRequestid:" + mRequestid);
-        // Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length,
-        // null);
-        // String pictureUri =
-        // MediaStore.Images.Media.insertImage(getContext().getContentResolver(),
-        // bmp, "", null);
-
-        /*
-         * String pictureUri = ""; try { pictureUri = ((HostDeviceService)
-         * getContext()).savePhoto(data); } catch (IOException e) { // TODO
-         * Auto-generated catch block e.printStackTrace(); }
-         */
-        Log.i(TAG, "@@@@@  savePhoto");
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "onPictureTaken() - mRequestid:" + mRequestid);
+            Log.i(TAG, "@@@@@  savePhoto");
+        }
         String fileName = FILENAME_PREFIX + mSimpleDateFormat.format(new Date()) + FILE_EXTENSION;
         try {
             mFileMgr.saveFile(fileName, data);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
-        Log.i(TAG, "fileName:" + fileName);
+        if (BuildConfig.DEBUG) {
+            Log.i(TAG, "fileName:" + fileName);
+        }
         String pictureUri = "content://org.deviceconnect.android.deviceplugin.host.provider/" + fileName;
 
         mCamera.startPreview();
@@ -283,8 +281,10 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
             intent.putExtra(CameraConst.EXTRA_REQUESTID, mRequestid);
             intent.putExtra(CameraConst.EXTRA_PICTURE_URI, pictureUri);
             context.sendBroadcast(intent);
-            Log.d(LOG_TAG, "sendBroadcast() - action:" + CameraConst.SEND_CAMERA_TO_HOSTDP + " name:"
-                    + CameraConst.EXTRA_NAME_SHUTTER + " mRequestid:" + mRequestid + " pictureUri:" + pictureUri);
+            if (BuildConfig.DEBUG) {
+                Log.d(LOG_TAG, "sendBroadcast() - action:" + CameraConst.SEND_CAMERA_TO_HOSTDP + " name:"
+                        + CameraConst.EXTRA_NAME_SHUTTER + " mRequestid:" + mRequestid + " pictureUri:" + pictureUri);
+            }
         }
 
         // 写真をとったので、Activityを終了する
@@ -297,7 +297,9 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
      * @param requestid リクエストID(Broadcastで指示された場合は設定する。アプリ内ならの指示ならnullを設定する)
      */
     public void takePicture(final String requestid) {
-        Log.d(LOG_TAG, "takePicture() start - requestid:" + requestid);
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "takePicture() start - requestid:" + requestid);
+        }
 
         mRequestid = requestid;
 
@@ -305,7 +307,9 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
 
         Toast.makeText(getContext(), R.string.shutter, Toast.LENGTH_SHORT).show();
 
-        Log.d(LOG_TAG, "takePicture() end");
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "takePicture() end");
+        }
     }
 
     /**
@@ -314,7 +318,9 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
      * @param requestid リクエストID(Broadcastで指示された場合は設定する。アプリ内ならの指示ならnullを設定する)
      */
     public void zoomIn(final String requestid) {
-        Log.d(LOG_TAG, "zoomIn() start - requestid:" + requestid);
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "zoomIn() start - requestid:" + requestid);
+        }
 
         mRequestid = requestid;
 
@@ -338,11 +344,15 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
             intent.putExtra(CameraConst.EXTRA_NAME, CameraConst.EXTRA_NAME_ZOOMIN);
             intent.putExtra(CameraConst.EXTRA_REQUESTID, mRequestid);
             context.sendBroadcast(intent);
-            Log.d(LOG_TAG, "sendBroadcast() - action:" + CameraConst.SEND_CAMERA_TO_HOSTDP + " name:"
-                    + CameraConst.EXTRA_NAME_ZOOMIN + " mRequestid:" + mRequestid);
+            if (BuildConfig.DEBUG) {
+                Log.d(LOG_TAG, "sendBroadcast() - action:" + CameraConst.SEND_CAMERA_TO_HOSTDP + " name:"
+                        + CameraConst.EXTRA_NAME_ZOOMIN + " mRequestid:" + mRequestid);
+            }
         }
 
-        Log.d(LOG_TAG, "zoomIn() end");
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "zoomIn() end");
+        }
     }
 
     /**
@@ -351,7 +361,9 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
      * @param requestid リクエストID(Broadcastで指示された場合は設定する。アプリ内ならの指示ならnullを設定する)
      */
     public void zoomOut(final String requestid) {
-        Log.d(LOG_TAG, "zoomOut() start - requestid:" + requestid);
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "zoomOut() start - requestid:" + requestid);
+        }
 
         mRequestid = requestid;
 
@@ -375,11 +387,15 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback, PictureCallba
             intent.putExtra(CameraConst.EXTRA_NAME, CameraConst.EXTRA_NAME_ZOOMOUT);
             intent.putExtra(CameraConst.EXTRA_REQUESTID, mRequestid);
             context.sendBroadcast(intent);
-            Log.d(LOG_TAG, "sendBroadcast() - action:" + CameraConst.SEND_CAMERA_TO_HOSTDP + " name:"
-                    + CameraConst.EXTRA_NAME_ZOOMOUT + " mRequestid:" + mRequestid);
+            if (BuildConfig.DEBUG) {
+                Log.d(LOG_TAG, "sendBroadcast() - action:" + CameraConst.SEND_CAMERA_TO_HOSTDP + " name:"
+                        + CameraConst.EXTRA_NAME_ZOOMOUT + " mRequestid:" + mRequestid);
+            }
         }
 
-        Log.d(LOG_TAG, "zoomOut() end");
+        if (BuildConfig.DEBUG) {
+            Log.d(LOG_TAG, "zoomOut() end");
+        }
     }
 
     /**

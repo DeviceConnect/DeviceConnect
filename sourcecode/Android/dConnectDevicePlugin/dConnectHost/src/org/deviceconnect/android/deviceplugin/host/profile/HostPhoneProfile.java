@@ -15,14 +15,14 @@ import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.PhoneProfile;
 import org.deviceconnect.message.DConnectMessage;
-import org.deviceconnect.profile.PhoneProfileConstants.PhoneMode;
-
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.net.Uri;
 
 /**
  * Phoneプロファイル.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostPhoneProfile extends PhoneProfile {
@@ -34,7 +34,7 @@ public class HostPhoneProfile extends PhoneProfile {
      * スマートフォンの通話状態.
      */
     public static final int STATE = 0; // 通話終了
-    
+
     /** Error. */
     private static final int ERROR_VALUE_IS_NULL = 100;
 
@@ -42,14 +42,14 @@ public class HostPhoneProfile extends PhoneProfile {
     protected boolean onPostCall(final Intent request, final Intent response, final String deviceId,
             final String phoneNumber) {
 
-        mLogger.entering(this.getClass().getName(), "onPostReceive", new Object[] {request, response });
+        mLogger.entering(this.getClass().getName(), "onPostReceive", new Object[] { request, response });
 
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
-            if (phoneNumber != null) {    
+            if (phoneNumber != null) {
                 try {
                     Uri uri = Uri.parse("tel:" + phoneNumber);
                     Intent intent = new Intent(Intent.ACTION_CALL, uri);
@@ -72,16 +72,17 @@ public class HostPhoneProfile extends PhoneProfile {
     }
 
     @Override
-    protected boolean onPutSet(final Intent request, final Intent response, final String deviceId, 
+    protected boolean onPutSet(final Intent request, final Intent response, final String deviceId,
             final PhoneMode mode) {
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
+            this.getContext();
             // AudioManager
             AudioManager mAudioManager = (AudioManager) this.getContext().getSystemService(
-                    this.getContext().AUDIO_SERVICE);
+                    Context.AUDIO_SERVICE);
 
             if (mode.equals(PhoneMode.SILENT)) {
                 // サイレントモード
@@ -101,7 +102,7 @@ public class HostPhoneProfile extends PhoneProfile {
         }
         return true;
     }
-    
+
     @Override
     protected boolean onPutOnConnect(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
@@ -114,7 +115,7 @@ public class HostPhoneProfile extends PhoneProfile {
             createEmptySessionKey(response);
         } else {
             setResult(response, DConnectMessage.RESULT_OK);
-            
+
             // イベントの登録
             EventError error = EventManager.INSTANCE.addEvent(request);
             ((HostDeviceService) getContext()).setDeviceId(deviceId);
@@ -153,7 +154,6 @@ public class HostPhoneProfile extends PhoneProfile {
 
         return true;
     }
- 
 
     /**
      * デバイスIDをチェックする.
@@ -186,7 +186,7 @@ public class HostPhoneProfile extends PhoneProfile {
     private void createNotFoundDevice(final Intent response) {
         MessageUtils.setNotFoundDeviceError(response);
     }
-    
+
     /**
      * セッションキーが空の場合のエラーを作成する.
      * 
