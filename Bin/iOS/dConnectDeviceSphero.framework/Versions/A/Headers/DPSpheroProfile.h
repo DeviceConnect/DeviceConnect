@@ -1,9 +1,10 @@
 //
 //  DPSpheroProfile.h
-//  dConnectDeviceSphero
+//  DConnectSDK
 //
-//  Created by 星貴之 on 2014/06/23.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 /*! @file
  @brief Spheroプロファイルを実装するための機能を提供する。
@@ -174,6 +175,7 @@ extern NSString *const DPSpheroProfileParamImpactTimestamp;
  [対応するRESTful]
  PUT http://{dConnectドメイン}/sphero/quaternion/onquaternion?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -194,6 +196,7 @@ extern NSString *const DPSpheroProfileParamImpactTimestamp;
  [対応するRESTful]
  DELETE http://{dConnectドメイン}/sphero/quaternion/onquaternion?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -214,6 +217,7 @@ didReceiveDeleteOnQuaternionRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  PUT http://{dConnectドメイン}/sphero/locator/onlocator?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -238,6 +242,7 @@ didReceiveDeleteOnQuaternionRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  DELETE http://{dConnectドメイン}/sphero/locator/onlocator?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -257,6 +262,7 @@ didReceiveDeleteOnQuaternionRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  PUT http://{dConnectドメイン}/sphero/collision/oncollision?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -277,6 +283,7 @@ didReceiveDeleteOnQuaternionRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  DELETE http://{dConnectドメイン}/sphero/collision/oncollision?deviceId=xxxxx&sessionKey=yyyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID

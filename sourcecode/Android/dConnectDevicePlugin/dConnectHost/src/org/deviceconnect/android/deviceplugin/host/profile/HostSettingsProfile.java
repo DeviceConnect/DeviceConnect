@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.SettingsProfile;
 import org.deviceconnect.message.DConnectMessage;
-import org.deviceconnect.profile.SettingsProfileConstants.VolumeKind;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -30,18 +30,12 @@ import android.provider.Settings;
  */
 public class HostSettingsProfile extends SettingsProfile {
 
-    /** Debug Tag. */
-    private static final String TAG = "HOST";
-
-    /** Light Levelの最大値(Nexus). */
-    private static final int MAX_LIGHT_LEVEL_NEXUS = 510;
-    
     /** Light Levelの最大値. */
     private static final int MAX_LIGHT_LEVEL = 255;
-    
+
     /** Error. */
     private static final int ERROR_VALUE_IS_NULL = 100;
-    
+
     @Override
     protected boolean onGetSoundVolume(final Intent request, final Intent response, final String deviceId,
             final VolumeKind kind) {
@@ -51,10 +45,11 @@ public class HostSettingsProfile extends SettingsProfile {
             createNotFoundDevice(response);
         } else {
 
-            AudioManager manager = (AudioManager) this.getContext().getSystemService(this.getContext().AUDIO_SERVICE);
+            this.getContext();
+            AudioManager manager = (AudioManager) this.getContext().getSystemService(Context.AUDIO_SERVICE);
             double mVolume = 0;
             double maxVolume = 1;
-            
+
             if (kind == VolumeKind.ALARM) {
                 mVolume = manager.getStreamVolume(AudioManager.STREAM_ALARM);
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_ALARM);
@@ -72,45 +67,42 @@ public class HostSettingsProfile extends SettingsProfile {
                 setVolumeLevel(response, mVolume / maxVolume);
             } else if (kind == VolumeKind.MAIL) {
                 setResult(response, DConnectMessage.RESULT_OK);
-                //setVolumeLevel(response, mVolume / maxVolume);
             } else if (kind == VolumeKind.MEDIA_PLAYER) {
                 mVolume = manager.getStreamVolume(AudioManager.STREAM_MUSIC);
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
                 setResult(response, DConnectMessage.RESULT_OK);
                 setVolumeLevel(response, mVolume / maxVolume);
             } else {
-                //MessageUtils.setError(response, ERROR_VALUE_IS_NULL, "not support type");
-                
                 List<Bundle> resp = new ArrayList<Bundle>();
-                
+
                 // Alerm
-                Bundle mAlermParam = new Bundle();  
+                Bundle mAlermParam = new Bundle();
                 mVolume = manager.getStreamVolume(AudioManager.STREAM_ALARM);
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_ALARM);
                 mAlermParam.putString("alerm", "" + mVolume / maxVolume);
                 resp.add(mAlermParam);
-                
+
                 // Call
-                Bundle mCallParam = new Bundle();  
+                Bundle mCallParam = new Bundle();
                 mVolume = manager.getStreamVolume(AudioManager.STREAM_VOICE_CALL);
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL);
                 mCallParam.putString("call", "" + mVolume / maxVolume);
                 resp.add(mCallParam);
-                
+
                 // Ringtone
-                Bundle mRingtoneParam = new Bundle();  
+                Bundle mRingtoneParam = new Bundle();
                 mVolume = manager.getStreamVolume(AudioManager.STREAM_RING);
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_RING);
                 mRingtoneParam.putString("ringtone", "" + mVolume / maxVolume);
                 resp.add(mRingtoneParam);
 
                 // Mail
-                Bundle mMailParam = new Bundle();  
+                Bundle mMailParam = new Bundle();
                 mMailParam.putString("mail", "0");
                 resp.add(mMailParam);
 
                 // Media
-                Bundle mMediaplayerParam = new Bundle();  
+                Bundle mMediaplayerParam = new Bundle();
                 mVolume = manager.getStreamVolume(AudioManager.STREAM_MUSIC);
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
                 mMediaplayerParam.putString("mediaplayer", "" + mVolume / maxVolume);
@@ -118,7 +110,7 @@ public class HostSettingsProfile extends SettingsProfile {
 
                 setResult(response, DConnectMessage.RESULT_OK);
                 response.putExtra("volumes", resp.toArray(new Bundle[resp.size()]));
-                
+
             }
         }
         return true;
@@ -149,13 +141,13 @@ public class HostSettingsProfile extends SettingsProfile {
         } else if (!checkDeviceId(deviceId)) {
             createNotFoundDevice(response);
         } else {
-            
+
             // 自動調整ボタンが有効な場合 0が変える
             // 端末画面の明るさを取得(0～255)
             double mLighetLevel = Settings.System.getInt(this.getContext().getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS, 0);
             int maxLevel = MAX_LIGHT_LEVEL;
-            
+
             setLightLevel(response, mLighetLevel / maxLevel);
             setResult(response, DConnectMessage.RESULT_OK);
         }
@@ -191,7 +183,8 @@ public class HostSettingsProfile extends SettingsProfile {
                 return true;
             }
 
-            AudioManager manager = (AudioManager) this.getContext().getSystemService(this.getContext().AUDIO_SERVICE);
+            this.getContext();
+            AudioManager manager = (AudioManager) this.getContext().getSystemService(Context.AUDIO_SERVICE);
 
             double maxVolume = 1;
             if (kind == VolumeKind.ALARM) {
@@ -212,9 +205,6 @@ public class HostSettingsProfile extends SettingsProfile {
                 maxVolume = manager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
                 manager.setStreamVolume(AudioManager.STREAM_MUSIC, (int) (maxVolume * level), 1);
                 setResult(response, DConnectMessage.RESULT_OK);
-            } else {
-                
-                
             }
         }
         return true;
@@ -234,14 +224,13 @@ public class HostSettingsProfile extends SettingsProfile {
                 MessageUtils.setError(response, ERROR_VALUE_IS_NULL, "not support");
                 return true;
             }
-            
-            
+
         }
         return true;
     }
 
     @Override
-    protected boolean onPutDisplayLight(final Intent request, final Intent response, 
+    protected boolean onPutDisplayLight(final Intent request, final Intent response,
             final String deviceId, final Double level) {
         if (deviceId == null) {
             createEmptyDeviceId(response);
@@ -252,12 +241,9 @@ public class HostSettingsProfile extends SettingsProfile {
                 MessageUtils.setError(response, ERROR_VALUE_IS_NULL, "level must be more than 0");
                 return true;
             }
-            
 
             int maxLevel = MAX_LIGHT_LEVEL;
-            
-                      
-               
+
             Settings.System.putInt(this.getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS,
                     (int) (maxLevel * level));
             setResult(response, DConnectMessage.RESULT_OK);

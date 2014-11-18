@@ -431,66 +431,73 @@ public class SQLiteTokenManager extends AbstractTokenManager {
         String tables = LocalOAuthOpenHelper.TOKENS_TABLE;
         String[] columns = SQLiteToken.TOKEN_ALL_FIELIDS;
         String selection = getSelection(where);
-        Cursor c = db.query(tables, columns, selection, null, null, null, null);
-        if (c.moveToFirst()) {
-            int count = c.getCount();
-            if (count > 0) {
-                result = new SQLiteToken[count];
-                for (int i = 0; i < count; i++) {
 
-                    SQLiteToken token = new SQLiteToken();
+        Cursor c = null;
+        try {
+            c = db.query(tables, columns, selection, null, null, null, null);
+            if (c.moveToFirst()) {
+                int count = c.getCount();
+                if (count > 0) {
+                    result = new SQLiteToken[count];
+                    for (int i = 0; i < count; i++) {
 
-                    final int idColumnIndex = c.getColumnIndex(SQLiteToken.ID_FIELD);
-                    if (!c.isNull(idColumnIndex)) {
-                        token.setId(c.getLong(idColumnIndex));
+                        SQLiteToken token = new SQLiteToken();
+
+                        final int idColumnIndex = c.getColumnIndex(SQLiteToken.ID_FIELD);
+                        if (!c.isNull(idColumnIndex)) {
+                            token.setId(c.getLong(idColumnIndex));
+                        }
+
+                        final int accessTokenColumnIndex = c.getColumnIndex(SQLiteToken.ACCCESS_TOKEN_FIELD);
+                        if (!c.isNull(accessTokenColumnIndex)) {
+                            token.setAccessToken(c.getString(accessTokenColumnIndex));
+                        }
+
+                        final int tokenTypeColumnIndex = c.getColumnIndex(SQLiteToken.TOKEN_TYPE_FIELD);
+                        if (!c.isNull(tokenTypeColumnIndex)) {
+                            token.setTokenType(c.getString(tokenTypeColumnIndex));
+                        }
+
+                        final int clientIdColumnIndex = c.getColumnIndex(SQLiteToken.CLIENTID_FIELD);
+                        if (!c.isNull(clientIdColumnIndex)) {
+                            token.setClientId(c.getString(clientIdColumnIndex));
+                        }
+
+                        final int usersUserIdColumnindex = c.getColumnIndex(SQLiteToken.USERS_USERID_FIELD);
+                        if (!c.isNull(usersUserIdColumnindex)) {
+                            // long userId = c.getLong(usersUserIdColumnindex);
+                            token.setUsername(SampleUser.USERNAME);
+                        }
+
+                        final int registrationDateColumnIndex = c.getColumnIndex(SQLiteToken.REGISTRATION_DATE_FIELD);
+                        if (!c.isNull(registrationDateColumnIndex)) {
+                            token.setRegistrationDate(c.getLong(registrationDateColumnIndex));
+                        }
+
+                        final int accessDateColumnIndex = c.getColumnIndex(SQLiteToken.ACCESS_DATE_FIELD);
+                        if (!c.isNull(accessDateColumnIndex)) {
+                            token.setAccessDate(c.getLong(accessDateColumnIndex));
+                        }
+
+                        final int applicationNameColumnIndex = c.getColumnIndex(SQLiteToken.APPLICATION_NAME_FIELD);
+                        if (!c.isNull(applicationNameColumnIndex)) {
+                            token.setApplicationName(c.getString(applicationNameColumnIndex));
+                        }
+
+                        result[i] = token;
+
+                        c.moveToNext();
                     }
-
-                    final int accessTokenColumnIndex = c.getColumnIndex(SQLiteToken.ACCCESS_TOKEN_FIELD);
-                    if (!c.isNull(accessTokenColumnIndex)) {
-                        token.setAccessToken(c.getString(accessTokenColumnIndex));
-                    }
-
-                    final int tokenTypeColumnIndex = c.getColumnIndex(SQLiteToken.TOKEN_TYPE_FIELD);
-                    if (!c.isNull(tokenTypeColumnIndex)) {
-                        token.setTokenType(c.getString(tokenTypeColumnIndex));
-                    }
-
-                    final int clientIdColumnIndex = c.getColumnIndex(SQLiteToken.CLIENTID_FIELD);
-                    if (!c.isNull(clientIdColumnIndex)) {
-                        token.setClientId(c.getString(clientIdColumnIndex));
-                    }
-
-                    final int usersUserIdColumnindex = c.getColumnIndex(SQLiteToken.USERS_USERID_FIELD);
-                    if (!c.isNull(usersUserIdColumnindex)) {
-                        // long userId = c.getLong(usersUserIdColumnindex);
-                        token.setUsername(SampleUser.USERNAME);
-                    }
-
-                    final int registrationDateColumnIndex = c.getColumnIndex(SQLiteToken.REGISTRATION_DATE_FIELD);
-                    if (!c.isNull(registrationDateColumnIndex)) {
-                        token.setRegistrationDate(c.getLong(registrationDateColumnIndex));
-                    }
-
-                    final int accessDateColumnIndex = c.getColumnIndex(SQLiteToken.ACCESS_DATE_FIELD);
-                    if (!c.isNull(accessDateColumnIndex)) {
-                        token.setAccessDate(c.getLong(accessDateColumnIndex));
-                    }
-
-                    final int applicationNameColumnIndex = c.getColumnIndex(SQLiteToken.APPLICATION_NAME_FIELD);
-                    if (!c.isNull(applicationNameColumnIndex)) {
-                        token.setApplicationName(c.getString(applicationNameColumnIndex));
-                    }
-
-                    result[i] = token;
-
-                    c.moveToNext();
                 }
+            }
+        } finally {
+            if (c != null) {
+                c.close();
             }
         }
 
         /* 1件以上データが存在する */
         if (result != null && result.length > 0) {
-
             /* tokenごとにscopesを読み込み、tokensのscopeに格納する */
             dbLoadScopesStoreToToken(db, result);
         }
@@ -566,37 +573,44 @@ public class SQLiteTokenManager extends AbstractTokenManager {
 
         String tables = LocalOAuthOpenHelper.PROFILES_TABLE;
         String[] columns = SQLiteProfile.PROFILE_ALL_FIELIDS;
-        Cursor c = db.query(tables, columns, null, null, null, null, null);
-        if (c.moveToFirst()) {
-            int count = c.getCount();
-            if (count > 0) {
 
-                for (int i = 0; i < count; i++) {
+        Cursor c = null;
+        try {
+            c = db.query(tables, columns, null, null, null, null, null);
+            if (c.moveToFirst()) {
+                int count = c.getCount();
+                if (count > 0) {
 
-                    SQLiteProfile profile = new SQLiteProfile();
+                    for (int i = 0; i < count; i++) {
 
-                    final int idColumnIndex = c.getColumnIndex(SQLiteProfile.ID_FIELD);
-                    if (!c.isNull(idColumnIndex)) {
-                        profile.setId(c.getLong(idColumnIndex));
+                        SQLiteProfile profile = new SQLiteProfile();
+
+                        final int idColumnIndex = c.getColumnIndex(SQLiteProfile.ID_FIELD);
+                        if (!c.isNull(idColumnIndex)) {
+                            profile.setId(c.getLong(idColumnIndex));
+                        }
+
+                        final int profileNameColumnIndex = c.getColumnIndex(SQLiteProfile.PROFILE_NAME_FIELD);
+                        if (!c.isNull(profileNameColumnIndex)) {
+                            profile.setProfileName(c.getString(profileNameColumnIndex));
+                        }
+
+                        final int descriptionColumnIndex = c.getColumnIndex(SQLiteProfile.DESCRIPTION_FIELD);
+                        if (!c.isNull(descriptionColumnIndex)) {
+                            profile.setDescription(c.getString(descriptionColumnIndex));
+                        }
+
+                        profiles.add(profile);
+
+                        c.moveToNext();
                     }
-
-                    final int profileNameColumnIndex = c.getColumnIndex(SQLiteProfile.PROFILE_NAME_FIELD);
-                    if (!c.isNull(profileNameColumnIndex)) {
-                        profile.setProfileName(c.getString(profileNameColumnIndex));
-                    }
-
-                    final int descriptionColumnIndex = c.getColumnIndex(SQLiteProfile.DESCRIPTION_FIELD);
-                    if (!c.isNull(descriptionColumnIndex)) {
-                        profile.setDescription(c.getString(descriptionColumnIndex));
-                    }
-
-                    profiles.add(profile);
-
-                    c.moveToNext();
                 }
             }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
         }
-
         return profiles;
     }
 
@@ -645,32 +659,39 @@ public class SQLiteTokenManager extends AbstractTokenManager {
 
             Scope[] scopes = null;
 
-            Cursor c = db.query(tables, columns, where, null, null, null, null);
-            if (c.moveToFirst()) {
-                int count = c.getCount();
-                if (count > 0) {
-                    scopes = new Scope[count];
-                    final int profileNameColumnIndex = c.getColumnIndex(SQLiteProfile.PROFILE_NAME_FIELD);
-                    final int timestampColumnIndex = c.getColumnIndex(SQLiteScopeDb.TIMESTAMP_FIELD);
-                    final int expirePeriodColumnIndex = c.getColumnIndex(SQLiteScopeDb.EXPIRE_PERIOD_FIELD);
-                    for (int i = 0; i < count; i++) {
-                        String scopeName = null;
-                        if (!c.isNull(profileNameColumnIndex)) {
-                            scopeName = c.getString(profileNameColumnIndex);
+            Cursor c = null;
+            try {
+                c = db.query(tables, columns, where, null, null, null, null);
+                if (c.moveToFirst()) {
+                    int count = c.getCount();
+                    if (count > 0) {
+                        scopes = new Scope[count];
+                        final int profileNameColumnIndex = c.getColumnIndex(SQLiteProfile.PROFILE_NAME_FIELD);
+                        final int timestampColumnIndex = c.getColumnIndex(SQLiteScopeDb.TIMESTAMP_FIELD);
+                        final int expirePeriodColumnIndex = c.getColumnIndex(SQLiteScopeDb.EXPIRE_PERIOD_FIELD);
+                        for (int i = 0; i < count; i++) {
+                            String scopeName = null;
+                            if (!c.isNull(profileNameColumnIndex)) {
+                                scopeName = c.getString(profileNameColumnIndex);
+                            }
+                            long timestamp = 0;
+                            if (!c.isNull(timestampColumnIndex)) {
+                                timestamp = c.getLong(timestampColumnIndex);
+                            }
+                            long expirePeriod = 0;
+                            if (!c.isNull(expirePeriodColumnIndex)) {
+                                expirePeriod = c.getInt(expirePeriodColumnIndex);
+                            }
+                            
+                            scopes[i] = new Scope(scopeName, timestamp, expirePeriod);
+                            
+                            c.moveToNext();
                         }
-                        long timestamp = 0;
-                        if (!c.isNull(timestampColumnIndex)) {
-                            timestamp = c.getLong(timestampColumnIndex);
-                        }
-                        long expirePeriod = 0;
-                        if (!c.isNull(expirePeriodColumnIndex)) {
-                            expirePeriod = c.getInt(expirePeriodColumnIndex);
-                        }
-                        
-                        scopes[i] = new Scope(scopeName, timestamp, expirePeriod);
-                        
-                        c.moveToNext();
                     }
+                }
+            } finally {
+                if (c != null) {
+                    c.close();
                 }
             }
 
@@ -708,41 +729,47 @@ public class SQLiteTokenManager extends AbstractTokenManager {
                 + fieldProfilesId;
 
         List<SQLiteScopeInfo> scopeInfos = new ArrayList<SQLiteScopeInfo>();
-        
-        Cursor c = db.query(tables, columns, where, null, null, null, null);
-        if (c.moveToFirst()) {
-            int count = c.getCount();
-            if (count > 0) {
-                
-                final int tokensTokenIdColumnIndex = c.getColumnIndex(SQLiteScopeDb.TOKENS_TOKENID_FIELD);
-                final int profilesProfileIdColumnIndex = c.getColumnIndex(SQLiteScopeDb.PROFILES_PROFILEID_FIELD);
-                final int timestampColumnIndex = c.getColumnIndex(SQLiteScopeDb.TIMESTAMP_FIELD);
-                final int expirePeriodColumnIndex = c.getColumnIndex(SQLiteScopeDb.EXPIRE_PERIOD_FIELD);
-                final int profileNameColumnIndex = c.getColumnIndex(SQLiteProfile.PROFILE_NAME_FIELD);
-                
-                for (int i = 0; i < count; i++) {
-                    
-                    if (!c.isNull(tokensTokenIdColumnIndex)
-                            &&  !c.isNull(profilesProfileIdColumnIndex)
-                            &&  !c.isNull(timestampColumnIndex)
-                            &&  !c.isNull(expirePeriodColumnIndex)
-                            &&  !c.isNull(profileNameColumnIndex)) {
-                        
-                        long tokensTokenId = c.getLong(tokensTokenIdColumnIndex);
-                        long profilesProfileId = c.getLong(profilesProfileIdColumnIndex);
-                        long timestamp = c.getLong(timestampColumnIndex);
-                        long expirePeriod = c.getLong(expirePeriodColumnIndex);
-                        String profileName = c.getString(profileNameColumnIndex);
-                        scopeInfos.add(new SQLiteScopeInfo(tokensTokenId, profilesProfileId, timestamp, expirePeriod,
-                                profileName));
-                        
-                    }
 
-                    c.moveToNext();
+        Cursor c = null;
+        try {
+            c = db.query(tables, columns, where, null, null, null, null);
+            if (c.moveToFirst()) {
+                int count = c.getCount();
+                if (count > 0) {
+                    
+                    final int tokensTokenIdColumnIndex = c.getColumnIndex(SQLiteScopeDb.TOKENS_TOKENID_FIELD);
+                    final int profilesProfileIdColumnIndex = c.getColumnIndex(SQLiteScopeDb.PROFILES_PROFILEID_FIELD);
+                    final int timestampColumnIndex = c.getColumnIndex(SQLiteScopeDb.TIMESTAMP_FIELD);
+                    final int expirePeriodColumnIndex = c.getColumnIndex(SQLiteScopeDb.EXPIRE_PERIOD_FIELD);
+                    final int profileNameColumnIndex = c.getColumnIndex(SQLiteProfile.PROFILE_NAME_FIELD);
+                    
+                    for (int i = 0; i < count; i++) {
+                        
+                        if (!c.isNull(tokensTokenIdColumnIndex)
+                                &&  !c.isNull(profilesProfileIdColumnIndex)
+                                &&  !c.isNull(timestampColumnIndex)
+                                &&  !c.isNull(expirePeriodColumnIndex)
+                                &&  !c.isNull(profileNameColumnIndex)) {
+                            
+                            long tokensTokenId = c.getLong(tokensTokenIdColumnIndex);
+                            long profilesProfileId = c.getLong(profilesProfileIdColumnIndex);
+                            long timestamp = c.getLong(timestampColumnIndex);
+                            long expirePeriod = c.getLong(expirePeriodColumnIndex);
+                            String profileName = c.getString(profileNameColumnIndex);
+                            scopeInfos.add(new SQLiteScopeInfo(tokensTokenId, profilesProfileId, 
+                                    timestamp, expirePeriod, profileName));
+                            
+                        }
+
+                        c.moveToNext();
+                    }
                 }
             }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
         }
-        
         return scopeInfos;
     }
     

@@ -18,11 +18,6 @@
 #import "DPHostNetworkServiceDiscoveryProfile.h"
 #import "DPHostUtils.h"
 
-// CTCallCenterのcallEventHandlerの説明の通りにイベントが配送されてこない（iOS SDKのバグ？）感じ
-// なので、イベントは無効化しておく。
-#define PHONE_ONCONNECT_EVENT_API_ENABLED 0
-
-#if PHONE_ONCONNECT_EVENT_API_ENABLED
 @interface DPHostPhoneProfile()
 
 /// @brief イベントマネージャ
@@ -31,8 +26,10 @@
 // 通話イベントを処理するオブジェクト
 @property CTCallCenter *callCenter;
 
+//　通話中の番号
+@property (nonatomic) NSString *callingNumber;
+
 @end
-#endif
 
 @implementation DPHostPhoneProfile
 
@@ -47,35 +44,27 @@
         
         self.delegate = self;
         
-#if PHONE_ONCONNECT_EVENT_API_ENABLED
         // イベントマネージャを取得
         self.eventMgr = [DConnectEventManager sharedManagerForClass:[DPHostDevicePlugin class]];
 
         // 通話イベントのハンドラを準備
         _callCenter = [CTCallCenter new];
-        __unsafe_unretained typeof(self) weakSelf = self;
+        __weak typeof(self) weakSelf = self;
         _callCenter.callEventHandler = ^(CTCall *call) {
             DConnectPhoneProfileCallState callState;
             if (call.callState == CTCallStateDialing) {
-                // Phone Call API経由での通話開始で、このイベントを拾う。
-                // 電話アプリに切り替えてからの通話開始では、このイベントは拾わない。
                 // NSLog(@"Dialing");
                 return;
             }
             else if(call.callState == CTCallStateIncoming) {
-                // 電話がかかってきて、通話開始する前の状態に相当。
                 // NSLog(@"Incoming");
                 return;
             }
             else if(call.callState == CTCallStateConnected) {
-                // 電話がかかってきて、こちらで応答した場合、このイベントを拾う。
-                // こちらから電話をかけて、相手が出た場合、このイベントは拾わない。意味不明。
                 // NSLog(@"Connected");
                 callState = DConnectPhoneProfileCallStateStart;
             }
             else if(call.callState == CTCallStateDisconnected) {
-                // 電話がかかってきて、こちらが応答する前に自分もしくは相手が切った場合、このイベントを拾う。
-                // 通話開始後に、自分もしくは相手がハングアップしてもDisconnectにはならない。
                 // NSLog(@"Disconnected");
                 callState = DConnectPhoneProfileCallStateFinished;
             }
@@ -85,31 +74,28 @@
             }
             
             // イベントの取得
-            NSArray *evts = [_eventMgr eventListForDeviceId:NetworkDiscoveryDeviceId
+            NSArray *evts = [weakSelf.eventMgr eventListForDeviceId:NetworkDiscoveryDeviceId
                                                     profile:DConnectPhoneProfileName
                                                   attribute:DConnectPhoneProfileAttrOnConnect];
             // イベント送信
             for (DConnectEvent *evt in evts) {
                 DConnectMessage *eventMsg = [DConnectEventManager createEventMessageWithEvent:evt];
                 DConnectMessage *phoneStatus = [DConnectMessage message];
-                // [DConnectPhoneProfile setPhoneNumber:call.callID target:phoneStatus];
+                [DConnectPhoneProfile setPhoneNumber:weakSelf.callingNumber target:phoneStatus];
                 [DConnectPhoneProfile setState:callState target:phoneStatus];
                 [DConnectPhoneProfile setPhoneStatus:phoneStatus target:eventMsg];
                 
                 [SELF_PLUGIN sendEvent:eventMsg];
             }
         };
-#endif
     }
     return self;
 }
 
-#if PHONE_ONCONNECT_EVENT_API_ENABLED
 - (void)dealloc
 {
     _callCenter.callEventHandler = nil;
 }
-#endif
 
 #pragma mark - Post Methods
 
@@ -137,13 +123,14 @@ didReceivePostCallRequest:(DConnectRequestMessage *)request
     // telpromptスキームが公式なのか、ずっと存続するのかよくわからないので、使えない場合はtelスキームを使う。
     // telprompt: 電話をかける前にユーザ確認ダイアログが表示される。了承して初めて電話をかける。
     // tel: 問答無用で電話をいきなりかける。
-    // MARK: telスキームもUIAlertView/UIAlertControllerと組み合わせればtelpromptスキームを実現できるなぁ、と思った。
+    // MARK: telスキームもUIAlertView/UIAlertControllerと組み合わせればtelpromptスキームを実現できると思った。
     NSArray *telSchemeArr = @[@"telprompt", @"tel"];
     for (NSString *telScheme in telSchemeArr) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", telScheme, phoneNumber]];
         UIApplication *app = [UIApplication sharedApplication];
         if ([app canOpenURL:url]) {
             if ([app openURL:url]) {
+                _callingNumber = phoneNumber;
                 [response setResult:DConnectMessageResultTypeOk];
                 return YES;
             }
@@ -154,7 +141,6 @@ didReceivePostCallRequest:(DConnectRequestMessage *)request
     return YES;
 }
 
-#if PHONE_ONCONNECT_EVENT_API_ENABLED
 
 #pragma mark - Put Methods
 #pragma mark Event Registration
@@ -206,6 +192,5 @@ didReceiveDeleteOnConnectRequest:(DConnectRequestMessage *)request
     return YES;
 }
 
-#endif
 
 @end

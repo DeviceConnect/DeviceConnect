@@ -12,8 +12,7 @@
 #import "Multipart.h"
 
 /**
- * @deprecated [2014/05/15 福井] DConnectManagerディレクトリ以下の単体テストに漸次統合する事
- * （マルチパート部分のテストは、File APIのテストに統合するとか？）
+ * @deprecated DConnectManagerディレクトリ以下の単体テストに漸次統合する事
  */
 @interface WebAPISuccessTestCase : XCTestCase
 

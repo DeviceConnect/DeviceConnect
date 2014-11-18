@@ -24,9 +24,6 @@
 
 static int const DCONNECT_LOCALOAUTH_DB_VERSION = 1;
 
-static int const RESEED_CLIENTS = 100;
-
-
 static NSString *const LocalOAuthDbCacheControllerDBName = @"__dconnect_localoauth.db";
 
 @interface LocalOAuthDbCacheController()<DConnectSQLiteOpenHelperDelegate> {
@@ -622,7 +619,7 @@ static NSString *const LocalOAuthDbCacheControllerDBName = @"__dconnect_localoau
                 s.timestamp = currentTime;
             }
             
-            /* すでに発行されているトークンが存在するか？ */
+            /* すでに発行されているトークンが存在するか */
             token = [self tokenManager_findTokenByClientUsername: client
                                                         username: username
                                                         database: database];
@@ -691,7 +688,7 @@ static NSString *const LocalOAuthDbCacheControllerDBName = @"__dconnect_localoau
                 for (NSUInteger i = 0; i < scopeCount; i++) {
                     LocalOAuthScope *scope = [scopes objectAtIndex: i];
                     
-                    /* grantScopesに登録されているか？ */
+                    /* grantScopesに登録されているか */
                     LocalOAuthSQLiteScopeInfo *scopeInfo = [self findScopeInfoByProfileName: grantScopeInfos
                                                                                 profileName: [scope scope]
                                                             ];

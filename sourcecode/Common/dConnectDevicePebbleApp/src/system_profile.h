@@ -10,6 +10,6 @@
  @retval RETURN_SYNC 同期
  @retval RETURN_ASYNC 非同期
  */
-int in_received_system_handler(DictionaryIterator *received, DictionaryIterator *iter);
+int in_received_system_handler(DictionaryIterator *received);
 
 #endif	/* system_profile_h */

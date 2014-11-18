@@ -11,7 +11,7 @@
             <!-- ボタンの角の半径 -->
             <corners android:radius="2dp"/>
             <!-- ボタン内の余白 -->
-            <padding android:top="12dp" android:left="48dp" android:bottom="12dp" android:right="48dp"/>
+            <padding android:top="12dp" android:left="24dp" android:bottom="12dp" android:right="24dp"/>
         </shape>
     </item>
     <!-- ボタンが押された時 -->
@@ -20,7 +20,7 @@
             <solid android:color="#ff73c08f"/>
             <stroke android:width="1dp" android:color="#ff73c08f"/>
             <corners android:radius="2dp"/>
-            <padding android:top="12dp" android:left="48dp" android:bottom="12dp" android:right="48dp"/>
+            <padding android:top="12dp" android:left="24dp" android:bottom="12dp" android:right="24dp"/>
         </shape>
     </item>
 </selector>

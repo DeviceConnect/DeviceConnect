@@ -174,7 +174,7 @@ public class PebbleSettingActivity extends DConnectSettingPageFragmentActivity {
      */
     @SuppressWarnings("deprecation")
     private Uri getPbwFileName() {
-        File file = this.getFileStreamPath("test.pbw");
+        File file = this.getFileStreamPath("dc_pebble.pbw");
         try {
             fileCopy(getResources().openRawResource(R.raw.dc_pebble), openFileOutput(file.getName(), MODE_WORLD_READABLE));
         } catch (IOException e) {

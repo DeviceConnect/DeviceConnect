@@ -10,6 +10,7 @@ package org.deviceconnect.android.deviceplugin.host.video;
 import java.io.File;
 import java.util.Date;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.R;
 import org.deviceconnect.android.provider.FileManager;
 
@@ -72,10 +73,9 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
 
     /** フォルダURI. */
     private File mFile;
-    
+
     /** ファイル名. */
     private String mFileName;
-    
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -92,9 +92,8 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
         mHolder = mSurfaceView.getHolder();
         mHolder.addCallback(this);
 
-        // holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         mActivity = this;
-        
+
         // FileManager.
         mFileMgr = new FileManager(this);
     }
@@ -112,12 +111,16 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
         mRecorder = new MediaRecorder();
         try {
             mCamera.unlock();
-        } catch (Exception e) {}
-        
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
+        }
+
         mRecorder.setCamera(mCamera);
         File dir = mFileMgr.getBasePath();
         Date mDate = new Date();
-        String mFileName = "host" + mDate.getTime() + FORMAT_TYPE;
+        mFileName = "host" + mDate.getTime() + FORMAT_TYPE;
         mFile = new File(dir, mFileName);
 
         try {
@@ -125,12 +128,16 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
             mRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
 
             mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-            
+
             mRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
             mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-            
+
             mRecorder.setOutputFile(mFile.toString());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
+        }
 
         isRecording = true;
     }
@@ -140,14 +147,14 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
         super.onPause();
 
         isRecording = false;
-        
+
         releaseMediaRecorder();
         releaseCamera();
 
         if (mHolder != null) {
             mHolder = null;
         }
-        
+
         // レシーバーを削除
         unregisterReceiver(myReceiver);
 
@@ -155,7 +162,7 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
         MediaMetadataRetriever mMediaMeta = new MediaMetadataRetriever();
         mMediaMeta.setDataSource(mFile.toString());
         ContentResolver mContentResolver = this.getApplicationContext().getContentResolver();
-        ContentValues mValues = new ContentValues();      
+        ContentValues mValues = new ContentValues();
         mValues.put(Video.Media.TITLE, mFileName);
         mValues.put(Video.Media.DISPLAY_NAME, mFileName);
         mValues.put(Video.Media.ARTIST, "DeviceConnect");
@@ -173,6 +180,9 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
             try {
                 mRecorder.stop();
             } catch (Exception e) {
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
             }
             mRecorder.reset();
             mRecorder.release();
@@ -186,6 +196,9 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
             try {
                 mCamera.lock();
             } catch (Exception e) {
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
             }
             mCamera.release();
             mCamera = null;
@@ -213,15 +226,23 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
         mRecorder.setPreviewDisplay(mHolder.getSurface());
         try {
             mRecorder.prepare();
-        } catch (Exception e) {}
-        
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
+        }
+
         try {
             mRecorder.start();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
-     * Serface Viewが破棄された際に呼ばれる.
+     * Surface Viewが破棄された際に呼ばれる.
      * 
      * @param holder フォルダ
      */
@@ -229,7 +250,7 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
     }
 
     /**
-     * Cameraのインスタンスを取得
+     * Cameraのインスタンスを取得.
      * 
      * @return cameraのインスタンス
      */
@@ -239,6 +260,9 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
         try {
             c = Camera.open();
         } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
         return c;
     }
@@ -284,11 +308,6 @@ public class VideoRecorder extends Activity implements SurfaceHolder.Callback {
                 if (videoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_RECORD_STOP)) {
 
                     finish();
-                } else if (videoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_RECORD_PAUSE)) {
-                    // mRecorder.stop();
-                    // mRecorder.release();
-                } else if (videoAction.equals(VideoConst.EXTRA_VALUE_VIDEO_RECORD_RESUME)) {
-                    // mRecorder.start();
                 }
             }
         }

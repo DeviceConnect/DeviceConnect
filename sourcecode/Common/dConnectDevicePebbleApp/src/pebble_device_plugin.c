@@ -11,7 +11,9 @@
 #include "vibration_profile.h"
 #include "system_profile.h"
 #include "menu_item.h"
+#include "message_queue.h"
 
+void send_message();
 
 /*!
  @brief ウィンドウ。
@@ -34,18 +36,15 @@ static short pbi_image_width ;
  */
 static MenuLayer *menu_layer;
 
+void pebble_set_error_code(int error_code) {
+	mq_kv_set(KEY_PARAM_RESULT, RESULT_ERROR);
+	mq_kv_set(KEY_PARAM_ERROR_CODE, error_code);
 
-void pebble_set_error_code(DictionaryIterator *iter, int error_code) {
-    Tuplet resultTuple = TupletInteger(KEY_PARAM_RESULT, RESULT_ERROR);
-    dict_write_tuplet(iter, &resultTuple);
-
-    Tuplet errorTuple = TupletInteger(KEY_PARAM_ERROR_CODE, error_code);
-    dict_write_tuplet(iter, &errorTuple);
-    
-    char buf[ 20 ] ;
-    snprintf( buf, sizeof( buf), "code=%d", error_code ) ;
-    entry_log( "error", buf ) ;
+	char buf[ 20 ] ;
+	snprintf( buf, sizeof( buf), "code=%d", error_code ) ;
+	entry_log( "error", buf ) ;
 }
+
 void pebble_sniff_interval_normal( void )
 {
     app_comm_set_sniff_interval(SNIFF_INTERVAL_REDUCED);//この行を削除してはいけない
@@ -103,8 +102,6 @@ void pebble_set_bitmap(uint8_t* data, int32_t size) {
  @param[in] context コンテキスト
  */
 static void in_received_handler(DictionaryIterator *received, void *context) {
-    //DBG_LOG(APP_LOG_LEVEL_DEBUG, "in received handler");
-
     Tuple *profileTuple = dict_find(received, KEY_PROFILE);
     if (profileTuple != NULL) {
         if (profileTuple->value->uint8 == PROFILE_BINARY) {
@@ -121,36 +118,32 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
         return;
     }
 
-    DictionaryIterator *iter = NULL;
-    app_message_outbox_begin(&iter);
-    if (iter == NULL) {
-        // 送信用イテレータの作成に失敗
-        entry_log( "error", "outbox_begin" ) ;
-        return;
-    }
+	if (!mq_push()) {
+		entry_log( "error", "in_received_handler" ) ;
+		return;
+	}
 
-    // リクエストコード追加
-    Tuplet tuple = TupletInteger(KEY_PARAM_REQUEST_CODE, requestCodeTuple->value->uint32);
-    dict_write_tuplet(iter, &tuple);
+	// リクエストコード追加
+	mq_kv_set(KEY_PARAM_REQUEST_CODE, requestCodeTuple->value->uint32);
 
     int ret = RETURN_SYNC;
 
     // 各プロファイル
     switch (profileTuple->value->uint8) {
     case PROFILE_BATTERY:
-        ret = in_received_battery_handler(received, iter);
+        ret = in_received_battery_handler(received);
         break;
     case PROFILE_DEVICE_ORIENTATION:
-        ret = in_received_device_orientation_handler(received, iter);
+        ret = in_received_device_orientation_handler(received);
         break;
     case PROFILE_SETTING:
-        ret = in_received_setting_handler(received, iter);
+        ret = in_received_setting_handler(received);
         break;
     case PROFILE_VIBRATION:
-        ret = in_received_vibration_handler(received, iter);
+        ret = in_received_vibration_handler(received);
         break;
     case PROFILE_SYSTEM:
-        ret = in_received_system_handler(received, iter);
+        ret = in_received_system_handler(received);
         break;
     default:
         {
@@ -159,20 +152,13 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
             entry_log( "profile error", buf ) ;
         }
 
-        pebble_set_error_code(iter, ERROR_NOT_SUPPORT_PROFILE);
+        pebble_set_error_code(ERROR_NOT_SUPPORT_PROFILE);
         break;
     }
 
     // 非同期でレスポンスすることがあるのか？
-    // また、*iterは解放されるのか検証する必要がある。
     if (ret == RETURN_SYNC) {
-        // データ終了
-        dict_write_end(iter);
-        // データ送信
-        app_message_outbox_send();
-    }
-    else {
-        entry_log( "error", "not app_mes" ) ;
+		send_message();
     }
 }
 
@@ -196,7 +182,9 @@ static void in_dropped_handler(AppMessageResult reason, void *context) {
  @param[in] context コンテキスト
  */
 static void out_sent_handler(DictionaryIterator *sent, void *context) {
-    //DBG_LOG(APP_LOG_LEVEL_DEBUG, "out sent handler");
+    DBG_LOG(APP_LOG_LEVEL_DEBUG, "out sent handler");
+	
+	success_message();
 }
 
 /*!
@@ -207,13 +195,14 @@ static void out_sent_handler(DictionaryIterator *sent, void *context) {
  @param[in] context コンテキスト
  */
 static void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, void *context) {
+	DBG_LOG(APP_LOG_LEVEL_DEBUG, "out failed handler");
+	
     if( reason != APP_MSG_OK ) {
         char buf[ 20 ] ;
         snprintf( buf, sizeof( buf), "err=0x%x", reason ) ;
         entry_log( "out_failed_handler", buf ) ;
     }
 
-    DBG_LOG(APP_LOG_LEVEL_DEBUG, "out failed handler");
     switch (reason) {
     case APP_MSG_OK:
         DBG_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_OK");
@@ -258,8 +247,10 @@ static void out_failed_handler(DictionaryIterator *failed, AppMessageResult reas
         DBG_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_INTERNAL_ERROR");
         break;
     }
+	
+	//
+	retry_message();
 }
-
 
 
 /*!
@@ -342,13 +333,12 @@ static void menu_draw_row_callback(GContext* ctx, const Layer *cell_layer, MenuI
             menu_cell_basic_draw(ctx, cell_layer, "recieving...", "image", NULL );
         }
         else {//バイナリデータ受信中でなければ描画する
-            //pbi_image_width ;
             GSize draw_size = layer_get_frame((Layer*) cell_layer).size ;
             if( pbi_image_width < draw_size.w ) {
                 draw_size.w = pbi_image_width ;
             }
             DBG_LOG(APP_LOG_LEVEL_DEBUG, "draw width=%d",draw_size.w);
-                
+
             graphics_draw_bitmap_in_rect(ctx, menu->bitmap_or_text
                                      , (GRect){ .origin = GPointZero, .size = draw_size });
         }
@@ -433,6 +423,8 @@ static void init() {
     app_message_register_outbox_failed(out_failed_handler);
     app_message_register_inbox_received(in_received_handler);
     app_message_register_inbox_dropped(in_dropped_handler);
+	
+	mq_init();
 }
 
 /*!

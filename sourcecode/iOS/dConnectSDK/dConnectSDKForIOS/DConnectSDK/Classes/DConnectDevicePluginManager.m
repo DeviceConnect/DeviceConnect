@@ -119,7 +119,6 @@
         Class *classes = (Class *) malloc(sizeof(Class) * numClasses);
         if (classes) {
             numClasses = objc_getClassList(classes, numClasses);
-            // MARK: [2014/05/21 福井] 並列処理させる？addDevicePlugin:部分は@synchronizedで排他にする事。
             for (int i = 0; i < numClasses; i++) {
                 Class parent = class_getSuperclass(classes[i]);
                 if (strncmp("DConnectDevicePlugin", class_getName(parent), 20) == 0) {

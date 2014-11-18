@@ -29,7 +29,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014年 NTT DOCOMO, INC. All rights reserved.</string>
+	<string>Copyright (c) 2014 NTT DOCOMO, INC. Released under the MIT license.</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 </dict>

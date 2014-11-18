@@ -7,6 +7,9 @@
 package org.deviceconnect.android.deviceplugin.chromecast.core;
 
 import java.io.IOException;
+import java.util.Locale;
+
+import org.deviceconnect.android.deviceplugin.chromecast.BuildConfig;
 
 import com.google.android.gms.cast.Cast;
 import com.google.android.gms.cast.MediaInfo;
@@ -15,9 +18,9 @@ import com.google.android.gms.cast.MediaStatus;
 import com.google.android.gms.cast.RemoteMediaPlayer;
 import com.google.android.gms.cast.RemoteMediaPlayer.MediaChannelResult;
 import com.google.android.gms.common.api.ResultCallback;
+
 import android.content.Intent;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.webkit.MimeTypeMap;
 
 /**
  * Chromecast MediaPlayer クラス
@@ -44,7 +47,7 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
         /**
          * 再生状態を通知する
          * 
-         * @param   response
+         * @param   status  メディアのステータス
          * @return  なし
          */
         public void onChromeCastMediaPlayerStatusUpdate(MediaStatus status);
@@ -97,10 +100,8 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                 .setOnStatusUpdatedListener(new RemoteMediaPlayer.OnStatusUpdatedListener() {
                     @Override
                     public void onStatusUpdated() {
-
                         if (mRemoteMediaPlayer.getMediaStatus() == null)
                             return;
-
                         callbacks.onChromeCastMediaPlayerStatusUpdate(mRemoteMediaPlayer.getMediaStatus());
                     }
                 });
@@ -108,19 +109,16 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
         mRemoteMediaPlayer
                 .setOnMetadataUpdatedListener(new RemoteMediaPlayer.OnMetadataUpdatedListener() {
                     @Override
-                    public void onMetadataUpdated() {
-                        MediaInfo mediaInfo = mRemoteMediaPlayer.getMediaInfo();
-
-                        if (mediaInfo == null)
-                            return;
-                    }
+                    public void onMetadataUpdated() {}
                 });
 
         try {
             Cast.CastApi.setMessageReceivedCallbacks(application.getGoogleApiClient(),
                     mRemoteMediaPlayer.getNamespace(), mRemoteMediaPlayer);
         } catch (IOException e) {
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -131,7 +129,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                 Cast.CastApi.removeMessageReceivedCallbacks(application.getGoogleApiClient(),
                         mRemoteMediaPlayer.getNamespace());
             } catch (IOException e) {
-                e.printStackTrace();
+                if(BuildConfig.DEBUG){
+                    e.printStackTrace();
+                }
             }
             mRemoteMediaPlayer = null;
         }
@@ -146,49 +146,19 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
      * @return  なし
      */
     public void load(final Intent response, String url, String title) {
-        boolean isVideo = false;
         MediaInfo mediaInfo;
-
-        String mimeTypeVideo = null;		
-        try{
-            MediaExtractor extractor = new MediaExtractor();
-            int numTracks = extractor.getTrackCount();
-            for (int i = 0; i < numTracks; ++i) {
-                MediaFormat format = extractor.getTrackFormat(i);
-                String mime = format.getString(MediaFormat.KEY_MIME);
-                String [] split = mime.split("/");
-                if(split.length >= 2){
-                    if(split[0].equals("video")){
-                        mimeTypeVideo = mime;
-                    }
-                }
-            }
-            extractor.release();
-            isVideo = true;
-        }catch(Exception e){
-            e.printStackTrace();
+        
+        MediaMetadata mediaMetadata = new MediaMetadata(MediaMetadata.MEDIA_TYPE_MOVIE);
+        mediaMetadata.putString(MediaMetadata.KEY_TITLE, title);
+        String ext = MimeTypeMap.getFileExtensionFromUrl(url).toLowerCase(Locale.getDefault());
+        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext);
+        if(mimeType == null || (mimeType != null && mimeType.isEmpty())){
+            mimeType = "application/octet-stream";
         }
-
-        if (isVideo) {
-            MediaMetadata mediaMetadata = new MediaMetadata(
-                    MediaMetadata.MEDIA_TYPE_MOVIE);
-            mediaMetadata.putString(MediaMetadata.KEY_TITLE, title);
-
-            if(mimeTypeVideo == null)
-                mimeTypeVideo = "video/mp4";
-            mediaInfo = new MediaInfo.Builder(url).setContentType(mimeTypeVideo)
-                    .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED)
-                    .setMetadata(mediaMetadata).build();
-        } else {
-            MediaMetadata mediaMetadata = new MediaMetadata(
-                    MediaMetadata.MEDIA_TYPE_PHOTO);
-            mediaMetadata.putString(MediaMetadata.KEY_TITLE, title);
-
-            mediaInfo = new MediaInfo.Builder(url).setContentType("image/jpeg")
-                    .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED)
-                    .setMetadata(mediaMetadata).build();
-        }
-
+        mediaInfo = new MediaInfo.Builder(url).setContentType(mimeType)
+                .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED)
+                .setMetadata(mediaMetadata).build();
+        
         try {
             mRemoteMediaPlayer
                 .load(application.getGoogleApiClient(), mediaInfo, false)
@@ -207,7 +177,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
 
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -232,7 +204,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                 });
         }catch(Exception e){
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -253,7 +227,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                         }
                     });
         } catch (Exception e) {
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -274,7 +250,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                         }
                     });
         } catch (Exception e) {
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -295,7 +273,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                         }
                     });
         } catch (Exception e) {
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -320,7 +300,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                         });
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -338,7 +320,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                 return 0;
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
         return -1;
     }
@@ -364,7 +348,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                         });
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 	
@@ -379,7 +365,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
             return mRemoteMediaPlayer.getMediaStatus().getStreamVolume();
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
         return -1;
     }
@@ -405,7 +393,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
                         });
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -420,7 +410,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
             return mRemoteMediaPlayer.getApproximateStreamPosition();
         } catch (Exception e) {
             callbacks.onChromeCastMediaPlayerResult(response, null, e.getMessage());
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
         return -1;
     }
@@ -436,7 +428,9 @@ public class ChromeCastMediaPlayer implements ChromeCastApplication.Callbacks {
         try {
             status = mRemoteMediaPlayer.getMediaStatus();
         }catch(Exception e){
-            e.printStackTrace();
+            if(BuildConfig.DEBUG){
+                e.printStackTrace();
+            }
         }
         return status;
     }

@@ -2,8 +2,9 @@
 //  Hash.m
 //  DConnectSDK
 //
-//  Created by 福井 重和 on 2014/05/09.
-//  Copyright (c) 2014 NTT DOCOMO, INC. All Rights Reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import <CommonCrypto/CommonCrypto.h>

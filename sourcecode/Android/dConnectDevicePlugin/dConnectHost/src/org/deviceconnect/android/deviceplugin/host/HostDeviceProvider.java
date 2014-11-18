@@ -12,7 +12,7 @@ import android.app.Service;
 
 /**
  * ホストデバイスプロバイダ.
- *
+ * 
  * @param <T> サービスクラス
  * @author NTT DOCOMO, INC.
  */
@@ -23,7 +23,6 @@ public class HostDeviceProvider<T extends Service> extends DConnectMessageServic
     protected Class<Service> getServiceClass() {
         Class<? extends Service> clazz = (Class<? extends Service>) HostDeviceService.class;
 
-        
         return (Class<Service>) clazz;
     }
 

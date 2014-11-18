@@ -1,9 +1,10 @@
 //
 //  DPGuideViewController.m
-//  dConnectDeviceSphero
+//  DConnectSDK
 //
-//  Created by Takashi Tsuchiya on 2014/09/12.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "DPGuideViewController.h"

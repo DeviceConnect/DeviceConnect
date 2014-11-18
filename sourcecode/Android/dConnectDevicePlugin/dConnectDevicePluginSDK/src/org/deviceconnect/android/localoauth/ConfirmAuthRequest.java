@@ -50,6 +50,20 @@ public class ConfirmAuthRequest {
     }
 
     /**
+     * コンストラクタ.
+     * 
+     * @param threadId スレッドID
+     * @param confirmAuthParams パラメータ
+     * @param publishAccessTokenListener アクセストークン発行リスナー
+     * @param displayScopes 表示用スコープ名配列
+     */
+    public ConfirmAuthRequest(final long threadId, final ConfirmAuthParams confirmAuthParams,
+            final PublishAccessTokenListener publishAccessTokenListener,
+            final String[] displayScopes) {
+        this(threadId, confirmAuthParams, publishAccessTokenListener, new Date(), displayScopes);
+    }
+
+    /**
      * スレッドID取得.
      * @return スレッドID
      */

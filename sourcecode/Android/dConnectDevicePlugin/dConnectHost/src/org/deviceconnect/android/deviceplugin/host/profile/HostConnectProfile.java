@@ -10,6 +10,7 @@ package org.deviceconnect.android.deviceplugin.host.profile;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.HostDeviceService;
 import org.deviceconnect.android.deviceplugin.host.activity.BluetoothManageActivity;
 import org.deviceconnect.android.event.EventError;
@@ -23,7 +24,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.nfc.NfcAdapter;
 import android.util.Log;
@@ -338,7 +338,9 @@ public class HostConnectProfile extends ConnectProfile {
         setResult(response, IntentDConnectMessage.RESULT_OK);
 
         WifiManager mWifiManager = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
-        Log.i(TAG, "FifiManager:" + mWifiManager.isWifiEnabled());
+        if (BuildConfig.DEBUG) {
+            Log.i(TAG, "WifiManager:" + mWifiManager.isWifiEnabled());
+        }
         response.putExtra(PARAM_ENABLE, mWifiManager.isWifiEnabled());
     }
 

@@ -9,6 +9,7 @@ package org.deviceconnect.android.deviceplugin.host.setting;
 
 import static android.content.Context.WIFI_SERVICE;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.HostDeviceService;
 import org.deviceconnect.android.deviceplugin.host.IHostDeviceCallback;
 import org.deviceconnect.android.deviceplugin.host.IHostDeviceService;
@@ -32,7 +33,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,14 +44,8 @@ public class HostSettingFragment extends Fragment {
     /** Debug Tag. */
     private static final String TAG = "PluginHost";
 
-    /** IPアドレスを入力. */
-    private EditText mEditText;
-
     /** HostのIPを表示するためのTextView. */
     private TextView mDeviceHostIpTextView;
-
-    /** LocalのIPを表示するためTextView. */
-    private TextView mDeviceLocalIpTextView;
 
     /** context. */
     Activity mActivity;
@@ -67,37 +61,34 @@ public class HostSettingFragment extends Fragment {
 
     /** プロセス間通信でつなぐService. */
     private static IHostDeviceService mService;
-    
+
     @Override
-    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, 
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
-        
+
         // Activityを取得
         mActivity = this.getActivity();
-        mActivity.bindService(new Intent(this.getActivity(), HostDeviceService.class), 
-                mServiceConnection, Context.BIND_AUTO_CREATE);
-        
+        mActivity.bindService(new Intent(this.getActivity(), HostDeviceService.class), mServiceConnection,
+                Context.BIND_AUTO_CREATE);
+
         // Positionを取得
         Bundle mBundle = getArguments();
         int mPagePosition = mBundle.getInt("position", 0);
-                
-        int mPageLayoutId = this.getResources().getIdentifier("host_setting_" + mPagePosition, 
-                "layout", getActivity().getPackageName());
+
+        int mPageLayoutId = this.getResources().getIdentifier("host_setting_" + mPagePosition, "layout",
+                getActivity().getPackageName());
 
         View mView = inflater.inflate(mPageLayoutId, container, false);
 
         if (mPagePosition == 0) {
-            WifiManager wifiManager = (WifiManager) this.getActivity().getSystemService(WIFI_SERVICE); 
-            int ipAddress = wifiManager.getConnectionInfo().getIpAddress(); 
-            final String formatedIpAddress = String.format("%d.%d.%d.%d", 
-                    (ipAddress & 0xff), 
-                    (ipAddress >> 8 & 0xff), 
-                    (ipAddress >> 16 & 0xff), 
-                    (ipAddress >> 24 & 0xff));
-           
+            WifiManager wifiManager = (WifiManager) this.getActivity().getSystemService(WIFI_SERVICE);
+            int ipAddress = wifiManager.getConnectionInfo().getIpAddress();
+            final String formatedIpAddress = String.format("%d.%d.%d.%d", (ipAddress & 0xff), (ipAddress >> 8 & 0xff),
+                    (ipAddress >> 16 & 0xff), (ipAddress >> 24 & 0xff));
+
             // Host IP表示用
             mDeviceHostIpTextView = (TextView) mView.findViewById(R.id.host_ipaddress);
-            mDeviceHostIpTextView.setText("Your IP:" + formatedIpAddress);    
+            mDeviceHostIpTextView.setText("Your IP:" + formatedIpAddress);
         }
 
         return mView;
@@ -114,7 +105,7 @@ public class HostSettingFragment extends Fragment {
 
     }
 
-   /**
+    /**
      * Host PluginをSearchします.
      */
     public void searchHost() {
@@ -123,8 +114,9 @@ public class HostSettingFragment extends Fragment {
         try {
             mService.searchHost();
         } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
         // Handlerに通知する
         MyHandler handler = new MyHandler();
@@ -142,13 +134,12 @@ public class HostSettingFragment extends Fragment {
         try {
             mService.invokeHost();
         } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
         dismissProgressDialog();
     }
-
-
 
     /**
      * コンテキストの取得する.
@@ -193,11 +184,13 @@ public class HostSettingFragment extends Fragment {
         }
     }
 
-    // Handlerクラスを継承して拡張している。
+    /**
+     * Handlerクラスを継承して拡張.
+     */
     class MyHandler extends Handler {
 
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(final Message msg) {
 
             if (msg.what == HANDLER_ACTION_DISMISS) {
                 dismissProgressDialog();
@@ -207,7 +200,7 @@ public class HostSettingFragment extends Fragment {
             }
         }
     }
-    
+
     /**
      * プロセス間通信用のサービス.
      */
@@ -216,25 +209,25 @@ public class HostSettingFragment extends Fragment {
         @Override
         public void onServiceConnected(final ComponentName name, final IBinder service) {
             Log.i(TAG, "onServiceConnected");
-            // TODO Auto-generated method stub
             mService = IHostDeviceService.Stub.asInterface(service);
             try {
                 mService.registerCallback(mCallback);
             } catch (RemoteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
             }
         }
 
         @Override
         public void onServiceDisconnected(final ComponentName name) {
-            // TODO Auto-generated method stub
             mService = null;
             try {
                 mService.unregisterCallback(mCallback);
             } catch (RemoteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
             }
         }
     };
@@ -247,7 +240,7 @@ public class HostSettingFragment extends Fragment {
         @Override
         public void changeHostStatus(final int status) throws RemoteException {
             if (status == 1) {
-                
+
                 dismissProgressDialog();
 
                 Looper.prepare();
@@ -255,7 +248,7 @@ public class HostSettingFragment extends Fragment {
                 Looper.loop();
 
             } else if (status == -1) {
-               
+
                 dismissProgressDialog();
 
                 Looper.prepare();
@@ -271,15 +264,12 @@ public class HostSettingFragment extends Fragment {
             // Handlerに通知する
             mActivity.runOnUiThread(new Runnable() {
                 public void run() {
-                    // 変化させたいUIの処理
-                    //mDeviceLocalIpTextView.setText("Running:" + ipaddress);
                 }
             });
         }
 
         @Override
         public void findHost(final String ipaddress) throws RemoteException {
-            // TODO Auto-generated method stub
             // Handlerに通知する
             mActivity.runOnUiThread(new Runnable() {
                 public void run() {

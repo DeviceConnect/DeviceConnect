@@ -1,9 +1,10 @@
 //
-//  DCMLightProfile.h
-//  DeviceSphero
+//  DCMLightProfileName.h
+//  DConnectSDK
 //
-//  Created by 星　貴之 on 2014/07/22.
-//  Copyright (c) 2014年 Docomo. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 /*! @file
  @brief Lightプロファイルを実装するための機能を提供する。
@@ -96,7 +97,8 @@ extern NSString *const DCMLightProfileParamGroupName;
  [対応するRESTful]
  GET http://{ドメイン}/light?deviceid=xxxxx
  </pre>
- @param[in] request リクエスト
+ @param[in] profile プロファイル
+@param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
  @retval YES レスポンスパラメータを返却する。
@@ -115,6 +117,7 @@ extern NSString *const DCMLightProfileParamGroupName;
  [対応するRESTful]
  POST http://{ドメイン}/light?deviceId=xxxxx&lightId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -141,6 +144,7 @@ extern NSString *const DCMLightProfileParamGroupName;
  [対応するRESTful]
  PUT http://{ドメイン}/light?deviceId=xxxxx&lightId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -169,6 +173,7 @@ extern NSString *const DCMLightProfileParamGroupName;
  [対応するRESTful]
  DELETE http://{ドメイン}/light?deviceId=xxxxx&lightId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -193,6 +198,7 @@ extern NSString *const DCMLightProfileParamGroupName;
  [対応するRESTful]
  GET http://{ドメイン}/light/group?deviceid=xxxxx
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -212,6 +218,7 @@ extern NSString *const DCMLightProfileParamGroupName;
  [対応するRESTful]
  POST http://{ドメイン}/light/group?deviceId=xxxxx&groupId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -238,6 +245,7 @@ didReceivePostLightGroupRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  PUT http://{ドメイン}/light/group?deviceId=xxxxx&groupId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -266,6 +274,7 @@ didReceivePostLightGroupRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  DELETE http://{ドメイン}/light/group?deviceId=xxxxx&groupId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -287,6 +296,7 @@ didReceivePostLightGroupRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  POST http://{ドメイン}/light/group/create?deviceId=xxxxx&groupId=yyyy&groupName=bathroom
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID
@@ -310,6 +320,7 @@ didReceivePostLightGroupRequest:(DConnectRequestMessage *)request
  [対応するRESTful]
  DELETE http://{ドメイン}/light/group/clear?deviceId=xxxxx&groupId=yyyy
  </pre>
+ @param[in] profile プロファイル
  @param[in] request リクエスト
  @param[in,out] response レスポンス
  @param[in] deviceId デバイスID

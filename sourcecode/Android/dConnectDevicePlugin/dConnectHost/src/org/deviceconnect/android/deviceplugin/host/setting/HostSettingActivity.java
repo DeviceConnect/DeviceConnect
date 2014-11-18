@@ -6,9 +6,6 @@
  */
 package org.deviceconnect.android.deviceplugin.host.setting;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.deviceconnect.android.ui.activity.DConnectSettingPageFragmentActivity;
 
 import android.os.Bundle;
@@ -18,19 +15,17 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 /**
  * 設定用Activity.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
-    
+
     /** デバイスID. */
     private String mDeviceId;
 
-    /** フラグメント一覧. */
-    private List<HostSettingFragment> fragments = new ArrayList<HostSettingFragment>();
-
     /** ページ数. */
     private static final int PAGE_COUNT = 1;
-    
+
     @Override
     public Fragment createPage(final int position) {
         Bundle mBundle = new Bundle();
@@ -40,7 +35,7 @@ public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
 
         return mFragment;
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -52,11 +47,11 @@ public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
             @Override
             public void onPageScrollStateChanged(final int state) {
             }
-            
+
             @Override
             public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
             }
-            
+
             @Override
             public void onPageSelected(final int position) {
             }
@@ -65,6 +60,7 @@ public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
 
     /**
      * デバイスIDを取得する.
+     * 
      * @return デバイスID
      */
     public String getDeviceId() {
@@ -73,6 +69,7 @@ public class HostSettingActivity extends DConnectSettingPageFragmentActivity {
 
     /**
      * デバイスIDを設定する.
+     * 
      * @param deviceId デバイスID
      */
     public void setDeviceId(final String deviceId) {

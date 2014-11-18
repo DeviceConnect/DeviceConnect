@@ -31,7 +31,6 @@
     //Cookieの初期設定を更新
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     [def setObject:@([GHUtils isCookieAccept]) forKey:IS_COOKIE_ACCEPT];
-    
     return YES;
 }
 							
@@ -78,6 +77,16 @@
         return YES;
     } else {
         return (_redirectURL = redirectURL) != nil;
+    }
+}
+
+// HostデバイスプラグインのNotificationProfileのイベントは、各アプリでこのような処理を追加しなければイベントの通知が正常に行われない
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)localNotification
+{
+    if(application.applicationState == UIApplicationStateInactive) {
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"UIApplicationDidReceiveLocalNotification"
+                                                                                             object:nil
+                                                                                           userInfo:localNotification.userInfo]];
     }
 }
 

@@ -10,6 +10,7 @@ package org.deviceconnect.android.deviceplugin.host.video;
 import java.io.IOException;
 import java.util.List;
 
+import org.deviceconnect.android.deviceplugin.host.BuildConfig;
 import org.deviceconnect.android.deviceplugin.host.HostDeviceService;
 import org.deviceconnect.android.deviceplugin.host.IHostMediaStreamRecordingService;
 import org.deviceconnect.android.deviceplugin.host.R;
@@ -25,7 +26,6 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -42,9 +42,6 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
     /** Activity. */
     private static Activity mActivity;
 
-    /** Debug Tag. */
-    private static final String TAG = "HOST";
-
     /** Camera. */
     private static Camera mCamera;
 
@@ -53,7 +50,7 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
 
     /** プロセス間通信でつなぐService. */
     private static IHostMediaStreamRecordingService mService;
-    
+
     /** SurfaceViewのHolder. */
     private static SurfaceHolder mHolder;
 
@@ -73,8 +70,7 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         // SurfaceView用 Holderを設定
         mHolder = mSurfaceView.getHolder();
         mHolder.addCallback(this);
-        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        
+
         // Activityを取得
         mActivity = this;
 
@@ -92,12 +88,12 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
     @Override
     public void onResume() {
         super.onResume();
-        
+
         // レシーバーを登録
         IntentFilter mFilter = new IntentFilter();
         mFilter.addAction(PhotoConst.SEND_HOSTDP_TO_PHOTO);
         registerReceiver(myReceiver, mFilter);
-        
+
         // Cameraのインスタンスを取得
         mCamera = getCameraInstance();
     }
@@ -110,11 +106,11 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         unregisterReceiver(myReceiver);
         releaseCamera();
     }
-    
+
     /**
      * SurfaceViewが生成された時に呼ばれる.
      * 
-     * @param holder
+     * @param holder 
      */
     public void surfaceCreated(final SurfaceHolder holder) {
     }
@@ -139,7 +135,9 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         try {
             mCamera.stopPreview();
         } catch (Exception e) {
-            
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
 
         // Previewの作成と表示.
@@ -158,7 +156,11 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
             mCamera.setPreviewDisplay(holder);
             mCamera.setPreviewCallback(this);
             mCamera.startPreview();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -179,7 +181,7 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
     }
 
     /**
-     * Cameraのインスタンスを取得
+     * Cameraのインスタンスを取得.
      * 
      * @return cameraのインスタンス
      */
@@ -188,22 +190,26 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         try {
             c = Camera.open();
         } catch (Exception e) {
-
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
         return c;
     }
-    
+
     /**
      * カメラの解放.
      */
     private void releaseCamera() {
-        
+
         if (mCamera != null) {
             try {
                 mCamera.setPreviewCallback(null);
                 mCamera.setPreviewDisplay(null);
             } catch (IOException e) {
-                e.printStackTrace();
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                }
             }
             mCamera.stopPreview();
             mCamera.release();
@@ -237,8 +243,9 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
         try {
             mService.sendPreviewData(data, format, width, height);
         } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
 
         mCamera.setPreviewCallback(this);
@@ -253,7 +260,7 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
     }
 
     /**
-     * Boradcast Receiver.
+     * Broadcast Receiver.
      */
     private BroadcastReceiver myReceiver = new BroadcastReceiver() {
 
@@ -277,13 +284,11 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback, C
 
         @Override
         public void onServiceConnected(final ComponentName name, final IBinder service) {
-            // TODO Auto-generated method stub
             mService = IHostMediaStreamRecordingService.Stub.asInterface(service);
         }
 
         @Override
         public void onServiceDisconnected(final ComponentName name) {
-            // TODO Auto-generated method stub
             mService = null;
         }
     };

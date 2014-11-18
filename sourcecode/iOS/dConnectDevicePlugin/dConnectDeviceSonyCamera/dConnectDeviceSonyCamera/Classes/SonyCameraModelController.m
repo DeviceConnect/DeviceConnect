@@ -1,9 +1,10 @@
 //
 //  SonyCameraModelController.m
-//  pageview
+//  DConnectSDK
 //
-//  Created by 小林伸郎 on 2014/08/07.
-//  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
+//  Copyright (c) 2014 NTT DOCOMO, INC.
+//  Released under the MIT license
+//  http://opensource.org/licenses/mit-license.php
 //
 
 #import "SonyCameraModelController.h"
@@ -50,7 +51,7 @@
         }
     }
     
-    NSString *viewId = [NSString stringWithFormat:@"SonyCameraSettingView0%dController", (index + 1)];
+    NSString *viewId = [NSString stringWithFormat:@"SonyCameraSettingView0%dController", (int)(index + 1)];
     
     // Create a new view controller and pass suitable data.
     SonyCameraDataViewController *SonyCameraDataViewController = [storyboard instantiateViewControllerWithIdentifier:viewId];

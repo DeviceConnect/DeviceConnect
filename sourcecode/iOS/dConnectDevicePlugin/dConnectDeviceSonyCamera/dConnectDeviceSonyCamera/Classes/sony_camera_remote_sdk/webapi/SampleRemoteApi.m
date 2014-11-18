@@ -139,7 +139,7 @@ int idVal = 1;
     NSString* aMethod = API_setShootMode;
     NSString* aParams = [NSString stringWithFormat:@"[\"%@\"]",shootMode];
     NSString* aVersion = @"1.0";
-    NSString* requestJson = [NSString stringWithFormat:@"{ \"method\":\"%@\",\"params\":%@,\"version\":\"%@\",\"id\":%d }",aMethod,aParams,aVersion,id];
+    NSString* requestJson = [NSString stringWithFormat:@"{ \"method\":\"%@\",\"params\":%@,\"version\":\"%@\",\"id\":%d }",aMethod,aParams,aVersion, (int)id];
     NSString* url = [[DeviceList getSelectedDevice] findActionListUrl:aService];
     
 //    NSLog(@"SampleRemoteApi Request: %@ ", requestJson);

@@ -11,8 +11,8 @@
 #import "DPHostNetworkServiceDiscoveryProfile.h"
 #import "DPHostRecorderContext.h"
 
-const char * const AudioCaptureQueueName = "com.nttdocomo.dconnect.host.mediastream_recording.audio_capture";
-const char * const VideoCaptureQueueName = "com.nttdocomo.dconnect.host.mediastream_recording.video_capture";
+const char * const AudioCaptureQueueName = "org.deviceconnect.ios.host.mediastream_recording.audio_capture";
+const char * const VideoCaptureQueueName = "org.deviceconnect.ios.host.mediastream_recording.video_capture";
 
 @interface DPHostRecorderDataSource()
 

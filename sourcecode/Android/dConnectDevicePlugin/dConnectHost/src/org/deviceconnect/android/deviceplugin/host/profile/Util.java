@@ -11,6 +11,7 @@ import android.content.Intent;
 
 /**
  * テスト用ユーティリティクラス.
+ * 
  * @author NTT DOCOMO, INC.
  */
 final class Util {
@@ -22,6 +23,7 @@ final class Util {
 
     /**
      * 指定したミリ秒後に別スレッドでインテントをブロードキャストする.
+     * 
      * @param context コンテキスト
      * @param intent インテント
      * @param delay 遅延設定 (単位はミリ秒)
@@ -43,6 +45,7 @@ final class Util {
 
     /**
      * {@value #DEFAULT_DELAY}ミリ秒後に別スレッドでインテントをブロードキャストする.
+     * 
      * @param context コンテキスト
      * @param intent インテント
      */

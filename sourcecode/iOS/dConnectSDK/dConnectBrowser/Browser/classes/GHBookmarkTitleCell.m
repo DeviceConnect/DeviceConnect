@@ -28,21 +28,5 @@
 {
     self.titleField.text = page.title;
     self.urlLabel.text = page.url;
-    
-    /* Favicon取得は外す
-    // google.comのFaviconをロードしてくる。
-    NSURL *url = [[NSURL alloc] initWithString:@"http://www.google.com/images/google_favicon_128.png"];
-    NSError *error = nil;
-    NSData *data = [[NSData alloc] initWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-    if (error) {
-        // favicon取得処理でエラーが発生した場合には、処理を中止する。
-        NSLog(@"/favicon.ico load failed. reason = %@", error);
-        return;
-    }
-    
-    // ico -> png -> base64に変換する。
-    UIImage *icon = [UIImage imageWithData:data];
-    self.favicon.image = icon;
-     */
 }
 @end

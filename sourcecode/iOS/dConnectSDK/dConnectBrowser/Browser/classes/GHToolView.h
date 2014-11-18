@@ -35,7 +35,6 @@ enum {
 @property (nonatomic, weak) IBOutlet UIBarButtonItem* settingbtn;
 @property (nonatomic, weak) IBOutlet UIWebView*       webview;
 
-//- (IBAction)btnAction:(UIBarButtonItem*)sender;
 - (void)setBtnEnabled:(BOOL)isEnabled;
 - (void)updateBtn;
 

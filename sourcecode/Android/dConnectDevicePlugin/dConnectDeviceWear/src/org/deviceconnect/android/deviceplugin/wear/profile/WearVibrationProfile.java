@@ -8,13 +8,14 @@ package org.deviceconnect.android.deviceplugin.wear.profile;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import org.deviceconnect.android.message.MessageUtils;
+import org.deviceconnect.android.profile.VibrationProfile;
+import org.deviceconnect.message.DConnectMessage;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -24,8 +25,6 @@ import com.google.android.gms.wearable.MessageApi;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
-import org.deviceconnect.android.profile.VibrationProfile;
-import org.deviceconnect.message.DConnectMessage;
 
 /**
  * Vibration Profile.
@@ -35,16 +34,13 @@ import org.deviceconnect.message.DConnectMessage;
 public class WearVibrationProfile extends VibrationProfile implements ConnectionCallbacks, OnConnectionFailedListener {
 
     /** Google Play Service. */
-    private static GoogleApiClient mGoogleApiClient;
+    private GoogleApiClient mGoogleApiClient;
 
-    /** Tag. */
-    private static final String TAG = "WEAR";
-
-    /** Staticな内部ID. */
-    private static String mId = "";
+    /** 内部ID. */
+    private String mId = "";
 
     /** Status. */
-    private static int vibrateStatus;
+    private int mVibrateStatus;
 
     /** バイブレーションSTART. */
     private static final int STATUS_VIBRATE_START = 1;
@@ -52,24 +48,23 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
     /** バイブレーションSTOP. */
     private static final int STATUS_VIBRATE_STOP = 2;
 
-    /** StaticなPattern. */
-    private static long[] mPattern;
+    /** VibrationのPattern. */
+    private long[] mPattern;
 
     @Override
     protected boolean onPutVibrate(final Intent request, final Intent response, final String deviceId,
             final long[] pattern) {
         if (deviceId == null) {
-            createEmptyDeviceId(response);
-        } else if (!checkDeviceId(deviceId)) {
-            createNotFoundDevice(response);
+            MessageUtils.setEmptyDeviceIdError(response);
+        } else if (!WearUtils.checkDeviceId(deviceId)) {
+            MessageUtils.setNotFoundDeviceError(response);
         } else {
-
             mId = getNodeId(deviceId);
-            vibrateStatus = STATUS_VIBRATE_START;
+            mVibrateStatus = STATUS_VIBRATE_START;
             mPattern = pattern;
 
             // Connect Google Play Service
-            mGoogleApiClient = new GoogleApiClient.Builder(this.getContext()).addApi(Wearable.API)
+            mGoogleApiClient = new GoogleApiClient.Builder(getContext()).addApi(Wearable.API)
                     .addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
 
             if (!mGoogleApiClient.isConnected()) {
@@ -83,16 +78,15 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
     @Override
     protected boolean onDeleteVibrate(final Intent request, final Intent response, final String deviceId) {
         if (deviceId == null) {
-            createEmptyDeviceId(response);
-        } else if (!checkDeviceId(deviceId)) {
-            createNotFoundDevice(response);
+            MessageUtils.setEmptyDeviceIdError(response);
+        } else if (!WearUtils.checkDeviceId(deviceId)) {
+            MessageUtils.setNotFoundDeviceError(response);
         } else {
-
             mId = getNodeId(deviceId);
-            vibrateStatus = STATUS_VIBRATE_STOP;
+            mVibrateStatus = STATUS_VIBRATE_STOP;
 
             // Connect Google Play Service
-            mGoogleApiClient = new GoogleApiClient.Builder(this.getContext()).addApi(Wearable.API)
+            mGoogleApiClient = new GoogleApiClient.Builder(getContext()).addApi(Wearable.API)
                     .addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
 
             if (!mGoogleApiClient.isConnected()) {
@@ -111,10 +105,8 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
      * @return nodeId
      */
     private String getNodeId(final String deviceId) {
-
         String[] mDeviceIdArray = deviceId.split("\\(", 0);
         String id = mDeviceIdArray[1].replace(")", "");
-
         return id;
     }
 
@@ -127,7 +119,6 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
         HashSet<String> results = new HashSet<String>();
         NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
         for (Node node : nodes.getNodes()) {
-            Log.i("WEAR", "node.getId():" + node.getId());
             results.add(node.getId());
         }
         return results;
@@ -140,58 +131,23 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
      * @param action アクション名
      * @param message 送信する文字列
      */
-    public void sendMessageToStartActivity(final String id, final String action, final String message) {
+    private void sendMessageToStartActivity(final String id, final String action, final String message) {
         Collection<String> nodes = getNodes();
         for (String node : nodes) {
-
             // 指定デバイスのノードに送信
             if (node.indexOf(id) != -1) {
                 MessageApi.SendMessageResult result = Wearable.MessageApi.sendMessage(mGoogleApiClient, node, action,
                         message.getBytes()).await();
-                if (!result.getStatus().isSuccess()) {
-                } else {
+                if (result.getStatus().isSuccess()) {
                     mGoogleApiClient.disconnect();
                 }
             }
         }
     }
 
-    /**
-     * デバイスIDをチェックする.
-     * 
-     * @param deviceId デバイスID
-     * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
-     */
-    private boolean checkDeviceId(final String deviceId) {
-        String regex = WearNetworkServiceDiscoveryProfile.DEVICE_ID;
-        Pattern mPattern = Pattern.compile(regex);
-        Matcher match = mPattern.matcher(deviceId);
-
-        return match.find();
-    }
-
-    /**
-     * デバイスIDが空の場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createEmptyDeviceId(final Intent response) {
-        setResult(response, DConnectMessage.RESULT_ERROR);
-    }
-
-    /**
-     * デバイスが発見できなかった場合のエラーを作成する.
-     * 
-     * @param response レスポンスを格納するIntent
-     */
-    private void createNotFoundDevice(final Intent response) {
-        setResult(response, DConnectMessage.RESULT_ERROR);
-    }
-
     @Override
     public void onConnected(final Bundle connectionHint) {
-        if (vibrateStatus == STATUS_VIBRATE_START) {
-
+        if (mVibrateStatus == STATUS_VIBRATE_START) {
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(final Void... params) {
@@ -205,18 +161,15 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
                         }
                     }
                     sendMessageToStartActivity(mId, WearConst.DEVICE_TO_WEAR_VIBRATION_RUN, mPatternStr);
-
                     return null;
                 }
             }.execute();
-        } else if (vibrateStatus == STATUS_VIBRATE_STOP) {
+        } else if (mVibrateStatus == STATUS_VIBRATE_STOP) {
             // メッセージの送信
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(final Void... params) {
-
                     sendMessageToStartActivity(mId, WearConst.DEVICE_TO_WEAR_VIBRATION_DEL, "");
-
                     return null;
                 }
             }.execute();
@@ -230,5 +183,4 @@ public class WearVibrationProfile extends VibrationProfile implements Connection
     @Override
     public void onConnectionFailed(final ConnectionResult result) {
     }
-
 }

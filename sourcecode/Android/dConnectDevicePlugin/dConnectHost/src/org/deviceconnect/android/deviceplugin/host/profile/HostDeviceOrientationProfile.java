@@ -24,17 +24,13 @@ import android.content.Intent;
  */
 public class HostDeviceOrientationProfile extends DeviceOrientationProfile {
 
-    /** TAG. */
-    private static final String TAG = "HOST";
-
     /** Error. */
     private static final int ERROR_VALUE_IS_NULL = 100;
-    
-  
+
     @Override
-    protected boolean onPutOnDeviceOrientation(final Intent request, final Intent response, final String deviceId, 
+    protected boolean onPutOnDeviceOrientation(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
-       
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -42,28 +38,27 @@ public class HostDeviceOrientationProfile extends DeviceOrientationProfile {
         } else if (sessionKey == null) {
             createEmptySessionKey(response);
         } else {
-           
+
             // イベントの登録
             EventError error = EventManager.INSTANCE.addEvent(request);
-           
+
             if (error == EventError.NONE) {
-               ((HostDeviceService) getContext()).registerDeviceOrientationEvent(response, deviceId, sessionKey);
-               return false;
+                ((HostDeviceService) getContext()).registerDeviceOrientationEvent(response, deviceId, sessionKey);
+                return false;
             } else {
                 MessageUtils.setError(response, ERROR_VALUE_IS_NULL, "Can not register event.");
                 return true;
             }
-            
+
         }
         return true;
-    
+
     }
-    
-    
+
     @Override
-    protected boolean onDeleteOnDeviceOrientation(final Intent request, final Intent response, final String deviceId, 
+    protected boolean onDeleteOnDeviceOrientation(final Intent request, final Intent response, final String deviceId,
             final String sessionKey) {
-        
+
         if (deviceId == null) {
             createEmptyDeviceId(response);
         } else if (!checkDeviceId(deviceId)) {
@@ -75,20 +70,19 @@ public class HostDeviceOrientationProfile extends DeviceOrientationProfile {
             // イベントの解除
             EventError error = EventManager.INSTANCE.removeEvent(request);
             if (error == EventError.NONE) {
-                
+
                 ((HostDeviceService) getContext()).unregisterDeviceOrientationEvent(response);
                 return false;
-                
+
             } else {
                 MessageUtils.setError(response, ERROR_VALUE_IS_NULL, "Can not unregister event.");
                 return true;
 
-            } 
+            }
         }
         return true;
     }
-    
-    
+
     /**
      * デバイスIDをチェックする.
      * 
@@ -109,7 +103,7 @@ public class HostDeviceOrientationProfile extends DeviceOrientationProfile {
      * @param response レスポンスを格納するIntent
      */
     private void createEmptyDeviceId(final Intent response) {
-     
+
         MessageUtils.setEmptyDeviceIdError(response);
     }
 

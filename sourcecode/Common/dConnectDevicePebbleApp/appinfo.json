@@ -2,9 +2,9 @@
   "uuid": "ecfbe3b5-65f4-4532-be4e-3d013058d1f5",
   "shortName": "PebbleApp",
   "longName": "dConnectPebbleApp",
-  "companyName": "GClue,Inc.",
+  "companyName": "NTT DOCOMO, INC.",
   "versionCode": 1,
-  "versionLabel": "1.0.0",
+  "versionLabel": "1.0",
   "watchapp": {
     "watchface": false
   },

@@ -15,10 +15,10 @@
  */
 static uint32_t vib_data[VIBRATION_PATTERN_SIZE];
 
-/*!
- @brief Vibrationのパターン数。
- */
-static int vib_len = 0;
+///*!
+// @brief Vibrationのパターン数。
+// */
+//static int vib_len = 0;
 
 /*!
  @brief 指定されたデータのオフセットから4byteをintとして読み込む。
@@ -56,7 +56,7 @@ static int vibration_parse_pattern(char *data, int len) {
     return VIB_PATTERN_OK;
 }
 
-static void in_received_put_vibration_handler(DictionaryIterator *received, DictionaryIterator *iter) {
+static void in_received_put_vibration_handler(DictionaryIterator *received) {
     DBG_LOG(APP_LOG_LEVEL_DEBUG, "in_received_put_vibration_handler");
 
     Tuple *attributeTuple = dict_find(received, KEY_ATTRIBUTE);
@@ -74,7 +74,7 @@ static void in_received_put_vibration_handler(DictionaryIterator *received, Dict
             } else {
                 char *pattern = (char *) patternTuple->value->data;
                 if (vibration_parse_pattern(pattern, length) == VIB_PATTERN_ERROR) {
-                    pebble_set_error_code(iter, ERROR_ILLEGAL_PARAMETER);
+                    pebble_set_error_code(ERROR_ILLEGAL_PARAMETER);
                 } else {
                     VibePattern pat = {
                         .durations = vib_data,
@@ -88,12 +88,12 @@ static void in_received_put_vibration_handler(DictionaryIterator *received, Dict
     }   break;
     default:
         // not support
-        pebble_set_error_code(iter, ERROR_NOT_SUPPORT_ATTRIBUTE);
+        pebble_set_error_code(ERROR_NOT_SUPPORT_ATTRIBUTE);
         break;
     }
 }
 
-static void in_received_delete_vibration_handler(DictionaryIterator *received, DictionaryIterator *iter) {
+static void in_received_delete_vibration_handler(DictionaryIterator *received) {
     DBG_LOG(APP_LOG_LEVEL_DEBUG, "in_received_delete_vibration_handler");
 
     Tuple *attributeTuple = dict_find(received, KEY_ATTRIBUTE);
@@ -103,27 +103,27 @@ static void in_received_delete_vibration_handler(DictionaryIterator *received, D
     }   break;
     default:
         // not support
-        pebble_set_error_code(iter, ERROR_NOT_SUPPORT_ATTRIBUTE);
+        pebble_set_error_code(ERROR_NOT_SUPPORT_ATTRIBUTE);
         break;
     }
 }
 
-int in_received_vibration_handler(DictionaryIterator *received, DictionaryIterator *iter) {
+int in_received_vibration_handler(DictionaryIterator *received) {
     DBG_LOG(APP_LOG_LEVEL_DEBUG, "in_received_vibration_handler");
 
     Tuple *actionTuple = dict_find(received, KEY_ACTION);
     switch (actionTuple->value->uint8) {
     case ACTION_PUT:
-        in_received_put_vibration_handler(received, iter);
+        in_received_put_vibration_handler(received);
         break;
     case ACTION_DELETE:
-        in_received_delete_vibration_handler(received, iter);
+        in_received_delete_vibration_handler(received);
         break;
     case ACTION_GET:
     case ACTION_POST:
     default:
         // not support.
-        pebble_set_error_code(iter, ERROR_NOT_SUPPORT_ACTION);
+        pebble_set_error_code(ERROR_NOT_SUPPORT_ACTION);
         break;
     }
     return RETURN_SYNC;

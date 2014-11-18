@@ -76,8 +76,8 @@ didReceiveDeleteVibrateRequest:(DConnectRequestMessage *)request
                       response:(DConnectResponseMessage *)response
                       deviceId:(NSString *)deviceId
 {
-    // MARK: AudioServicesPlaySystemSound()が1つのサウンドしか再生できない実装仕様を再生停止に利用できないだろうか。
-    // 例えば、AudioServicesPlaySystemSound()への引数に0を指定したら止まったりするのか？もしくは長さ0のサウンドファイルを指定すると止まる？
+    // MARK: AudioServicesPlaySystemSound()が1つのサウンドしか再生できない実装仕様を再生停止に利用できないか。
+    // 例えば、AudioServicesPlaySystemSound()への引数に0を指定したら止まったりするか？もしくは長さ0のサウンドファイルを指定すると止まる
     [response setErrorToNotSupportProfileWithMessage:@"Vibration Stop API is not supported."];
     return YES;
 }

@@ -41,6 +41,18 @@ public interface SWConstants {
      */
     String APP_NAME_SMART_WATCH_2 = "SmartWatch 2 アプリ";
     /**
+     * SWのデバイス名のプレフィックス.
+     */
+    String DEVICE_NAME_PREFIX = "SmartWatch";
+    /**
+     * SW1を示すBluetoothデバイス名.
+     */
+    String DEVICE_NAME_SMART_WATCH = "SmartWatch";
+    /**
+     * SW2を示すBluetoothデバイス名.
+     */
+    String DEVICE_NAME_SMART_WATCH_2 = "SmartWatch 2";
+    /**
      * エクステンションキー.
      */
     String EXTENSION_KEY_PREF = "EXTENSION_KEY_PREF";
@@ -53,7 +65,7 @@ public interface SWConstants {
      */
     String EXTRA_SW_MODEL = "sw.model";
     /**
-     * ターゲットモデル(アンノウン).
+     * ターゲットモデル(不明).
      */
     int SW_MODEL_UNKNOWN = 0;
     /**
@@ -65,25 +77,17 @@ public interface SWConstants {
      */
     int SW_MODEL_SW2 = 2;
     /**
-     * チュートリアル画面数.
+     * 設定画面のページ数.
      */
     int TUTORIAL_PAGE_NNMBER = 4;
     /**
-     * デフォルトバイブレーション鳴動時間. ミリ秒
+     * デフォルトバイブレーション鳴動時間. 単位はミリ秒.
      */
     int DEFAULT_VIBRATION_TIME = 6000;
     /**
-     * 最大バイブレーション鳴動時間. ミリ秒
+     * 最大バイブレーション鳴動時間. 単位はミリ秒.
      */
     int MAX_VIBRATION_TIME = 60000;
-    /**
-     * デフォルト画面サイズ(横).
-     */
-    int DEFAULT_DISPLAY_WIDTH = 220;
-    /**
-     * デフォルト画面サイズ(縦).
-     */
-    int DEFAULT_DISPLAY_HEIGHT = 176;
     /**
      * バッファサイズ.
      */
@@ -97,7 +101,7 @@ public interface SWConstants {
      */
     Bitmap.Config DEFAULT_BITMAP_CONFIG = Bitmap.Config.RGB_565;
     /**
-     * 加速度取得用デフォルトインターバル.
+     * 加速度取得用デフォルトインターバル. 単位はミリ秒.
      */
-    int DEFAULT_SENSOR_INTERVAL = 1000;
+    long DEFAULT_SENSOR_INTERVAL = 1000;
 }

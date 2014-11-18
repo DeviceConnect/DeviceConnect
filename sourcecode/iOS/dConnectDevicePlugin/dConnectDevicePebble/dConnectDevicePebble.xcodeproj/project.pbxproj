@@ -24,52 +24,26 @@
 
 /* Begin PBXBuildFile section */
 		44407BE91998B78C00E9B751 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44407BE81998B78C00E9B751 /* Foundation.framework */; };
-		44407BF71998B78C00E9B751 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44407BF61998B78C00E9B751 /* XCTest.framework */; };
-		44407BF81998B78C00E9B751 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44407BE81998B78C00E9B751 /* Foundation.framework */; };
-		44407C031998B78C00E9B751 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44407C011998B78C00E9B751 /* InfoPlist.strings */; };
-		44407C051998B78C00E9B751 /* dConnectDevicePebbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44407C041998B78C00E9B751 /* dConnectDevicePebbleTests.m */; };
 		44407C2C1998BE4E00E9B751 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44407C2B1998BE4E00E9B751 /* CoreFoundation.framework */; };
 		44407C321998BE4E00E9B751 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44407C301998BE4E00E9B751 /* InfoPlist.strings */; };
 		4450063419BD4D5100C9FF54 /* DPPebbleDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450060919BD4D5100C9FF54 /* DPPebbleDevicePlugin.m */; };
-		4450063519BD4D5100C9FF54 /* DPPebbleDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450060919BD4D5100C9FF54 /* DPPebbleDevicePlugin.m */; };
 		4450063619BD4D5100C9FF54 /* DPPebbleBatteryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450060D19BD4D5100C9FF54 /* DPPebbleBatteryProfile.m */; };
-		4450063719BD4D5100C9FF54 /* DPPebbleBatteryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450060D19BD4D5100C9FF54 /* DPPebbleBatteryProfile.m */; };
 		4450063819BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450060F19BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m */; };
-		4450063919BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450060F19BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m */; };
 		4450063A19BD4D5100C9FF54 /* DPPebbleFileProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061119BD4D5100C9FF54 /* DPPebbleFileProfile.m */; };
-		4450063B19BD4D5100C9FF54 /* DPPebbleFileProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061119BD4D5100C9FF54 /* DPPebbleFileProfile.m */; };
-		4450063C19BD4D5100C9FF54 /* DPPebbleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061319BD4D5100C9FF54 /* DPPebbleManager.m */; };
-		4450063D19BD4D5100C9FF54 /* DPPebbleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061319BD4D5100C9FF54 /* DPPebbleManager.m */; };
 		4450063E19BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061519BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m */; };
-		4450063F19BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061519BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m */; };
 		4450064019BD4D5100C9FF54 /* DPPebbleNotificationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061719BD4D5100C9FF54 /* DPPebbleNotificationProfile.m */; };
-		4450064119BD4D5100C9FF54 /* DPPebbleNotificationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061719BD4D5100C9FF54 /* DPPebbleNotificationProfile.m */; };
 		4450064219BD4D5100C9FF54 /* DPPebbleSettingsProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061919BD4D5100C9FF54 /* DPPebbleSettingsProfile.m */; };
-		4450064319BD4D5100C9FF54 /* DPPebbleSettingsProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061919BD4D5100C9FF54 /* DPPebbleSettingsProfile.m */; };
 		4450064419BD4D5100C9FF54 /* DPPebbleSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061B19BD4D5100C9FF54 /* DPPebbleSystemProfile.m */; };
-		4450064519BD4D5100C9FF54 /* DPPebbleSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061B19BD4D5100C9FF54 /* DPPebbleSystemProfile.m */; };
 		4450064619BD4D5100C9FF54 /* DPPebbleVibrationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061D19BD4D5100C9FF54 /* DPPebbleVibrationProfile.m */; };
-		4450064719BD4D5100C9FF54 /* DPPebbleVibrationProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450061D19BD4D5100C9FF54 /* DPPebbleVibrationProfile.m */; };
-		4450064819BD4D5100C9FF54 /* DPPbiImageStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062019BD4D5100C9FF54 /* DPPbiImageStream.m */; };
-		4450064919BD4D5100C9FF54 /* DPPbiImageStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062019BD4D5100C9FF54 /* DPPbiImageStream.m */; };
 		4450064A19BD4D5100C9FF54 /* PebbleSettingView01Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062319BD4D5100C9FF54 /* PebbleSettingView01Controller.m */; };
-		4450064B19BD4D5100C9FF54 /* PebbleSettingView01Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062319BD4D5100C9FF54 /* PebbleSettingView01Controller.m */; };
 		4450064C19BD4D5100C9FF54 /* PebbleSettingView02Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062519BD4D5100C9FF54 /* PebbleSettingView02Controller.m */; };
-		4450064D19BD4D5100C9FF54 /* PebbleSettingView02Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062519BD4D5100C9FF54 /* PebbleSettingView02Controller.m */; };
 		4450064E19BD4D5100C9FF54 /* PebbleSettingView03Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062719BD4D5100C9FF54 /* PebbleSettingView03Controller.m */; };
-		4450064F19BD4D5100C9FF54 /* PebbleSettingView03Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062719BD4D5100C9FF54 /* PebbleSettingView03Controller.m */; };
 		4450065019BD4D5100C9FF54 /* PebbleSettingView04Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062919BD4D5100C9FF54 /* PebbleSettingView04Controller.m */; };
-		4450065119BD4D5100C9FF54 /* PebbleSettingView04Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062919BD4D5100C9FF54 /* PebbleSettingView04Controller.m */; };
 		4450065219BD4D5100C9FF54 /* PebbleSettingView05Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062B19BD4D5100C9FF54 /* PebbleSettingView05Controller.m */; };
-		4450065319BD4D5100C9FF54 /* PebbleSettingView05Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062B19BD4D5100C9FF54 /* PebbleSettingView05Controller.m */; };
 		4450065419BD4D5100C9FF54 /* PebbleSettingView06Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062D19BD4D5100C9FF54 /* PebbleSettingView06Controller.m */; };
-		4450065519BD4D5100C9FF54 /* PebbleSettingView06Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062D19BD4D5100C9FF54 /* PebbleSettingView06Controller.m */; };
 		4450065619BD4D5100C9FF54 /* PebbleDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062F19BD4D5100C9FF54 /* PebbleDataViewController.m */; };
-		4450065719BD4D5100C9FF54 /* PebbleDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450062F19BD4D5100C9FF54 /* PebbleDataViewController.m */; };
 		4450065819BD4D5100C9FF54 /* PebbleModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450063119BD4D5100C9FF54 /* PebbleModelController.m */; };
-		4450065919BD4D5100C9FF54 /* PebbleModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450063119BD4D5100C9FF54 /* PebbleModelController.m */; };
 		4450065A19BD4D5100C9FF54 /* PebbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450063319BD4D5100C9FF54 /* PebbleViewController.m */; };
-		4450065B19BD4D5100C9FF54 /* PebbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450063319BD4D5100C9FF54 /* PebbleViewController.m */; };
 		4450A7FC19C021250074B38A /* dConnectDevicePebble.pbw in Resources */ = {isa = PBXBuildFile; fileRef = 4450A7FB19C021250074B38A /* dConnectDevicePebble.pbw */; };
 		44A1FEF119CBE37800A70BB4 /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A1FEF019CBE37800A70BB4 /* DConnectSDK.framework */; };
 		44A4A9F219C1986C0050A0AA /* img01.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A4A9ED19C1986C0050A0AA /* img01.png */; };
@@ -78,19 +52,15 @@
 		44A4A9F519C1986C0050A0AA /* img04.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A4A9F019C1986C0050A0AA /* img04.png */; };
 		44A4A9F619C1986C0050A0AA /* img05.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A4A9F119C1986C0050A0AA /* img05.png */; };
 		44A4A9F819C198930050A0AA /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A4A9F719C198930050A0AA /* Download_on_the_App_Store_Badge_US-UK_135x40.png */; };
+		7824549019F9DAFF009311EC /* DPPebbleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7824548F19F9DAFF009311EC /* DPPebbleManager.m */; };
+		783D47B019FA2CBB001C6CD9 /* DPPebbleProfileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D47AF19FA2CBB001C6CD9 /* DPPebbleProfileUtil.m */; };
+		783D47B319FA3CB9001C6CD9 /* DPPebbleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D47B219FA3CB9001C6CD9 /* DPPebbleImage.m */; };
 		ABCE5F5819AB38C00040EE10 /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABCE5F5719AB38C00040EE10 /* PebbleKit.framework */; };
 		BE066B5919A8532700CBED07 /* dConnectDevicePebble_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE066B5819A8532700CBED07 /* dConnectDevicePebble_iPhone.storyboard */; };
 		BE066B5B19A8537A00CBED07 /* dConnectDevicePebble_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE066B5A19A8537A00CBED07 /* dConnectDevicePebble_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		44407BFB1998B78C00E9B751 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 44407BDD1998B78C00E9B751 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 44407BE41998B78C00E9B751;
-			remoteInfo = dConnectDevicePebble;
-		};
 		44C084A319B0418900C3014E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44407BDD1998B78C00E9B751 /* Project object */;
@@ -122,8 +92,6 @@
 /* Begin PBXFileReference section */
 		44407BE51998B78C00E9B751 /* libdConnectDevicePebble.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdConnectDevicePebble.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		44407BE81998B78C00E9B751 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		44407BF51998B78C00E9B751 /* dConnectDevicePebbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dConnectDevicePebbleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44407BF61998B78C00E9B751 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		44407C001998B78C00E9B751 /* dConnectDevicePebbleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dConnectDevicePebbleTests-Info.plist"; sourceTree = "<group>"; };
 		44407C021998B78C00E9B751 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44407C041998B78C00E9B751 /* dConnectDevicePebbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dConnectDevicePebbleTests.m; sourceTree = "<group>"; };
@@ -141,8 +109,6 @@
 		4450060F19BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleDeviceOrientationProfile.m; sourceTree = "<group>"; };
 		4450061019BD4D5100C9FF54 /* DPPebbleFileProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleFileProfile.h; sourceTree = "<group>"; };
 		4450061119BD4D5100C9FF54 /* DPPebbleFileProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleFileProfile.m; sourceTree = "<group>"; };
-		4450061219BD4D5100C9FF54 /* DPPebbleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleManager.h; sourceTree = "<group>"; };
-		4450061319BD4D5100C9FF54 /* DPPebbleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleManager.m; sourceTree = "<group>"; };
 		4450061419BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleNetworkServiceDiscoveryProfile.h; sourceTree = "<group>"; };
 		4450061519BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleNetworkServiceDiscoveryProfile.m; sourceTree = "<group>"; };
 		4450061619BD4D5100C9FF54 /* DPPebbleNotificationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleNotificationProfile.h; sourceTree = "<group>"; };
@@ -153,8 +119,6 @@
 		4450061B19BD4D5100C9FF54 /* DPPebbleSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleSystemProfile.m; sourceTree = "<group>"; };
 		4450061C19BD4D5100C9FF54 /* DPPebbleVibrationProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleVibrationProfile.h; sourceTree = "<group>"; };
 		4450061D19BD4D5100C9FF54 /* DPPebbleVibrationProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleVibrationProfile.m; sourceTree = "<group>"; };
-		4450061F19BD4D5100C9FF54 /* DPPbiImageStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPbiImageStream.h; sourceTree = "<group>"; };
-		4450062019BD4D5100C9FF54 /* DPPbiImageStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPbiImageStream.m; sourceTree = "<group>"; };
 		4450062219BD4D5100C9FF54 /* PebbleSettingView01Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PebbleSettingView01Controller.h; sourceTree = "<group>"; };
 		4450062319BD4D5100C9FF54 /* PebbleSettingView01Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PebbleSettingView01Controller.m; sourceTree = "<group>"; };
 		4450062419BD4D5100C9FF54 /* PebbleSettingView02Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PebbleSettingView02Controller.h; sourceTree = "<group>"; };
@@ -181,6 +145,12 @@
 		44A4A9F019C1986C0050A0AA /* img04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img04.png; sourceTree = "<group>"; };
 		44A4A9F119C1986C0050A0AA /* img05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img05.png; sourceTree = "<group>"; };
 		44A4A9F719C198930050A0AA /* Download_on_the_App_Store_Badge_US-UK_135x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Download_on_the_App_Store_Badge_US-UK_135x40.png"; sourceTree = "<group>"; };
+		7824548E19F9DAFF009311EC /* DPPebbleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleManager.h; sourceTree = "<group>"; };
+		7824548F19F9DAFF009311EC /* DPPebbleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleManager.m; sourceTree = "<group>"; };
+		783D47AE19FA2CBB001C6CD9 /* DPPebbleProfileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleProfileUtil.h; sourceTree = "<group>"; };
+		783D47AF19FA2CBB001C6CD9 /* DPPebbleProfileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleProfileUtil.m; sourceTree = "<group>"; };
+		783D47B119FA3CB9001C6CD9 /* DPPebbleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPebbleImage.h; sourceTree = "<group>"; };
+		783D47B219FA3CB9001C6CD9 /* DPPebbleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPebbleImage.m; sourceTree = "<group>"; };
 		ABCE5F5719AB38C00040EE10 /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleKit.framework; sourceTree = "<group>"; };
 		BE066B5819A8532700CBED07 /* dConnectDevicePebble_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = dConnectDevicePebble_iPhone.storyboard; sourceTree = "<group>"; };
 		BE066B5A19A8537A00CBED07 /* dConnectDevicePebble_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = dConnectDevicePebble_iPad.storyboard; sourceTree = "<group>"; };
@@ -194,15 +164,6 @@
 				44407BE91998B78C00E9B751 /* Foundation.framework in Frameworks */,
 				ABCE5F5819AB38C00040EE10 /* PebbleKit.framework in Frameworks */,
 				44A1FEF119CBE37800A70BB4 /* DConnectSDK.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		44407BF21998B78C00E9B751 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				44407BF71998B78C00E9B751 /* XCTest.framework in Frameworks */,
-				44407BF81998B78C00E9B751 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				44407BE51998B78C00E9B751 /* libdConnectDevicePebble.a */,
-				44407BF51998B78C00E9B751 /* dConnectDevicePebbleTests.xctest */,
 				44407C2A1998BE4E00E9B751 /* dConnectDevicePebble_resources.bundle */,
 			);
 			name = Products;
@@ -244,7 +204,6 @@
 				44A1FEF019CBE37800A70BB4 /* DConnectSDK.framework */,
 				ABCE5F5719AB38C00040EE10 /* PebbleKit.framework */,
 				44407BE81998B78C00E9B751 /* Foundation.framework */,
-				44407BF61998B78C00E9B751 /* XCTest.framework */,
 				44407C2B1998BE4E00E9B751 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
@@ -312,6 +271,10 @@
 			children = (
 				4450060819BD4D5100C9FF54 /* DPPebbleDevicePlugin.h */,
 				4450060919BD4D5100C9FF54 /* DPPebbleDevicePlugin.m */,
+				7824548E19F9DAFF009311EC /* DPPebbleManager.h */,
+				7824548F19F9DAFF009311EC /* DPPebbleManager.m */,
+				783D47B119FA3CB9001C6CD9 /* DPPebbleImage.h */,
+				783D47B219FA3CB9001C6CD9 /* DPPebbleImage.m */,
 				4450060B19BD4D5100C9FF54 /* profile */,
 				4450061E19BD4D5100C9FF54 /* settings */,
 			);
@@ -321,24 +284,24 @@
 		4450060B19BD4D5100C9FF54 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				783D47AE19FA2CBB001C6CD9 /* DPPebbleProfileUtil.h */,
+				783D47AF19FA2CBB001C6CD9 /* DPPebbleProfileUtil.m */,
+				4450061419BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.h */,
+				4450061519BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m */,
 				4450060C19BD4D5100C9FF54 /* DPPebbleBatteryProfile.h */,
 				4450060D19BD4D5100C9FF54 /* DPPebbleBatteryProfile.m */,
 				4450060E19BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.h */,
 				4450060F19BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m */,
-				4450061019BD4D5100C9FF54 /* DPPebbleFileProfile.h */,
-				4450061119BD4D5100C9FF54 /* DPPebbleFileProfile.m */,
-				4450061219BD4D5100C9FF54 /* DPPebbleManager.h */,
-				4450061319BD4D5100C9FF54 /* DPPebbleManager.m */,
-				4450061419BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.h */,
-				4450061519BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m */,
 				4450061619BD4D5100C9FF54 /* DPPebbleNotificationProfile.h */,
 				4450061719BD4D5100C9FF54 /* DPPebbleNotificationProfile.m */,
 				4450061819BD4D5100C9FF54 /* DPPebbleSettingsProfile.h */,
 				4450061919BD4D5100C9FF54 /* DPPebbleSettingsProfile.m */,
-				4450061A19BD4D5100C9FF54 /* DPPebbleSystemProfile.h */,
-				4450061B19BD4D5100C9FF54 /* DPPebbleSystemProfile.m */,
 				4450061C19BD4D5100C9FF54 /* DPPebbleVibrationProfile.h */,
 				4450061D19BD4D5100C9FF54 /* DPPebbleVibrationProfile.m */,
+				4450061A19BD4D5100C9FF54 /* DPPebbleSystemProfile.h */,
+				4450061B19BD4D5100C9FF54 /* DPPebbleSystemProfile.m */,
+				4450061019BD4D5100C9FF54 /* DPPebbleFileProfile.h */,
+				4450061119BD4D5100C9FF54 /* DPPebbleFileProfile.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -346,8 +309,6 @@
 		4450061E19BD4D5100C9FF54 /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				4450061F19BD4D5100C9FF54 /* DPPbiImageStream.h */,
-				4450062019BD4D5100C9FF54 /* DPPbiImageStream.m */,
 				4450062119BD4D5100C9FF54 /* page */,
 				4450062E19BD4D5100C9FF54 /* PebbleDataViewController.h */,
 				4450062F19BD4D5100C9FF54 /* PebbleDataViewController.m */,
@@ -419,24 +380,6 @@
 			productReference = 44407BE51998B78C00E9B751 /* libdConnectDevicePebble.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		44407BF41998B78C00E9B751 /* dConnectDevicePebbleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 44407C0B1998B78C00E9B751 /* Build configuration list for PBXNativeTarget "dConnectDevicePebbleTests" */;
-			buildPhases = (
-				44407BF11998B78C00E9B751 /* Sources */,
-				44407BF21998B78C00E9B751 /* Frameworks */,
-				44407BF31998B78C00E9B751 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				44407BFC1998B78C00E9B751 /* PBXTargetDependency */,
-			);
-			name = dConnectDevicePebbleTests;
-			productName = dConnectDevicePebbleTests;
-			productReference = 44407BF51998B78C00E9B751 /* dConnectDevicePebbleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		44407C291998BE4E00E9B751 /* dConnectDevicePebble_resources */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44407C341998BE4E00E9B751 /* Build configuration list for PBXNativeTarget "dConnectDevicePebble_resources" */;
@@ -476,7 +419,6 @@
 			projectRoot = "";
 			targets = (
 				44407BE41998B78C00E9B751 /* dConnectDevicePebble */,
-				44407BF41998B78C00E9B751 /* dConnectDevicePebbleTests */,
 				44407C391998C5C300E9B751 /* dConnectDevicePebble_framework */,
 				44407C291998BE4E00E9B751 /* dConnectDevicePebble_resources */,
 			);
@@ -484,14 +426,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		44407BF31998B78C00E9B751 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				44407C031998B78C00E9B751 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		44407C281998BE4E00E9B751 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,13 +467,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4450063819BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m in Sources */,
+				7824549019F9DAFF009311EC /* DPPebbleManager.m in Sources */,
 				4450063E19BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m in Sources */,
-				4450063C19BD4D5100C9FF54 /* DPPebbleManager.m in Sources */,
 				4450063419BD4D5100C9FF54 /* DPPebbleDevicePlugin.m in Sources */,
 				4450064219BD4D5100C9FF54 /* DPPebbleSettingsProfile.m in Sources */,
 				4450064419BD4D5100C9FF54 /* DPPebbleSystemProfile.m in Sources */,
 				4450065A19BD4D5100C9FF54 /* PebbleViewController.m in Sources */,
 				4450065219BD4D5100C9FF54 /* PebbleSettingView05Controller.m in Sources */,
+				783D47B319FA3CB9001C6CD9 /* DPPebbleImage.m in Sources */,
 				4450064A19BD4D5100C9FF54 /* PebbleSettingView01Controller.m in Sources */,
 				4450064619BD4D5100C9FF54 /* DPPebbleVibrationProfile.m in Sources */,
 				4450063619BD4D5100C9FF54 /* DPPebbleBatteryProfile.m in Sources */,
@@ -547,39 +482,11 @@
 				4450065419BD4D5100C9FF54 /* PebbleSettingView06Controller.m in Sources */,
 				4450065019BD4D5100C9FF54 /* PebbleSettingView04Controller.m in Sources */,
 				4450065819BD4D5100C9FF54 /* PebbleModelController.m in Sources */,
-				4450064819BD4D5100C9FF54 /* DPPbiImageStream.m in Sources */,
 				4450065619BD4D5100C9FF54 /* PebbleDataViewController.m in Sources */,
+				783D47B019FA2CBB001C6CD9 /* DPPebbleProfileUtil.m in Sources */,
 				4450063A19BD4D5100C9FF54 /* DPPebbleFileProfile.m in Sources */,
 				4450064E19BD4D5100C9FF54 /* PebbleSettingView03Controller.m in Sources */,
 				4450064019BD4D5100C9FF54 /* DPPebbleNotificationProfile.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		44407BF11998B78C00E9B751 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4450063919BD4D5100C9FF54 /* DPPebbleDeviceOrientationProfile.m in Sources */,
-				4450063B19BD4D5100C9FF54 /* DPPebbleFileProfile.m in Sources */,
-				4450063519BD4D5100C9FF54 /* DPPebbleDevicePlugin.m in Sources */,
-				4450064F19BD4D5100C9FF54 /* PebbleSettingView03Controller.m in Sources */,
-				4450064919BD4D5100C9FF54 /* DPPbiImageStream.m in Sources */,
-				4450065B19BD4D5100C9FF54 /* PebbleViewController.m in Sources */,
-				4450065119BD4D5100C9FF54 /* PebbleSettingView04Controller.m in Sources */,
-				4450063719BD4D5100C9FF54 /* DPPebbleBatteryProfile.m in Sources */,
-				4450063F19BD4D5100C9FF54 /* DPPebbleNetworkServiceDiscoveryProfile.m in Sources */,
-				44407C051998B78C00E9B751 /* dConnectDevicePebbleTests.m in Sources */,
-				4450065919BD4D5100C9FF54 /* PebbleModelController.m in Sources */,
-				4450064519BD4D5100C9FF54 /* DPPebbleSystemProfile.m in Sources */,
-				4450064B19BD4D5100C9FF54 /* PebbleSettingView01Controller.m in Sources */,
-				4450064319BD4D5100C9FF54 /* DPPebbleSettingsProfile.m in Sources */,
-				4450064719BD4D5100C9FF54 /* DPPebbleVibrationProfile.m in Sources */,
-				4450065519BD4D5100C9FF54 /* PebbleSettingView06Controller.m in Sources */,
-				4450065319BD4D5100C9FF54 /* PebbleSettingView05Controller.m in Sources */,
-				4450065719BD4D5100C9FF54 /* PebbleDataViewController.m in Sources */,
-				4450064D19BD4D5100C9FF54 /* PebbleSettingView02Controller.m in Sources */,
-				4450064119BD4D5100C9FF54 /* DPPebbleNotificationProfile.m in Sources */,
-				4450063D19BD4D5100C9FF54 /* DPPebbleManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,11 +500,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		44407BFC1998B78C00E9B751 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 44407BE41998B78C00E9B751 /* dConnectDevicePebble */;
-			targetProxy = 44407BFB1998B78C00E9B751 /* PBXContainerItemProxy */;
-		};
 		44C084A419B0418900C3014E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 44407C291998BE4E00E9B751 /* dConnectDevicePebble_resources */;
@@ -733,42 +635,6 @@
 			};
 			name = Release;
 		};
-		44407C0C1998B78C00E9B751 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "dConnectDevicePebble/dConnectDevicePebble-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "dConnectDevicePebbleTests/dConnectDevicePebbleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		44407C0D1998B78C00E9B751 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "dConnectDevicePebble/dConnectDevicePebble-Prefix.pch";
-				INFOPLIST_FILE = "dConnectDevicePebbleTests/dConnectDevicePebbleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		44407C351998BE4E00E9B751 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -855,15 +721,6 @@
 			buildConfigurations = (
 				44407C091998B78C00E9B751 /* Debug */,
 				44407C0A1998B78C00E9B751 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		44407C0B1998B78C00E9B751 /* Build configuration list for PBXNativeTarget "dConnectDevicePebbleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				44407C0C1998B78C00E9B751 /* Debug */,
-				44407C0D1998B78C00E9B751 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

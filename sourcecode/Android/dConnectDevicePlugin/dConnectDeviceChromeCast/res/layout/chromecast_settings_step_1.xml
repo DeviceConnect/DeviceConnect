@@ -5,49 +5,41 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_title"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin_title"
+            android:paddingTop="@dimen/margin_title"
+            android:text="@string/chromecast_settings_step_1_title"
+            android:textColor="@color/text_light"
+            android:textSize="@dimen/text_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="0sp" >
+            android:padding="@dimen/layout_margin" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@drawable/chromecast_img02" />
 
             <TextView
-                android:id="@+id/textViewNumber"
-                android:layout_width="match_parent"
+                android:id="@+id/chromecast_settings_step_1_description"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#00a0e9"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                android:text="@string/chromecast_settings_step_1_title"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp" >
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="center"
-                    android:src="@drawable/chromecast_img02" />
-
-                <TextView
-                    android:id="@+id/chromecast_settings_step_1_description"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/chromecast_settings_step_1_description"
-                    android:textColor="#666666" />
-            </LinearLayout>
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/chromecast_settings_step_1_description"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/text_description" />
         </LinearLayout>
     </LinearLayout>
 

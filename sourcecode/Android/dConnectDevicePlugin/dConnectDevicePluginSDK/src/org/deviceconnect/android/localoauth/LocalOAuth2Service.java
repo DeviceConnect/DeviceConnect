@@ -16,15 +16,14 @@ import android.os.IBinder;
  * @author NTT DOCOMO, INC.
  */
 public class LocalOAuth2Service extends Service {
-
-    /**
-     * ActivityからstartBind()が実行されたときに、この処理が実行されてBindされる.
-     * 
-     * @param intent Intent
-     * @return Binder
-     */
     @Override
     public IBinder onBind(final Intent intent) {
         return LocalOAuth2Main.onBind(intent);
+    }
+
+    @Override
+    public boolean onUnbind(final Intent intent) {
+        LocalOAuth2Main.onUnbind();
+        return super.onUnbind(intent);
     }
 }

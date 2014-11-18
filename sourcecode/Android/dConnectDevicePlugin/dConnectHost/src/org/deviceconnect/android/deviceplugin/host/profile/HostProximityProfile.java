@@ -15,6 +15,7 @@ import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.ProximityProfile;
 import org.deviceconnect.message.DConnectMessage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -29,21 +30,19 @@ import android.os.Bundle;
  */
 public class HostProximityProfile extends ProximityProfile implements SensorEventListener {
 
-    /** TAG. */
-    private static final String TAG = "HOST";
-
     /**
      * デバイスID.
      */
     private static String mDeviceId = "";
 
-    /** 
-     * Sensor Manager. 
+    /**
+     * Sensor Manager.
      */
     private SensorManager mSensorManagerProximity;
-    
+
     /**
      * デバイスIDをチェックする.
+     * 
      * @param deviceId デバイスID
      * @return <code>deviceId</code>がテスト用デバイスIDに等しい場合はtrue、そうでない場合はfalse
      */
@@ -89,32 +88,31 @@ public class HostProximityProfile extends ProximityProfile implements SensorEven
             createEmptySessionKey(response);
         } else {
             setResult(response, DConnectMessage.RESULT_OK);
-            
+
             // イベントの登録
             EventError error = EventManager.INSTANCE.addEvent(request);
-            
-            if (error == EventError.NONE) { 
-                //((HostDeviceService) getContext()).registerPromityEvent(response, deviceId, sessionKey);
+
+            if (error == EventError.NONE) {
                 mDeviceId = deviceId;
-                mSensorManagerProximity = (SensorManager) this.getContext()
-                                    .getSystemService(this.getContext().SENSOR_SERVICE);
+                this.getContext();
+                mSensorManagerProximity = (SensorManager) this.getContext().getSystemService(Context.SENSOR_SERVICE);
                 List<Sensor> sensors = mSensorManagerProximity.getSensorList(Sensor.TYPE_PROXIMITY);
 
                 if (sensors.size() > 0) {
                     Sensor sensor = sensors.get(0);
                     mSensorManagerProximity.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
                 }
-                
+
                 setResult(response, DConnectMessage.RESULT_OK);
-                
+
                 return true;
-                
+
             } else {
                 setResult(response, DConnectMessage.RESULT_ERROR);
-                
+
                 return true;
             }
-           
+
         }
         return true;
     }
@@ -133,34 +131,34 @@ public class HostProximityProfile extends ProximityProfile implements SensorEven
             EventError error = EventManager.INSTANCE.removeEvent(request);
             if (error == EventError.NONE) {
                 mSensorManagerProximity.unregisterListener(this);
-                
+
                 return false;
             } else {
                 MessageUtils.setError(response, 100, "Can not unregister event.");
                 return true;
             }
         }
-      
+
         return true;
     }
 
     @Override
     public void onSensorChanged(final SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-            
-            List<Event> events = EventManager.INSTANCE.getEventList(mDeviceId, 
+
+            List<Event> events = EventManager.INSTANCE.getEventList(mDeviceId,
                     ProximityProfile.PROFILE_NAME,
-                    null, 
+                    null,
                     ProximityProfile.ATTRIBUTE_ON_USER_PROXIMITY);
-            
+
             Bundle mProximityBundle = new Bundle();
-           
+
             if (sensorEvent.values[0] == 0.0) {
                 ProximityProfile.setNear(mProximityBundle, true);
             } else {
                 ProximityProfile.setNear(mProximityBundle, false);
             }
-            
+
             for (int i = 0; i < events.size(); i++) {
                 Event event = events.get(i);
                 Intent mIntent = EventManager.createEventMessage(event);
@@ -172,7 +170,7 @@ public class HostProximityProfile extends ProximityProfile implements SensorEven
 
     @Override
     public void onAccuracyChanged(final Sensor sensor, final int accuracy) {
-        
+        // No operation.
     }
 
 }

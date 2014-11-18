@@ -58,7 +58,6 @@
 		8428954519A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953B19A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m */; };
 		8428954619A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953C19A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m */; };
 		8428954719A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428953D19A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m */; };
-		84525F4C19CD557100F987E9 /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84525F4B19CD557100F987E9 /* DConnectSDK.framework */; };
 		845458A71998E5BE0017F06D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458A61998E5BE0017F06D /* libsqlite3.0.dylib */; };
 		845458A81998E5D50017F06D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 845458A61998E5BE0017F06D /* libsqlite3.0.dylib */; };
 		845458AE1998E9D50017F06D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 845458AC1998E9D50017F06D /* SRWebSocket.m */; };
@@ -91,6 +90,7 @@
 		84FA976119A615400053B2FD /* RESTfulFailVibrationProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA976019A615400053B2FD /* RESTfulFailVibrationProfileTest.m */; };
 		84FA976319A61A890053B2FD /* RESTfulFailProximityProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA976219A61A890053B2FD /* RESTfulFailProximityProfileTest.m */; };
 		84FF95A71998DCD500394D76 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FF95A61998DCD500394D76 /* AssetsLibrary.framework */; };
+		ABF842BC19E3E07300B8AC46 /* DConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF842BB19E3E07300B8AC46 /* DConnectSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,7 +162,6 @@
 		840DC9D019A71B9000CA2EA0 /* RESTfulFailFileProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailFileProfileTest.m; path = dConnectManager/RESTful/RESTfulFailFileProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		840DC9D219A7286700CA2EA0 /* RESTfulFailMediaPlayerProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailMediaPlayerProfileTest.m; path = dConnectManager/RESTful/RESTfulFailMediaPlayerProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		840DC9D419A7303200CA2EA0 /* RESTfulFailMediaStreamRecordingProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RESTfulFailMediaStreamRecordingProfileTest.m; path = dConnectManager/RESTful/RESTfulFailMediaStreamRecordingProfileTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		841B33EF19CAE962000278F7 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = "../../dConnectSDK/dConnectSDKForIOS/build/Release-framework/DConnectSDK.framework"; sourceTree = "<group>"; };
 		8428953519A2002500D9ECFF /* RESTfulNormalFileProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalFileProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalFileProfileTest.m; sourceTree = "<group>"; };
 		8428953619A2002500D9ECFF /* RESTfulNormalMediaPlayerProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalMediaPlayerProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalMediaPlayerProfileTest.m; sourceTree = "<group>"; };
 		8428953719A2002500D9ECFF /* RESTfulNormalMediaStreamRecordingProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalMediaStreamRecordingProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalMediaStreamRecordingProfileTest.m; sourceTree = "<group>"; };
@@ -172,8 +171,6 @@
 		8428953B19A2002500D9ECFF /* RESTfulNormalSettingsProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalSettingsProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalSettingsProfileTest.m; sourceTree = "<group>"; };
 		8428953C19A2002500D9ECFF /* RESTfulNormalSystemProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalSystemProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalSystemProfileTest.m; sourceTree = "<group>"; };
 		8428953D19A2002500D9ECFF /* RESTfulNormalVibrationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulNormalVibrationProfileTest.m; path = dConnectManager/RESTful/RESTfulNormalVibrationProfileTest.m; sourceTree = "<group>"; };
-		84525F4819CD471C00F987E9 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = "../../dConnectSDK/dConnectSDKForIOS/build/Debug-framework/DConnectSDK.framework"; sourceTree = "<group>"; };
-		84525F4B19CD557100F987E9 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = ../../dConnectSDK/dConnectSDKForIOS/bin/DConnectSDK.framework; sourceTree = "<group>"; };
 		845458A61998E5BE0017F06D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		845458AB1998E9D50017F06D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		845458AC1998E9D50017F06D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
@@ -215,6 +212,7 @@
 		84FA976019A615400053B2FD /* RESTfulFailVibrationProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailVibrationProfileTest.m; path = dConnectManager/RESTful/RESTfulFailVibrationProfileTest.m; sourceTree = "<group>"; };
 		84FA976219A61A890053B2FD /* RESTfulFailProximityProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTfulFailProximityProfileTest.m; path = dConnectManager/RESTful/RESTfulFailProximityProfileTest.m; sourceTree = "<group>"; };
 		84FF95A61998DCD500394D76 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		ABF842BB19E3E07300B8AC46 /* DConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DConnectSDK.framework; path = ../../dConnectSDK/dConnectSDKForIOS/bin/DConnectSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +222,7 @@
 			files = (
 				845458A81998E5D50017F06D /* libsqlite3.0.dylib in Frameworks */,
 				309CD51C198B2CCE002A5684 /* Foundation.framework in Frameworks */,
+				ABF842BC19E3E07300B8AC46 /* DConnectSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +230,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84525F4C19CD557100F987E9 /* DConnectSDK.framework in Frameworks */,
 				6B859FCC19C6E9D100EC5A8F /* libdConnectDeviceTest.a in Frameworks */,
 				845458B61998EA520017F06D /* Security.framework in Frameworks */,
 				845458B41998EA450017F06D /* CFNetwork.framework in Frameworks */,
@@ -268,9 +266,7 @@
 		309CD51A198B2CCE002A5684 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84525F4B19CD557100F987E9 /* DConnectSDK.framework */,
-				84525F4819CD471C00F987E9 /* DConnectSDK.framework */,
-				841B33EF19CAE962000278F7 /* DConnectSDK.framework */,
+				ABF842BB19E3E07300B8AC46 /* DConnectSDK.framework */,
 				84EBE7E919B6EE480089AD35 /* UIKit.framework */,
 				845458B51998EA520017F06D /* Security.framework */,
 				845458B31998EA450017F06D /* CFNetwork.framework */,
@@ -745,19 +741,14 @@
 				DSTROOT = /tmp/dConnectDeviceTest.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/abe/Documents/project/2014/dconnect/project/ios/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
-					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
-					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dConnectDeviceTest/dConnectDeviceTest-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-iphoneos",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-iphoneos",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -772,19 +763,14 @@
 				DSTROOT = /tmp/dConnectDeviceTest.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/abe/Documents/project/2014/dconnect/project/ios/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
-					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
-					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dConnectDeviceTest/dConnectDeviceTest-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-iphoneos",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-iphoneos",
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -800,10 +786,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
-					/Users/mtaka/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
-					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
@@ -837,10 +820,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Debug-framework",
-					/Users/mtaka/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
-					"/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/build/Release-framework",
-					/Users/admin/projects/dConnect/iOS/dConnectSDK/dConnectSDKForIOS/bin,
+					"$(PROJECT_DIR)/../../dConnectSDK/dConnectSDKForIOS/bin",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;

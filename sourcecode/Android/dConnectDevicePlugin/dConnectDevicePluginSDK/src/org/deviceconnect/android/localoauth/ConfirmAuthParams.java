@@ -65,7 +65,7 @@ package org.deviceconnect.android.localoauth;
 public class ConfirmAuthParams {
 
     /** コンテキスト. */
-    private android.content.Context mCcontext;
+    private android.content.Context mContext;
 
     /** アプリケーション名. */
     private String mApplicationName;
@@ -85,12 +85,11 @@ public class ConfirmAuthParams {
     /** デバイスプラグイン用の承認確認画面か.　 */
     private boolean mIsForDevicePlugin;
 
-
     /**
      * コンストラクタ.
      */
     public ConfirmAuthParams() {
-        mCcontext = null;
+        mContext = null;
         mApplicationName = null;
         mClientId = null;
         mGrantType = null;
@@ -98,16 +97,15 @@ public class ConfirmAuthParams {
         mScope = null;
         mIsForDevicePlugin = true;
     }
-    
+
     /**
      * コンストラクタ.
      * 
-     * @param builder
-     *            ビルダー。
+     * @param builder ビルダー
      */
     private ConfirmAuthParams(final Builder builder) {
         // Builderを用いるためprivateに設定。
-        this.mCcontext = builder.mCcontext;
+        this.mContext = builder.mContext;
         this.mApplicationName = builder.mApplicationName;
         this.mClientId = builder.mClientId;
         this.mGrantType = builder.mGrantType;
@@ -122,7 +120,7 @@ public class ConfirmAuthParams {
      * @return Context
      */
     public android.content.Context getContext() {
-        return mCcontext;
+        return mContext;
     }
 
     /**
@@ -131,7 +129,7 @@ public class ConfirmAuthParams {
      * @param context Context
      */
     public void setContext(final android.content.Context context) {
-        this.mCcontext = context;
+        this.mContext = context;
     }
 
     /**
@@ -248,7 +246,7 @@ public class ConfirmAuthParams {
     public static final class Builder {
         
         /** コンテキスト. */
-        private android.content.Context mCcontext;
+        private android.content.Context mContext;
 
         /** アプリケーション名. */
         private String mApplicationName;
@@ -267,30 +265,24 @@ public class ConfirmAuthParams {
 
         /** デバイスプラグイン用の承認確認画面か.　 */
         private boolean mIsForDevicePlugin;
-        
-        
+
         /**
          * ConfirmAuthParamsのインスタンスを設定された設定値で生成する.
          * 
          * @return ConfirmAuthParamsのインスタンス。
          */
         public ConfirmAuthParams build() {
-            
-            if (mCcontext == null) {
-                throw new IllegalArgumentException(
-                        "mCcontext must be not null.");
+
+            if (mContext == null) {
+                throw new IllegalArgumentException("mCcontext must be not null.");
             } else if (mApplicationName == null) {
-                throw new IllegalArgumentException(
-                        "mApplicationName must be not null.");
+                throw new IllegalArgumentException("mApplicationName must be not null.");
             } else if (mClientId == null) {
-                throw new IllegalArgumentException(
-                        "mClientId must be not null.");
+                throw new IllegalArgumentException("mClientId must be not null.");
             } else if (mGrantType == null) {
-                throw new IllegalArgumentException(
-                        "mGrantType must be not null.");
+                throw new IllegalArgumentException("mGrantType must be not null.");
             } else if (mScope == null) {
-                throw new IllegalArgumentException(
-                        "mScopes must be not null.");
+                throw new IllegalArgumentException("mScopes must be not null.");
             }
 
             return new ConfirmAuthParams(this);
@@ -298,17 +290,17 @@ public class ConfirmAuthParams {
         
         /**
          * コンテキストを設定する.
-         * @param context   コンテキスト
+         * @param context コンテキスト
          * @return ビルダー。
          */
         public Builder context(final android.content.Context context) {
-            mCcontext = context;
+            mContext = context;
             return this;
         }
         
         /**
          * アプリケーション名を設定する.
-         * @param applicationName   アプリケーション名
+         * @param applicationName アプリケーション名
          * @return ビルダー。
          */
         public Builder applicationName(final String applicationName) {
@@ -318,7 +310,7 @@ public class ConfirmAuthParams {
 
         /**
          * クライアントIDを設定する.
-         * @param clientId   クライアントID
+         * @param clientId クライアントID
          * @return ビルダー。
          */
         public Builder clientId(final String clientId) {
@@ -328,7 +320,7 @@ public class ConfirmAuthParams {
 
         /**
          * グラントタイプを設定する.
-         * @param grantType   グラントタイプ
+         * @param grantType グラントタイプ
          * @return ビルダー。
          */
         public Builder grantType(final String grantType) {
@@ -338,7 +330,7 @@ public class ConfirmAuthParams {
 
         /**
          * デバイスIDを設定する(デバイスプラグイン用の場合のみ設定する).
-         * @param deviceId   デバイスID
+         * @param deviceId デバイスID
          * @return ビルダー。
          */
         public Builder deviceId(final String deviceId) {
@@ -358,14 +350,12 @@ public class ConfirmAuthParams {
 
         /**
          * デバイスプラグイン用の承認確認画面か.
-         * @param isForDevicePlugin   デバイスプラグイン用の承認確認画面ならtrueを、アプリ用ならfalseを設定する。
+         * @param isForDevicePlugin デバイスプラグイン用の承認確認画面ならtrueを、アプリ用ならfalseを設定する。
          * @return ビルダー。
          */
         public Builder isForDevicePlugin(final boolean isForDevicePlugin) {
             mIsForDevicePlugin = isForDevicePlugin;
             return this;
         }
-        
     }
-
 }

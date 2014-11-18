@@ -12,18 +12,15 @@ import org.deviceconnect.android.event.EventManager;
 import org.deviceconnect.android.message.MessageUtils;
 import org.deviceconnect.android.profile.FileDescriptorProfile;
 import org.deviceconnect.message.DConnectMessage;
-import org.deviceconnect.profile.FileDescriptorProfileConstants.Flag;
 
 import android.content.Intent;
 
 /**
  * FileDescriptorプロファイル.
+ * 
  * @author NTT DOCOMO, INC.
  */
 public class HostFileDescriptorProfile extends FileDescriptorProfile {
-
-    /** Debug Tag. */
-    private static final String TAG = "HOST";
 
     /** Error. */
     private static final int ERROR_VALUE_IS_NULL = 100;
@@ -37,6 +34,8 @@ public class HostFileDescriptorProfile extends FileDescriptorProfile {
             createNotFoundDevice(response);
         } else if (path == null || flag == Flag.UNKNOWN) {
             MessageUtils.setInvalidRequestParameterError(response);
+        } else if (path.trim().equals("") || path.trim().equals("/")) {
+            MessageUtils.setUnknownError(response, "not found:" + path);
         } else {
             ((HostDeviceService) getContext()).openFile(response, deviceId, path, flag);
             return false;
@@ -54,14 +53,18 @@ public class HostFileDescriptorProfile extends FileDescriptorProfile {
         } else if (path == null || length == null || length < 0 || (position != null && position < 0)) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
-            ((HostDeviceService) getContext()).readFile(response, deviceId, path, position, length);
+            long pos = 0;
+            if (position != null) {
+                pos = position.longValue();
+            }
+            ((HostDeviceService) getContext()).readFile(response, deviceId, path, pos, length);
             return false;
         }
         return true;
     }
 
     @Override
-    protected boolean onPutClose(final Intent request, final Intent response, 
+    protected boolean onPutClose(final Intent request, final Intent response,
             final String deviceId, final String path) {
         if (deviceId == null) {
             createEmptyDeviceId(response);
@@ -104,7 +107,7 @@ public class HostFileDescriptorProfile extends FileDescriptorProfile {
         } else if (sessionKey == null) {
             MessageUtils.setInvalidRequestParameterError(response);
         } else {
-            
+
             // イベントの登録
             EventError error = EventManager.INSTANCE.addEvent(request);
 
