@@ -1,3 +1,22 @@
+# DeviceConnectレポジトリの移行
+DeviceConnectのレポジトリを以下のように移行しました。
+
+
+DeviceConnect-Docs:　ドキュメントとバイナリー
+https://github.com/DeviceConnect/DeviceConnect-Docs
+
+DeviceConnect-Android: Androidプラットフォームのソースコード
+https://github.com/DeviceConnect/DeviceConnect-Android
+
+DeviceConnect-JS: JavaScriptプラットフォームのソースコード
+https://github.com/DeviceConnect/DeviceConnect-JS
+
+DeviceConnect-iOS: iOSプラットフォームのソースコード
+https://github.com/DeviceConnect/DeviceConnect-iOS
+
+DeviceConnect-Common: デバイスアプリのソースコード
+https://github.com/DeviceConnect/DeviceConnect-Common
+
 # DeviceConnect WebAPI について
 
 

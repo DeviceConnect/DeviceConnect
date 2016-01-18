@@ -1,6 +1,27 @@
 * 日本語説明はこちら
 https://github.com/DeviceConnect/DeviceConnect/blob/master/readme.ja.md
 
+# Migration of DeviceConnect of repository
+The repository of DeviceConnect I was moved to the following locations:
+
+
+DeviceConnect-Docs: Documents & Binaries
+https://github.com/DeviceConnect/DeviceConnect-Docs
+
+DeviceConnect-Android: Android Platform Sources
+https://github.com/DeviceConnect/DeviceConnect-Android
+
+DeviceConnect-JS: JavaScript Platform Sources
+https://github.com/DeviceConnect/DeviceConnect-JS
+
+DeviceConnect-iOS: iOS Platform Sources
+https://github.com/DeviceConnect/DeviceConnect-iOS
+
+DeviceConnect-Common: Device App's Sources
+https://github.com/DeviceConnect/DeviceConnect-Common
+
+
+
 # About DeviceConnect WebAPI
 "DeviceConnect WebAPI" is WebAPI which operates as a virtual server on a smart phone. It can use easily various wearable devices and an IoT device by unific description from a web browser or an application. 
 
