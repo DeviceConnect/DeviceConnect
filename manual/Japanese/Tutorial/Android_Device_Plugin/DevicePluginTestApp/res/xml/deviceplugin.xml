@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-        <deviceplugin-provider xmlns:android="http://schemas.android.com/apk/res/android"> 
-                 <profile name="network_service_discovery" /> 
-                 <profile name="system" /> 
-        </deviceplugin-provider>
-        
