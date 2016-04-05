@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-        
-    <item name="background_title" type="color">#00a0e9</item>
-    <item name="text_light" type="color">#ffffff</item>
-    <item name="text_dark" type="color">#666666</item>
-    
-</resources>
