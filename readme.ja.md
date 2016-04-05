@@ -32,15 +32,7 @@ Device Connect WebAPIはスマートフォン上で仮想サーバとして動�
 
 
 # サンプルでの動作確認（Android用）
-* https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
-
-_2014/10/15にAndroid用動作サンプルのAPKファイルのパッケージ名を一部更新しました。_
-_お手数ですが以前のAPKがインストールされている場合、以下の手順で旧データを削除してからご確認ください。_
-
-1. 内部ストレージのdemoWebSite.zipから展開したファイルを削除
-2. DeviceConnect ManagerおよびPlug-inのAPKをアンインストール
-3. （Chromeブラウザの場合）メニューの”履歴”から”閲覧履歴データの消去...”を選択
-4. ”キャッシュの消去”のチェックを有効化し、”クリア”ボタンを選択
+* https://github.com/DeviceConnect/DeviceConnect-Docs/blob/master/Bin/demoWebSite.zip
 
 ## Android端末でのChromeブラウザからの動作確認
 

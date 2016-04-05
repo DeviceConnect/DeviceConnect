@@ -26,18 +26,8 @@ https://github.com/DeviceConnect/DeviceConnect-Common
 "DeviceConnect WebAPI" is WebAPI which operates as a virtual server on a smart phone. It can use easily various wearable devices and an IoT device by unific description from a web browser or an application. 
 
 # Example for Android
-* https://github.com/DeviceConnect/DeviceConnect/blob/master/Bin/demoWebSite.zip
+* https://github.com/DeviceConnect/DeviceConnect-Docs/blob/master/Bin/demoWebSite.zip
 
-_Updated some package names of the sample for Android at 2014/10/15._
-_Please reinstall by following procedure if you would check this sample again._
-
-```
-  1. Delete files that are related to the demoWebSite.zip on internal storage. 
-  2. Uninstall a APK of old Manager and plugins. 
-  3. Choose "CLEAR BROWSING DATA..." in "history" on Chrome Browser menu. 
-  4. Choose "Clear" button with "Clear the cache" check box. 
-  5. Refer to the procedure for "Example for Android" in "Readme.md".
-```
 
 1.Make this Folder to Android's internal Storage.
 ```
