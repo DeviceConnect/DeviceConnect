@@ -99,6 +99,8 @@ Android root
     <td>製品名</td>
     <td>機器種別</td>
     <td>対応プラグイン</td>
+    <td>Android</td>
+    <td>iOS</td>
     <td>備考</td>
   </tr>
   <tr>
@@ -106,6 +108,8 @@ Android root
     <td>SmartWatchMN2</td>
     <td>腕時計型デバイス</td>
     <td>MN2/SW2 プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>通知以外の機能を利用するには、スマートウォッチ側でミニアプリの起動が必要</td>
   </tr>
   <tr>
@@ -113,6 +117,8 @@ Android root
     <td>SmartWatchSW2</td>
     <td>腕時計型デバイス</td>
     <td>MN2/SW2 プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>通知以外の機能を利用するには、スマートウォッチ側でミニアプリの起動が必要</td>
   </tr>
   <tr>
@@ -120,6 +126,8 @@ Android root
     <td>Sphero 2.0</td>
     <td>ボール型スマートトイ</td>
     <td>Sphero プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -127,6 +135,8 @@ Android root
     <td>DICE+</td>
     <td>サイコロ型スマートトイ</td>
     <td>DICE+ プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td>ソースコード開示なし、開発者向けファームウェアへのアップデートが必要</td>
   </tr>
   <tr>
@@ -134,6 +144,8 @@ Android root
     <td>hue</td>
     <td>スマートライト</td>
     <td>hue プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -141,6 +153,8 @@ Android root
     <td>Bloom Lamp</td>
     <td>スマートライト</td>
     <td>hue プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -148,20 +162,26 @@ Android root
     <td>LightStrips</td>
     <td>スマートライト</td>
     <td>hue プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
     <td>IRKit</td>
     <td>IRKit</td>
     <td>赤外線リモコン</td>
-    <td>Irkit プラグイン</td>
-    <td></td>
+    <td>IRKit プラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td>学習した赤外線機器を紐付け</td>
   </tr>
   <tr>
     <td>Epson</td>
     <td>Moverio BT-200</td>
     <td>メガネ型デバイス</td>
     <td>AndroidHost プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>個別の拡張機能にも対応予定</td>
   </tr>
   <tr>
@@ -169,6 +189,8 @@ Android root
     <td>M100 Smart Glass</td>
     <td>メガネ型デバイス</td>
     <td>AndroidHost プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>個別の拡張機能にも対応予定</td>
   </tr>
   <tr>
@@ -176,6 +198,8 @@ Android root
     <td>Inforod</td>
     <td>メガネ型デバイス</td>
     <td>AndroidHost プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>個別の拡張機能にも対応予定</td>
   </tr>
   <tr>
@@ -183,6 +207,8 @@ Android root
     <td>DSC-QX100</td>
     <td>レンズスタイルカメラ</td>
     <td>SonyCamera プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -190,6 +216,17 @@ Android root
     <td>DSC-QX10</td>
     <td>レンズスタイルカメラ</td>
     <td>SonyCamera プラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>SONY</td>
+    <td>ActionCam</td>
+    <td>レンズスタイルカメラ</td>
+    <td>SonyCamera プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -197,13 +234,17 @@ Android root
     <td>Pebble</td>
     <td>腕時計型デバイス</td>
     <td>Pebble プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
     <td>-</td>
-    <td>Android端末 Ver4.0以降</td>
+    <td>Android端末 Ver4.2以降</td>
     <td>Android端末</td>
     <td>AndroidHost プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td></td>
   </tr>
   <tr>
@@ -211,6 +252,8 @@ Android root
     <td>G Watch</td>
     <td>Android  Wear端末</td>
     <td>Wear プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>仮対応のため、ADBでのAPKのインストールが必要</td>
   </tr>
   <tr>
@@ -218,6 +261,8 @@ Android root
     <td>Gear Live</td>
     <td>Android  Wear端末</td>
     <td>Wear プラグイン</td>
+    <td>○</td>
+    <td>×</td>
     <td>仮対応のため、ADBでのAPKのインストールが必要</td>
   </tr>
   <tr>
@@ -225,162 +270,192 @@ Android root
     <td>ChromeCast</td>
     <td>HDMIドングル</td>
     <td>ChromeCast プラグイン</td>
+    <td>○</td>
+    <td>○</td>
     <td>Google Cast SDK Developer ConsoleのページでデバイスとReceiverアプリの登録が必要</td>
   </tr>
   <tr>
-    <td>エー・アンド・ディー</td>
-    <td>UA-767PBT-C</td>
-    <td>血圧計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
+    <td>Google</td>
+    <td>NexusPlayer</td>
+    <td>AndroidTV</td>
+    <td>ChromeCast プラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td>Google Cast SDK Developer ConsoleのページでデバイスとReceiverアプリの登録が必要</td>
   </tr>
-  <tr>
-    <td>エー・アンド・ディー</td>
-    <td>UA-851PBT-C</td>
-    <td>血圧計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>エー・アンド・ディー</td>
-    <td>TM-2656VPM</td>
-    <td>血圧計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>エー・アンド・ディー</td>
-    <td>UC-321PBT-C</td>
-    <td>体重計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>オムロンヘルスケア</td>
-    <td>HBF-206IT</td>
-    <td>体重体組成計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>オムロンヘルスケア</td>
-    <td>HHX-IT1</td>
-    <td>活動量計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>エー・アンド・ディー</td>
-    <td>UA-772</td>
-    <td>血圧計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>エー・アンド・ディー</td>
-    <td>UW201</td>
-    <td>活動量計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>オムロンヘルスケア</td>
-    <td>HEM-7250IT</td>
-    <td>血圧計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>オムロンヘルスケア</td>
-    <td>HBF-208IT</td>
-    <td>体重体組成計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>オムロンヘルスケア</td>
-    <td>HBF-215IT</td>
-    <td>体重体組成計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>ESTERA</td>
-    <td>FS-500</td>
-    <td>歩数計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>ESTERA</td>
-    <td>FS-700</td>
-    <td>活動量計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>YAMASA</td>
-    <td>EX-950</td>
-    <td>歩数計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>MS-FRV01</td>
-    <td>血糖計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>MT-KT02DZ</td>
-    <td>歩行強度計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>C215</td>
-    <td>体温計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>ES-H700D</td>
-    <td>血圧計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>ZS-NS05</td>
-    <td>パルスオキシメータ</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>WT-B100DZ</td>
-    <td>体組成計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし ※対応予定</td>
-  </tr>
+
   <tr>
     <td>Polar</td>
     <td>H7</td>
     <td>心拍計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
+    <td>BLE HeartRate プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
   </tr>
   <tr>
     <td>Mio Global</td>
     <td>Mio Alpha</td>
     <td>心拍計</td>
-    <td>mHealth プラグイン</td>
-    <td>ソースコード開示なし</td>
+    <td>BLE HeartRate プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
   </tr>
+  <tr>
+    <td>Mio Global</td>
+    <td>Mio Fuse</td>
+    <td>心拍計</td>
+    <td>BLE HeartRate プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>EPSON</td>
+    <td>Pulsense PS-500</td>
+    <td>心拍計</td>
+    <td>BLE HeartRate プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>EPSON</td>
+    <td>Pulsense PS-100</td>
+    <td>心拍計</td>
+    <td>BLE HeartRate プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>NTTドコモ</td>
+    <td>Hitoe/td>
+    <td>心拍計、他</td>
+    <td>Hitoe プラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td>開発中</td>
+  </tr>
+  <tr>
+    <td>A&D</td>
+    <td>UT-201BLE</td>
+    <td>体温計</td>
+    <td></td>
+    <td>○</td>
+    <td>x</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>OMRON</td>
+    <td>HVC-C</td>
+    <td>Human Vision Components</td>
+    <td>HVC プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>OMRON</td>
+    <td>HVC-C2W</td>
+    <td>Human Vision Components</td>
+    <td>HVC2W プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>OMRON</td>
+    <td>HVC-P</td>
+    <td>Human Vision Components</td>
+    <td>HVCP プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>FUJITSU</td>
+    <td>F-PLUG</td>
+    <td>スマートメーター</td>
+    <td>F-PLUG プラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>RICOH</td>
+    <td>THETA m15</td>
+    <td>Spherical Camera</td>
+    <td>THETAデバイスプラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td>RICOH THETA Developersにて開発者登録、およびSDKのダウンロードが必要。</td>
+  </tr>
+  <tr>
+    <td>LIFX</td>
+    <td>White 800</td>
+    <td>ライト</td>
+    <td>AllJoynプラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td>White 800の色は変えられない。</td>
+  </tr>
+  <tr>
+    <td>EchonetLite</td>
+    <td></td>
+    <td>家電製品制御</td>
+    <td>EchoneLiteプラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td>準拠機器全般</td>
+  </tr>
+  <tr>
+    <td>Linking</td>
+    <td></td>
+    <td>BLE連携デバイス</td>
+    <td>Linkingプラグイン</td>
+    <td>○</td>
+    <td>○</td>
+    <td>準拠機器全般。開発中</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>UVC(USB Video Class)</td>
+    <td>Webカメラ</td>
+    <td>UVCプラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>テレビ会議</td>
+    <td>WebRTCプラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>インフィニテグラ</td>
+    <td>OWLIFT</td>
+    <td>サーマルカメラ</td>
+    <td></td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>FaBo</td>
+    <td>FaBo</td>
+    <td>IoTHWプロトタイプキット</td>
+    <td>FaBoプラグイン</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+
 </table>
 
 * 本プロジェクトはＮＴＴドコモとしての正式なサービス提供ではなく、実験的なソースコード開示です。仕様やセキュリティの検討を目的としております。

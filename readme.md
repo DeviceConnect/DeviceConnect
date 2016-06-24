@@ -71,18 +71,22 @@ _*Please do not use at network that can not be trusted because there is a securi
 
 #Supported devices
 <table>
-  <tr>
+ <tr>
     <td>Manufacturer</td>
     <td>Product name</td>
     <td>Device type</td>
     <td>Plug-in</td>
+    <td>Android</td>
+    <td>iOS</td>
     <td>Remarks</td>
   </tr>
-  <tr>
+   <tr>
     <td>SONY</td>
     <td>SmartWatchMN2</td>
     <td>Watch</td>
-    <td>MN2/SW2</td>
+    <td>MN2/SW2 </td>
+    <td>○</td>
+    <td>×</td>
     <td>Need the app launch on SmartWatch</td>
   </tr>
   <tr>
@@ -90,6 +94,8 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>SmartWatchSW2</td>
     <td>Watch</td>
     <td>MN2/SW2</td>
+    <td>○</td>
+    <td>×</td>
     <td>Need the app launch on SmartWatch</td>
   </tr>
   <tr>
@@ -97,6 +103,8 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>Sphero 2.0</td>
     <td>Toy</td>
     <td>Sphero</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -104,6 +112,8 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>DICE+</td>
     <td>Toy</td>
     <td>DICE+</td>
+    <td>○</td>
+    <td>○</td>
     <td>Need the firmware for development</td>
   </tr>
   <tr>
@@ -111,13 +121,17 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>hue</td>
     <td>Light</td>
     <td>hue</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
     <td>Philips</td>
     <td>Bloom Lamp</td>
-    <td>Light</td>
+    <td>スマートライト</td>
     <td>hue</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -125,6 +139,8 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>LightStrips</td>
     <td>Light</td>
     <td>hue</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -132,27 +148,35 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>IRKit</td>
     <td>Infrared remote control</td>
     <td>IRKit</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
     <td>Epson</td>
     <td>Moverio BT-200</td>
     <td>Glasses</td>
-    <td>Android Host</td>
+    <td>AndroidHost</td>
+    <td>○</td>
+    <td>×</td>
     <td>The future works; Support the extension</td>
   </tr>
   <tr>
     <td>Vuzix</td>
     <td>M100 Smart Glass</td>
     <td>Glasses</td>
-    <td>Android Host</td>
+    <td>AndroidHost</td>
+    <td>○</td>
+    <td>×</td>
     <td>The future works; Support the extension</td>
   </tr>
   <tr>
     <td>WESTUNITIS</td>
     <td>Inforod</td>
     <td>Glasses</td>
-    <td>Android Host</td>
+    <td>AndroidHost</td>
+    <td>○</td>
+    <td>×</td>
     <td>The future works; Support the extension</td>
   </tr>
   <tr>
@@ -160,6 +184,8 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>DSC-QX100</td>
     <td>Camera</td>
     <td>SonyCamera</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -167,6 +193,17 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>DSC-QX10</td>
     <td>Camera</td>
     <td>SonyCamera</td>
+    <td>○</td>
+    <td>○</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>SONY</td>
+    <td>ActionCam</td>
+    <td>Camera</td>
+    <td>SonyCamera</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
@@ -174,13 +211,17 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>Pebble</td>
     <td>Watch</td>
     <td>Pebble</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
   </tr>
   <tr>
     <td>-</td>
-    <td>Android Ver4.0</td>
+    <td>Android Ver4.2</td>
     <td>Android</td>
-    <td>Android Host</td>
+    <td>AndroidHost</td>
+    <td>○</td>
+    <td>×</td>
     <td></td>
   </tr>
   <tr>
@@ -188,6 +229,8 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>G Watch</td>
     <td>Android  Wear</td>
     <td>Wear</td>
+    <td>○</td>
+    <td>×</td>
     <td>Provisional support</td>
   </tr>
   <tr>
@@ -195,167 +238,209 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>Gear Live</td>
     <td>Android  Wear</td>
     <td>Wear</td>
+    <td>○</td>
+    <td>×</td>
     <td>Provisional support</td>
   </tr>
   <tr>
     <td>Google</td>
     <td>ChromeCast</td>
     <td>ChromeCast</td>
-    <td>Chromecast</td>
+    <td>ChromeCast</td>
+    <td>○</td>
+    <td>○</td>
     <td>Need to register the Receiver Apps and device on Google Cast SDK Developer Console.</td>
   </tr>
   <tr>
-    <td>AND</td>
-    <td>UA-767PBT-C</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td></td>
+    <td>Google</td>
+    <td>NexusPlayer</td>
+    <td>AndroidTV</td>
+    <td>ChromeCast</td>
+    <td>○</td>
+    <td>○</td>
+    <td>Need to register the Receiver Apps and device on Google Cast SDK Developer Console.</td>
   </tr>
-  <tr>
-    <td>AND</td>
-    <td>UA-851PBT-C</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>AND</td>
-    <td>TM-2656VPM</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>AND</td>
-    <td>UC-321PBT-C</td>
-    <td>Weight scale</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
-    <td>HBF-206IT</td>
-    <td>Body composition monitors</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
-    <td>HHX-IT1</td>
-    <td>Activity meter</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>AND</td>
-    <td>UA-772</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>AND</td>
-    <td>UW201</td>
-    <td>Activity meter</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
-    <td>HEM-7250IT</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
-    <td>HBF-208IT</td>
-    <td>Body composition monitors</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>OMRON HEALTHCARE</td>
-    <td>HBF-215IT</td>
-    <td>Body composition monitors</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>ESTERA</td>
-    <td>FS-500</td>
-    <td>Pedometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ESTERA</td>
-    <td>FS-700</td>
-    <td>Activity meter</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>YAMASA</td>
-    <td>EX-950</td>
-    <td>Pedometer</td>
-    <td>mHealth</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>MS-FRV01</td>
-    <td>Blood glucose meter</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>MT-KT02DZ</td>
-    <td>Walking intensity meter</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>C215</td>
-    <td>Thermometer</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>ES-H700D</td>
-    <td>Sphygmomanometer</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>ZS-NS05</td>
-    <td>Pulse Oximeter</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
-  <tr>
-    <td>TERUMO</td>
-    <td>WT-B100DZ</td>
-    <td>Body composition monitors</td>
-    <td>mHealth</td>
-    <td>In preparation</td>
-  </tr>
+
   <tr>
     <td>Polar</td>
     <td>H7</td>
     <td>Heart rate meter</td>
-    <td>mHealth</td>
+    <td>BLE HeartRate</td>
+    <td>○</td>
+    <td>×</td>
     <td></td>
   </tr>
   <tr>
     <td>Mio Global</td>
     <td>Mio Alpha</td>
     <td>Heart rate meter</td>
-    <td>mHealth</td>
+    <td>BLE HeartRate</td>
+    <td>○</td>
+    <td>×</td>
     <td></td>
   </tr>
+  <tr>
+    <td>Mio Global</td>
+    <td>Mio Fuse</td>
+    <td>Heart rate meter</td>
+    <td>BLE HeartRate</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>EPSON</td>
+    <td>Pulsense PS-500</td>
+    <td>Heart rate meter</td>
+    <td>BLE HeartRate</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>EPSON</td>
+    <td>Pulsense PS-100</td>
+    <td>Heart rate meter</td>
+    <td>BLE HeartRate</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>NTT DOCOMO</td>
+    <td>Hitoe</td>
+    <td>Heart rate meter</td>
+    <td>Hitoe</td>
+    <td>○</td>
+    <td>○</td>
+    <td>Now under development</td>
+  </tr>
+  <tr>
+    <td>A&D</td>
+    <td>UT-201BLE</td>
+    <td>Thermometer</td>
+    <td></td>
+    <td>○</td>
+    <td>x</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>OMRON</td>
+    <td>HVC-C</td>
+    <td>Human Vision Components</td>
+    <td>HVC</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>OMRON</td>
+    <td>HVC-C2W</td>
+    <td>Human Vision Components</td>
+    <td>HVC2W</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>OMRON</td>
+    <td>HVC-P</td>
+    <td>Human Vision Components</td>
+    <td>HVCP</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>FUJITSU</td>
+    <td>F-PLUG</td>
+    <td>SmartMeter</td>
+    <td>F-PLUG</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>RICOH</td>
+    <td>THETA m15</td>
+    <td>Spherical Camera</td>
+    <td>THETA</td>
+    <td>○</td>
+    <td>○</td>
+    <td>Need to register developer and download SDK at RICHO THETA Developers.</td>
+  </tr>
+    <tr>
+    <td>RICOH</td>
+    <td>THETA S</td>
+    <td>Spherical Camera</td>
+    <td>THETA</td>
+    <td>○</td>
+    <td>○</td>
+    <td>Need to register developer and download SDK at RICHO THETA Developers.</td>
+  </tr>
+
+  <tr>
+    <td>LIFX</td>
+    <td>White 800</td>
+    <td>Light</td>
+    <td>AllJoyn</td>
+    <td>○</td>
+    <td>○</td>
+    <td>No color change.</td>
+  </tr>
+  <tr>
+    <td>EchonetLite</td>
+    <td></td>
+    <td>Home control</td>
+    <td>EchoneLite</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Linking</td>
+    <td></td>
+    <td>BLE</td>
+    <td>Linking</td>
+    <td>○</td>
+    <td>○</td>
+    <td>Now under development</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>UVC(USB Video Class)</td>
+    <td>WebCamera</td>
+    <td>UVC</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>TV conference</td>
+    <td>WebRTC</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Infinitegra</td>
+    <td>OWLIFT</td>
+    <td>Thermal camera</td>
+    <td></td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>FaBo</td>
+    <td>FaBo</td>
+    <td>IoT HW Prototype kit</td>
+    <td>FaBo</td>
+    <td>○</td>
+    <td>×</td>
+    <td></td>
+  </tr>
+
 </table>
