@@ -373,7 +373,7 @@ _*Please do not use at network that can not be trusted because there is a securi
   <tr>
     <td>RICOH</td>
     <td>THETA m15</td>
-    <td>Spherical Camera</td>
+    <td>Omnidirectional Camera</td>
     <td>THETA</td>
     <td>○</td>
     <td>○</td>
@@ -382,7 +382,7 @@ _*Please do not use at network that can not be trusted because there is a securi
     <tr>
     <td>RICOH</td>
     <td>THETA S</td>
-    <td>Spherical Camera</td>
+    <td>Omnidirectional Camera</td>
     <td>THETA</td>
     <td>○</td>
     <td>○</td>
@@ -399,17 +399,26 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>No color change.</td>
   </tr>
   <tr>
-    <td>EchonetLite</td>
+    <td>LIFX</td>
+    <td>Color 1000</td>
+    <td>Light</td>
+    <td>AllJoyn</td>
+    <td>○</td>
+    <td>○</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>EchonetLite</td>
+    <td>Standard-compliant equipment in general</td>
     <td>Home control</td>
     <td>EchoneLite</td>
     <td>○</td>
     <td>×</td>
-    <td></td>
+    <td>Standard-compliant equipment in general</td>
   </tr>
   <tr>
     <td>Linking</td>
-    <td></td>
+    <td>Tomoru</td>
     <td>BLE</td>
     <td>Linking</td>
     <td>○</td>
@@ -417,18 +426,18 @@ _*Please do not use at network that can not be trusted because there is a securi
     <td>Now under development</td>
   </tr>
   <tr>
-    <td></td>
+    <td>－</td>
     <td>UVC(USB Video Class)</td>
-    <td>WebCamera</td>
+    <td>USBCamera</td>
     <td>UVC</td>
     <td>○</td>
     <td>×</td>
     <td></td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td>TV conference</td>
+    <td>－</td>
+    <td>Mobile camera</td>
+    <td>TV conference,Remote work support</td>
     <td>WebRTC</td>
     <td>○</td>
     <td>×</td>
