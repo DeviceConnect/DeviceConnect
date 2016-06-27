@@ -253,7 +253,7 @@ Android root
     <td>AndroidHost プラグイン</td>
     <td>○</td>
     <td>×</td>
-    <td></td>
+    <td>Ver4.2以降</td>
   </tr>
   <tr>
     <td>LG</td>

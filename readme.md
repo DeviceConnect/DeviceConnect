@@ -227,12 +227,12 @@ _*Please do not use at network that can not be trusted because there is a securi
   </tr>
   <tr>
     <td>-</td>
-    <td>Android Ver4.2</td>
+    <td>Android  Ver4.2 or later</td>
     <td>Android</td>
     <td>AndroidHost</td>
     <td>○</td>
     <td>×</td>
-    <td></td>
+    <td>Ver4.2 or later</td>
   </tr>
   <tr>
     <td>LG</td>
